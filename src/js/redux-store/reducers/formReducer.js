@@ -10,7 +10,6 @@ export default function formReducer(state = initialState.forms, action) {
       if (!newForms[action.formId][action.fieldName]) {
         newForms[action.formId][action.fieldName] = {};
       }
-      console.log(newForms[action.formId]);
       newForms[action.formId][action.fieldName].error = action.errorMsg;
       return { ...newForms };
 
