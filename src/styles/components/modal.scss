@@ -7,7 +7,7 @@ MODAL
 $modal-contents-width: 450px;
 
 .modal {
-  background-color: $light-gray;
+  background-color: rgba(0,0,0,0.5);
   height: 100vw;
   padding: 80px 0;
   position: fixed;
