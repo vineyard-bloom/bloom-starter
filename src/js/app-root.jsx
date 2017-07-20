@@ -6,11 +6,10 @@ import { Provider } from 'react-redux';
 import store from 'redux-store/store';
 
 import AppContainer from 'containers/app-container.jsx';
-import FourOhFour from 'pages/four-oh-four.jsx';
 
 import 'styles/main.scss';
 
-class AppRouter extends React.Component {
+class AppRoot extends React.Component {
   render() {
     return (
       <BrowserRouter history={ createBrowserHistory() }>
@@ -22,4 +21,4 @@ class AppRouter extends React.Component {
   };
 }
 
-export default AppRouter;
+export default AppRoot;

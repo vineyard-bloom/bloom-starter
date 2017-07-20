@@ -5,8 +5,8 @@ import 'styles/components/inputs.scss';
 
 const TextInput = (props) => {
   let {
-    className, formData, formErrors,
-    id, label, labelClass, placeholder,
+    className, errors,
+    name, label, labelClass, placeholder,
     showLabel, validateAs, ...rest } = props;
   let labelTextClasses = `${ labelClass ? labelClass : '' } ${ showLabel ? '' : ' u-sr-only' }`;
 
@@ -19,11 +19,11 @@ const TextInput = (props) => {
       <span className={ labelTextClasses }>
         { label }
       </span>
-      <input type='text' value={ props.value } name={ id } id={ id } onChange={ props.onChange }
-        className={ `input input--text ${ className ? className : '' } ${ formErrors && formErrors[id] ? 'input--invalid' : '' }` }
+      <input type='text' value={ props.value } name={ name } id={ name } onChange={ props.onChange }
+        className={ `input input--text ${ className ? className : '' } ${ errors ? 'input--invalid' : '' }` }
         data-validate={ validateAs }  placeholder={ placeholder } />
-      { formErrors && formErrors[id] ?
-        <div className='input__error'>{ formErrors[id] }</div>
+      { errors ?
+        <div className='input__error'>{ errors }</div>
       :
         '' }
     </label>
@@ -32,9 +32,12 @@ const TextInput = (props) => {
 
 TextInput.propTypes = {
   className: PropTypes.string,
-  formErrors: PropTypes.object,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  errors: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.oneOfTypes([
+      PropTypes.string,
+      PropTypes.element
+    ]).isRequired,
   labelClass: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import BigNumber from 'bignumber.js';
 
 import { convertEthToWei, convertWeiToEth } from 'helpers';
-import { addFormError, clearForm, createForm, deleteFormError, updateForm } from 'redux-store/actions';
+import { addFormError, clearForm, createForm, deleteFormError, updateForm } from 'redux-store/actions/formActions';
 
 import 'styles/components/forms';
 import 'styles/components/inputs';
@@ -115,11 +115,7 @@ class Form extends React.Component {
           if (res.data) {
             for (var key in res.data) {
               if (formData[key]) { // we only want fields that exist in the form to update
-                if (key.indexOf('total') > -1 || (key.indexOf('amount') > -1) || (key.indexOf('eth') > -1) || (key.indexOf('available') > -1)) {
-                  formData[key].value = convertWeiToEth(new BigNumber(res.data[key]));
-                } else {
-                  formData[key].value = res.data[key];
-                }
+                formData[key].value = res.data[key];
               }
             }
           }
@@ -134,24 +130,12 @@ class Form extends React.Component {
     if (this.props.autofillDataRoute != newProps.autofillDataRoute && newProps.autofillDataRoute && newProps.WebService) {
       newProps.WebService.get(newProps.autofillDataRoute)
         .then((res) => {
-          let data = res.data;
-          for (let field in data) {
-            if (field.indexOf('total') > -1 || (field.indexOf('amount') > -1) || (field.indexOf('eth') > -1) || (field.indexOf('available') > -1)) {
-              data[field] = convertWeiToEth(new BigNumber(data[field]));
-            }
-          }
-          newProps.createForm(newProps.id, data);
+          newProps.createForm(newProps.id, res.data);
         });
     } else if (!this.props.WebService && newProps.WebService && (newProps.autofillDataRoute)) {
       newProps.WebService.get(newProps.autofillDataRoute)
         .then((res) => {
-          let data = res.data;
-          for (let field in data) {
-            if (field.indexOf('total') > -1 || (field.indexOf('amount') > -1) || (field.indexOf('eth') > -1) || (field.indexOf('available') > -1)) {
-              data[field] = convertWeiToEth(new BigNumber(data[field]));
-            }
-          }
-          newProps.createForm(newProps.id, data);
+          newProps.createForm(newProps.id, res.data);
         });
     }
   };

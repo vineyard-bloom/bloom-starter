@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import Button from 'presentation/inputs/button';
 import TextInput from 'presentation/inputs/text-input';
 
-import 'styles/components/login-logout';
-
 const LoginForm = (props) => {
   let formData = props.formData || { username: null, password: null, 'twoFactorSecret': null };
 

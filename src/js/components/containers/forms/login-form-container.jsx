@@ -7,7 +7,7 @@ import LoginForm from 'presentation/forms/login-form';
 class LoginFormContainer extends React.Component {
 
   rerouteAfterSubmit = () => {
-    this.props.history.push('/lending'); 
+    this.props.history.push('/'); 
   };
 
   render() {

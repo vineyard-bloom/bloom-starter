@@ -8,23 +8,23 @@ import HomeContainer from 'containers/home-container';
 import LoginFormContainer from 'containers/login-form-container';
 import NewUserFormContainer from 'containers/new-user-form-container';
 
+import FourOhFour from 'pages/four-oh-four.jsx';
+
 const MainSwitch = (props) => (
-  <main className={ `${props.modalContents ? 'u-prevent-scroll' : ''} ${ props.location.pathname.indexOf('dashboard') > -1 ? 'u-no-margin' : '' }` }>
+  <main className={ `${props.modalContents ? 'u-prevent-scroll' : ''}` }>
     <Switch>
       <Route exact path='/' render={ () => (
         props.user.username ?
-          <Redirect to='/dashboard' />
+          <HomeContainer />
         :
           <Redirect to='/login' />
         )} />
-      <Route path='/dashboard' component={ HomeContainer } />
-      <Route path='/lending' component={ HomeContainer } />
-      <Route path='/borrowing' component={ HomeContainer } />
       <Route path='/login' component={ LoginFormContainer } />
       <Route path='/new' component={ NewUserFormContainer } />
       <Route path='/account' render={ () => {
         return <Redirect to='/login' />
       }} />
+      <Route path='*' component={ FourOhFour } />
     </Switch>
   </main>
 );
