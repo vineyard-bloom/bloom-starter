@@ -6,41 +6,19 @@ import BigNumber from 'bignumber.js';
 
 import { convertWeiToEth } from 'helpers';
 import { updateUser } from 'redux-store/actions/userActions';
+import { UserType, WebServiceType } from 'types';
 
 import SideBar from 'presentation/navigation/side-bar';
 
-import 'styles/components/home';
-
 class HomeContainer extends React.Component {
   static propTypes = {
+    history: PropTypes.object,
     updateUser: PropTypes.func,
-    user: PropTypes.shape({
-      avatar: PropTypes.string,
-      username: PropTypes.string,
-      password: PropTypes.string,
-      id: PropTypes.string,
-      walletAddress: PropTypes.string,
-      account: PropTypes.object,
-      borrowingHistory: PropTypes.array,
-      notifications: PropTypes.array,
-      lendingHistory: PropTypes.array,
-      lendingInfo: PropTypes.object
-    }),
-    WebService: PropTypes.shape({
-      get: PropTypes.func,
-      post: PropTypes.func,
-      getUser: PropTypes.func,
-      login: PropTypes.func,
-      register: PropTypes.func,
-      updateUserPassword: PropTypes.func,
-      fetchTwoFactorCode: PropTypes.func,
-      validateTwoFactorToken: PropTypes.func,
-      fetchExchangeRate: PropTypes.func,
-      fetchGlobalTotals: PropTypes.func
-    })
+    user: PropTypes.shape(UserType),
+    WebService: PropTypes.shape(WebServiceType)
   };
 
-  static mapDispatchToProps = (dispatch) => {
+  mapDispatchToProps = (dispatch) => {
     return {
       updateUser: (userId, userData) => {
         dispatch(updateUser(userId, userData));
@@ -48,7 +26,7 @@ class HomeContainer extends React.Component {
     }
   };
 
-  static mapStateToProps = (state) => {
+  mapStateToProps = (state) => {
     return {
       user: state.user,
       WebService: state.services.WebService

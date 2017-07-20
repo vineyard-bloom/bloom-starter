@@ -1,4 +1,4 @@
-export default = {
+export default {
   ADD_FORM_ERROR:         'ADD_FORM_ERROR',
   CLEAR_FORM:             'CLEAR_FORM',
   CLEAR_USER:             'CLEAR_USER',

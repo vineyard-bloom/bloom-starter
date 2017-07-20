@@ -3,19 +3,13 @@ import SVGInline from "react-svg-inline";
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import { openModal } from 'redux-store/actions';
+import { openModal } from 'redux-store/actions/modalActions';
 
 import AccountContainer from 'containers/account-container';
 import AccountDropdown from 'presentation/navigation/account-dropdown';
 import Button from 'presentation/inputs/button';
-import CountDownTimer from 'presentation/count-down-timer';
-import DepositEthForm from 'presentation/forms/deposit-eth-form';
-import Form from 'containers/form';
-import WithdrawEthFormContainer from 'containers/withdraw-eth-form-container';
 
 import downCarrot from 'images/inline-svgs/down_carrot.svg';
-
-import 'styles/components/subheader';
 
 // this has only ui-level logic, no app logic, so even though it's a class, it's presentational
 class SubHeader extends React.Component {
@@ -47,7 +41,6 @@ class SubHeader extends React.Component {
     return (
       <div className={ `subheader ${ this.props.location.pathname.indexOf('dashboard') > -1 ? 'u-no-margin' : '' }` }>
         <div className='subheader__user'>
-          
           { user.username }
           <a href='#' onClick={ this.toggleDropdown }>
             <SVGInline svg={ downCarrot } />
@@ -58,13 +51,6 @@ class SubHeader extends React.Component {
             <AccountDropdown />
           </AccountContainer>
         : '' }
-        <div className='subheader__funds'>
-          { this.props.location.pathname.indexOf('dashboard') === -1 ?
-              <CountDownTimer />
-            : ''}
-          <Button className='btn-white' text='Deposit Funds' onClick={ () => this.props.openModal(<DepositEthForm />) } />
-          <Button className='btn-white-alt' text='Withdraw Funds' onClick={ () => this.props.openModal(<WithdrawEthFormContainer />) } />
-        </div>
       </div>
     )
   }

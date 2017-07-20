@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-import Form from 'containers/form';
+import Form from 'containers/forms/form';
 import NewUserForm from 'presentation/forms/new-user-form';
 
 class NewUserFormContainer extends React.Component {

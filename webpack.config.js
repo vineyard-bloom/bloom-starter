@@ -105,7 +105,8 @@ module.exports = {
       requests:     path.resolve(__dirname, 'src/js/util/requests'),
       services:     path.resolve(__dirname, 'src/js/services'),
       stubs:        path.resolve(__dirname, 'src/js/stubs'),
-      styles:       path.resolve(__dirname, 'src/styles')      
+      styles:       path.resolve(__dirname, 'src/styles'),
+      types:        path.resolve(__dirname, 'src/js/util/types')
     },
     extensions: ['.js', '.jsx', '.scss']
   }

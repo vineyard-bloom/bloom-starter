@@ -34,7 +34,7 @@ TextInput.propTypes = {
   className: PropTypes.string,
   errors: PropTypes.string,
   name: PropTypes.string.isRequired,
-  label: PropTypes.oneOfTypes([
+  label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element
     ]).isRequired,

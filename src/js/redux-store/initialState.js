@@ -7,8 +7,14 @@ const initialState = {
     WebService: config.app.useWebServiceStub ? new WebServiceStub() : new WebService()
   },
   user: {
+    account: {
+      status: '',
+      total: ''
+    },
+    id: '',
+    notifications: [],
     username: '',
-    id: ''
+    walletAddress: ''
   },
   forms: {},
   modal: {

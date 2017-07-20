@@ -37,7 +37,7 @@ const Table = (props) => {
         let url = props.linkFields[h.sortValue];
 
         if (url.indexOf(':') > -1) {
-          // should replace any '/:id' type params with the row's id (or whatever) field -- test
+          // should replace any '/:id' type params with the row's id (or whatever) field -- test me
           let temp = url.split('/');
           let replaceIndex = temp.indexOf(/\:\S+/);
 

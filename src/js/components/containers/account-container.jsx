@@ -2,24 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { logout } from 'redux-store/actions';
+import { logout } from 'redux-store/actions/userActions';
+import { WebServiceType } from 'types';
 
 // wrapper for account-related methods
 class AccountContainer extends React.Component {
   static propTypes = {
     logout: PropTypes.func,
-    WebService: PropTypes.shape({
-      get: PropTypes.func,
-      post: PropTypes.func,
-      getUser: PropTypes.func,
-      login: PropTypes.func,
-      register: PropTypes.func,
-      updateUserPassword: PropTypes.func,
-      fetchTwoFactorCode: PropTypes.func,
-      validateTwoFactorToken: PropTypes.func,
-      fetchExchangeRate: PropTypes.func,
-      fetchGlobalTotals: PropTypes.func
-    })
+    WebService: PropTypes.shape(WebServiceType)
   };
 
   logout = (e) => {

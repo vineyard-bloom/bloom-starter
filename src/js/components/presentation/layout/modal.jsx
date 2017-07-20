@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { closeModal } from 'redux-store/actions';
+import { closeModal } from 'redux-store/actions/modalActions';
 
 import 'styles/components/modal';
 

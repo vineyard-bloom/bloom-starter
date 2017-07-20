@@ -26,25 +26,25 @@ button {
     &:focus,
     &:hover {
       background-color: $white;
-      color: $purple;
+      color: $dark-gray;
       outline: none;
     }
   }
 
   &.btn-alt {
     background-color: transparent;
-    border: 1px solid $blue;
-    color: $blue;
+    border: 1px solid $dark-gray;
+    color: $dark-gray;
 
     &.is-active,
     &:active {
-      background-color: $blue;
+      background-color: $dark-gray;
       color: $white;
     }
 
     &:focus,
     &:hover {
-      background-color: $blue;
+      background-color: $dark-gray;
       color: $white;
       outline: none;
     }
@@ -52,12 +52,12 @@ button {
 
   &.btn-white {
     background-color: $white;
-    color: $blue;
+    color: $dark-gray;
     border: none;
 
     &:focus,
     &:hover {
-      background-color: $blue;
+      background-color: $dark-gray;
       color: $white;
       outline: none;
     }
@@ -65,12 +65,12 @@ button {
 
   &.btn-white-alt {
     background-color: $white;
-    color: $purple;
+    color: $dark-gray;
     border: none;
 
     &:focus,
     &:hover {
-      background-color: $purple;
+      background-color: $dark-gray;
       color: $white;
       outline: none;
     }

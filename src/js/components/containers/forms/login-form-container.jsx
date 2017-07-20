@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-import Form from 'containers/form';
+import Form from 'containers/forms/form';
 import LoginForm from 'presentation/forms/login-form';
 
 class LoginFormContainer extends React.Component {

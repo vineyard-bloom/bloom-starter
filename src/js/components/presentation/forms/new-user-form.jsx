@@ -1,10 +1,7 @@
 import React from 'react';
 
 import Button from 'presentation/inputs/button';
-import Form from 'containers/form';
 import TextInput from 'presentation/inputs/text-input';
-
-import 'styles/components/login-logout';
 
 class NewUserForm extends React.Component {
   state = {
