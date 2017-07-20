@@ -5,19 +5,26 @@ import { closeModal } from 'redux-store/actions/modalActions';
 
 import 'styles/components/modal';
 
-const Modal = (props) => {
-  let modalContents = props.modalContents;
+class Modal extends React.Component {
 
-  return (
-    <div className={ `modal ${ modalContents ? 'active' : 'hidden' }` }>
-      { modalContents ?
-        <div className='modal-content'>
-          <button className='btn-close' onClick={ () => props.closeModal() }>x</button>
-          { modalContents }
-        </div>
-        : '' }
-    </div>
-  )
+  componentDidMount = () => {
+    document.getElementById('modal-close-button').focus();
+  }
+
+  render() {
+    let modalContents = props.modalContents;
+
+    return (
+      <div className={ `modal ${ modalContents ? 'active' : 'hidden' }` }>
+        { modalContents ?
+          <div className='modal-content'>
+            <button className='btn--null btn-close' id='modal-close-button' onClick={ () => props.closeModal() }>x</button>
+            { modalContents }
+          </div>
+          : '' }
+      </div>
+    )
+  }
 };
 
 const mapStateToProps = (state) => {

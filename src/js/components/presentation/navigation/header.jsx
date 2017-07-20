@@ -9,6 +9,8 @@ import Button from 'presentation/inputs/button';
 import Logo from 'presentation/logos/logo';
 import SubHeader from 'presentation/sub-header';
 
+import 'styles/components/header.scss';
+
 const Header = (props) => {
   return (
     <div className='header'>

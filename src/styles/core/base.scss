@@ -56,3 +56,14 @@ ul {
     }
   }
 }
+
+footer {
+  background-color: $light-gray;
+  bottom: 0;
+  font-size: 0.8em;
+  left: 0;
+  padding: $pad-mar-med;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}

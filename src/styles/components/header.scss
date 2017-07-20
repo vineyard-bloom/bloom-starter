@@ -1,0 +1,15 @@
+/* header */
+
+@import '../core/_variables';
+@import '../core/_mixins';
+
+.header {
+  background-color: $light-blue;
+  padding: $pad-mar-med;
+}
+
+.header__top-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
