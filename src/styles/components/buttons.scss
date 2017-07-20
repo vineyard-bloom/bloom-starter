@@ -19,14 +19,14 @@ button {
 
   &.btn {
     background-color: transparent;
-    border: 1px solid $white;
-    color: white;
+    border: 1px solid $dark-gray;
+    color: $dark-gray;
     padding: $pad-mar-med;
 
     &:focus,
     &:hover {
-      background-color: $white;
-      color: $dark-gray;
+      background-color: $dark-gray;
+      color: $white;
       outline: none;
     }
   }
