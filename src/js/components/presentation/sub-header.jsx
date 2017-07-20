@@ -11,6 +11,8 @@ import Button from 'presentation/inputs/button';
 
 import downCarrot from 'images/inline-svgs/down_carrot.svg';
 
+import 'styles/components/subheader.scss';
+
 // this has only ui-level logic, no app logic, so even though it's a class, it's presentational
 class SubHeader extends React.Component {
 

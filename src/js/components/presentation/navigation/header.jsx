@@ -12,6 +12,8 @@ import SubHeader from 'presentation/sub-header';
 const Header = (props) => {
   return (
     <div className='header'>
+      Bloom Starter Kit.
+      This is an example header.
       <div className='header__top-row'>
         <Link to='/dashboard'>
           <Logo full={ true } />

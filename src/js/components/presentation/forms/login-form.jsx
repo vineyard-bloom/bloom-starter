@@ -17,7 +17,7 @@ const LoginForm = (props) => {
       <TextInput placeholder='Enter 2FA Pin Code (required)' id='twoFactorSecret' name='twoFactorSecret' label='Two Factor Pin Code'
         value={ formData['twoFactorSecret'] ? formData['twoFactorSecret'].value : '' } onChange={ props.updateForm } />
       <Button onClick={ props.submitForm } text='Log in' className='btn-alt login-form__submit-button u-justify-center' />
-      <Link to='/account/new' className='login-form__no-account'>I don't have an account</Link>
+      <Link to='/new' className='login-form__no-account'>I don't have an account</Link>
     </form>
   )
 }
