@@ -12,7 +12,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    let modalContents = props.modalContents;
+    let { modalContents, ...props } = this.props;
 
     return (
       <div className={ `modal ${ modalContents ? 'active' : 'hidden' }` }>
