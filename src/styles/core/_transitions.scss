@@ -1,0 +1,22 @@
+/*
+TRANSITIONS
+- used with CSS transition group
+*/
+
+.fold-enter {
+  height: 50px;
+}
+
+.fold-enter.fold-enter-active {
+  height: 100vh;
+  transition: height 500ms ease-in;
+}
+
+.fold-leave {
+  height: 100vh;
+}
+
+.fold-leave.fold-leave-active {
+  height: 50px;
+  transition: height 300ms ease-in;
+}

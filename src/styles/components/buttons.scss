@@ -1,0 +1,166 @@
+/*
+BUTTONS
+*/
+
+$arrow-button-height: 15px;
+
+@import '../core/_variables';
+@import '../core/_mixins';
+
+input[type='button'],
+button {
+  cursor: pointer;
+  font-size: $main-font-size;
+  padding: $pad-mar-small $pad-mar-med;
+  text-align: center;
+  @include transition(all .3s ease);
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.btn {
+    background-color: transparent;
+    border: 1px solid $white;
+    color: white;
+    padding: $pad-mar-med;
+
+    &:focus,
+    &:hover {
+      background-color: $white;
+      color: $purple;
+      outline: none;
+    }
+  }
+
+  &.btn-white {
+    background-color: $white;
+    color: $blue;
+    border: none;
+
+    &:focus,
+    &:hover {
+      background-color: $blue;
+      color: $white;
+      outline: none;
+    }
+  }
+
+  &.btn-white-alt {
+    background-color: $white;
+    color: $purple;
+    border: none;
+
+    &:focus,
+    &:hover {
+      background-color: $purple;
+      color: $white;
+      outline: none;
+    }
+  }
+
+  &.btn-alt {
+    background-color: transparent;
+    border: 1px solid $blue;
+    color: $blue;
+
+    &.is-active,
+    &:active {
+      background-color: $blue;
+      color: $white;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $blue;
+      color: $white;
+      outline: none;
+    }
+  }
+
+  &.btn-alt--purple {
+    background-color: transparent;
+    border: 1px solid $purple;
+    color: $purple;
+
+    &.is-active,
+    &:active {
+      background-color: $purple;
+      color: $white;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $purple;
+      color: $white;
+      outline: none;
+    }
+  }
+
+  &.btn--null {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  &.btn--left {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+
+    svg {
+      fill: $white;
+      stroke: $purple;
+    }
+
+    &:active,
+    &.is-active,
+    &:focus,
+    &:hover {
+      outline: none;
+
+      svg {
+        fill: $purple;
+      }
+    }
+  }
+
+  &.btn--right {
+    svg {
+      fill: $white;
+      stroke: $purple;
+    }
+
+    &:active,
+    &.is-active,
+    &:focus,
+    &:hover {
+      outline: none;
+
+      svg {
+        fill: $purple;
+      }
+    }
+  }
+
+  &.btn-close {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+  }
+
+  &.btn--full-width {
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  &.btn--small {
+    font-size: $h5-font-size;
+    padding: $pad-mar-x-small $pad-mar-small;
+  }
+}

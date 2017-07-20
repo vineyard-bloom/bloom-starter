@@ -1,0 +1,58 @@
+/*
+VARIABLES
+=========
+- colors
+- typography
+- magic numbers, spacing & z-indices
+*/
+
+/*
+COLORS
+======
+*/
+$black:       #000;
+$white:       #fff;
+$light-gray:  #e6e6e6;
+$med-gray:    #acacac;
+$dark-gray:   #696969;
+
+/*
+TYPOGRAPHY
+==========
+*/
+$main-font: "filson-pro", Verdana, sans-serif;
+
+$giant-font-size: 100px;
+
+$h1-font-size: 40px;
+$h2-font-size: 30px;
+$h3-font-size: 20px;
+$h4-font-size: 16px;
+$h5-font-size: 12px;
+$h6-font-size: 8px;
+
+$main-font-size: 16px;
+
+/*
+NUMBERS & SPACING
+=================
+*/
+$header-height: 70px;
+
+$pad-mar-x-small: 5px;
+$pad-mar-small:   10px;
+$pad-mar-med:     15px;
+$pad-mar-large:   20px;
+$pad-mar-x-large: 30px;
+
+$neg-pad-mar-x-small: -2px;
+
+/* z-indices */
+$z-1:     1;
+$z-2:     2;
+$z-5:     5;
+$z-10:    10;
+$z-20:    20;
+$z-50:    50;
+$z-100:   100;
+$z-1000:  1000;
