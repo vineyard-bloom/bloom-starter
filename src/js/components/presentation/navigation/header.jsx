@@ -21,7 +21,7 @@ const Header = (props) => {
           <Logo full={ true } />
         </Link>
         <div className='header__top-row__right'>
-          <Button text='Open Example Modal' onClick={ () => { props.openModal(<div>I'm a modal wee</div>) } } className='u-inline-block' />
+          <Button text='Open Example Modal' onClick={ (e) => { props.openModal(e, <div>I'm a modal wee</div>) } } className='u-inline-block' />
         </div>
       </div>
       <SubHeader />
@@ -38,8 +38,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openModal: (modalContents) => {
-      dispatch(openModal(modalContents));
+    openModal: (e, modalContents) => {
+      dispatch(openModal(e, modalContents));
     }
   }
 }

@@ -9,9 +9,10 @@ export function closeModal() {
   }
 }
 
-export function openModal(modalContents) {
+export function openModal(e, modalContents) {
   return {
     type: actionTypes.OPEN_MODAL,
-    modalContents
+    modalContents,
+    modalTriggerId: e.target.id
   }
 }

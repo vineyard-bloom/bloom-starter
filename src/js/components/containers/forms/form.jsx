@@ -7,6 +7,7 @@ import BigNumber from 'bignumber.js';
 
 import { convertEthToWei, convertWeiToEth } from 'helpers';
 import { addFormError, clearForm, createForm, deleteFormError, updateForm } from 'redux-store/actions/formActions';
+import { WebServiceType } from 'types';
 
 import 'styles/components/forms';
 import 'styles/components/inputs';
@@ -23,18 +24,7 @@ class Form extends React.Component {
     id: PropTypes.string.isRequired,
     submitRoute: PropTypes.string.isRequired,
     updateForm: PropTypes.func,
-    WebService: PropTypes.shape({
-      get: PropTypes.func,
-      post: PropTypes.func,
-      getUser: PropTypes.func,
-      login: PropTypes.func,
-      register: PropTypes.func,
-      updateUserPassword: PropTypes.func,
-      fetchTwoFactorCode: PropTypes.func,
-      validateTwoFactorToken: PropTypes.func,
-      fetchExchangeRate: PropTypes.func,
-      fetchGlobalTotals: PropTypes.func
-    })
+    WebService: PropTypes.shape(WebServiceType)
   }; // make sure only those that don't come from redux are passed in
 
   static mapDispatchToProps(dispatch, ownProps) {

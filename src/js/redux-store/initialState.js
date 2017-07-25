@@ -19,6 +19,7 @@ const initialState = {
   forms: {},
   modal: {
     modalContents: null,
+    modalTriggerId: ''
   }
 }
 

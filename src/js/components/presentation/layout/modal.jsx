@@ -9,7 +9,11 @@ class Modal extends React.Component {
 
   componentDidMount = () => {
     document.getElementById('modal-close-button').focus();
-  }
+  };
+
+  componentWillUnmount = () => {
+    document.getElementById(this.props.modalTriggerId).focus();
+  };
 
   render() {
     let { modalContents, ...props } = this.props;
@@ -29,7 +33,8 @@ class Modal extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    modalContents: state.modal.modalContents
+    modalContents: state.modal.modalContents,
+    modalTriggerId: state.modal.modalTriggerId
   }
 }
 

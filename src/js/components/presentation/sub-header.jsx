@@ -66,8 +66,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openModal: (modalComponent) => {
-      dispatch(openModal(modalComponent))
+    openModal: (e, modalComponent) => {
+      dispatch(openModal(e, modalComponent))
     }
   }
 }
