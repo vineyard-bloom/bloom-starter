@@ -20,7 +20,8 @@ const initialState = {
   modal: {
     modalContents: null,
     modalTriggerId: ''
-  }
+  },
+  alerts: []
 }
 
 export default initialState;
