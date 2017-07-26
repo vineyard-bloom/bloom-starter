@@ -6,6 +6,7 @@ export default {
   CLOSE_MODAL:            'CLOSE_MODAL',
   CREATE_FORM:            'CREATE_FORM',
   DELETE_FORM_ERROM:      'DELETE_FORM_ERROR',
+  EXPIRE_ALERT:           'EXPIRE_ALERT',
   HARD_DELETE_ALERT:      'HARD_DELETE_ALERT',
   LOGIN:                  'LOGIN',
   OPEN_MODAL:             'OPEN_MODAL',

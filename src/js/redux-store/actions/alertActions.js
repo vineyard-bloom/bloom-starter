@@ -10,6 +10,12 @@ export function addAlert(message, style='success') {
   }
 }
 
+export function expireAlert() {
+  return {
+    type: actionTypes.EXPIRE_ALERT
+  }
+}
+
 export function hardDeleteAlert(message) {
   return {
     type: actionTypes.HARD_DELETE_ALERT,

@@ -8,11 +8,22 @@ import 'styles/components/modal';
 class Modal extends React.Component {
 
   componentDidMount = () => {
-    document.getElementById('modal-close-button').focus();
+    let closeBtn = document.getElementById('modal-close-button');
+    if (closeBtn) closeBtn.focus();
+  };
+
+  componentWillReceiveProps = (newProps) => {
+    if (!this.props.modalContents && newProps.modalContents) {
+      setTimeout(() => {
+        let closeBtn = document.getElementById('modal-close-button');
+        if (closeBtn) closeBtn.focus();
+      }, 200);
+    }
   };
 
   componentWillUnmount = () => {
-    document.getElementById(this.props.modalTriggerId).focus();
+    let prevBtn = document.getElementById(this.props.modalTriggerId)
+    if (prevBtn) prevBtn.focus();
   };
 
   render() {
