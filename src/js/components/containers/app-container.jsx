@@ -47,7 +47,7 @@ class AppContainer extends React.Component {
     // talk to WebService to get any important info
     // etc
 
-    // this.timeoutAlerts();
+    this.timeoutAlerts();
   };
 
   render() {
