@@ -21,7 +21,7 @@ const initialState = {
     modalContents: null,
     modalTriggerId: ''
   },
-  alerts: []
+  alerts: [{ message: 'This is an example alert', style: 'success' }]
 }
 
 export default initialState;

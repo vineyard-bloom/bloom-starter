@@ -7,6 +7,8 @@ import BigNumber from 'bignumber.js';
 import { convertWeiToEth } from 'helpers';
 import { WebServiceType } from 'types';
 
+import { expireAlert } from 'redux-store/actions/alertActions';
+
 import Alert from 'presentation/layout/alert';
 import Header from 'presentation/navigation/header';
 import Footer from 'presentation/layout/footer';
@@ -32,18 +34,28 @@ class AppContainer extends React.Component {
         this.props.expireAlert();
       }, 5000)
     }
+  };
+
+  componentWillReceiveProps = (newProps) => {
+    if (newProps.alerts[0]) {
+      this.timeoutAlerts();
+    }
   }
 
   componentDidMount = () => {
     // init countdowns, event listeners
     // talk to WebService to get any important info
     // etc
+
+    // this.timeoutAlerts();
   };
 
   render() {
     return (
       <div className='app-container'>
-        <Alert currentAlert={ this.props.alerts[0] } />
+        { this.props.alerts[0] ?
+          <Alert currentAlert={ this.props.alerts[0] } />
+          : '' }
         <Modal />
         <Header />
         <MainSwitch />
