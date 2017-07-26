@@ -30,7 +30,9 @@ $modal-contents-width: 450px;
     width: $modal-contents-width;
 
     .btn-close {
-      margin-left: calc(-45px + #{$modal-contents-width});
+      margin-top: 2px;
+      margin-left: calc(-40px + #{$modal-contents-width});
+      padding: $pad-mar-small;
     }
   }
 }
