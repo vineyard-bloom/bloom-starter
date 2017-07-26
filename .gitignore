@@ -2,7 +2,6 @@
 *.log
 
 node_modules
-public/*
 dist/*
 
 config.json
