@@ -3,25 +3,6 @@ const path = require('path')
 const BUILD_DIR = path.join(__dirname, 'dist')
 const APP_DIR = path.join(__dirname, 'src/')
 
-/*
-
-{
-        test: /\.svg$/,
-        loader: 'url-loader',
-        include: path.resolve(__dirname, 'src/styles'),
-        exclude: path.resolve(__dirname, 'src/js')
-        options: {
-          limit: 10000
-        }
-      },
-      {
-        test: /\.svg$/,
-        include: path.resolve(__dirname, 'src/js'),
-        loader: 'raw-loader'
-      },
-
-      */
-
 module.exports = {
   entry: APP_DIR + 'index.js',
   output: {
@@ -39,7 +20,10 @@ module.exports = {
     publicPath: '/',
     contentBase: './public',
     port: 8080,
-    historyApiFallback: true
+    host: '0.0.0.0',
+    open: true,
+    historyApiFallback: true,
+    disableHostCheck: true
   },
 
   module: {
