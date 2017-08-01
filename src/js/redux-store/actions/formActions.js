@@ -38,7 +38,9 @@ export function createForm(formId, formObject) {
 
 export function updateForm(e, formId) {
   let fieldName = e.target.getAttribute('name');
-  let fieldValue = e.target.value;
+  let fieldValue = e.target.getAttribute('type') === 'checkbox'
+    ? e.target.checked
+    : e.target.value;
 
   return {
     type: actionTypes.UPDATE_FORM,
