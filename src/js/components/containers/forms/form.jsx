@@ -92,11 +92,29 @@ class Form extends React.Component {
     }
   };
 
+  focusOnFirst = () => {
+    let firstInput = [...document.getElementById(this.props.id).querySelectorAll('input, select, textarea')][0];
+    if (firstInput) {
+      firstInput.focus();
+    }
+  };
+
   componentDidMount = () => {
     let formData = {};
     // initialize the form with all fields inside
     this.props.fieldNames.forEach((name) => {
-      formData[name] = { value: '' }
+      if (name.type) {
+        formData[name.name] = {};
+
+        switch(name.type) {
+          case 'checkbox':
+            formData[name.name].checked = false;
+          default:
+            break;
+        }
+      } else {
+        formData[name] = { value: '' };
+      }
     });
 
     if (this.props.autofillDataRoute && this.props.WebService) {
@@ -114,6 +132,8 @@ class Form extends React.Component {
     } else {
       this.props.createForm(this.props.id, formData);
     }
+
+    this.focusOnFirst();
   };
 
   componentWillReceiveProps = (newProps) => {
