@@ -8,7 +8,7 @@ const LoginForm = (props) => {
   let formData = props.formData || { username: null, password: null, 'twoFactorSecret': null };
 
   return (
-    <form id='user-login-form' className='form login-form'>
+    <form id='login-form' className='form login-form'>
       <h3 className='login-form__header'>Log In</h3>
       <TextInput placeholder='Enter Username (required)' id='username' name='username' label='Username'
         value={ formData.username ? formData.username.value : '' } onChange={ props.updateForm } />
