@@ -21,7 +21,7 @@ const Table = (props) => {
       );
   }) : [];
 
-  let sortedData = props.data ? props.data.sort((a,b) => {
+  let sortedData = props.data && props.activeSort ? props.data.sort((a,b) => {
     if (a[props.activeSort] > b[props.activeSort]) {
       return 1;
     } else if (a[props.activeSort] < b[props.activeSort]) {
@@ -29,7 +29,7 @@ const Table = (props) => {
     } else {
       return 0;
     }
-  }) : [];
+  }) : props.data || [];
 
   let contentRows = sortedData.map((row, i) => {
     let cells = props.headers.map((h, indx) => {
@@ -54,7 +54,7 @@ const Table = (props) => {
           </td>
         )
       } else {
-        <td key={ `table-row-${i}-cell-${indx}` }>{ row[h.sortValue] }</td>
+        return <td key={ `table-row-${i}-cell-${indx}` }>{ row[h.sortValue] }</td>
       }
     });
 
