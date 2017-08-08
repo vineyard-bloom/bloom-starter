@@ -69,8 +69,14 @@ class Form extends React.Component {
     let thisForm = this.props.forms && this.props.forms[this.props.id] ? { ...this.props.forms[this.props.id] } : null;
     let unconvertedForm = { ...thisForm };
 
+    let files;
+
     for (let field in thisForm) {
-      if (field === 'amount') {
+      if (thisForm[field].value.indexOf('\\') > -1) {
+        // file placeholder
+        files = files || new FormData();
+        files.append('file', document.getElementById(field).files[0], field);
+      } else if (field === 'amount') {
         thisForm[field] = convertEthToWei(new BigNumber(thisForm[field].value));
       } else {
         thisForm[field] = thisForm[field].value;
@@ -80,7 +86,16 @@ class Form extends React.Component {
     if (thisForm) {
       this.props.WebService.post(this.props.submitRoute, thisForm)
         .then((res) => {
-          if (this.props.afterSubmit) {
+          this.props.clearForm(this.props.id);
+
+          if (files) {
+            this.props.WebService.uploadFile(files)
+              .then(() => {
+                if (this.props.afterSubmit) {
+                  this.props.afterSubmit(res, unconvertedForm);
+                }
+              })
+          } else if (this.props.afterSubmit) {
             this.props.afterSubmit(res, unconvertedForm);
           }
         })

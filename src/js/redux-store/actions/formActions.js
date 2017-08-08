@@ -38,9 +38,18 @@ export function createForm(formId, formObject) {
 
 export function updateForm(e, formId) {
   let fieldName = e.target.getAttribute('name');
-  let fieldValue = e.target.getAttribute('type') === 'checkbox'
-    ? e.target.checked
-    : e.target.value;
+  let fieldValue;
+
+  switch(e.target.getAttribute('type')) {
+    case 'checkbox':
+      fieldValue = e.target.checked;
+      break;
+    case 'file':
+      fieldValue = '\\fake-route-to-trigger-grab';
+      break;
+    default:
+      fieldValue = e.target.value;
+  }
 
   return {
     type: actionTypes.UPDATE_FORM,

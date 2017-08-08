@@ -84,4 +84,8 @@ export class WebService {
     })
   };
 
+  uploadFile(files) {
+    return post('/file/upload?version=1.0', files);
+  };
+
 }
