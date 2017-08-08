@@ -1,0 +1,21 @@
+{
+  "errors": {
+    "already-logged-out": "Already logged out.",
+    "dont-match": "<FIELD>s don't match.",
+    "existing-email": "This email address is already in use.",
+    "existing-username": "This username is already in use",
+    "existing-temp-pass": "A temporary password has already been created. Please try again at a later time.",
+    "invalid-2fa": "Invalid Two Factor Authentication code.",
+    "invalid-char": "Invalid character \"<CHAR>\" in \"<FIELD>.\"",
+    "invalid-credentials": "Incorrect username or password.",
+    "invalid-email": "Please enter a valid email address.",
+    "invalid-eth-address": "Please enter a valid Ethereum Public Address.",
+    "invalid-user-field": "Invalid user field",
+    "invalid-user-id": "Invalid user ID",
+    "invalid-username": "Invalid username",
+    "invalid-verify-email-credentials": "Invalid User ID or Verification Code.",
+    "max-length": "\"<FIELD>\" can not be more than <LIMIT> characters.",
+    "min-length": "\"<FIELD>\" must be at least <LIMIT> characters.",
+    "no-2fa": "Two Factor secret must be generated before verifying."
+  }
+}

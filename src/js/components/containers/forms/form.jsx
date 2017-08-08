@@ -20,6 +20,7 @@ class Form extends React.Component {
     clearForm: PropTypes.func,
     createForm: PropTypes.func,
     deleteFormError: PropTypes.func,
+    fieldNames: PropTypes.arrayOf(PropTypes.string).isRequired,
     forms: PropTypes.object,
     id: PropTypes.string.isRequired,
     submitRoute: PropTypes.string.isRequired,
