@@ -80,6 +80,14 @@ input[type='range'] {
   }
 }
 
+.input--currency {
+  & ~ .input__after {
+    color: $light-gray;
+    margin-top: 1.5em;
+    position: absolute;
+  }
+}
+
 .input__error {
   display: block;
   color: $red;
@@ -87,6 +95,24 @@ input[type='range'] {
   margin: 0 0 $pad-mar-med;
   padding: 0;
   width: 100%;
+}
+
+.input--file {
+  cursor: pointer;
+
+  .btn {
+    background-color: $green;
+    color: white;
+    padding: $pad-mar-small;
+  }
+}
+
+.input--file__text {
+  display: inline-block;
+}
+
+.input--invalid {
+  box-shadow: 0 0 5px $red;
 }
 
 .input__label {
@@ -119,16 +145,17 @@ input[type='range'] {
   }
 }
 
-.input--currency {
-  & ~ .input__after {
-    color: $light-gray;
-    margin-top: 1.5em;
-    position: absolute;
-  }
-}
-
-.input--invalid {
-  box-shadow: 0 0 5px $red;
+.input__placeholder {
+  align-items: center;
+  border: 2px solid $med-gray;
+  border-radius: $border-radius;
+  color: $dark-gray;
+  display: flex;
+  font-size: $main-font-size;
+  justify-content: space-between;
+  margin: $pad-mar-small 0;
+  padding-left: $pad-mar-med;
+  width: 100%;
 }
 
 input[type='range'].input--range {
