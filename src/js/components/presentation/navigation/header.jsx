@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import { openModal } from 'redux-store/actions/modalActions';
-
 import Button from 'presentation/inputs/button';
 import Logo from 'presentation/logos/logo';
 import SubHeader from 'presentation/sub-header';
@@ -25,24 +23,9 @@ const Header = (props) => {
             onClick={ (e) => { props.openModal(e, <div>I'm a modal wee</div>) } } />
         </div>
       </div>
-      <SubHeader />
+      <SubHeader openModal={ props.openModal } user={ props.user } />
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    engineState: state.engineState || {},
-    user: state.user || {}
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openModal: (e, modalContents) => {
-      dispatch(openModal(e, modalContents));
-    }
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default withRouter(Header);

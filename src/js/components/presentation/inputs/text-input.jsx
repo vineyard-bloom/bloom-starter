@@ -19,8 +19,6 @@ const TextInput = (props) => {
     attr.required = true;
   }
 
-  // console.log('id: ' + name, error || 'no error')
-
   return (
     <label className={ `input__label ${ containerClass || '' }` } htmlFor={ name } onBlur={ props.onBlur }>
       <span className={ labelTextClasses }>

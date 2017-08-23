@@ -58,18 +58,4 @@ class SubHeader extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openModal: (e, modalComponent) => {
-      dispatch(openModal(e, modalComponent))
-    }
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SubHeader));
+export default withRouter(SubHeader);

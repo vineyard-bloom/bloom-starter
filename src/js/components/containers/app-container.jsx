@@ -8,6 +8,7 @@ import { convertWeiToEth } from 'helpers';
 import { WebServiceType } from 'types';
 
 import { expireAlert } from 'redux-store/actions/alertActions';
+import { openModal } from 'redux-store/actions/modalActions';
 
 import Alert from 'presentation/layout/alert';
 import Header from 'presentation/navigation/header';
@@ -57,7 +58,7 @@ class AppContainer extends React.Component {
           <Alert currentAlert={ this.props.alerts[0] } />
           : '' }
         <Modal />
-        <Header />
+        <Header openModal={ this.props.openModal } user={ this.props.user } />
         <MainSwitch />
         <Footer />
       </div>
@@ -69,6 +70,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     expireAlert: () => {
       return dispatch(expireAlert());
+    },
+    openModal: (e, modalContents) => {
+      dispatch(openModal(e, modalContents));
     }
   }
 }
@@ -76,6 +80,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     alerts: state.alerts,
+    user: state.user,
     WebService: state.services.WebService
   }
 }
