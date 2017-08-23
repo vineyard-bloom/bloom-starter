@@ -1,13 +1,15 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
-const BUILD_DIR = path.join(__dirname, 'dist')
-const APP_DIR = path.join(__dirname, 'src/')
+const BUILD_DIR = path.join(__dirname, '/dist/')
+const APP_DIR = path.join(__dirname, '/src/')
 
 module.exports = {
   entry: APP_DIR + 'index.js',
   output: {
     filename: 'bundle.js',
-    path: BUILD_DIR
+    path: BUILD_DIR,
+    publicPath: '/'
   },
 
   devtool: 'source-map',
@@ -72,7 +74,8 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'public/index.html' },
       { from: 'public/images', to: 'images' }
-    ])
+    ]),
+    new HtmlWebpackPlugin({ template: './public/index.html' })
   ],
 
   resolve: {
