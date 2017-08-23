@@ -2,11 +2,12 @@
 TOOLTIP
 */
 
-@import '~styles/core/_variables';
+@import '~styles/core/variables';
 
 .tooltip {
   display: inline-block;
-  margin-left: $pad-mar-x-small;
+  position: relative;
+  z-index: $z-100;
 }
 
 .tooltip__icon {
@@ -27,7 +28,8 @@ TOOLTIP
 .tooltip__contents {
   background-color: $white;
   box-shadow: $box-shadow;
-  font-size: 0.9em;
+  font-size: $med-font-size;
+  font-weight: 400;
   margin-left: -280px;
   margin-top: -70px;
   position: absolute;
@@ -74,6 +76,26 @@ TOOLTIP
     }
   }
 
+  &--top {
+    &::after {
+      border-bottom: 15px solid $white;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 0;
+      margin-left: 50%;
+      top: -15px;
+    }
+
+    &::before {
+      border-bottom: 15px solid $light-gray;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 0;
+      margin-left: 50%;
+      margin-top: -7%;
+    }
+  }
+
   h6 {
     background-color: $lighter-gray;
     font-size: $h4-font-size;
@@ -82,5 +104,17 @@ TOOLTIP
 }
 
 .tooltip__contents__text {
-  padding: $pad-mar-x-small $pad-mar-med;
+  padding: $pad-mar-small $pad-mar-med;
+}
+
+.tooltip--error {
+  .tooltip__contents {
+    color: $red;
+    margin: $pad-mar-small 0 0;
+  }
+
+  &--select {
+    left: -100%;
+    margin-top: 4em;
+  }
 }

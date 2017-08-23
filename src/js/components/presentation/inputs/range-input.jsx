@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import 'styles/components/inputs';
+import 'styles/components/inputs'
 
 const RangeInput = (props) => {
   let {
@@ -18,7 +18,7 @@ const RangeInput = (props) => {
 
   return (
     <label className='input__label input__label--wrap'>
-      { label }
+      { label }{ attr.required && <span>{ '\u00A0' }*<span className="u-sr-only"> required field</span></span> }
       <input type='range' value={ props.value } name={ id } id={ id } onChange={ props.onChange } min='0' max={ props.total }
         className={ `input input--range ${ className ? className : '' } ${ formErrors && formErrors[id] ? 'input--invalid' : '' }` }
         data-validate={ validateAs }  placeholder={ placeholder } value={ value } step='0.01' onMouseOut={ props.onBlur }

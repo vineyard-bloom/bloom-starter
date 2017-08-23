@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import Loading from 'presentation/layout/loading';
 
@@ -7,12 +7,15 @@ import 'styles/components/buttons.scss';
 
 const Button = (props) => {
   let { className, disabled, id, loading, onClick, text } = props;
-  let classes = className && className.indexOf('btn') > -1 ? `o-flex-container ${className || ''}` : `o-flex-container btn ${className || ''}`;
+  let classes = className && className.indexOf('btn') > -1
+    ? `o-flex-container ${className || ''}${ loading ? ' is-loading' : '' }`
+    : `o-flex-container btn ${className || ''}${ loading ? ' is-loading' : '' }`;
   return (
-   <button className={ classes } onClick={ onClick } id={ id } disabled={ disabled }>
-    { loading ?
-      <Loading /> : '' }
-    { text }
+   <button className={ classes } onClick={ loading ? () => { return } : onClick } id={ id } disabled={ disabled || loading }>
+      <span className='o-flex-container u-align-center'>
+        { loading && <Loading /> }
+        { text }
+      </span>
    </button>
   )
 }

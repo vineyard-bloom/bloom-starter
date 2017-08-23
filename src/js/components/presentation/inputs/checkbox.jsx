@@ -1,7 +1,7 @@
-import React from 'modules/react';
-import PropTypes from 'modules/prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import 'common/styles/components/inputs.scss';
+import 'styles/components/inputs.scss';
 
 const Checkbox = (props) => {
   let {
@@ -11,22 +11,22 @@ const Checkbox = (props) => {
   let labelTextClasses = `input__label__text ${ labelClass ? labelClass : '' } ${ showLabel ? '' : ' u-sr-only' }`;
 
   if (rest.required) {
-    rest['aria-required'] = true;
+    attr['aria-required'] = true;
+    attr.required = true;
   }
 
   return (
     <label className='input__label input__label--inline u-justify-center'>
       <span className={ labelTextClasses }>
-        { label }
+        { label }{ attr.required && <span>{ '\u00A0' }*<span className="u-sr-only"> required field</span></span> }
       </span>
       <div className={ `input--checkbox__placeholder ${ checked ? 'is-checked' : '' }` }></div>
       <input type='checkbox' checked={ checked } name={ name } id={ name } onChange={ props.onChange }
         className={ `input input--text ${ className ? className : '' } ${ errors ? 'input--invalid' : '' }` }
-        data-validate={ validateAs } />
-      { errors ?
+        data-validate={ validateAs } { ...attr } />
+      { errors &&
         <div className='input__error'>{ errors }</div>
-      :
-        '' }
+      }
     </label>
   )
 }

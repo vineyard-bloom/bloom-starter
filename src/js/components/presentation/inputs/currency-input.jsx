@@ -8,10 +8,13 @@ const CurrencyInput = (props) => {
     className, currency, formData, formErrors,
     id, label, labelClass, name, onBlur, onChange, placeholder,
     showLabel, validateAs, value, ...rest } = props;
-  let labelTextClasses = `${ labelClass ? labelClass : '' } ${ showLabel ? '' : ' u-sr-only' }`;
+  let labelTextClasses = `input__label__text ${ labelClass ? labelClass : '' } ${ showLabel ? '' : ' u-sr-only' }`;
+
+  let attr = {};
 
   if (rest.required) {
-    rest['aria-required'] = true;
+    attr['aria-required'] = true;
+    attr.required = true;
   }
 
   let afterPosition = document.getElementById(`${id}__label`) ?
@@ -24,11 +27,11 @@ const CurrencyInput = (props) => {
     <div>
       <label className='input__label' id={ `${id}__label` }>
         <span className={ labelTextClasses }>
-          { label }
+          { label }{ attr.required && <span>{ '\u00A0' }*<span className="u-sr-only"> required field</span></span> }
         </span>
         <input type='number' min='0' step='any' value={ value } name={ name } id={ id } onChange={ onChange } onBlur={ onBlur }
           className={ `input input--currency ${ className ? className : '' } ${ formErrors ? 'input--invalid' : '' }` }
-          data-validate='currency'  placeholder={ placeholder } />
+          data-validate='number' placeholder={ placeholder } { ...attr } />
         { afterPosition ?
           <div className='input__after' style={ { right: afterPosition } }>{ currency }</div>
           : '' }

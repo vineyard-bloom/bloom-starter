@@ -82,6 +82,7 @@ module.exports = {
       helpers:      path.resolve(__dirname, 'src/js/util/helpers'),
       images:       path.resolve(__dirname, 'src/images'),
       js:           path.resolve(__dirname, 'src/js'),
+      language:     path.resolve(__dirname, 'config/en.json'),
       lib:          path.resolve(__dirname, 'lib'),
       pages:        path.resolve(__dirname, 'src/js/components/pages'),
       presentation: path.resolve(__dirname, 'src/js/components/presentation'),
@@ -90,7 +91,8 @@ module.exports = {
       services:     path.resolve(__dirname, 'src/js/services'),
       stubs:        path.resolve(__dirname, 'src/js/stubs'),
       styles:       path.resolve(__dirname, 'src/styles'),
-      types:        path.resolve(__dirname, 'src/js/util/types')
+      types:        path.resolve(__dirname, 'src/js/util/types'),
+      validator:    path.resolve(__dirname, 'src/js/util/validator')
     },
     extensions: ['.js', '.jsx', '.scss']
   }

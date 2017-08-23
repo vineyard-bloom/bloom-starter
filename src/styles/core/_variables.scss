@@ -10,15 +10,17 @@ VARIABLES
 COLORS
 ======
 */
-$black:       #000;
-$white:       #fff;
-$light-gray:  #e6e6e6;
-$med-gray:    #acacac;
-$dark-gray:   #696969;
+$black:         #000;
+$white:         #fff;
+$light-gray:    #e6e6e6;
+$lighter-gray:  #eee;
+$med-gray:      #acacac;
+$dark-gray:     #696969;
 
-$red:         #f00;
-$blue:        #00f;
-$light-blue:  #ADD8E6;
+$red:           #f00;
+$blue:          #00f;
+$green:         #0f0;
+$light-blue:    #ADD8E6;
 
 $box-shadow:  0 0 5px rgba(0,0,0,0.4);
 
@@ -29,6 +31,8 @@ TYPOGRAPHY
 $main-font: "filson-pro", Verdana, sans-serif;
 
 $giant-font-size: 100px;
+$main-font-size: 16px;
+$med-font-size:  14px;
 
 $h1-font-size: 40px;
 $h2-font-size: 30px;
@@ -36,8 +40,6 @@ $h3-font-size: 20px;
 $h4-font-size: 16px;
 $h5-font-size: 12px;
 $h6-font-size: 8px;
-
-$main-font-size: 16px;
 
 /*
 NUMBERS & SPACING
@@ -52,6 +54,8 @@ $pad-mar-large:   20px;
 $pad-mar-x-large: 30px;
 
 $neg-pad-mar-x-small: -2px;
+
+$border-radius: 4px;
 
 /* z-indices */
 $z-1:     1;
