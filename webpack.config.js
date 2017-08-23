@@ -30,21 +30,26 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
       {
-        test: /\.(png|jpe?g|gif|eot|ttf|woff|woff2)$/,
+        test: /\.(png|jpe?g|gif|eot|ttf|woff|woff2|svg)$/,
         loader: 'url-loader',
+        include: [
+          path.join(__dirname, 'src/images'),
+          path.join(__dirname, 'public/fonts')
+        ],
+        exclude: [
+          path.join(__dirname, 'src/images/inline-svgs')
+        ],
         options: {
           limit: 10000
         }
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader',
-        include: [path.join(__dirname, 'src/images/css-svgs')],
-        options: {
-          limit: 10000
-        }
+        include: [
+          path.join(__dirname, 'src/images/inline-svgs')
+        ],
+        loader: 'raw-loader'
       },
       {
         test: /\.svg$/,
