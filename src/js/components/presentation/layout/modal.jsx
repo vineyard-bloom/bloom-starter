@@ -45,6 +45,8 @@ class Modal extends React.Component {
         e.returnValue = false
       }
       closeBtn.focus()
+    } else if (keyCode === 27) { // escape key
+      this.props.closeModal()
     }
   }
 
