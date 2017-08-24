@@ -12,10 +12,10 @@ This is a starter kit for react/redux projects.
     * [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
 
-3. Boot up the server in the root directory with `npm run dev`. By default, it's served on port 8080.
+3. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
 
 ## Build
-1. `npm run build` to generate a production bundle.
+1. `yarn build` to generate a production bundle. (needs optimization)
 
 
 ## Usage
