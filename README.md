@@ -79,7 +79,7 @@ function petError(testData, fieldName) {
 To use this set up, an example field would look like:
 ```
 <TextInput name='pet' validateAs='isAPet' onBlur={ props.checkField } onChange={ props.updateForm }
-  value={ formData.pet } />
+  value={ formData.pet.value } error={ formData.pet.error } />
 ```
 
 You don't need to change anything inside Form.jsx.
