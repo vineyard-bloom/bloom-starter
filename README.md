@@ -24,7 +24,7 @@ This is a starter kit for react/redux projects.
 This starter pack makes form state management, validation, and and error handling much easier to get up and running.
 
 #### Set Up
-- Every form needs two files: A container, and a presentation component (with all the inputs inside it)
+- Every form needs two files: a container and a presentation component (with all the inputs inside it)
 - The container should render the presentation component wrapped inside of the generic Form.jsx container. This wrapper handles all your state, updating redux, errors, etc.
 - Example:
 A login form might look like this: (simplified -- make sure all your inputs have required props, etc.)
