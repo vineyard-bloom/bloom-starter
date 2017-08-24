@@ -31,7 +31,7 @@ export default function formReducer(state = initialState.forms, action) {
 
       const allOtherErrors = newForms[action.formId]
         ? Object.keys(newForms[action.formId])
-          .filter((key) => (key !== action.fieldName) && (!newForms[action.formId][key].error))
+          .filter((key) => (key !== action.fieldName) && (!!newForms[action.formId][key].error))
         : null
 
       if (!allOtherErrors.length) {
