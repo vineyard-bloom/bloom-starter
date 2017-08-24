@@ -38,7 +38,7 @@ class Modal extends React.Component {
         e.returnValue = false
       }
       this.state.lastFocus.focus()
-    } else if (keyCode === 9 && (e.target.id === this.state.lastFocus.id)) { // tab pressed
+    } else if (keyCode === 9 && !e.shiftKey && (e.target.id === this.state.lastFocus.id)) { // tab pressed
       if (e.preventDefault) {
         e.preventDefault()
       } else {
