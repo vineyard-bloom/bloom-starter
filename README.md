@@ -33,7 +33,7 @@ const LoginForm = (props) => {
   return (
     <form id='login-form'>
       <TextInput name='username' value={ formData.username } />
-      <TextInput name='password' isPassword={ true } value={ formData.password } onBlur={ props.checkField } />
+      <TextInput name='password' isPassword={ true } value={ formData.password.value } onBlur={ props.checkField } />
       <Button text='submit' onClick={ props.submitForm } />
     </form>
   )
