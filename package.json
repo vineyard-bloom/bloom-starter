@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "dev": "webpack && webpack-dev-server --hot --inline",
-    "build": "webpack"
+    "build": "webpack --config=webpack.prod.config.js"
   },
   "author": "inkblotty",
   "license": "ISC",
