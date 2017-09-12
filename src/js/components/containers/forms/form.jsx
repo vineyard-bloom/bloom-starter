@@ -19,6 +19,7 @@ import 'styles/components/inputs'
 // container for wrapping all forms with needed methods
 class Form extends React.Component {
   state = {
+    attemptedSubmit: false,
     prepopulated: false,
     processingRequest: false
   }
@@ -58,6 +59,9 @@ class Form extends React.Component {
         dispatch(deleteFormError(formId, fieldName))
       },
       updateForm: (e=null, formId=ownProps.id, optValue=null, fieldName=null) => {
+        if (this.state.attemptedSubmit) {
+          this.checkField(e || document.getElementById(fieldName))
+        }
         dispatch(updateForm(e, formId, optValue, fieldName))
       }
     }
@@ -153,6 +157,7 @@ class Form extends React.Component {
           console.log(err)
           let message = err.response.data.error.message
           this.setState({
+            attemptedSubmit: true,
             processingRequest: false
           })
           if (this.props.afterSubmit) {
@@ -162,6 +167,7 @@ class Form extends React.Component {
     } else {
       // debugging helper
       this.setState({
+        attemptedSubmit: true,
         processingRequest: false
       })
       console.log(`form id '${this.props.id}' has invalid fields`, thisForm)

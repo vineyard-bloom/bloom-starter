@@ -6,13 +6,12 @@ import { closeModal } from 'redux-store/actions/modalActions';
 import 'common/styles/components/modal'
 
 class Modal extends React.Component {
-
   state = {
     lastFocus: null
-  }
+  };
 
   findLast = () => {
-    // find last anchor on page and focus
+    // find last anchor on modal and focus
     const contents = document.getElementById('modal-wrapper')
     if (contents) {
       let lastInput = contents.querySelectorAll('button, textarea, a, select, input, textarea')
@@ -24,7 +23,7 @@ class Modal extends React.Component {
         })
       }
     }
-  }
+  };
 
   keyDownHandler = (evt) => {
     const e = evt || window.event
@@ -48,7 +47,7 @@ class Modal extends React.Component {
     } else if (keyCode === 27) { // escape key
       this.props.closeModal()
     }
-  }
+  };
 
   componentDidMount = () => {
     let closeBtn = document.getElementById('modal-close-button');
