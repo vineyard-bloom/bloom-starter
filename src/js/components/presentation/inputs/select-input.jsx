@@ -49,7 +49,22 @@ class SelectInput extends React.Component {
     if (this.props.onBlur) {
       this.props.onBlur(e, select)
     }
-  }
+  };
+
+  keyDownHandler = (evt) => {
+    const e = evt || window.event
+    const keyCode = e.which || e.keyCode
+
+    if (keyCode === 27) { // escape key
+      this.setState({
+        showList: false
+      })
+    } else if (keyCode === 38) { // arrow up
+      // focus on previous option
+    } else if (keyCode === 40) { // arrow down
+      // focus on next option
+    }
+  };
 
   toggleList = (e) => {
     e.preventDefault();
@@ -103,7 +118,8 @@ class SelectInput extends React.Component {
     }
 
     return (
-      <label className={ `input__label select-input ${ containerClass || '' }` } htmlFor={ name } onBlur={ this.closeOpts }>
+      <label className={ `input__label select-input ${ containerClass || '' }` } htmlFor={ name }
+        onBlur={ this.closeOpts } onKeyDown={ this.keyDownHandler }>
         <span className='input__label__text'>
           { label }{ attr.required && <span>{ '\u00A0' }*<span className="u-sr-only"> required field</span></span> }
         </span>
