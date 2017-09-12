@@ -42,7 +42,7 @@ class Form extends React.Component {
     submitRoute: PropTypes.string.isRequired,
     updateForm: PropTypes.func,
     WebService: PropTypes.shape(WebServiceType)
-  } // make sure only those that don't come from redux are passed in
+  } // make sure only those that don't come from redux are passed in manually
 
   static mapDispatchToProps(dispatch, ownProps) {
     return {
@@ -273,8 +273,6 @@ class Form extends React.Component {
     // make sure this works if the form has one child or many
     let children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
     let thisForm = props.forms && props.forms[props.id] ? props.forms[props.id] : null
-
-    // console.log(thisForm)
 
     // clone the children to pass in custom props related to entire form
     let formChildren = React.Children.map(children, (child, indx) => {
