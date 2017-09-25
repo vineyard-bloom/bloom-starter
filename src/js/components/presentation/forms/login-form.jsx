@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Button from 'presentation/inputs/button';
-import TextInput from 'presentation/inputs/text-input';
+import { Button, TextInput } from 'presentation/inputs/button';
 
 const LoginForm = (props) => {
   let formData = props.formData || { username: null, password: null, 'twoFactorSecret': null };

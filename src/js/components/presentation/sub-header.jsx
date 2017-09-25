@@ -2,12 +2,12 @@ import React from 'react';
 import SVGInline from "react-svg-inline";
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { Button } from 'bloom-forms';
 
 import { openModal } from 'redux-store/actions/modalActions';
 
 import AccountContainer from 'containers/account-container';
 import AccountDropdown from 'presentation/navigation/account-dropdown';
-import Button from 'presentation/inputs/button';
 
 import downCarrot from 'images/inline-svgs/down_carrot.svg';
 

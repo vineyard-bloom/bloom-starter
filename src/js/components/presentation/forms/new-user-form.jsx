@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Button from 'presentation/inputs/button';
-import TextInput from 'presentation/inputs/text-input';
+import { Button, TextInput } from 'presentation/inputs/button';
 
 class NewUserForm extends React.Component {
   state = {

@@ -2,33 +2,33 @@ import language from 'language'
 
 // pass in a dict of field / value pairs to the aggregator
 
-export function validatorAggregator(testDataObject = {}) {
+export function validatorAggregator(testDataObject = {}, optDict=null) {
   let status = { isValid: true, warnings: {}}
+
+  const dict = {
+    'date': dateError,
+    'email': emailError,
+    'file': fileError,
+    'name': nameError,
+    'not-empty': notEmptyError,
+    'number': numberError,
+    'number-field': numberFieldError,
+    'phone': phoneError,
+    'zip': zipError,
+    ...optDict
+  }
 
   for (let field in testDataObject) {
     let thisField = testDataObject[field]
     if (thisField.validateAs) {
-      status = validate(status, thisField.value, thisField.validateAs, thisField.name)
+      status = validate(status, thisField.value, thisField.validateAs, thisField.name, dict)
     }
   }
 
   return status
 }
 
-const dict = {
-  'date': dateError,
-  'email': emailError,
-  'file': fileError,
-  'name': nameError,
-  'not-empty': notEmptyError,
-  'number': numberError,
-  'number-field': numberFieldError,
-  'phone': phoneError,
-  'zip': zipError
-}
-
-const validate = (prevStatus, testData, validateAs, fieldName) => {
-
+const validate = (prevStatus, testData, validateAs, fieldName, dict) => {
   if (fieldName.indexOf('confirm') > -1) {
     // find its partner and test against it
     const partnerName = fieldName.replace('confirm', '')

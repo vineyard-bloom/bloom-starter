@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import { Button } from 'bloom-forms';
 
-import Button from 'presentation/inputs/button';
 import Logo from 'presentation/logos/logo';
 import SubHeader from 'presentation/sub-header';
 
