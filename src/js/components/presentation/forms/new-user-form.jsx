@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, TextInput } from 'presentation/inputs/button';
+import { Button, TextInput } from 'bloom-forms';
 
 class NewUserForm extends React.Component {
   state = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import Button from 'presentation/inputs/button.jsx';
+import { Button } from 'bloom-forms';
 
 const FourOhFour = () => {
   return (

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { closeModal } from 'redux-store/actions/modalActions';
 
-import 'common/styles/components/modal'
+import 'styles/components/modal'
 
 class Modal extends React.Component {
   state = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import { Button, TextInput } from 'presentation/inputs/button';
+import { Button, TextInput } from 'bloom-forms';
 
 const LoginForm = (props) => {
   let formData = props.formData || { username: null, password: null, 'twoFactorSecret': null };
