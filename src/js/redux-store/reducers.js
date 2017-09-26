@@ -1,7 +1,7 @@
 /* reducers */
 import { combineReducers } from 'redux';
+import { formReducer } from 'bloom-forms';
 import alertsReducer from './reducers/alertsReducer';
-import formReducer from './reducers/formReducer';
 import modalReducer from './reducers/modalReducer';
 import servicesReducer from './reducers/servicesReducer';
 import userReducer from './reducers/userReducer';
