@@ -36,11 +36,6 @@ module.exports = {
         loader: 'raw-loader'
       },
       {
-        test: /\.svg$/,
-        include: [path.join(__dirname, 'src/images/inline-svgs')],
-        loader: 'raw-loader'
-      },
-      {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
