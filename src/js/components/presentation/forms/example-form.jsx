@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Checkbox, RadioGroup, TextInput, ToggleSwitch } from 'bloom-forms';
+import { Button, Checkbox, RadioGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
 
 const ExampleForm = (props) => {
   // I am a reference form
-  const formData = props.formData || { textinput: null, password: null, checkbox: null, radio: null, toggle: null };
+  const formData = props.formData || { textinput: null, password: null, checkbox: null, radio: null, select: null, toggle: null };
   const radioOptions = [
     { label: 'Radio 1', id: 'radio-1' },
     { label: 'Radio 2', id: 'radio-2' },
     { label: 'Radio 3', id: 'radio-3' }
+  ]
+  const selectOptions = [
+    { label: 'Muffins', value: 'muffins' },
+    { label: 'Cookies', value: 'cookies' },
+    { label: 'Cakes', value: 'birthday cakes' }
   ]
 
   const toggleClick = (e) => {
@@ -30,6 +35,11 @@ const ExampleForm = (props) => {
       />
       <RadioGroup options={ radioOptions } onChange={ props.updateForm } name='radio'
         value={ formData.radio ? formData.radio.value : '' }
+      />
+      <SelectInput options={ selectOptions } name='select'
+        value={ formData.select && formData.select.value ? formData.select.value : '' }
+        onChange={ props.manualFieldUpdate } showLabel label='Baked Goods'
+        error={ formData.select && formData.select.error ? formData.select.error : '' }
       />
       <ToggleSwitch labelText='Toggle Switch' isActive={ formData.toggle ? formData.toggle.value : false }
         name='toggle' onClick={ toggleClick }

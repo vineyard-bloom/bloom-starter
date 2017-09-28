@@ -46,13 +46,6 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        include: [
-          path.join(__dirname, 'src/images/inline-svgs')
-        ],
-        loader: 'raw-loader'
-      },
-      {
-        test: /\.svg$/,
         include: [path.join(__dirname, 'src/images/inline-svgs')],
         loader: 'raw-loader'
       },
@@ -77,8 +70,7 @@ module.exports = {
 
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'public/index.html' },
-      { from: 'public/images', to: 'images' }
+      { from: 'public/index.html' }
     ]),
     new HtmlWebpackPlugin({ template: './public/index.html' })
   ],
@@ -102,6 +94,6 @@ module.exports = {
       types:        path.resolve(__dirname, 'src/js/util/types'),
       validator:    path.resolve(__dirname, 'src/js/util/validator')
     },
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx', '.scss', '.html']
   }
 }

@@ -24,7 +24,7 @@ class ExampleFormContainer extends React.Component {
   }
 
   render() {
-    let fieldNames = ['textinput', 'password', 'checkbox', 'radio', 'toggle'];
+    let fieldNames = ['textinput', 'password', 'checkbox', 'radio', 'select', 'toggle'];
 
     return (
       <Form id='example-form' fieldNames={ fieldNames } submitForm={ this.submitForm }>

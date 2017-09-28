@@ -56,8 +56,7 @@ module.exports = {
 
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'public/index.html' },
-      { from: 'public/images', to: 'images' }
+      { from: 'public/index.html' }
     ]),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
     new webpack.optimize.UglifyJsPlugin({ minimize: true})
