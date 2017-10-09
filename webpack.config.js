@@ -23,7 +23,7 @@ module.exports = {
     contentBase: './public',
     port: 8080,
     host: '0.0.0.0',
-    open: true,
+    open: false,
     historyApiFallback: true,
     disableHostCheck: true
   },

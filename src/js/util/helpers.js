@@ -28,7 +28,13 @@ export function isValidETHAddress (address) {
 }
 
 export function numberWithCommas (x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  if (x.toString().indexOf('.') > -1) {
+    const before = x.toString().split('.')[0]
+    const after = x.toString().split('.')[1]
+    return `${before.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.${after}`
+  } else {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
 }
 
 export function padNum(num, length) {

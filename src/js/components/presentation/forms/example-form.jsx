@@ -22,7 +22,7 @@ const ExampleForm = (props) => {
   }
 
   return (
-    <form id='login-form' className='form login-form'>
+    <form id='example-form' className='form login-form'>
       <h3 className='login-form__header'>Example Form</h3>
       <TextInput id='textinput' name='textinput' label='Text Input' showLabel
         value={ formData.textinput ? formData.textinput.value : '' } onChange={ props.updateForm }
@@ -36,16 +36,26 @@ const ExampleForm = (props) => {
       <RadioGroup options={ radioOptions } onChange={ props.updateForm } name='radio'
         value={ formData.radio ? formData.radio.value : '' }
       />
-      <SelectInput options={ selectOptions } name='select'
-        value={ formData.select && formData.select.value ? formData.select.value : '' }
-        onChange={ props.manualFieldUpdate } showLabel label='Baked Goods'
-        error={ formData.select && formData.select.error ? formData.select.error : '' }
-      />
-      <ToggleSwitch labelText='Toggle Switch' isActive={ formData.toggle ? formData.toggle.value : false }
-        name='toggle' onClick={ toggleClick }
-      />
-      <Button onClick={ props.submitForm } text='Log in' className='btn-alt login-form__submit-button u-justify-center' />
-      <Link to='/new' className='login-form__no-account'>I don't have an account</Link>
+      <div style={{ zIndex: 5 }}>
+        <SelectInput options={ selectOptions } name='select' formId='example-form'
+          value={ formData.select && formData.select.value ? formData.select.value : '' }
+          onChange={ props.manualFieldUpdate } showLabel label='Baked Goods'
+          error={ formData.select && formData.select.error ? formData.select.error : '' }
+        />
+      </div>
+      <div style={{ zIndex: 4 }}>
+        <SelectInput options={ selectOptions } name='select' formId='example-form' typeAhead={ false }
+          value={ formData.select && formData.select.value ? formData.select.value : '' }
+          onChange={ props.manualFieldUpdate } showLabel label='Baked Goods -- No TypeAhead'
+          error={ formData.select && formData.select.error ? formData.select.error : '' }
+        />
+      </div>
+      <div style={{ zIndex: 3 }}>
+        <ToggleSwitch labelText='Toggle Switch' isActive={ formData.toggle ? formData.toggle.value : false }
+          name='toggle' onClick={ toggleClick }
+        />
+      </div>
+      <Button onClick={ props.submitForm } text='Log in' className='btn login-form__submit-button u-justify-center' />
     </form>
   )
 }
