@@ -1166,9 +1166,9 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bloom-forms@^0.1.51:
-  version "0.1.51"
-  resolved "https://registry.yarnpkg.com/bloom-forms/-/bloom-forms-0.1.51.tgz#278979c6925cafbd5d170315030fc4f0b39efe7c"
+bloom-forms@^0.1.52:
+  version "0.1.52"
+  resolved "https://registry.yarnpkg.com/bloom-forms/-/bloom-forms-0.1.52.tgz#63bdffb98fd0992abd0db6caaf11ab219e4a70f4"
   dependencies:
     assert "^1.4.1"
     babel-core "^6.26.0"
@@ -1182,6 +1182,7 @@ bloom-forms@^0.1.51:
     babel-preset-stage-2 "^6.24.1"
     css-loader "^0.28.7"
     enzyme "^2.9.1"
+    file-loader "^1.1.5"
     ignore-styles "^5.0.1"
     jsdom "^11.2.0"
     node-sass "^4.5.3"
@@ -1194,6 +1195,7 @@ bloom-forms@^0.1.51:
     sass-loader "^6.0.6"
     sinon "^3.3.0"
     style-loader "^0.18.2"
+    url-loader "^0.6.2"
     webpack "^3.6.0"
 
 bluebird@^2.10.2:
@@ -2688,6 +2690,13 @@ file-loader@^0.11.1:
   dependencies:
     loader-utils "^1.0.2"
 
+file-loader@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.5.tgz#91c25b6b6fbe56dae99f10a425fd64933b5c9daa"
+  dependencies:
+    loader-utils "^1.0.2"
+    schema-utils "^0.3.0"
+
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
@@ -3929,6 +3938,10 @@ mime@1.3.4:
 mime@1.3.x, mime@^1.3.4:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.3.6.tgz#591d84d3653a6b0b4a3b9df8de5aa8108e72e5e0"
+
+mime@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
 mimic-fn@^1.0.0:
   version "1.1.0"
@@ -6003,6 +6016,14 @@ url-loader@^0.5.8:
   dependencies:
     loader-utils "^1.0.2"
     mime "1.3.x"
+
+url-loader@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-0.6.2.tgz#a007a7109620e9d988d14bce677a1decb9a993f7"
+  dependencies:
+    loader-utils "^1.0.2"
+    mime "^1.4.1"
+    schema-utils "^0.3.0"
 
 url-parse@1.0.x:
   version "1.0.5"
