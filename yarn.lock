@@ -1166,9 +1166,9 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bloom-forms@^0.1.53:
-  version "0.1.53"
-  resolved "https://registry.yarnpkg.com/bloom-forms/-/bloom-forms-0.1.53.tgz#a37d583774cc5e6ef9d6a96b2863f611342b9b29"
+bloom-forms@^0.1.73:
+  version "0.1.73"
+  resolved "https://registry.yarnpkg.com/bloom-forms/-/bloom-forms-0.1.73.tgz#f1b1e4275cb8ae0e12bf97657b6ccc32b608dcdc"
   dependencies:
     assert "^1.4.1"
     babel-core "^6.26.0"

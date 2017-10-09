@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Checkbox, RadioGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
+import { Button, Checkbox, FileInput, RadioGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
 
 const ExampleForm = (props) => {
   // I am a reference form
@@ -20,6 +20,7 @@ const ExampleForm = (props) => {
     e.preventDefault();
     props.manualFieldUpdate(props.formId, 'toggle', formData && formData.toggle && !formData.toggle.value)
   }
+  console.log(formData)
 
   return (
     <form id='example-form' className='form login-form'>
@@ -55,6 +56,9 @@ const ExampleForm = (props) => {
           name='toggle' onClick={ toggleClick }
         />
       </div>
+      <FileInput name='file-simple' label='Basic File Input' id='file-simple'
+        onChange={ props.manualFieldUpdate }
+      />
       <Button onClick={ props.submitForm } text='Log in' className='btn login-form__submit-button u-justify-center' />
     </form>
   )
