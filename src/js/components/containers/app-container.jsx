@@ -57,9 +57,7 @@ class AppContainer extends React.Component {
         <Header openModal={ this.props.openModal } user={ this.props.user } />
         <MainSwitch />
         <Footer />
-        { this.props.alerts[0] ?
-          <Alert currentAlert={ this.props.alerts[0] } />
-          : '' }
+        <Alert currentAlert={ this.props.alerts[0] } hidden={ !this.props.alerts[0] } />
         <Modal />
       </div>
     );
@@ -71,8 +69,8 @@ const mapDispatchToProps = (dispatch) => {
     expireAlert: () => {
       return dispatch(expireAlert());
     },
-    openModal: (e, modalContents) => {
-      dispatch(openModal(e, modalContents));
+    openModal: (e, modalContents, triggerId) => {
+      dispatch(openModal(e, modalContents, triggerId));
     }
   }
 }

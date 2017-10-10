@@ -20,3 +20,19 @@ TRANSITIONS
   height: 50px;
   transition: height 300ms ease-in;
 }
+
+.decend-entering {
+  margin-top: -30px !important;
+}
+
+.decend-entered {
+  margin-top: 0 !important;
+}
+
+.decend-exiting {
+  margin-top: -10px !important;
+}
+
+.decend-exited {
+  margin-top: -30px !important;
+}

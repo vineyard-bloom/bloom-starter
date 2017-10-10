@@ -20,7 +20,7 @@ const Header = (props) => {
         </Link>
         <div className='header__top-row__right'>
           <Button text='Open Example Modal' id='example-modal-opener' className='u-inline-block'
-            onClick={ (e) => { props.openModal(e, <div>I'm a modal wee</div>) } } />
+            onClick={ (e) => { props.openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener') } } />
         </div>
       </div>
       <SubHeader openModal={ props.openModal } user={ props.user } />
