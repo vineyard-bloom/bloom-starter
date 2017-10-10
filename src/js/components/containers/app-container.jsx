@@ -11,7 +11,7 @@ import { expireAlert } from 'redux-store/actions/alertActions';
 import { openModal } from 'redux-store/actions/modalActions';
 
 import Alert from 'presentation/layout/alert';
-import Header from 'presentation/navigation/header';
+import Header from 'presentation/layout/header';
 import Footer from 'presentation/layout/footer';
 import MainSwitch from 'js/main-switch';
 import Modal from 'presentation/layout/modal';

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { Button } from 'bloom-forms';
 
 import Logo from 'presentation/logos/logo';
-import SubHeader from 'presentation/sub-header';
+import SubHeader from 'presentation/layout/sub-header';
 
 import 'styles/components/header.scss';
 
@@ -15,7 +15,7 @@ const Header = (props) => {
       Bloom Starter Kit.
       This is an example header.
       <div className='header__top-row'>
-        <Link to='/dashboard'>
+        <Link to='/'>
           <Logo full={ true } />
         </Link>
         <div className='header__top-row__right'>
