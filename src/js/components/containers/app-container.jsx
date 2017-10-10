@@ -7,7 +7,7 @@ import BigNumber from 'bignumber.js';
 import { convertWeiToEth } from 'helpers';
 import { WebServiceType } from 'types';
 
-import { expireAlert } from 'redux-store/actions/alertActions';
+import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { openModal } from 'redux-store/actions/modalActions';
 
 import Alert from 'presentation/layout/alert';
@@ -52,12 +52,14 @@ class AppContainer extends React.Component {
   };
 
   render() {
+    const { addAlert, alerts, openModal, user } = this.props
+
     return (
       <div className='app-container'>
-        <Header openModal={ this.props.openModal } user={ this.props.user } />
+        <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainSwitch />
         <Footer />
-        <Alert currentAlert={ this.props.alerts[0] } hidden={ !this.props.alerts[0] } />
+        <Alert currentAlert={ alerts[0] } hidden={ !alerts[0] } />
         <Modal />
       </div>
     );
@@ -66,6 +68,9 @@ class AppContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addAlert: (message, style) => {
+      return dispatch(addAlert(message, style))
+    },
     expireAlert: () => {
       return dispatch(expireAlert());
     },

@@ -23,6 +23,7 @@ const Header = (props) => {
             onClick={ (e) => { props.openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener') } } />
         </div>
       </div>
+      <a href='#' onClick={ e => { e.preventDefault(); props.addAlert('boop', 'success') } }>Example Alert</a>
       <SubHeader openModal={ props.openModal } user={ props.user } />
     </div>
   )
