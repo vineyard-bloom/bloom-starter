@@ -9,7 +9,8 @@ module.exports = {
   entry: APP_DIR + 'index.js',
   output: {
     filename: 'bundle.js',
-    path: BUILD_DIR
+    path: BUILD_DIR,
+    publicPath: '/'
   },
 
   module: {

@@ -19,9 +19,12 @@ body {
 
 main {
   // margin-top: $header-height;
+  min-height: 90%;
 }
 
 /* start actual styles */
 @import 'core/base';
 @import 'core/objects';
 @import 'core/utilities';
+@import 'components/forms';
+@import 'components/inputs';

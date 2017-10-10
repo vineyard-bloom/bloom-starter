@@ -54,13 +54,13 @@ class AppContainer extends React.Component {
   render() {
     return (
       <div className='app-container'>
+        <Header openModal={ this.props.openModal } user={ this.props.user } />
+        <MainSwitch />
+        <Footer />
         { this.props.alerts[0] ?
           <Alert currentAlert={ this.props.alerts[0] } />
           : '' }
         <Modal />
-        <Header openModal={ this.props.openModal } user={ this.props.user } />
-        <MainSwitch />
-        <Footer />
       </div>
     );
   }

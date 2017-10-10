@@ -2,6 +2,7 @@
 INPUTS
 ======
 - site-wide styles for inputs
+- customize the built-in styles with bloom-forms inputs
 */
 
 $slider-height: 10px;
@@ -9,6 +10,7 @@ $slider-height: 10px;
 @import '../core/_variables';
 @import '../core/_mixins';
 
+// hide number arrows
 input[type='number'] {
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -17,69 +19,45 @@ input[type='number'] {
   }
 }
 
-input[type='range'] {
-  background: transparent;
-  width: 100%;
-  -webkit-appearance: none;
-  
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
-
-  &::-ms-track {
-    background: transparent; 
-    border-color: transparent;
-    color: transparent;
-    cursor: pointer;
-    width: 100%;
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
+// gray out input placeholders
 .input {
-  border: 2px solid $med-gray;
-  border-radius: $border-radius;
-  color: $dark-gray;
-  font-size: $main-font-size;
-  margin: $pad-mar-small 0;
-  padding: $pad-mar-small $pad-mar-med;
-  width: 100%;
+  &::-webkit-input-placeholder {
+    color: $med-gray;
+  }
 
-  &::-webkit-input-placeholder,
-  &::-moz-placeholder,
-  &:-ms-input-placeholder,
+  &::-moz-placeholder {
+    color: $med-gray;
+  }
+
+  &:-ms-input-placeholder {
+    color: $med-gray;
+  }
+
   &:-moz-placeholder {
     color: $med-gray;
   }
 }
 
-.input[type='checkbox'] {
-  display: inline-block;
-  margin-left: -12px;
-  width: auto;
-
-  z-index: 0;
+// errored inputs
+.input--invalid {
+  box-shadow: 0 0 5px $red;
 }
 
+// wrapper label
+.input__label {
+  width: 100%;
+}
+
+// checkbox styles
 .input--checkbox__placeholder {
-  background-color: $white;
-  border: 1px solid $dark-gray;
-  cursor: pointer;
-  height: 10px;
-  width: 10px;
-  z-index: 1;
+  margin-right: $pad-mar-x-small;
 
   &.is-checked {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e9/Echo_curation_alt_check_mark.svg');
-    background-position: -1px 1px;
-    background-repeat: no-repeat;
-    background-size: 10px;
   }
 }
 
+// currency styles
 .input--currency {
   & ~ .input__after {
     color: $light-gray;
@@ -88,149 +66,115 @@ input[type='range'] {
   }
 }
 
-.input__error {
-  display: block;
-  color: $red;
-  font-size: $h5-font-size;
-  margin: 0 0 $pad-mar-med;
-  padding: 0;
-  width: 100%;
-}
-
-.input--file {
-  cursor: pointer;
-
-  .btn {
-    background-color: $green;
-    color: white;
-    padding: $pad-mar-small;
-  }
-}
-
-.input--file__text {
-  display: inline-block;
-}
-
-.input--invalid {
-  box-shadow: 0 0 5px $red;
-}
-
-.input__label {
-  display: inline-flex;
-  flex-wrap: wrap;
-  width: 100%;
-  z-index: 1;
-
-  &--small {
-    margin: $pad-mar-small 0 $pad-mar-small $pad-mar-small;
-    width: 40%;
-
-    &:last-of-type {
-      margin-right: $pad-mar-small;
-    }
-  }
-
-  &__text {
-    align-items: center;
-    display: flex;
-    margin-right: $pad-mar-small;
-  }
-
-  &--wrap {
-    flex-wrap: wrap;
-  }
-
-  &--inline {
-    align-items: center;
-  }
-}
-
+// input display hiding native input
 .input__placeholder {
-  align-items: center;
-  border: 2px solid $med-gray;
   border-radius: $border-radius;
   color: $dark-gray;
-  display: flex;
   font-size: $main-font-size;
-  justify-content: space-between;
   margin: $pad-mar-small 0;
-  padding-left: $pad-mar-med;
   width: 100%;
 }
 
-input[type='range'].input--range {
-  border: none;
-  padding: 0;
+/* RANGE / SLIDERS */
+// keep me in case we want our own custom range later
 
-  // thumb circle
-  &::-webkit-slider-thumb {
-    background-color: $blue;
-    border: 1px solid $blue;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 30px;
-    margin-top: -10px;
-    width: 30px;
-  }
+// input[type='range'] {
+//   background: transparent;
+//   width: 100%;
+//   -webkit-appearance: none;
+  
+//   &::-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//   }
 
-  &::-moz-range-thumb {
-    background-color: $white;
-    border: 1px solid $blue;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 30px;
-    margin-top: -10px;
-    width: 30px;
-  }
+//   &::-ms-track {
+//     background: transparent; 
+//     border-color: transparent;
+//     color: transparent;
+//     cursor: pointer;
+//     width: 100%;
+//   }
 
-  &::-ms-thumb {
-    background-color: $white;
-    border: 1px solid $blue;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 30px;
-    margin-top: -10px;
-    width: 30px;
-  }
+//   &:focus {
+//     outline: none;
+//   }
+// }
 
-  // track
-  &::-webkit-slider-runnable-track {
-    background-color: $white;
-    border: 1px solid $blue;
-    border-radius: 5px;
-    height: $slider-height;
-    width: 100%;
-  }
+// input[type='range'].input--range {
+//   border: none;
+//   padding: 0;
 
-  // &:focus::-webkit-slider-runnable-track {
-  //   background-color: $white;
-  // }
+//   // thumb circle
+//   &::-webkit-slider-thumb {
+//     background-color: $blue;
+//     border: 1px solid $blue;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     height: 30px;
+//     margin-top: -10px;
+//     width: 30px;
+//   }
 
-  &::-moz-range-track {
-    background-color: $white;
-    border: 1px solid $blue;
-    border-radius: 5px;
-    height: $slider-height;
-    width: 100%;
-  }
+//   &::-moz-range-thumb {
+//     background-color: $white;
+//     border: 1px solid $blue;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     height: 30px;
+//     margin-top: -10px;
+//     width: 30px;
+//   }
 
-  &::-moz-range-progress {
-    background-color: $blue;
-    height: $slider-height;
-  }
+//   &::-ms-thumb {
+//     background-color: $white;
+//     border: 1px solid $blue;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     height: 30px;
+//     margin-top: -10px;
+//     width: 30px;
+//   }
 
-  &:focus::-ms-fill-lower,
-  &::-ms-fill-lower {
-    background-color: $blue;
-    height: $slider-height;
-  }
+//   // track
+//   &::-webkit-slider-runnable-track {
+//     background-color: $white;
+//     border: 1px solid $blue;
+//     border-radius: 5px;
+//     height: $slider-height;
+//     width: 100%;
+//   }
 
-  &:focus::-ms-fill-upper,
-  &::-ms-fill-upper {
-    background-color: $white;
-    border: 1px solid $blue;
-    border-radius: 5px;
-    height: $slider-height;
-    width: 100%;
-  }
-}
+//   // &:focus::-webkit-slider-runnable-track {
+//   //   background-color: $white;
+//   // }
+
+//   &::-moz-range-track {
+//     background-color: $white;
+//     border: 1px solid $blue;
+//     border-radius: 5px;
+//     height: $slider-height;
+//     width: 100%;
+//   }
+
+//   &::-moz-range-progress {
+//     background-color: $blue;
+//     height: $slider-height;
+//   }
+
+//   &:focus::-ms-fill-lower,
+//   &::-ms-fill-lower {
+//     background-color: $blue;
+//     height: $slider-height;
+//   }
+
+//   &:focus::-ms-fill-upper,
+//   &::-ms-fill-upper {
+//     background-color: $white;
+//     border: 1px solid $blue;
+//     border-radius: 5px;
+//     height: $slider-height;
+//     width: 100%;
+//   }
+// }
+
+

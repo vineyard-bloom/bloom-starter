@@ -1,0 +1,49 @@
+/*
+ACCORDION
+*/
+
+@import '../core/variables';
+
+.accordion {
+  
+}
+
+.accordion__section {
+  border-bottom: 1px solid $light-gray;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+.accordion__section__header {
+  background-color: transparent;
+  border: 0;
+  color: $light-gray;
+  font-size: $h2-font-size;
+  text-align: left;
+  width: 100%;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: transparent;
+    color: $light-gray;
+  }
+
+  &.is-open {
+    color: $dark-gray;
+  }
+}
+
+.accordion__section__contents {
+  overflow: hidden;
+  transition: .2s ease;
+
+  &[aria-hidden="true"] {
+    display: block;
+    // height: 0;
+    max-height: 1px;
+    // opacity: 0;
+  }
+}
