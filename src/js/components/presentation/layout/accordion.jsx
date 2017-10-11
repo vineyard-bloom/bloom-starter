@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Transition from 'react-transition-group/Transition'
 
 import 'styles/components/accordion'
 
@@ -11,7 +12,7 @@ class Accordion extends React.Component {
 
   triggerSection = (index) => {
     this.setState({
-      openSection: index
+      openSection: index === this.state.openSection ? null : index
     })
   }
 
@@ -22,27 +23,30 @@ class Accordion extends React.Component {
       let isOpen = openSection === i
       let sectionId = `accordion-section-${section.header.toLowerCase().replace(/\s/g, '-')}`
       return (
-        <li className='accordion__section'
+        <li className={ `accordion__section ${ isOpen ? 'is-open' : '' }` }
           key={ sectionId }
           aria-expanded={ isOpen }
-          id={ sectionId }
-        >
+          id={ sectionId }>
           <button className={ `accordion__section__header ${ section.isValid ? 'is-valid' : '' } ${ isOpen ? 'is-open' : '' }` }
-            aria-controls={ sectionId }
-            onClick={ (e) => { e.preventDefault(); this.triggerSection(i) } }
-          >
+            aria-controls={ sectionId } id={ `${sectionId}-trigger-button` }
+            onClick={ (e) => { e.preventDefault(); this.triggerSection(i) } }>
             { section.header }
           </button>
-          <div aria-hidden={ !isOpen } className={ `accordion__section__contents ${ isOpen ? 'is-open' : '' }` }>
-            { section.child
-              ? (
-                React.cloneElement(section.child, {
-                  triggerSection: this.triggerSection
-                })
-              ) : ''
-             }
-          </div>
-        </li>
+          <Transition in={isOpen} timeout={0}>
+            {(status) =>
+              <div aria-hidden={ !isOpen } aria-expanded={ isOpen } aria-labelledby={ `${sectionId}-trigger-button` }
+                className={ `accordion__section__contents ${ isOpen ? 'is-open' : '' } fold-${status}` }>
+                { section.child
+                  ? (
+                    React.cloneElement(section.child, {
+                      triggerSection: this.triggerSection
+                    })
+                  ) : ''
+                 }
+              </div>
+            }
+          </Transition>
+      </li>
       )
     })
 

@@ -3,36 +3,41 @@ MODAL
 */
 
 @import '../core/_variables';
+@import '../core/mixins';
 
 $modal-contents-width: 450px;
 
 .modal {
+  @include transition(.3s ease, .3s ease opacity .1s, 0s ease height .3s, .1s ease top, .1s ease background-color .1s);
   background-color: rgba(0,0,0,0.5);
   bottom: 0;
-  height: 100vw;
+  height: 100vh;
   left: 0;
   padding-top: 80px;
   position: fixed;
   right: 0;
   top: 0;
-  transition: .3s ease margin, .3s ease opacity .1s, .3s ease padding, 0s ease height 0s;
   width: 100vw;
   z-index: calc(#{$z-100} + #{$z-1});
 
   &.hidden {
-    height: 1px;
-    opacity: 0;
+    @include transition(.2s ease, .3s ease-in-out top .2s);
+    background-color: transparent;
     padding: 0;
-    top: -800px;
-    transition: .3s ease margin, .3s ease opacity .1s, .3s ease padding, 0s ease height .1s, 0s ease background-color 0s;
+    top: -100vh;
+
+    .modal-content {
+      opacity: 0;
+    }
   }
 
   .modal-content {
+    @include transition(.5s ease margin .1s, .5s ease opacity);
     background-color: $white;
     margin: 0 auto;
     min-height: 400px;
+    opacity: 1;
     overflow: hidden;
-    transition: .5s ease margin;
     width: $modal-contents-width;
 
     .btn-close {

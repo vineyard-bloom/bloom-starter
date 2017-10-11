@@ -1,26 +1,39 @@
+/* eslint-disable */
 /*
 TRANSITIONS
 - used with CSS transition group
 */
 
-.fold-enter {
-  height: 50px !important;
+.fold-entering {
+  @include transition(.2s ease-in-out, .8s ease-in-out max-height 0s, .2s ease opacity .3s);
+  max-height: 10px !important;
+  opacity: .5;
+  overflow: hidden;
 }
 
-.fold-enter.fold-enter-active {
-  height: auto !important;
+.fold-entered {
+  @include transition(.2s ease-in-out, .8s ease-in-out max-height 0s, .2s ease opacity .3s);
+  max-height: 800px !important;
+  opacity: 1;
+  overflow: visible;
 }
 
-.fold-leave {
-  height: calc(100% - 50px) !important;
+.fold-exiting {
+  @include transition(.2s ease-in-out, .8s ease-in-out max-height 0s);
+  max-height: 100px !important;
+  opacity: .5;
+  overflow: hidden;
 }
 
-.fold-leave.fold-leave-active {
-  height: 50px !important;
+.fold-exited {
+  @include transition(.2s ease-in-out, .5s ease-in-out max-height 0s);
+  max-height: 1px !important;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .decend-entering {
-  margin-top: -30px !important;
+  margin-top: 30px !important;
 }
 
 .decend-entered {

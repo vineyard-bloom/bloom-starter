@@ -6,6 +6,7 @@ ALERTS
 @import '../core/_mixins';
 
 .alert {
+  @include transition(.4s ease margin .2s, .15s ease opacity .3s);
   align-items: center;
   background-color: $white;
   box-shadow: $box-shadow;
@@ -15,18 +16,17 @@ ALERTS
   left: calc(50% - 150px);
   position: relative;
   top: 80px;
-  transition: .4s ease margin .2s, .15s ease opacity .3s;
   width: 300px;
 }
 
 .alert__background {
+  @include transition(.1s ease .3s);
   background-color: rgba(0,0,0,0.1);
   bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
-  transition: .1s ease .3s;
   width: 100%;
   z-index: $z-100;
 
@@ -35,8 +35,8 @@ ALERTS
     top: -150px;
 
     .alert {
+      @include transition(.4s ease margin .1s, .2s ease opacity .2s);
       opacity: 0;
-      transition: .4s ease margin .1s, .2s ease opacity .2s;
     }
   }
 }

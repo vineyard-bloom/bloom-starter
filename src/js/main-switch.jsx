@@ -8,6 +8,8 @@ import HomeContainer from 'containers/home-container';
 import LoginFormContainer from 'containers/forms/login-form-container';
 import NewUserFormContainer from 'containers/forms/new-user-form-container';
 
+import ExampleAccordion from 'presentation/example-accordion'
+
 import FourOhFour from 'pages/four-oh-four.jsx';
 
 const MainSwitch = (props) => (
@@ -22,6 +24,7 @@ const MainSwitch = (props) => (
       <Route path='/login' component={ LoginFormContainer } />
       <Route path='/new' component={ NewUserFormContainer } />
       <Route path='/example' component={ ExampleFormContainer } />
+      <Route path='/accordion' component={ ExampleAccordion } />
       <Route path='*' component={ FourOhFour } />
     </Switch>
   </main>
