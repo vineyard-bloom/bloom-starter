@@ -101,3 +101,28 @@ this.props.closeModal()
 You cannot have more than one modal open at a time.
 
 You don't need to pass closeModal to the existing 'x' button.
+
+### Table
+The only required prop is `headers`, an array of objects that look like: { title: string, sortable: boolean, sortValue: string }. This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function.
+
+Optional, but helpful props are:
+- `activeSort`:
+  A string that matches one of the `headers`' `sortValue` prop. `<Table/>` automatically sorts your data by that value.
+- `changeActiveSort`:
+  A function that takes one of the `headers`' `sortValue` strings as input and changes the `activeSort` passed in from the parent container.
+- `data`:
+  An array of objects representing your table data. Object keys should all match your headers' `sortValue`s.
+- `linkFields`:
+  An object that turns data cells into links. The keys must match header `sortValue`s. For example:
+```
+{ 'id': '/product/:id', 'name': '/organization/:name' }
+```
+  would make any names and ids link to '/organization/<NAME>' and '/product/<ID>' respectively.
+
+
+### Tooltip
+Tooltip is hidden by default and opens on click. It can be used like:
+```
+<Tooltip contents='Tooltip contents' header='Example header' direction='left' />
+```
+Where `direction` is the side of the trigger button that the tooltip renders on.

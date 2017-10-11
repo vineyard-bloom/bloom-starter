@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import BigNumber from 'bignumber.js';
 
+import config from 'config/config.json';
+import { WebServiceStub } from 'stubs/webservice-stub';
+import { WebService } from 'services/web-service';
+
 import { convertWeiToEth } from 'helpers';
-import { WebServiceType } from 'types';
 
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { openModal } from 'redux-store/actions/modalActions';
@@ -25,8 +28,7 @@ class AppContainer extends React.Component {
     })),
     expireAlert: PropTypes.func,
     history: PropTypes.object,
-    location: PropTypes.object,
-    WebService: PropTypes.shape(WebServiceType)
+    location: PropTypes.object
   };
 
   timeoutAlerts = (alerts) => {
@@ -48,6 +50,7 @@ class AppContainer extends React.Component {
     // talk to WebService to get any important info
     // etc
 
+    window.WebService = config.app.useWebServiceStub ? new WebServiceStub() : new WebService()
     this.timeoutAlerts(this.props.alerts);
   };
 
@@ -84,8 +87,7 @@ const mapStateToProps = (state) => {
   return {
     alerts: state.alerts,
     modal: state.modal,
-    user: state.user,
-    WebService: state.services.WebService
+    user: state.user
   }
 }
 

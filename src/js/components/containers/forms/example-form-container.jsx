@@ -8,13 +8,13 @@ import ExampleForm from 'presentation/forms/example-form';
 class ExampleFormContainer extends React.Component {
 
   rerouteAfterSubmit = (res, formData) => {
-    this.props.WebService.post('/user/login', formData).then(() => {
+    WebService.post('/user/login', formData).then(() => {
       this.props.history.push('/lending');
     });
   };
 
   submitForm = (formData, files, successCallback, failCallback) => {
-    this.props.WebService.post('/user', formData)
+    WebService.post('/user', formData)
       .then((res) => {
         this.rerouteAfterSubmit(res, formData)
       })
@@ -34,10 +34,4 @@ class ExampleFormContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    WebService: state.services.WebService
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(ExampleFormContainer));
+export default withRouter(ExampleFormContainer);

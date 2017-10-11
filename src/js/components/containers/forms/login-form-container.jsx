@@ -12,7 +12,7 @@ class LoginFormContainer extends React.Component {
   };
 
   submitForm = (formData, files, successCallback, failCallback) => {
-    this.props.WebService.post('/user/login', formData)
+    WebService.post('/user/login', formData)
       .then((res) => {
         this.rerouteAfterSubmit(res, formData)
       })
@@ -32,10 +32,4 @@ class LoginFormContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    WebService: state.services.WebService
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(LoginFormContainer));
+export default withRouter(LoginFormContainer);

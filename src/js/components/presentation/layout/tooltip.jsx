@@ -7,6 +7,22 @@ class Tooltip extends React.Component {
     open: false
   };
 
+  static defaultProps = {
+    direction: 'right'
+  }
+
+  static propTypes = {
+    contents: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
+    ]).isRequired,
+    direction: PropTypes.string.isRequired,
+    header: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element
+    ])
+  }
+
   toggleOpen = (e) => {
     e.preventDefault();
 

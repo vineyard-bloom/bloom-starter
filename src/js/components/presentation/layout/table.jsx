@@ -77,7 +77,7 @@ const Table = (props) => {
   )
 }
 
-// example linkFieldNames:
+// example linkFields:
 // { 'id': '/product/:id', 'name': '/organization/:name' }
 
 Table.propTypes = {

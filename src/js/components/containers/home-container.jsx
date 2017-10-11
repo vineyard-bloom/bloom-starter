@@ -6,7 +6,7 @@ import BigNumber from 'bignumber.js';
 
 import { convertWeiToEth } from 'helpers';
 import { updateUser } from 'redux-store/actions/userActions';
-import { UserType, WebServiceType } from 'types';
+import { UserType } from 'types';
 
 import SideBar from 'presentation/navigation/side-bar';
 
@@ -14,8 +14,7 @@ class HomeContainer extends React.Component {
   static propTypes = {
     history: PropTypes.object,
     updateUser: PropTypes.func,
-    user: PropTypes.shape(UserType),
-    WebService: PropTypes.shape(WebServiceType)
+    user: PropTypes.shape(UserType)
   };
 
   mapDispatchToProps = (dispatch) => {
@@ -28,8 +27,7 @@ class HomeContainer extends React.Component {
 
   mapStateToProps = (state) => {
     return {
-      user: state.user,
-      WebService: state.services.WebService
+      user: state.user
     }
   };
 
@@ -42,7 +40,7 @@ class HomeContainer extends React.Component {
 
   componentDidMount = () => {
     // grab the user from api
-    this.props.WebService.getUser()
+    WebService.getUser()
       .then((res) => {
         let data = res.data;
         // update the user in the redux store

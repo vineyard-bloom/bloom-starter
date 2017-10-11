@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition'
 import { connect } from 'react-redux';
 
@@ -10,6 +11,12 @@ class Modal extends React.Component {
   state = {
     lastFocus: null
   };
+
+  static propTypes = {
+    closeModal: PropTypes.func,
+    modalContents: PropTypes.element,
+    modalTriggerId: PropTypes.string
+  }
 
   findLast = () => {
     // find last anchor on modal and focus

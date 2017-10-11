@@ -60,10 +60,6 @@ export class WebService {
     return post('/user/2fa', data)
   };
 
-  fetchExchangeRate () {
-    return get('/exchange/rates')
-  };
-
   fetchGlobalTotals () {
     return get('/global/stats')
   };
