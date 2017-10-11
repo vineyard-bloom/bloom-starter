@@ -11,11 +11,44 @@ ALERTS
   box-shadow: $box-shadow;
   display: flex;
   height: 100px;
-  left: calc(50% - 150px);
   justify-content: center;
-  position: fixed;
+  left: calc(50% - 150px);
+  position: relative;
   top: 80px;
+  transition: .4s ease margin .2s, .15s ease opacity .3s;
   width: 300px;
+}
+
+.alert__background {
+  background-color: rgba(0,0,0,0.1);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: .1s ease .3s;
+  width: 100%;
+  z-index: $z-100;
+
+  &.hidden {
+    height: 1px;
+    top: -150px;
+
+    .alert {
+      opacity: 0;
+      transition: .4s ease margin .1s, .2s ease opacity .2s;
+    }
+  }
+}
+
+.alert__text {
+  text-align: center;
+  width: 100%;
+}
+
+.alert__icon {
+  display: block;
+  font-size: $giant-font-size;
 }
 
 .alert--success {

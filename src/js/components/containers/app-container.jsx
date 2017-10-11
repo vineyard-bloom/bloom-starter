@@ -7,16 +7,16 @@ import BigNumber from 'bignumber.js';
 import { convertWeiToEth } from 'helpers';
 import { WebServiceType } from 'types';
 
-import { expireAlert } from 'redux-store/actions/alertActions';
+import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { openModal } from 'redux-store/actions/modalActions';
 
 import Alert from 'presentation/layout/alert';
-import Header from 'presentation/navigation/header';
+import Header from 'presentation/layout/header';
 import Footer from 'presentation/layout/footer';
 import MainSwitch from 'js/main-switch';
 import Modal from 'presentation/layout/modal';
 
-// App Container is where any global countdowns, etc are initialized and tracked
+// App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked
 class AppContainer extends React.Component {
   static propTypes = {
     alerts: PropTypes.arrayOf(PropTypes.shape({
@@ -29,17 +29,17 @@ class AppContainer extends React.Component {
     WebService: PropTypes.shape(WebServiceType)
   };
 
-  timeoutAlerts = () => {
-    if (this.props.alerts[0]) {
+  timeoutAlerts = (alerts) => {
+    if (alerts[0]) {
       setTimeout(() => {
         this.props.expireAlert();
-      }, 5000)
+      }, 3000)
     }
   };
 
   componentWillReceiveProps = (newProps) => {
     if (newProps.alerts[0]) {
-      this.timeoutAlerts();
+      this.timeoutAlerts(newProps.alerts);
     }
   }
 
@@ -48,18 +48,18 @@ class AppContainer extends React.Component {
     // talk to WebService to get any important info
     // etc
 
-    this.timeoutAlerts();
+    this.timeoutAlerts(this.props.alerts);
   };
 
   render() {
+    const { addAlert, alerts, modal, openModal, user } = this.props
+
     return (
-      <div className='app-container'>
-        <Header openModal={ this.props.openModal } user={ this.props.user } />
+      <div className={ `app-container ${modal && modal.modalContents ? 'u-prevent-scroll' : ''}` }>
+        <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainSwitch />
         <Footer />
-        { this.props.alerts[0] ?
-          <Alert currentAlert={ this.props.alerts[0] } />
-          : '' }
+        <Alert currentAlert={ alerts[0] } hidden={ !alerts[0] } />
         <Modal />
       </div>
     );
@@ -68,11 +68,14 @@ class AppContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addAlert: (message, style) => {
+      return dispatch(addAlert(message, style))
+    },
     expireAlert: () => {
       return dispatch(expireAlert());
     },
-    openModal: (e, modalContents) => {
-      dispatch(openModal(e, modalContents));
+    openModal: (e, modalContents, triggerId) => {
+      dispatch(openModal(e, modalContents, triggerId));
     }
   }
 }
@@ -80,6 +83,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     alerts: state.alerts,
+    modal: state.modal,
     user: state.user,
     WebService: state.services.WebService
   }

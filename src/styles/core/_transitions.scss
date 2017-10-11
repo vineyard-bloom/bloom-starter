@@ -4,19 +4,33 @@ TRANSITIONS
 */
 
 .fold-enter {
-  height: 50px;
+  height: 50px !important;
 }
 
 .fold-enter.fold-enter-active {
-  height: 100vh;
-  transition: height 500ms ease-in;
+  height: auto !important;
 }
 
 .fold-leave {
-  height: 100vh;
+  height: calc(100% - 50px) !important;
 }
 
 .fold-leave.fold-leave-active {
-  height: 50px;
-  transition: height 300ms ease-in;
+  height: 50px !important;
+}
+
+.decend-entering {
+  margin-top: -30px !important;
+}
+
+.decend-entered {
+  margin-top: 0 !important;
+}
+
+.decend-exiting {
+  margin-top: -10px !important;
+}
+
+.decend-exited {
+  margin-top: -30px !important;
 }

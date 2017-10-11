@@ -1,4 +1,5 @@
 import React from 'react';
+import Transition from 'react-transition-group/Transition'
 import { connect } from 'react-redux';
 
 import { closeModal } from 'redux-store/actions/modalActions';
@@ -58,6 +59,7 @@ class Modal extends React.Component {
 
   componentWillReceiveProps = (newProps) => {
     if (!this.props.modalContents && newProps.modalContents) {
+      // opening
       setTimeout(() => {
         let closeBtn = document.getElementById('modal-close-button');
         if (closeBtn) closeBtn.focus();
@@ -67,12 +69,11 @@ class Modal extends React.Component {
       setTimeout(() => {
         this.findLast()
       }, 200)
+    } else if (!newProps.modalContents && this.props.modalContents) {
+      // closing
+      let prevBtn = document.getElementById(this.props.modalTriggerId)
+      if (prevBtn) prevBtn.focus();
     }
-  };
-
-  componentWillUnmount = () => {
-    let prevBtn = document.getElementById(this.props.modalTriggerId)
-    if (prevBtn) prevBtn.focus();
   };
 
   render() {
@@ -80,12 +81,14 @@ class Modal extends React.Component {
 
     return (
       <div className={ `modal ${ modalContents ? 'active' : 'hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'>
-        { modalContents &&
-          <div className='modal-content'>
-            <button className='btn--null btn-close' id='modal-close-button' onClick={ () => props.closeModal() }>x</button>
-            { modalContents }
-          </div>
-        }
+        <Transition in={!!modalContents} timeout={0}>
+            {(status) => 
+              <div className={ `modal-content decend-${status}` }>
+                <button className='btn--null btn-close' id='modal-close-button' onClick={ () => props.closeModal() }>x</button>
+                { modalContents }
+              </div>
+            }
+        </Transition>
       </div>
     )
   }
