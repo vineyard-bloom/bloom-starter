@@ -21,9 +21,9 @@ This is a starter kit for react/redux projects.
 ## Usage
 
 ### Modals
-There is always a modal rendered to the screen, but it appears/disappears depending on if it's given any content to display. All modal methods are available in the redux store via `openModal` and `closeModal`.  Without `modalContents`, the modal is hidden, but every modal renders the same `x` button to close.
+There is always a modal rendered to the screen, but it appears/disappears depending on if it's given any content to display. All modal methods are available in the redux store via `openModal` and `closeModal`.  Without `modalContents`, the modal is hidden. Every modal renders the same `x` button to close.
 
-`openModal` takes two parameters, the `event` that triggered it opening, and `modalContents`, which should be a self-contained component containing any modal headers, body, forms, etc.
+`openModal` takes three parameters, the `event` that triggered it opening, `modalContents`, which should be a self-contained component containing any modal headers, body, forms, etc., and the ID of the button or anchor tag that triggered the modal. This third parameter is necessary for accessibility.
 
 To use, grab `openModal` and `closeModal` with mapDispatchToProps.
 ```
@@ -33,8 +33,8 @@ const mapDispatchToProps = (dispatch) => {
     closeModal: () => {
       dispatch(closeModal())
     },
-    openModal: (e, modalContents) => {
-      dispatch(openModal(e, modalContents))
+    openModal: (e, modalContents, triggerId) => {
+      dispatch(openModal(e, modalContents, triggerId))
     }
     ...
   }
@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch) => {
 ```
 And trigger it like so:
 ```
-this.props.openModal(e, <div>I am an example modal.</div>)
+this.props.openModal(e, <div>I am an example modal.</div>, 'example-button-trigger')
 ```
 or
 ```

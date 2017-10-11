@@ -11,7 +11,7 @@ import NewUserFormContainer from 'containers/forms/new-user-form-container';
 import FourOhFour from 'pages/four-oh-four.jsx';
 
 const MainSwitch = (props) => (
-  <main className={ `${props.modalContents ? 'u-prevent-scroll' : ''}` }>
+  <main>
     <Switch>
       <Route exact path='/' render={ () => (
         props.user.username ?
@@ -29,7 +29,6 @@ const MainSwitch = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    modalContents: state.modal.modalContents,
     user: state.user || {},
   }
 }

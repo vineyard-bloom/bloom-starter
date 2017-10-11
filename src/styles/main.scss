@@ -18,8 +18,13 @@ body {
 }
 
 main {
-  // margin-top: $header-height;
-  min-height: 90%;
+  min-height: calc(100vh - 200px);
+}
+
+.app-container {
+  display: grid;
+  grid-template: minmax(150px, auto) 1fr 50px / 1fr;
+  height: minmax(100vh, 100%);
 }
 
 /* start actual styles */

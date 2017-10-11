@@ -1,5 +1,6 @@
 import React from 'react';
 import SVGInline from "react-svg-inline";
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Button } from 'bloom-forms';
@@ -53,6 +54,10 @@ class SubHeader extends React.Component {
             <AccountDropdown />
           </AccountContainer>
         : '' }
+        <ul>
+          <Link to='/example'>Example Form</Link>
+          <Link to='/accordion'>Example Accordion</Link>
+        </ul>
       </div>
     )
   }

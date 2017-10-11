@@ -23,17 +23,10 @@ ACCESSIBILITY
 }
 
 .u-prevent-scroll {
-<<<<<<< Updated upstream
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-=======
   height: minmax(100vh, auto);
   overflow: hidden;
   position: fixed;
   width: 100%;
->>>>>>> Stashed changes
 }
 
 /*
