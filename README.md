@@ -15,7 +15,7 @@ This is a starter kit for react/redux projects.
 3. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
 
 ## Build
-1. `yarn build` to generate a production bundle. (needs optimization)
+1. `yarn build` to generate a production bundle.
 
 
 ## Usage
