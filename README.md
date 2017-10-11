@@ -14,8 +14,16 @@ This is a starter kit for react/redux projects.
 
 3. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
 
-## Build
+### Build
 1. `yarn build` to generate a production bundle.
+
+## Contents
+- [Accordions](https://github.com/vineyard-bloom/bloom-starter#accordions)
+- [Alerts](https://github.com/vineyard-bloom/bloom-starter#alerts)
+- [Forms](https://github.com/vineyard-bloom/bloom-starter#forms)
+- [Modals](https://github.com/vineyard-bloom/bloom-starter#modals)
+- [Tables](https://github.com/vineyard-bloom/bloom-starter#tables)
+- [Tooltips](https://github.com/vineyard-bloom/bloom-starter#tooltips)
 
 
 ## Usage
@@ -102,7 +110,7 @@ You cannot have more than one modal open at a time.
 
 You don't need to pass closeModal to the existing 'x' button.
 
-### Table
+### Tables
 The only required prop is `headers`, an array of objects that look like: { title: string, sortable: boolean, sortValue: string }. This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function.
 
 Optional, but helpful props are:
@@ -120,7 +128,7 @@ Optional, but helpful props are:
   would make any names and ids link to '/organization/<NAME>' and '/product/<ID>' respectively.
 
 
-### Tooltip
+### Tooltips
 Tooltip is hidden by default and opens on click. It can be used like:
 ```
 <Tooltip contents='Tooltip contents' header='Example header' direction='left' />

@@ -3,17 +3,29 @@ import * as config from 'config/config.json';
 
 export class WebService {
 
-  get(path) {
-    return get(path);
-  }
+  checkEmailAvailability (email) {
+    return new Promise((resolve, reject) => {
+      get('/user/email/available', { value: email })
+        .then(({ data }) => {
+          resolve(data.available)
+        })
+        .catch(err => reject(err))
+    })
+  };
 
-  post(path, data) {
-    return post(path, data);
-  }
+  checkUsernameAvailability (username) {
+    return new Promise((resolve, reject) => {
+      get('/user/username/available', { value: username })
+        .then(({ data }) => {
+          resolve(data.available)
+        })
+        .catch(err => reject(err))
+    })
+  };
 
-  put(path, data) {
-    return put(path, data);
-  }
+  fetchTwoFactorCode() {
+    return get('/2fa')
+  };
 
   getUser () {
     return get('/user')
@@ -30,12 +42,15 @@ export class WebService {
     return post('/user/login', data)
   };
 
+  logout () {
+    return post('/user/logout', {})
+  };
+
   register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorConfirmCode }) {
     const data = {
       username: username,
       password: password,
-      email: email,
-      ethereumAddress: ethPublicAddress
+      email: email
     }
     return post('/user', data)
   };
@@ -45,43 +60,12 @@ export class WebService {
     return put('/user', data)
   };
 
-  logout () {
-    return post('/user/logout', {})
-  };
-
-  fetchTwoFactorCode () {
-    return get('/user/2fa')
-  };
-
-  validateTwoFactorToken (token) {
-    const data = {
-      twoFactor: token
-    }
-    return post('/user/2fa', data)
-  };
-
-  fetchGlobalTotals () {
-    return get('/global/stats')
-  };
-
-  checkUsernameAvailability (username) {
-    return new Promise((resolve, reject) => {
-      get('/user/username/available', { value: username }).then(({ data }) => {
-        resolve(data.available)
-      }).catch(err => reject(err))
-    })
-  };
-
-  checkEmailAvailability (email) {
-    return new Promise((resolve, reject) => {
-      get('/user/email/available', { value: email }).then(({ data }) => {
-        resolve(data.available)
-      }).catch(err => reject(err))
-    })
-  };
-
   uploadFile(files) {
     return post('/file/upload?version=1.0', files);
   };
+
+  validateTwoFactorToken(token) {
+    return post('/2fa/validate', token)
+  }
 
 }
