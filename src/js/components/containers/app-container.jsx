@@ -16,7 +16,7 @@ import Footer from 'presentation/layout/footer';
 import MainSwitch from 'js/main-switch';
 import Modal from 'presentation/layout/modal';
 
-// App Container is where any global countdowns, etc are initialized and tracked
+// App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked
 class AppContainer extends React.Component {
   static propTypes = {
     alerts: PropTypes.arrayOf(PropTypes.shape({
@@ -29,17 +29,17 @@ class AppContainer extends React.Component {
     WebService: PropTypes.shape(WebServiceType)
   };
 
-  timeoutAlerts = () => {
-    if (this.props.alerts[0]) {
+  timeoutAlerts = (alerts) => {
+    if (alerts[0]) {
       setTimeout(() => {
         this.props.expireAlert();
-      }, 5000)
+      }, 3000)
     }
   };
 
   componentWillReceiveProps = (newProps) => {
     if (newProps.alerts[0]) {
-      this.timeoutAlerts();
+      this.timeoutAlerts(newProps.alerts);
     }
   }
 
@@ -48,14 +48,14 @@ class AppContainer extends React.Component {
     // talk to WebService to get any important info
     // etc
 
-    this.timeoutAlerts();
+    this.timeoutAlerts(this.props.alerts);
   };
 
   render() {
-    const { addAlert, alerts, openModal, user } = this.props
+    const { addAlert, alerts, modal, openModal, user } = this.props
 
     return (
-      <div className='app-container'>
+      <div className={ `app-container ${modal && modal.modalContents ? 'u-prevent-scroll' : ''}` }>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainSwitch />
         <Footer />
@@ -83,6 +83,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     alerts: state.alerts,
+    modal: state.modal,
     user: state.user,
     WebService: state.services.WebService
   }

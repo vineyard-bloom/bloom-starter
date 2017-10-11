@@ -15,7 +15,7 @@ ALERTS
   left: calc(50% - 150px);
   position: relative;
   top: 80px;
-  transition: .3s ease margin .1s, .2s ease opacity .2s;
+  transition: .4s ease margin .2s, .15s ease opacity .3s;
   width: 300px;
 }
 
@@ -26,18 +26,17 @@ ALERTS
   position: fixed;
   right: 0;
   top: 0;
-  transition: .1s ease all .3s;
+  transition: .1s ease .3s;
   width: 100%;
   z-index: $z-100;
 
   &.hidden {
     height: 1px;
-    position: absolute;
-    top: -1000px;
-    width: 1px;
+    top: -150px;
 
     .alert {
       opacity: 0;
+      transition: .4s ease margin .1s, .2s ease opacity .2s;
     }
   }
 }
