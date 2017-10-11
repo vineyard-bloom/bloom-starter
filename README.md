@@ -20,6 +20,55 @@ This is a starter kit for react/redux projects.
 
 ## Usage
 
+### Accordions
+Accordions are great UX elements for hiding needed content when it's not relevant, but they can be difficult to build with accessibility and good CSS in mind. The `<Accordion />` component tries to solve this.
+
+Accordions only need one property: an array of sections. Each section should be an object with a header, child (a React element of the contents inside that accordion), and a boolean isValid for styling that section of the accordion.
+
+```
+const sections = [
+  {
+    header: 'User Data',
+    contents: <UserDataSection />,
+    isValid: props.userValid
+  },
+  {
+    header: 'Pet Data',
+    contents: <PetDataSection />,
+    isValid: props.user.pets && !!props.user.pets.length
+  }
+]
+
+...
+
+<Accordion className='special-class' sections={ section } />
+```
+
+### Alerts
+Alerts function similarly to modals, except they close after a few seconds' timeout, and you can add several in a row, which appear in succession.
+
+The alert methods available through redux are `addAlert`, `expireAlert`, and `hardDeleteAlert`.
+
+`addAlert` takes two parameters: the alert message, and the style, which should be one of three strings: 'success', 'status', and 'warning'. (After grabbing via mapDispatchToProps), it's used like:
+```
+this.props.addAlert('I am an alert', 'success')
+```
+
+`expireAlert` times out the first alert in your array of alerts. For example, you might have two alerts pop up in succession: 'Server Error, please try again.' and 'You are not authorized to do this action.'
+The 'Server Error' alert will show up first. By default it will stay on screen for a few seconds and then disappear, revealing the second, but you may expire it early by calling
+```
+this.props.expireAlert()
+```
+
+`hardDeleteAlert` allows you to immediately delete any message in your alerts queue. Say you want to remove the second alert in the queue before it appears on screen. You can delete it immediately by
+```
+this.props.hardDeleteAlert('You are not authorized to do this action.')
+```
+
+### Forms
+All form functionality is done through the [bloom-forms](https://github.com/vineyard-bloom/bloom-forms) package.
+You can find all set up, usage, etc. docs there.
+
 ### Modals
 There is always a modal rendered to the screen, but it appears/disappears depending on if it's given any content to display. All modal methods are available in the redux store via `openModal` and `closeModal`.  Without `modalContents`, the modal is hidden. Every modal renders the same `x` button to close.
 
@@ -52,28 +101,3 @@ this.props.closeModal()
 You cannot have more than one modal open at a time.
 
 You don't need to pass closeModal to the existing 'x' button.
-
-### Alerts
-Alerts function similarly to modals, except they close after a few seconds' timeout, and you can add several in a row, which appear in succession.
-
-The alert methods available through redux are `addAlert`, `expireAlert`, and `hardDeleteAlert`.
-
-`addAlert` takes two parameters: the alert message, and the style, which should be one of three strings: 'success', 'status', and 'warning'. (After grabbing via mapDispatchToProps), it's used like:
-```
-this.props.addAlert('I am an alert', 'success')
-```
-
-`expireAlert` times out the first alert in your array of alerts. For example, you might have two alerts pop up in succession: 'Server Error, please try again.' and 'You are not authorized to do this action.'
-The 'Server Error' alert will show up first. By default it will stay on screen for a few seconds and then disappear, revealing the second, but you may expire it early by calling
-```
-this.props.expireAlert()
-```
-
-`hardDeleteAlert` allows you to immediately delete any message in your alerts queue. Say you want to remove the second alert in the queue before it appears on screen. You can delete it immediately by
-```
-this.props.hardDeleteAlert('You are not authorized to do this action.')
-```
-
-### Forms
-All form functionality is done through the [bloom-forms](https://github.com/vineyard-bloom/bloom-forms) package.
-You can find all set up, usage, etc. docs there.
