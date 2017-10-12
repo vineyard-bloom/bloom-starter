@@ -5,15 +5,13 @@ import actionTypes from './types';
 export function login(user) {
   return (dispatch) => 
     WebService.login(user)
-      .then(
-        res => dispatch({ type: actionTypes.LOGIN, user: res.data })
-      )
+      .then(res => dispatch({ type: actionTypes.LOGIN, user: res.data }))
 }
 
 export function logout() {
-  return {
-    type: actionTypes.CLEAR_USER
-  }
+  return (dispatch) =>
+    WebService.logout()
+      .then(res => dispatch({ type: actionTypes.CLEAR_USER }))
 }
 
 export function updateUser(userId, userData) {
@@ -22,4 +20,10 @@ export function updateUser(userId, userData) {
     userId,
     userData
   }
+}
+
+export function getUser() {
+  return (dispatch) =>
+    WebService.getUser()
+      .then(res => updateUser(res.data.id, res.data))
 }

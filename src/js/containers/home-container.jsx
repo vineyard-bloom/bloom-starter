@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import BigNumber from 'bignumber.js';
 
 import { convertWeiToEth } from 'helpers';
-import { updateUser } from 'redux-store/actions/userActions';
+import { getUser } from 'redux-store/actions/userActions';
 import { UserType } from 'types';
 
 import SideBar from 'presentation/navigation/side-bar';
@@ -21,8 +21,8 @@ class HomeContainer extends React.Component {
 
   mapDispatchToProps = (dispatch) => {
     return {
-      updateUser: (userId, userData) => {
-        dispatch(updateUser(userId, userData));
+      getUser: () => {
+        dispatch(updateUser());
       }
     }
   };
@@ -41,13 +41,7 @@ class HomeContainer extends React.Component {
   };
 
   componentDidMount = () => {
-    // grab the user from api
-    WebService.getUser()
-      .then((res) => {
-        let data = res.data;
-        // update the user in the redux store
-        this.props.updateUser(res.data.id, data);
-      });
+    this.props.getUser()
   };
 
   render() {
