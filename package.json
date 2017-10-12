@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "bignumber.js": "^4.0.2",
     "bloom-forms": "^0.1.88",
     "clipboard": "^1.7.1",

@@ -13,7 +13,7 @@ class AccountContainer extends React.Component {
   updateUser = (e, userId, userData) => {
     if (e) { e.preventDefault(); }
     this.props.updateUser(userId, userData)
-  }
+  };
 
   logout = (e) => {
     e.preventDefault();

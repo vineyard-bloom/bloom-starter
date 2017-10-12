@@ -48,7 +48,7 @@ class AppContainer extends React.Component {
   };
 
   render() {
-    const { addAlert, alerts, modal, openModal, user } = this.props
+    const { addAlert, alerts, closeModal, modal, openModal, user } = this.props
 
     return (
       <div className={ `app-container ${modal && modal.modalContents ? 'u-prevent-scroll' : ''}` }>
@@ -56,7 +56,9 @@ class AppContainer extends React.Component {
         <MainSwitch />
         <Footer />
         <Alert currentAlert={ alerts[0] } hidden={ !alerts[0] } />
-        <Modal modalContents={ modal && modal.modalContents } modalTriggerId={ modal && modal.modalTriggerId } />
+        <Modal modalContents={ modal && modal.modalContents } modalTriggerId={ modal && modal.modalTriggerId }
+          closeModal={ closeModal }
+        />
       </div>
     );
   }
