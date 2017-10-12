@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const BUILD_DIR = path.join(__dirname, '/dist/')
 const APP_DIR = path.join(__dirname, '/src/')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: APP_DIR + 'index.js',
@@ -62,6 +63,13 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
+          { loader: 'postcss-loader',
+            options: {
+              plugins: function() {
+                return [autoprefixer]
+              }
+            }
+          },
           { loader: 'sass-loader' }
         ]
       }
