@@ -101,19 +101,4 @@ class Modal extends React.Component {
   }
 };
 
-const mapStateToProps = (state) => {
-  return {
-    modalContents: state.modal.modalContents,
-    modalTriggerId: state.modal.modalTriggerId
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    closeModal: () => {
-      dispatch(closeModal());
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps)(Modal);
