@@ -15,22 +15,8 @@ import 'styles/components/home';
 class HomeContainer extends React.Component {
   static propTypes = {
     history: PropTypes.object,
-    updateUser: PropTypes.func,
+    getUser: PropTypes.func,
     user: PropTypes.shape(UserType)
-  };
-
-  mapDispatchToProps = (dispatch) => {
-    return {
-      getUser: () => {
-        dispatch(updateUser());
-      }
-    }
-  };
-
-  mapStateToProps = (state) => {
-    return {
-      user: state.user
-    }
   };
 
   componentWillReceiveProps = (newProps) => {
@@ -38,13 +24,22 @@ class HomeContainer extends React.Component {
       // logged out
       this.props.history.push('/login');
     }
+
+    if (newProps.getUser && !this.props.getUser) {
+      newProps.getUser()
+        .catch(err => console.log('get user error: ', err))
+    }
   };
 
   componentDidMount = () => {
-    this.props.getUser()
+    if (this.props.getUser) {
+      this.props.getUser()
+        .catch(err => console.log('get user error: ', err))
+    }
   };
 
   render() {
+    // console.log(this.props)
     return (
       <div className='home'>
         <SideBar user={ this.props.user } />
@@ -56,4 +51,17 @@ class HomeContainer extends React.Component {
   }
 }
 
-export default withRouter(connect(HomeContainer.mapStateToProps, HomeContainer.mapDispatchToProps)(HomeContainer));
+const mapDispatchToProps = (dispatch) => {
+    return {
+      getUser: () =>
+        dispatch(getUser())
+    }
+  };
+
+const mapStateToProps = (state) => {
+    return {
+      user: state.user
+    }
+  };
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeContainer));

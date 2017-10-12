@@ -21,10 +21,10 @@ const Alert = (props) => {
 }
 
 Alert.propTypes = {
-  currentAlert: {
+  currentAlert: PropTypes.shape({
     message: PropTypes.string.isRequired,
     style: PropTypes.string
-  },
+  }),
   hidden: PropTypes.bool
 }
 
