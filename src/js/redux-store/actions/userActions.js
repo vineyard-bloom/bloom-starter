@@ -2,6 +2,15 @@ import actionTypes from './types';
 
 /* user action creators */
 
+export function getUser() {
+  return (dispatch) =>
+    WebService.getUser()
+      .then(res => {
+        dispatch(updateUser(res.data.id, res.data))
+        return res
+      })
+}
+
 export function login(user) {
   return (dispatch) => 
     WebService.login(user)
@@ -11,7 +20,7 @@ export function login(user) {
           user: res.data
         })
         return res
-      )
+      })
 }
 
 export function logout() {
@@ -25,19 +34,19 @@ export function logout() {
       })
 }
 
+export function createUser(userData) {
+  return (dispatch) =>
+    WebService.register(userData)
+      .then(res => {
+        dispatch(login(userData))
+        return res
+      })
+}
+
 export function updateUser(userId, userData) {
   return {
     type: actionTypes.UPDATE_USER,
     userId,
     userData
   }
-}
-
-export function getUser() {
-  return (dispatch) =>
-    WebService.getUser()
-      .then(res => {
-        dispatch(updateUser(res.data.id, res.data))
-        return res
-      })
 }

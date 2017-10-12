@@ -14,13 +14,6 @@ class LoginFormContainer extends React.Component {
   };
 
   submitForm = (formData, files, successCallback, failCallback) => {
-    // WebService.post('/user/login', formData)
-    //   .then((res) => {
-    //     this.rerouteAfterSubmit(res, formData)
-    //   })
-    //   .catch((err) => {
-    //     failCallback(err)
-    //   })
     this.props.login(formData)
       .then((res) => {
         this.rerouteAfterSubmit()

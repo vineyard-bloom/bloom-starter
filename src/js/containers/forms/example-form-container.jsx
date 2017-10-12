@@ -3,24 +3,19 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Form } from 'bloom-forms';
 
+import { createUser } from 'redux-store/actions/userActions'
+
 import ExampleForm from 'presentation/forms/example-form';
 
 class ExampleFormContainer extends React.Component {
 
   rerouteAfterSubmit = (res, formData) => {
-    WebService.post('/user/login', formData).then(() => {
-      this.props.history.push('/lending');
-    });
+    this.props.history.push('/lending');
   };
 
   submitForm = (formData, files, successCallback, failCallback) => {
-    WebService.post('/user', formData)
-      .then((res) => {
-        this.rerouteAfterSubmit(res, formData)
-      })
-      .catch((err) => {
-        failCallback(err);
-      })
+    this.props.createUser(formData)
+      .then(res => this.rerouteAfterSubmit())
   }
 
   render() {
@@ -34,4 +29,18 @@ class ExampleFormContainer extends React.Component {
   }
 }
 
-export default withRouter(ExampleFormContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createUser: (userData) => {
+      dispatch(createUser(userData))
+    }
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user || {}
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExampleFormContainer));

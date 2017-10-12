@@ -3,24 +3,20 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Form } from 'bloom-forms';
 
+import { createUser } from 'redux-store/actions/userActions'
+
 import NewUserForm from 'presentation/forms/new-user-form';
 
 class NewUserFormContainer extends React.Component {
 
   rerouteAfterSubmit = (res, formData) => {
-    WebService.post('/user/login', formData).then(() => {
-      this.props.history.push('/lending');
-    });
+    this.props.history.push('/');
   };
 
   submitForm = (formData, files, successCallback, failCallback) => {
-    WebService.post('/user', formData)
-      .then((res) => {
-        this.rerouteAfterSubmit(res, formData)
-      })
-      .catch((err) => {
-        failCallback(err);
-      })
+    this.props.createUser(formData)
+      .then(res => this.rerouteAfterSubmit())
+      .catch((err) => failCallback(err))
   }
 
   render() {
