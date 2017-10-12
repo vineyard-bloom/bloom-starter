@@ -54,8 +54,9 @@ const ExampleForm = (props) => {
         />
       </div>
       <div style={{ zIndex: 3 }}>
-        <ToggleSwitch labelText='Toggle Switch' isActive={ formData.toggle ? formData.toggle.value : false }
-          name='toggle' onClick={ toggleClick }
+        <ToggleSwitch labelText='Toggle Switch' name='toggle' onClick={ toggleClick }
+          isActive={ formData.toggle && formData.toggle.value ? formData.toggle.value : false }
+          innerLabels={ {on: 'On', off: 'Off'} }
         />
       </div>
       <div style={{ zIndex: 2 }}>
