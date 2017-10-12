@@ -6,7 +6,7 @@ import BigNumber from 'bignumber.js';
 
 import { convertWeiToEth } from 'helpers';
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
-import { openModal } from 'redux-store/actions/modalActions';
+import { closeModal, openModal } from 'redux-store/actions/modalActions';
 
 import Alert from 'presentation/layout/alert';
 import Header from 'presentation/layout/header';
