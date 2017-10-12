@@ -17,19 +17,19 @@ export class WebServiceStub {
     return Promise.resolve({ data: user });
   };
 
-  fetchTwoFactorCode () {
+  fetchTwoFactorSecret () {
     const ret = {
       'secret': 'LVHGW4ZMHFCVWKKQLVZD4YKUKVQVI426PFUTIMS5OVASCWTVEVZQ'
     }
     return Promise.resolve({ data: ret })
   };
 
-  login ({ username, password, twoFactorConfirmCode }) {
-    if (username === 'testuser' && password === 'test' && twoFactorConfirmCode) {
+  login ({ username, password, twoFactorSecret }) {
+    if (username === 'froggy' && password === 'test' && twoFactorSecret) {
       this.loggedIn = true
       return Promise.resolve({ data: AuthenticatedUser })
     } else {
-      return Promise.resolve({})
+      return Promise.reject(new Error('Invalid Credentials'))
     }
   };
 
@@ -38,7 +38,7 @@ export class WebServiceStub {
     return Promise.resolve({})
   };
 
-  register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorConfirmCode }) {
+  register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorSecret }) {
     const fakeuser = {
       ...AuthenticatedUser,
       username: username,

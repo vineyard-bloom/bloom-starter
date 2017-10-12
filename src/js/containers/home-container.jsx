@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import BigNumber from 'bignumber.js';
 
 import { convertWeiToEth } from 'helpers';
-import { updateUser } from 'redux-store/actions/userActions';
+import { getUser } from 'redux-store/actions/userActions';
 import { UserType } from 'types';
 
 import SideBar from 'presentation/navigation/side-bar';
@@ -15,22 +15,8 @@ import 'styles/components/home';
 class HomeContainer extends React.Component {
   static propTypes = {
     history: PropTypes.object,
-    updateUser: PropTypes.func,
+    getUser: PropTypes.func,
     user: PropTypes.shape(UserType)
-  };
-
-  mapDispatchToProps = (dispatch) => {
-    return {
-      updateUser: (userId, userData) => {
-        dispatch(updateUser(userId, userData));
-      }
-    }
-  };
-
-  mapStateToProps = (state) => {
-    return {
-      user: state.user
-    }
   };
 
   componentWillReceiveProps = (newProps) => {
@@ -38,19 +24,22 @@ class HomeContainer extends React.Component {
       // logged out
       this.props.history.push('/login');
     }
+
+    if (newProps.getUser && !this.props.getUser) {
+      newProps.getUser()
+        .catch(err => console.log('get user error: ', err))
+    }
   };
 
   componentDidMount = () => {
-    // grab the user from api
-    WebService.getUser()
-      .then((res) => {
-        let data = res.data;
-        // update the user in the redux store
-        this.props.updateUser(res.data.id, data);
-      });
+    if (this.props.getUser) {
+      this.props.getUser()
+        .catch(err => console.log('get user error: ', err))
+    }
   };
 
   render() {
+    // console.log(this.props)
     return (
       <div className='home'>
         <SideBar user={ this.props.user } />
@@ -62,4 +51,17 @@ class HomeContainer extends React.Component {
   }
 }
 
-export default withRouter(connect(HomeContainer.mapStateToProps, HomeContainer.mapDispatchToProps)(HomeContainer));
+const mapDispatchToProps = (dispatch) => {
+    return {
+      getUser: () =>
+        dispatch(getUser())
+    }
+  };
+
+const mapStateToProps = (state) => {
+    return {
+      user: state.user
+    }
+  };
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeContainer));
