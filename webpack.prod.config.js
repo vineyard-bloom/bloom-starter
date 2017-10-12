@@ -42,7 +42,11 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015', 'stage-0', 'stage-2']
+          presets: ['react', 'env'],
+          'plugins': [
+            'transform-object-rest-spread',
+            'transform-class-properties'
+          ]
         }
       },
       {
@@ -90,6 +94,6 @@ module.exports = {
       types:        path.resolve(__dirname, 'src/js/util/types'),
       validator:    path.resolve(__dirname, 'src/js/util/validator')
     },
-    extensions: ['.webpack.js', '.web.js', '.jsx', '.js', '.html', '.scss']
+    extensions: ['.jsx', '.js', '.html', '.scss']
   }
 }

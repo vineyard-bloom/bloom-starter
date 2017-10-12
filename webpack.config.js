@@ -15,10 +15,6 @@ module.exports = {
 
   devtool: 'source-map',
 
-  resolve: {
-    extensions: ['.webpack.js', '.web.js', '.jsx', '.js', '.html', '.tsx', '.ts']
-  },
-
   devServer: {
     publicPath: '/',
     contentBase: './public',
@@ -55,7 +51,11 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015', 'stage-0', 'stage-2']
+          presets: ['react', 'env'],
+          'plugins': [
+            'transform-object-rest-spread',
+            'transform-class-properties'
+          ]
         }
       },
       {
@@ -84,7 +84,7 @@ module.exports = {
   ],
 
   resolve: {
-    alias: {
+    alias: {  // aliases allow you to import with cleaner paths like '/images/spinner.png' versus '../../images/spinner.png'
       config:       path.resolve(__dirname, 'config'),
       containers:   path.resolve(__dirname, 'src/js/containers'),
       helpers:      path.resolve(__dirname, 'src/js/util/helpers'),
