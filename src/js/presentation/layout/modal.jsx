@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition'
-import { connect } from 'react-redux';
 
 import { closeModal } from 'redux-store/actions/modalActions';
 
@@ -101,4 +100,4 @@ class Modal extends React.Component {
   }
 };
 
-export default connect(mapStateToProps)(Modal);
+export default Modal;
