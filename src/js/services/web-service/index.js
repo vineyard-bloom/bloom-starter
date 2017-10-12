@@ -23,7 +23,7 @@ export class WebService {
     })
   };
 
-  fetchTwoFactorCode() {
+  fetchTwoFactorSecret() {
     return get('/2fa')
   };
 
@@ -31,13 +31,13 @@ export class WebService {
     return get('/user')
   };
 
-  login ({ username, password, twoFactorConfirmCode }) {
+  login ({ username, password, twoFactorSecret }) {
     const data = {
       username: username,
       password: password
     }
-    if (twoFactorConfirmCode && twoFactorConfirmCode.length) {
-      data['twoFactor'] = twoFactorConfirmCode
+    if (twoFactorSecret && twoFactorSecret.length) {
+      data['twoFactor'] = twoFactorSecret
     }
     return post('/user/login', data)
   };
@@ -46,7 +46,7 @@ export class WebService {
     return post('/user/logout', {})
   };
 
-  register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorConfirmCode }) {
+  register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorSecret }) {
     const data = {
       username: username,
       password: password,

@@ -3,10 +3,11 @@ import actionTypes from './types';
 /* user action creators */
 
 export function login(user) {
-  return {
-    type: actionTypes.LOGIN,
-    user
-  }
+  return (dispatch) => 
+    WebService.login(user)
+      .then(
+        res => dispatch({ type: actionTypes.LOGIN, user: res.data })
+      )
 }
 
 export function logout() {
