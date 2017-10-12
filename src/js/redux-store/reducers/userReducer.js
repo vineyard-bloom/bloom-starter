@@ -1,17 +1,16 @@
 import initialState from '../initialState';
-import BigNumber from 'bignumber.js';
-
+import actionTypes from '../actions/types';
 
 export default function userReducer(state = initialState.user, action) {
   let newUser = state;
   switch (action.type) {
-    case 'CLEAR_USER':
+    case actionTypes.CLEAR_USER:
       return initialState.user;
 
-    case 'LOGIN':
+    case actionTypes.LOGIN:
       return { ...action.user }
 
-    case 'UPDATE_USER':
+    case actionTypes.UPDATE_USER:
       newUser = action.userData;
       return { ...newUser };
 

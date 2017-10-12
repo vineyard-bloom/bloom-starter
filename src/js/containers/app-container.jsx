@@ -5,18 +5,17 @@ import { withRouter } from 'react-router';
 import BigNumber from 'bignumber.js';
 
 import config from 'config/config.json';
-import { WebServiceStub } from 'stubs/webservice-stub';
+import { WebServiceStub } from 'stubs/web-service-stub';
 import { WebService } from 'services/web-service';
 
 import { convertWeiToEth } from 'helpers';
-
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { openModal } from 'redux-store/actions/modalActions';
 
 import Alert from 'presentation/layout/alert';
 import Header from 'presentation/layout/header';
 import Footer from 'presentation/layout/footer';
-import MainSwitch from 'js/main-switch';
+import MainSwitch from 'containers/main-switch';
 import Modal from 'presentation/layout/modal';
 
 // App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked

@@ -1,8 +1,6 @@
 import actionTypes from './types';
 
-
 /* user action creators */
-
 
 export function login(user) {
   return {

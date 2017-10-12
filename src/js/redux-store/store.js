@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import gasengineApp from 'redux-store/reducers'
+import bloomApp from 'redux-store/reducers'
 
-let store = createStore(gasengineApp);
+let store = createStore(bloomApp);
 
 export default store;

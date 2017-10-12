@@ -52,6 +52,8 @@ const sections = [
 <Accordion className='special-class' sections={ section } />
 ```
 
+[Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
+
 ### Alerts
 Alerts function similarly to modals, except they close after a few seconds' timeout, and you can add several in a row, which appear in succession.
 
@@ -73,9 +75,13 @@ this.props.expireAlert()
 this.props.hardDeleteAlert('You are not authorized to do this action.')
 ```
 
+[Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
+
 ### Forms
 All form functionality is done through the [bloom-forms](https://github.com/vineyard-bloom/bloom-forms) package.
 You can find all set up, usage, etc. docs there.
+
+[Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
 
 ### Modals
 There is always a modal rendered to the screen, but it appears/disappears depending on if it's given any content to display. All modal methods are available in the redux store via `openModal` and `closeModal`.  Without `modalContents`, the modal is hidden. Every modal renders the same `x` button to close.
@@ -110,6 +116,8 @@ You cannot have more than one modal open at a time.
 
 You don't need to pass closeModal to the existing 'x' button.
 
+[Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
+
 ### Tables
 The only required prop is `headers`, an array of objects that look like: { title: string, sortable: boolean, sortValue: string }. This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function.
 
@@ -127,6 +135,7 @@ Optional, but helpful props are:
 ```
   would make any names and ids link to '/organization/<NAME>' and '/product/<ID>' respectively.
 
+[Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
 
 ### Tooltips
 Tooltip is hidden by default and opens on click. It can be used like:

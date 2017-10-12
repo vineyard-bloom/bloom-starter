@@ -74,14 +74,14 @@ module.exports = {
   resolve: {
     alias: {
       config:       path.resolve(__dirname, 'config'),
-      containers:   path.resolve(__dirname, 'src/js/components/containers'),
+      containers:   path.resolve(__dirname, 'src/js/containers'),
       helpers:      path.resolve(__dirname, 'src/js/util/helpers'),
       images:       path.resolve(__dirname, 'src/images'),
       js:           path.resolve(__dirname, 'src/js'),
       language:     path.resolve(__dirname, 'config/en.json'),
       lib:          path.resolve(__dirname, 'lib'),
-      pages:        path.resolve(__dirname, 'src/js/components/pages'),
-      presentation: path.resolve(__dirname, 'src/js/components/presentation'),
+      pages:        path.resolve(__dirname, 'src/js/pages'),
+      presentation: path.resolve(__dirname, 'src/js/presentation'),
       'redux-store':path.resolve(__dirname, 'src/js/redux-store'),
       requests:     path.resolve(__dirname, 'src/js/util/requests'),
       services:     path.resolve(__dirname, 'src/js/services'),

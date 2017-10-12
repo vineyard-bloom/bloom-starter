@@ -18,12 +18,12 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
 
 .app-container {
   display: grid;
-  grid-template: minmax(150px, auto) 1fr 50px / 1fr;
+  grid-template: minmax($header-height, auto) 1fr 50px / 1fr;
   height: minmax(100vh, 100%);
 }
 

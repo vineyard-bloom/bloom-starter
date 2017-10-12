@@ -10,6 +10,8 @@ import { UserType } from 'types';
 
 import SideBar from 'presentation/navigation/side-bar';
 
+import 'styles/components/home';
+
 class HomeContainer extends React.Component {
   static propTypes = {
     history: PropTypes.object,

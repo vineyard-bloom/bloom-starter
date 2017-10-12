@@ -37,7 +37,7 @@ export function numberWithCommas (x) {
   }
 }
 
-export function padNum(num, length) {
+export function padNum(num, length=2) {
   let end = num.toString();
   while (end.length < length) {
     end = `0${end}`;
@@ -56,9 +56,9 @@ export function humanFormatDateTime(unixNum) {
   return date.isValid() ? date.format("MM/DD/YY @ h:mma") : unixNum;
 }
 
-export function humanFormatDate(unixNum) {
+export function humanFormatDate(unixNum, isLong) {
   let date = moment(unixNum);
-  return date.format("MM/DD/YY")
+  return isLong ? date.format("MMM D, YYYY") : date.format("MM/DD/YYYY")
 }
 
 export function convertWeiToEth(bigNum) {

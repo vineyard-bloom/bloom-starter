@@ -16,7 +16,7 @@ const MainSwitch = (props) => (
   <main>
     <Switch>
       <Route exact path='/' render={ () => (
-        props.user.username ?
+        props.user ?
           <HomeContainer />
         :
           <Redirect to='/login' />
