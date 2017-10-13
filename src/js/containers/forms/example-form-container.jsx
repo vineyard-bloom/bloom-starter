@@ -14,6 +14,7 @@ class ExampleFormContainer extends React.Component {
   };
 
   submitForm = (formData, files, successCallback, failCallback) => {
+    console.log(formData, files)
     this.props.createUser(formData)
       .then(res => this.rerouteAfterSubmit())
   }
