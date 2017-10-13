@@ -25,7 +25,7 @@ class NewUserFormContainer extends React.Component {
   }
 
   render() {
-    let fieldNames = ['username', 'password', 'twoFactorSecret', 'email', 'withdrawAddress'];
+    const fieldNames = ['username', 'password', 'twoFactorSecret', 'email', 'withdrawAddress'];
 
     return (
       <Form id='new-user-form' fieldNames={ fieldNames } submitForm={ this.submitForm }>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Checkbox, Dropzone, FileInput, RadioGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
+import { Button, Checkbox, DateInput, Dropzone, FileInput, RadioGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
 
 const ExampleForm = (props) => {
   // I am a reference form
@@ -39,6 +39,9 @@ const ExampleForm = (props) => {
       />
       <RadioGroup options={ radioOptions } onChange={ props.updateForm } name='radio'
         value={ formData.radio ? formData.radio.value : '' }
+      />
+      <DateInput id='date' name='date' label='Date Input' showLabel
+        value={ formData.date ? formData.date.value : '' } onChange={ props.updateForm }
       />
       <div style={{ zIndex: 5 }}> {/* notice the z-indices to help make sure select inputs overlap properly */}
         <SelectInput options={ selectOptions } name='select' formId='example-form'

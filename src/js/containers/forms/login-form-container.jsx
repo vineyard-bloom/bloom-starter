@@ -24,7 +24,7 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
-    let fieldNames = ['username', 'password', 'twoFactorSecret'];
+    const fieldNames = ['username', 'password', 'twoFactorSecret'];
 
     return (
       <Form id='login-form' fieldNames={ fieldNames } submitForm={ this.submitForm }>
