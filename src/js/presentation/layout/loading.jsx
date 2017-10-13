@@ -5,7 +5,7 @@ import 'styles/components/loading.scss';
 
 const Loading = (props) => {
   return (
-    <img src={ Spinner } alt='This section is loading.' className='c-loading' />
+    <img src={ Spinner } alt='This section is loading.' className='loading' />
   )
 }
 

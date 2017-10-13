@@ -56,7 +56,7 @@ class SubHeader extends React.Component {
         : '' }
         <ul>
           <Link to='/example'>Example Form</Link>
-          <Link to='/accordion'>Example Accordion</Link>
+          <Link to='/example/accordion'>Example Accordion</Link>
         </ul>
       </div>
     )

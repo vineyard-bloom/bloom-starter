@@ -18,6 +18,8 @@ const ExampleForm = (props) => {
     { label: 'Cakes', value: 'birthday cakes' }
   ]
 
+  console.log('hi')
+
   const toggleClick = (e) => {
     e.preventDefault();
     props.manualFieldUpdate(props.formId, 'toggle', formData && formData.toggle && !formData.toggle.value)

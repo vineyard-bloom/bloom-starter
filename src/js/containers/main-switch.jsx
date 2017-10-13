@@ -23,8 +23,8 @@ const MainSwitch = (props) => (
         )} />
       <Route path='/login' component={ LoginFormContainer } />
       <Route path='/new' component={ NewUserFormContainer } />
-      <Route path='/example' component={ ExampleFormContainer } />
-      <Route path='/accordion' component={ ExampleAccordion } />
+      <Route exact path='/example' component={ ExampleFormContainer } />
+      <Route path='/example/accordion' component={ ExampleAccordion } />
       <Route path='*' component={ FourOhFour } />
     </Switch>
   </main>
