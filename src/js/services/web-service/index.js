@@ -3,35 +3,33 @@ import * as config from 'config/config.json';
 
 export class WebService {
 
-  checkEmailAvailability (email) {
-    return new Promise((resolve, reject) => {
-      get('/user/email/available', { value: email })
-        .then(({ data }) => {
-          resolve(data.available)
-        })
-        .catch(err => reject(err))
-    })
+  checkEmailAvailability = async (email) => {
+    try {
+      const res = await get('/user/email/available', { value: email })
+      return Promise.resolve(res.data.available)
+    } catch(err) {
+      throw new Error(err)
+    }
   };
 
-  checkUsernameAvailability (username) {
-    return new Promise((resolve, reject) => {
-      get('/user/username/available', { value: username })
-        .then(({ data }) => {
-          resolve(data.available)
-        })
-        .catch(err => reject(err))
-    })
+  checkUsernameAvailability = async (username) => {
+    try {
+      const res = await get('/user/username/available', { value: username })
+      return Promise.resolve(res.data.available)
+    } catch(err) {
+      throw new Error(err)
+    }
   };
 
-  fetchTwoFactorSecret() {
+  fetchTwoFactorSecret = async () => {
     return get('/2fa')
   };
 
-  getUser () {
+  getUser = async () => {
     return get('/user')
   };
 
-  login ({ username, password, twoFactorSecret }) {
+  login = async ({ username, password, twoFactorSecret }) => {
     const data = {
       username: username,
       password: password
@@ -42,11 +40,11 @@ export class WebService {
     return post('/user/login', data)
   };
 
-  logout () {
+  logout = async () => {
     return post('/user/logout', {})
   };
 
-  register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorSecret }) {
+  register = async ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorSecret }) => {
     const data = {
       username: username,
       password: password,
@@ -55,16 +53,16 @@ export class WebService {
     return post('/user', data)
   };
 
-  updateUserPassword (password) {
+  updateUserPassword = async (password) => {
     const data = { password: password }
     return put('/user', data)
   };
 
-  uploadFile(files) {
+  uploadFile = async (files) => {
     return post('/file/upload?version=1.0', files);
   };
 
-  validateTwoFactorToken(token) {
+  validateTwoFactorToken = async (token) => {
     return post('/2fa/validate', token)
   }
 

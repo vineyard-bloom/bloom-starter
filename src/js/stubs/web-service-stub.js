@@ -4,41 +4,41 @@ var loggedIn = true;
 
 export class WebServiceStub {
 
-  checkEmailAvailability (email) {
+  checkEmailAvailability = async (email) => {
     return Promise.resolve({ data: 'success' });
   };
 
-  checkUsernameAvailability (username) {
+  checkUsernameAvailability = async (username) => {
     return Promise.resolve({ data: true });
   };
 
-  getUser () {
+  getUser = async () => {
     const user = loggedIn ? AuthenticatedUser : {};
     return Promise.resolve({ data: user });
   };
 
-  fetchTwoFactorSecret () {
+  fetchTwoFactorSecret = async () => {
     const ret = {
       'secret': 'LVHGW4ZMHFCVWKKQLVZD4YKUKVQVI426PFUTIMS5OVASCWTVEVZQ'
     }
     return Promise.resolve({ data: ret })
   };
 
-  login ({ username, password, twoFactorSecret }) {
+  login = async ({ username, password, twoFactorSecret }) => {
     if (username === 'froggy' && password === 'test' && twoFactorSecret) {
       this.loggedIn = true
       return Promise.resolve({ data: AuthenticatedUser })
     } else {
-      return Promise.reject(new Error('Invalid Credentials'))
+      throw new Error('Invalid Credentials')
     }
   };
 
-  logout () {
+  logout = async () => {
     loggedIn = false
     return Promise.resolve({})
   };
 
-  register ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorSecret }) {
+  register = async ({ username, email, password, passwordConfirm, ethPublicAddress, twoFactorSecret }) => {
     const fakeuser = {
       ...AuthenticatedUser,
       username: username,
@@ -48,15 +48,15 @@ export class WebServiceStub {
     return Promise.resolve({ data: fakeuser })
   };
 
-  uploadFile(files) {
+  uploadFile = async (files) => {
     return Promise.resolve({});
   };
 
-  updateUserPassword (password) {
+  updateUserPassword = async (password) => {
     return Promise.resolve({ data: {} })
   };
 
-  validateTwoFactorToken (token) {
+  validateTwoFactorToken = async (token) => {
     const ret = {'message': 'Verification succeeded.'}
     return Promise.resolve({ data: ret })
   };

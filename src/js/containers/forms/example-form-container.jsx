@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Form } from 'bloom-forms';
 
+import { addAlert } from 'redux-store/actions/alertActions'
 import { createUser } from 'redux-store/actions/userActions'
 
 import ExampleForm from 'presentation/forms/example-form';
@@ -13,10 +14,14 @@ class ExampleFormContainer extends React.Component {
     this.props.history.push('/lending');
   };
 
-  submitForm = (formData, files, successCallback, failCallback) => {
-    console.log(formData, files ? Array.from(files.entries()) : 'no files')
-    this.props.createUser(formData)
-      .then(res => this.rerouteAfterSubmit())
+  submitForm = async (formData, files, successCallback, failCallback) => {
+    try {
+      const res = await this.props.createUser(formData)
+      this.rerouteAfterSubmit()
+    } catch(err) {
+      this.props.addAlert(err)
+      failCallback(err)
+    }
   }
 
   render() {
@@ -32,6 +37,8 @@ class ExampleFormContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addAlert: (message, style='warning') =>
+      dispatch(addAlert(message, style)),
     createUser: (userData) =>
       dispatch(createUser(userData))
   }

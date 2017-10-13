@@ -13,15 +13,14 @@ class LoginFormContainer extends React.Component {
     this.props.history.push('/'); 
   };
 
-  submitForm = (formData, files, successCallback, failCallback) => {
-    this.props.login(formData)
-      .then((res) => {
-        this.rerouteAfterSubmit()
-      })
-      .catch((err) => {
-        this.props.addAlert(err)
-        failCallback(err)
-      })
+  submitForm = async (formData, files, successCallback, failCallback) => {
+    try {
+      const res = await this.props.login(formData)
+      this.rerouteAfterSubmit()
+    } catch(err) {
+      this.props.addAlert(err)
+      failCallback(err)
+    }
   }
 
   render() {
@@ -38,7 +37,7 @@ class LoginFormContainer extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     addAlert: (message, style='warning') =>
-      dispatch(addAlert(`User Login Error: ${ message }`, style)),
+      dispatch(addAlert(message, style)),
     login: (user) => dispatch(login(user))
   }
 }
