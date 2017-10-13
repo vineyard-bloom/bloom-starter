@@ -70,13 +70,13 @@ const mapDispatchToProps = (dispatch) => {
       return dispatch(addAlert(message, style))
     },
     closeModal: () => {
-      dispatch(closeModal());
+      return dispatch(closeModal());
     },
     expireAlert: () => {
       return dispatch(expireAlert());
     },
     openModal: (e, modalContents, triggerId) => {
-      dispatch(openModal(e, modalContents, triggerId));
+      return dispatch(openModal(e, modalContents, triggerId));
     }
   }
 }

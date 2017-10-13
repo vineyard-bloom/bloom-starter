@@ -38,12 +38,10 @@ class AccountContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: (e) => {
-      dispatch(logout(e));
-    },
-    updateUser: (userId, userData) => {
+    logout: (e) =>
+      dispatch(logout(e)),
+    updateUser: (userId, userData) =>
       dispatch(updateUser(userId, userData))
-    }
   }
 }
 

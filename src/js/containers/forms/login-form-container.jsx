@@ -37,9 +37,8 @@ class LoginFormContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addAlert: (message, style='warning') => {
-      dispatch(addAlert(`User Login Error: ${ message }`, style))
-    },
+    addAlert: (message, style='warning') =>
+      dispatch(addAlert(`User Login Error: ${ message }`, style)),
     login: (user) => dispatch(login(user))
   }
 }
