@@ -6,7 +6,7 @@ const APP_DIR = path.join(__dirname, '/src/')
 const autoprefixer = require('autoprefixer')
 
 module.exports = {
-  entry: APP_DIR + 'index.js',
+  entry: ['babel-polyfill', APP_DIR + 'index.js'],
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR,

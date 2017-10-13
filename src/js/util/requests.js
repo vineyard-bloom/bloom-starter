@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from 'config/config.json'
 
-function request (method, endpoint, data = {}) {
+async function request (method, endpoint, data = {}) {
   const url = `${config.api.url}${endpoint}`;
   return axios({
     withCredentials: true,
@@ -11,7 +11,7 @@ function request (method, endpoint, data = {}) {
   })
 }
 
-export function get (endpoint, params = {}) {
+export async function get (endpoint, params = {}) {
   const url = config.api.url + endpoint
   params['version'] = params['version'] || config.api.version
   return axios({
@@ -22,12 +22,12 @@ export function get (endpoint, params = {}) {
   })
 }
 
-export function post (endpoint, data = {}) {
+export async function post (endpoint, data = {}) {
   data['version'] = data['version'] || config.api.version
   return request('post', endpoint, data)
 }
 
-export function put (endpoint, data = {}) {
+export async function put (endpoint, data = {}) {
   data['version'] = data['version'] || config.api.version
   return request('put', endpoint, data)
 }

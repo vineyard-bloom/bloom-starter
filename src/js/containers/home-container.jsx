@@ -26,15 +26,21 @@ class HomeContainer extends React.Component {
     }
 
     if (newProps.getUser && !this.props.getUser) {
-      newProps.getUser()
-        .catch(err => console.log('get user error: ', err))
+      try {
+        newProps.getUser()
+      } catch(err) {
+        console.log('get user error: ', err)
+      }
     }
   };
 
   componentDidMount = () => {
     if (this.props.getUser) {
-      this.props.getUser()
-        .catch(err => console.log('get user error: ', err))
+      try {
+        this.props.getUser()
+      } catch(err) {
+        console.log('get user error: ', err)
+      }
     }
   };
 
