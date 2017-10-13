@@ -52,6 +52,8 @@ const sections = [
 <Accordion className='special-class' sections={ section } />
 ```
 
+By default, `Accordion`s have index 0 open on mounting. If you want a different section set as the default, use the `defaultOpenSection`, which requires a number.
+
 [Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
 
 ### Alerts

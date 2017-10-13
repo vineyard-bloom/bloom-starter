@@ -16,6 +16,22 @@ class Accordion extends React.Component {
     })
   }
 
+  componentWillReceiveProps = (newProps) => {
+    if (newProps.defaultOpenSection && (newProps.defaultOpenSection !== this.props.defaultOpenSection)) {
+      this.setState({
+        openSection: newProps.defaultOpenSection
+      })
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.defaultOpenSection) {
+      this.setState({
+        openSection: this.props.defaultOpenSection
+      })
+    }
+  }
+
   render() {
     const { className, sections } = this.props
     const { openSection } = this.state
@@ -62,6 +78,7 @@ class Accordion extends React.Component {
 
 Accordion.propTypes = {
   className: PropTypes.string,
+  defaultOpenSection: PropTypes.number,
   sections: PropTypes.arrayOf(
     PropTypes.shape({
       child: PropTypes.element.isRequired,
