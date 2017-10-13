@@ -23,6 +23,8 @@ const ExampleForm = (props) => {
     props.manualFieldUpdate(props.formId, 'toggle', formData && formData.toggle && !formData.toggle.value)
   }
 
+  console.log(formData)
+
   return (
     <form id='example-form' className='form login-form'>
       <h3 className='login-form__header'>Example Form</h3>
@@ -30,8 +32,9 @@ const ExampleForm = (props) => {
         value={ formData.textinput ? formData.textinput.value : '' } onChange={ props.updateForm }
         placeholder='Regular old Text Input'
       />
-      <TextInput id='password' name='password' label='Password' showLabel isPassword
+      <TextInput id='password' name='password' label='Password' showLabel isPassword required
         value={ formData.password ? formData.password.value : '' } onChange={ props.updateForm }
+        validateAs='not-empty'
       />
       <Checkbox label='Checkbox' checked={ formData.checkbox && formData.checkbox.value || '' }
         id='checkbox' name='checkbox' onChange={ props.updateForm } showLabel
