@@ -32,9 +32,8 @@ class ExampleFormContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createUser: (userData) => {
+    createUser: (userData) =>
       dispatch(createUser(userData))
-    }
   }
 }
 

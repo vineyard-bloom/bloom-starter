@@ -30,4 +30,11 @@ class NewUserFormContainer extends React.Component {
   }
 }
 
-export default withRouter(NewUserFormContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createUser: (userData) =>
+      dispatch(createUser(userData))
+  }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(NewUserFormContainer));

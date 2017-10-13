@@ -8,6 +8,8 @@ export function getUser() {
       .then(res => {
         dispatch(updateUser(res.data.id, res.data))
         return Promise.resolve(res)
+      }, err => {
+        throw new Error(err)
       })
 }
 
@@ -15,12 +17,14 @@ export function login(user) {
   return (dispatch) => 
     WebService.login(user)
       .then(res => {
-        dispatch({
-          type: actionTypes.LOGIN,
-          user: res.data
+          dispatch({
+            type: actionTypes.LOGIN,
+            user: res.data
+          })
+          return Promise.resolve(res)
+        }, err => {
+          throw new Error(err)
         })
-        return Promise.resolve(res)
-      })
 }
 
 export function logout() {
@@ -31,6 +35,8 @@ export function logout() {
           type: actionTypes.CLEAR_USER
         })
         return Promise.resolve(res)
+      }, err => {
+        throw new Error(err)
       })
 }
 
@@ -39,7 +45,8 @@ export function createUser(userData) {
     WebService.register(userData)
       .then(res => {
         dispatch(login(userData))
-        return Promise.resolve(res)
+      }, err => {
+        throw new Error(err)
       })
 }
 
