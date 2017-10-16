@@ -4,13 +4,13 @@ HOME
 
 @import '../core/variables';
 
-.home {
+.Home {
   display: grid;
   grid-template: 1fr / #{$sidebar-width} 1fr;
   min-height: calc(100vh - #{$header-height});
   width: 100vw;
-}
 
-.home-content {
-  border-left: 1px solid $light-gray;
+  &-content {
+    border-left: 1px solid $light-gray;
+  }
 }

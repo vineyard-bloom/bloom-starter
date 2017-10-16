@@ -7,7 +7,7 @@ MODAL
 
 $modal-contents-width: 450px;
 
-.modal {
+.Modal {
   @include transition(.3s ease, .3s ease opacity .1s, 0s ease height .3s, .1s ease top, .1s ease background-color .1s);
   background-color: rgba(0,0,0,0.5);
   bottom: 0;
@@ -20,18 +20,18 @@ $modal-contents-width: 450px;
   width: 100vw;
   z-index: calc(#{$z-100} + #{$z-1});
 
-  &.hidden {
+  &.is-hidden {
     @include transition(.2s ease, .3s ease-in-out top .2s);
     background-color: transparent;
     padding: 0;
     top: -100vh;
 
-    .modal-content {
+    .Modal-content {
       opacity: 0;
     }
   }
 
-  .modal-content {
+  &-content {
     @include transition(.5s ease margin .1s, .5s ease opacity);
     background-color: $white;
     margin: 0 auto;
@@ -40,7 +40,7 @@ $modal-contents-width: 450px;
     overflow: hidden;
     width: $modal-contents-width;
 
-    .btn-close {
+    .Btn-close {
       margin-left: calc(-40px + #{$modal-contents-width});
       margin-top: 2px;
       padding: $pad-mar-small;
@@ -48,10 +48,10 @@ $modal-contents-width: 450px;
       z-index: calc(#{$z-100} + 1);
     }
   }
-}
 
-.modal-form {
-  margin-top: -$pad-mar-x-large;
-  position: relative;
-  z-index: $z-100;
+  &-form {
+    margin-top: -$pad-mar-x-large;
+    position: relative;
+    z-index: $z-100;
+  }
 }

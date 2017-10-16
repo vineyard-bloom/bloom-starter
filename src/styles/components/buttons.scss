@@ -18,7 +18,7 @@ button {
     cursor: not-allowed;
   }
 
-  &.btn {
+  &.Btn {
     background-color: transparent;
     border: 1px solid $dark-gray;
     color: $dark-gray;
@@ -30,43 +30,43 @@ button {
       color: $white;
       outline: none;
     }
-  }
 
-  &.btn-alt {
-    background-color: transparent;
-    border: 1px solid $dark-gray;
-    color: $dark-gray;
+    &--alt {
+      background-color: transparent;
+      border: 1px solid $dark-gray;
+      color: $dark-gray;
 
-    &.is-active,
-    &:active {
-      background-color: $dark-gray;
-      color: $white;
+      &.is-active,
+      &:active {
+        background-color: $dark-gray;
+        color: $white;
+      }
+
+      &:focus,
+      &:hover {
+        background-color: $dark-gray;
+        color: $white;
+        outline: none;
+      }
     }
 
-    &:focus,
-    &:hover {
-      background-color: $dark-gray;
-      color: $white;
-      outline: none;
+    &--null { // no default styles
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
     }
-  }
 
-  &.btn--null { // no default styles
-    background-color: transparent;
-    border: 0;
-    box-shadow: none;
-    padding: 0;
-  }
+    &--full-width {
+      justify-content: center;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+    }
 
-  &.btn--full-width {
-    justify-content: center;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-  }
-
-  &.btn--small {
-    font-size: $h5-font-size;
-    padding: $pad-mar-x-small $pad-mar-small;
+    &--small {
+      font-size: $h5-font-size;
+      padding: $pad-mar-x-small $pad-mar-small;
+    }
   }
 }

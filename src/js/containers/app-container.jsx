@@ -51,7 +51,7 @@ class AppContainer extends React.Component {
     const { addAlert, alerts, closeModal, modal, openModal, user } = this.props
 
     return (
-      <div className={ `app-container ${modal && modal.modalContents ? 'u-prevent-scroll' : ''}` }>
+      <div className={ `App-container ${modal && modal.modalContents ? 'u-prevent-scroll' : ''}` }>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainSwitch />
         <Footer />

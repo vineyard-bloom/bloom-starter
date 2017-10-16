@@ -66,7 +66,7 @@ const Table = (props) => {
   });
 
   return (
-    <table className='table'>
+    <table className='Table'>
       <tbody>
         <tr>
           { headers }

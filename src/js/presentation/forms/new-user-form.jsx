@@ -21,10 +21,10 @@ class NewUserForm extends React.Component {
     let allowContinue = formData.username && formData.password && formData.twoFactorSecret && formData.username.value && formData.password.value && formData.twoFactorSecret.value;
 
     return (
-      <form className='form login-form' id='new-user-form'>
+      <form className='Form LoginForm' id='new-user-form'>
         { this.state.stage == 0 ?
           <div>
-            <h3 className='login-form__header'>Create an account</h3>
+            <h3 className='LoginForm-header'>Create an account</h3>
             <TextInput placeholder='Enter Username (required)' id='username' name='username' label='Username'
               value={ formData.username ? formData.username.value : '' } onChange={ props.updateForm } />
             <TextInput placeholder='Create a Password (required)' id='password' name='password' label='Password'
@@ -33,18 +33,18 @@ class NewUserForm extends React.Component {
               value={ formData.email ? formData.email.value : '' } onChange={ props.updateForm } validateAs='email' />
             <TextInput placeholder='Enter 2FA Pin Code (required)' id='twoFactorSecret' name='twoFactorSecret' label='Two Factor Pin Code'
               value={ formData['twoFactorSecret'] ? formData['twoFactorSecret'].value : '' } onChange={ props.updateForm } />
-            <Button onClick={ this.toggleStage } text='Continue' className='btn-alt login-form__submit-button u-justify-center' disabled={ !allowContinue } />
+            <Button onClick={ this.toggleStage } text='Continue' className='Btn--alt LoginForm__submit-button u-justify-center' disabled={ !allowContinue } />
           </div>
           :
           <div>
-            <a href='#' onClick={ this.toggleStage } className='login-form__back'>
+            <a href='#' onClick={ this.toggleStage } className='LoginForm-back'>
               Back
             </a>
-            <p className='login-form__description'>Enter an Ethereum Wallet Address to Continue:</p>
+            <p className='LoginForm-description'>Enter an Ethereum Wallet Address to Continue:</p>
             <TextInput placeholder='ETH Address' id='withdrawAddress' name='withdrawAddress' label='Ethereum Address'
               value={ formData['withdrawAddress'] ? formData['withdrawAddress'].value : '' } onChange={ props.updateForm } /> 
-            <p className='login-form__description'>In order to complete your account, you must enter a locked Ethereum wallet address. This address will be used for withdraws from the engine and can only be changed by a submitted reques</p>
-            <Button onClick={ props.submitForm } text='Complete Registration' className='btn-alt login-form__submit-button u-justify-center' />
+            <p className='LoginForm-description'>In order to complete your account, you must enter a locked Ethereum wallet address. This address will be used for withdraws from the engine and can only be changed by a submitted reques</p>
+            <Button onClick={ props.submitForm } text='Complete Registration' className='Btn--alt LoginForm-submit-button u-justify-center' />
           </div>
         }
       </form>

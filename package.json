@@ -16,7 +16,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "bignumber.js": "^4.0.2",
-    "bloom-forms": "^0.2.11",
+    "bloom-forms": "^0.2.14",
     "clipboard": "^1.7.1",
     "copy-webpack-plugin": "^4.0.1",
     "crypto-js": "^3.1.9-1",

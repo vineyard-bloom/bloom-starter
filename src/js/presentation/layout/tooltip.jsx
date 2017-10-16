@@ -33,12 +33,12 @@ class Tooltip extends React.Component {
 
   render() {
     return (
-      <div className='tooltip'>
-        <button className='tooltip__icon' onClick={ this.toggleOpen }></button>
+      <div className='Tooltip'>
+        <button className='Tooltip-icon' onClick={ this.toggleOpen }></button>
         { this.state.open &&
-          <div className={ `tooltip__contents tooltip__contents--${this.props.direction}` }>
+          <div className={ `Tooltip-contents Tooltip-contents--${this.props.direction}` }>
             <h6>{ this.props.header }</h6>
-            <div className='tooltip__contents__text'>{ this.props.contents }</div>
+            <div className='Tooltip-contents-text'>{ this.props.contents }</div>
           </div>
         }
       </div>

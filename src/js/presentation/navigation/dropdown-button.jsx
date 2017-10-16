@@ -5,7 +5,7 @@ const DropdownButton = (props) => {
     let end = props.url ?
       (
         <Link to={ props.url } key={ props.key }>
-          <li className='dropdown__link'>
+          <li className='Dropdown-link'>
             { props.text }
           </li>
         </Link>
@@ -13,7 +13,7 @@ const DropdownButton = (props) => {
       :
       (
         <a href='#' onClick={ props.onClick }>
-          <li key={ props.key } className='dropdown__link'>
+          <li key={ props.key } className='Dropdown-link'>
             { props.text }
           </li>
         </a>

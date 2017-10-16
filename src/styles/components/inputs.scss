@@ -19,8 +19,12 @@ input[type='number'] {
   }
 }
 
-// gray out input placeholders
-.input {
+.Input {
+  border-color: $med-gray;
+  border-radius: $border-radius;
+  font-family: $main-font;
+
+  // gray out input placeholders
   &::-webkit-input-placeholder {
     color: $med-gray;
   }
@@ -37,45 +41,41 @@ input[type='number'] {
     color: $med-gray;
   }
 
-  border-color: $med-gray;
-  border-radius: $border-radius;
-  font-family: $main-font;
-}
-
-// errored inputs
-.input--invalid {
-  box-shadow: 0 0 5px $red;
-}
-
-// wrapper label
-.input__label {
-  width: 100%;
-}
-
-// checkbox styles
-.input--checkbox__placeholder {
-  margin-right: $pad-mar-x-small;
-
-  &.is-checked {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e9/Echo_curation_alt_check_mark.svg');
+  // wrapper label
+  &-label {
+    width: 100%;
   }
-}
 
-// currency styles
-.input--currency {
-  & ~ .input__after {
-    color: $light-gray;
-    margin-top: 1.5em;
-    position: absolute;
+  // errored inputs
+  &--invalid {
+    box-shadow: 0 0 5px $red;
   }
-}
 
-// input display hiding native input
-.input__placeholder {
-  border-color: $med-gray;
-  border-radius: $border-radius;
-  color: $dark-gray;
-  font-size: $main-font-size;
-  margin: $pad-mar-small 0;
-  width: 100%;
+  // checkbox styles
+  &--checkbox-placeholder {
+    margin-right: $pad-mar-x-small;
+
+    &.is-checked {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e9/Echo_curation_alt_check_mark.svg');
+    }
+  }
+
+  // currency styles
+  &--currency {
+    & ~ .Input-after {
+      color: $light-gray;
+      margin-top: 1.5em;
+      position: absolute;
+    }
+  }
+
+  // input display hiding native input (used for file input and others)
+  &-placeholder {
+    border-color: $med-gray;
+    border-radius: $border-radius;
+    color: $dark-gray;
+    font-size: $main-font-size;
+    margin: $pad-mar-small 0;
+    width: 100%;
+  }
 }

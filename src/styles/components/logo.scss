@@ -4,7 +4,7 @@ LOGO
 
 @import '../core/_variables';
 
-.logo {
+.Logo {
   align-items: center;
   display: inline-flex;
 
@@ -12,15 +12,15 @@ LOGO
     fill: $white;
     height: 30px;
   }
-}
 
-.logo__text {
-  margin-left: $pad-mar-x-small;
+  &-text {
+    margin-left: $pad-mar-x-small;
 
-  svg {
-    height: 15px;
+    svg {
+      height: 15px;
+    }
   }
-}
 
-.logo--full {
+  &--full {
+  }
 }

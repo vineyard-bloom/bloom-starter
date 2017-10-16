@@ -46,9 +46,9 @@ class HomeContainer extends React.Component {
 
   render() {
     return (
-      <div className='home'>
+      <div className='Home'>
         <SideBar user={ this.props.user } />
-        <div className='home-content'>
+        <div className='Home-content'>
           Main Content Here
         </div>
       </div>
