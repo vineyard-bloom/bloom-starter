@@ -37,13 +37,13 @@ class Accordion extends React.Component {
     const { openSection } = this.state
     const accordionSections = sections.map((section, i) => {
       let isOpen = openSection === i
-      let sectionId = `accordion-section-${section.header.toLowerCase().replace(/\s/g, '-')}`
+      let sectionId = `Accordion-section-${section.header.toLowerCase().replace(/\s/g, '-')}`
       return (
-        <li className={ `accordion__section ${ isOpen ? 'is-open' : '' }` }
+        <li className={ `Accordion-section ${ isOpen ? 'is-open' : '' }` }
           key={ sectionId }
           aria-expanded={ isOpen }
           id={ sectionId }>
-          <button className={ `accordion__section__header ${ section.isValid ? 'is-valid' : '' } ${ isOpen ? 'is-open' : '' }` }
+          <button className={ `Accordion-section-header ${ section.isValid ? 'is-valid' : '' } ${ isOpen ? 'is-open' : '' }` }
             aria-controls={ sectionId } id={ `${sectionId}-trigger-button` }
             onClick={ (e) => { e.preventDefault(); this.triggerSection(i) } }>
             { section.header }
@@ -51,7 +51,7 @@ class Accordion extends React.Component {
           <Transition in={isOpen} timeout={0}>
             {(status) =>
               <div aria-hidden={ !isOpen } aria-expanded={ isOpen } aria-labelledby={ `${sectionId}-trigger-button` }
-                className={ `accordion__section__contents ${ isOpen ? 'is-open' : '' } fold-${status}` }>
+                className={ `Accordion-section-contents ${ isOpen ? 'is-open' : '' } fold-${status}` }>
                 { section.child
                   ? (
                     React.cloneElement(section.child, {
@@ -67,8 +67,8 @@ class Accordion extends React.Component {
     })
 
     return (
-      <div className={ `accordion ${className || ''}` }>
-        <ul className='accordion__sections'>
+      <div className={ `Accordion ${className || ''}` }>
+        <ul className='Accordion-sections'>
           { accordionSections }
         </ul>
       </div>

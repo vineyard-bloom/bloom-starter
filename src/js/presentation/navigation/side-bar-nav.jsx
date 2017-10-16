@@ -6,7 +6,7 @@ const SideBarNav = (props) => {
   let navs = props.links.map((link, i) => {
     return (
       <li key={ `side-nav-${i}` }>
-        <Link to={ link.url } className={ `sidebar__link ${ props.location.pathname.indexOf(link.url) > -1 ? 'active' : '' }` }>
+        <Link to={ link.url } className={ `Sidebar-link ${ props.location.pathname.indexOf(link.url) > -1 ? 'is-active' : '' }` }>
           { link.text }
         </Link>
       </li>
@@ -14,7 +14,7 @@ const SideBarNav = (props) => {
   });
 
   return (
-    <ul className='sidebar__nav__container'>
+    <ul className='Sidebar-nav-container'>
       { navs }
     </ul>
   );

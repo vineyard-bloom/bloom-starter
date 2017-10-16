@@ -6,8 +6,8 @@ const LoginForm = (props) => {
   let formData = props.formData || { username: null, password: null, 'twoFactorSecret': null };
 
   return (
-    <form id='login-form' className='form login-form'>
-      <h3 className='login-form__header'>Log In</h3>
+    <form id='login-form' className='Form LoginForm'>
+      <h3 className='LoginForm-header'>Log In</h3>
       <TextInput placeholder='Enter Username (required)' id='username' name='username' label='Username'
         value={ formData.username ? formData.username.value : '' } onChange={ props.updateForm }
         validateAs='not-empty' error={ formData.username && formData.username.error ? formData.username.error : '' }
@@ -20,8 +20,8 @@ const LoginForm = (props) => {
         value={ formData['twoFactorSecret'] ? formData['twoFactorSecret'].value : '' } onChange={ props.updateForm }
         validateAs='not-empty' error={ formData.twoFactorSecret && formData.twoFactorSecret.error ? formData.twoFactorSecret.error : '' }
       />
-      <Button onClick={ props.submitForm } text='Log in' className='btn-alt login-form__submit-button u-justify-center' />
-      <Link to='/new' className='login-form__no-account'>I don't have an account</Link>
+      <Button onClick={ props.submitForm } text='Log in' className='Btn--alt LoginForm-submit-button u-justify-center' />
+      <Link to='/new' className='LoginForm-no-account'>I don't have an account</Link>
     </form>
   )
 }

@@ -42,8 +42,8 @@ class SubHeader extends React.Component {
     // <img src={ user.avatar } alt={ `${user.username}'s avatar` } />
 
     return (
-      <div className={ `subheader ${ this.props.location.pathname.indexOf('dashboard') > -1 ? 'u-no-margin' : '' }` }>
-        <div className='subheader__user'>
+      <div className={ `SubHeader ${ this.props.location.pathname.indexOf('dashboard') > -1 ? 'u-no-margin' : '' }` }>
+        <div className='SubHeader-user'>
           { user.username || 'username' }
           <a href='#' onClick={ this.toggleDropdown }>
             <SVGInline svg={ downCarrot } />

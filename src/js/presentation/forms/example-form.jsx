@@ -24,8 +24,8 @@ const ExampleForm = (props) => {
   }
 
   return (
-    <form id='example-form' className='form login-form'>
-      <h3 className='login-form__header'>Example Form</h3>
+    <form id='example-form' className='Form LoginForm'>
+      <h3 className='LoginForm-header'>Example Form</h3>
       <TextInput id='textinput' name='textinput' label='Text Input' showLabel
         value={ formData.textinput ? formData.textinput.value : '' } onChange={ props.updateForm }
         placeholder='Regular old Text Input'
@@ -75,7 +75,7 @@ const ExampleForm = (props) => {
         onChange={ props.manualFieldUpdate } formId='example-form'
         files={ formData['file-droppable'] && formData['file-droppable'].value || [] }
       />
-      <Button onClick={ props.submitForm } text='Log in' className='btn login-form__submit-button u-justify-center' />
+      <Button onClick={ props.submitForm } text='Log in' className='Btn LoginForm-submit-button u-justify-center' />
     </form>
   )
 }

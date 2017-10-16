@@ -86,11 +86,11 @@ class Modal extends React.Component {
     let { modalContents, ...props } = this.props;
 
     return (
-      <div className={ `modal ${ modalContents ? 'active' : 'hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'>
+      <div className={ `Modal ${ modalContents ? 'is-active' : 'is-hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'>
         <Transition in={!!modalContents} timeout={0}>
             {(status) => 
-              <div className={ `modal-content decend-${status}` }>
-                <button className='btn--null btn-close' id='modal-close-button' onClick={ () => props.closeModal() }>x</button>
+              <div className={ `Modal-content decend-${status}` }>
+                <button className='Btn--null Btn-close' id='modal-close-button' onClick={ () => props.closeModal() }>x</button>
                 { modalContents }
               </div>
             }

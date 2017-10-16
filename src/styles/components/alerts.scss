@@ -5,7 +5,7 @@ ALERTS
 @import '../core/_variables';
 @import '../core/_mixins';
 
-.alert {
+.Alert {
   @include transition(.4s ease margin .2s, .15s ease opacity .3s);
   align-items: center;
   background-color: $white;
@@ -17,57 +17,55 @@ ALERTS
   position: relative;
   top: 80px;
   width: 300px;
-}
 
-.alert__background {
-  @include transition(.1s ease .3s);
-  background-color: rgba(0,0,0,0.1);
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: $z-100;
+  &-background {
+    @include transition(.1s ease .3s);
+    background-color: rgba(0,0,0,0.1);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: $z-100;
 
-  &.hidden {
-    height: 1px;
-    top: -150px;
+    &.is-hidden {
+      height: 1px;
+      top: -150px;
 
-    .alert {
-      @include transition(.4s ease margin .1s, .2s ease opacity .2s);
-      opacity: 0;
+      .alert {
+        @include transition(.4s ease margin .1s, .2s ease opacity .2s);
+        opacity: 0;
+      }
     }
   }
-}
 
-.alert__text {
-  text-align: center;
-  width: 100%;
-}
-
-.alert__icon {
-  display: block;
-  font-size: $giant-font-size;
-}
-
-.alert--success {
-  &:before {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/86/Check_mark_23x20_04.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: '';
-    display: inline-block;
-    height: 40px;
-    margin-right: 10px;
-    width: 40px;
+  &-text {
+    text-align: center;
+    width: 100%;
   }
-}
 
-.alert--warning {
+  &-icon {
+    display: block;
+    font-size: $giant-font-size;
+  }
 
-}
+  &--success {
+    &:before {
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/86/Check_mark_23x20_04.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: inline-block;
+      height: 40px;
+      margin-right: 10px;
+      width: 40px;
+    }
+  }
 
-.alert--failure {
+  &--warning {
+  }
 
+  &--status {
+  }
 }
