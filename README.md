@@ -1,6 +1,6 @@
 # Bloom Starter
 
-This is a starter kit for react/redux projects.
+This is a starter kit for React/Redux projects.
 
 ### Installation and Set Up
 1. Install dependencies with `yarn install`
