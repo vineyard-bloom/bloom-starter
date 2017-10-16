@@ -31,9 +31,9 @@ ALERTS
 
     &.is-hidden {
       height: 1px;
-      top: -150px;
+      top: -155px;
 
-      .alert {
+      .Alert {
         @include transition(.4s ease margin .1s, .2s ease opacity .2s);
         opacity: 0;
       }
