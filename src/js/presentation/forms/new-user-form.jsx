@@ -33,7 +33,7 @@ class NewUserForm extends React.Component {
               value={ formData.email ? formData.email.value : '' } onChange={ props.updateForm } validateAs='email' />
             <TextInput placeholder='Enter 2FA Pin Code (required)' id='twoFactorSecret' name='twoFactorSecret' label='Two Factor Pin Code'
               value={ formData['twoFactorSecret'] ? formData['twoFactorSecret'].value : '' } onChange={ props.updateForm } />
-            <Button onClick={ this.toggleStage } text='Continue' className='Btn--alt LoginForm__submit-button u-justify-center' disabled={ !allowContinue } />
+            <Button onClick={ this.toggleStage } text='Continue' className='Btn--alt LoginForm-submit-button u-justify-center' disabled={ !allowContinue } />
           </div>
           :
           <div>
