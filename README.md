@@ -51,7 +51,7 @@ const sections = [
 
 ...
 
-<Accordion className='special-class' sections={ section } />
+<Accordion className='special-class' sections={ sections } />
 ```
 
 By default, `Accordion`s have index 0 open on mounting. If you want a different section set as the default, use the `defaultOpenSection`, which requires a number.
