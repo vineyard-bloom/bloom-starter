@@ -77,16 +77,6 @@ $alert-danger-border:         $state-danger-border !default;
   }
 
   &--success {
-    &:before {
-      background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/86/Check_mark_23x20_04.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: '';
-      display: inline-block;
-      height: 40px;
-      margin-right: 10px;
-      width: 40px;
-    }
     @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
   }
 

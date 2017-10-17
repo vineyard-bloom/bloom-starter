@@ -11,7 +11,6 @@ import { UserType } from 'types';
 import SideBar from 'presentation/navigation/side-bar';
 
 import { Button } from 'bloom-forms';
-import Alert from 'presentation/layout/alert';
 import 'styles/components/home';
 
 class HomeContainer extends React.Component {
