@@ -21,7 +21,7 @@ main {
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
 
-.app-container {
+.App-container {
   display: grid;
   grid-template: minmax($header-height, auto) 1fr 50px / 1fr;
   height: minmax(100vh, 100%);
