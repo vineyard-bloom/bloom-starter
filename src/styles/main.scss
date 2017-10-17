@@ -21,7 +21,7 @@ main {
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
 
-.App-container {
+.app-container {
   display: grid;
   grid-template: minmax($header-height, auto) 1fr 50px / 1fr;
   height: minmax(100vh, 100%);
@@ -31,6 +31,7 @@ main {
 @import 'core/base';
 @import 'core/objects';
 @import 'core/utilities';
+@import 'components/buttons';
 @import 'components/forms';
 @import 'components/inputs';
 @import 'components/tooltip'; // for error-tips showing up properly

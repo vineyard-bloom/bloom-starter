@@ -17,10 +17,35 @@ $lighter-gray:  #eee;
 $med-gray:      #acacac;
 $dark-gray:     #696969;
 
-$red:           #f00;
-$blue:          #00f;
-$green:         #0f0;
-$light-blue:    #ADD8E6;
+$red:           #d9534f;
+$blue:          #428bca;
+$green:         #5cb85c;
+$light-blue:    #5bc0de;
+$yellow:        #f0ad4e;
+
+$brand-primary:         darken($blue, 6.5%) !default; // #337ab7
+$brand-success:         $green !default;
+$brand-info:            $light-blue !default;
+$brand-warning:         $yellow !default;
+$brand-danger:          $red !default;
+
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             #3c763d !default;
+$state-success-bg:               #dff0d8 !default;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                #31708f !default;
+$state-info-bg:                  #d9edf7 !default;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:             #8a6d3b !default;
+$state-warning-bg:               #fcf8e3 !default;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:              #a94442 !default;
+$state-danger-bg:                #f2dede !default;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 $box-shadow:  0 0 5px rgba(0,0,0,0.4);
 $box-shadow-no-top:   0 5px 12px -5px rgba(0,0,0,0.4);
@@ -31,9 +56,11 @@ TYPOGRAPHY
 */
 $main-font: "filson-pro", Verdana, sans-serif;
 
-$giant-font-size: 100px;
 $main-font-size:  16px;
+$giant-font-size: 100px;
+$large-font-size: 18px;
 $med-font-size:   14px;
+$small-font-size: 12px;
 
 $h1-font-size:    40px;
 $h2-font-size:    30px;
@@ -43,7 +70,8 @@ $h5-font-size:    12px;
 $h6-font-size:    8px;
 
 /*
-NUMBERS & SPACING
+Components
+##Common padding and border radius sizes and more.
 =================
 */
 $footer-height:   50px;
@@ -58,7 +86,16 @@ $pad-mar-x-large: 30px;
 
 $neg-pad-mar-x-small: -2px;
 
-$border-radius: 4px;
+
+
+$line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1.5 !default;
+
+/* border-radius */
+$border-radius:             4px;
+$border-radius-base:        $border-radius !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       3px !default;
 
 /* z-indices */
 $z-1:     1;
