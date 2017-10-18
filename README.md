@@ -13,7 +13,6 @@ This is a starter kit for React/Redux projects.
 
 3. Copy over any configuration from config-sample into a new config.json file.
 
-
 4. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
 
 ### Build

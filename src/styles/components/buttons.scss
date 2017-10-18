@@ -1,4 +1,42 @@
 /*
+BUTTON COLORS
+=============
+*/
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:        $light-gray !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:         $border-radius-base !default;
+$btn-border-radius-large:        $border-radius-large !default;
+$btn-border-radius-small:        $border-radius-small !default;
+
+
+/*
 BUTTONS
 - customize the styles of buttons from bloom-forms
 */
@@ -17,12 +55,31 @@ button {
   &:disabled {
     cursor: not-allowed;
   }
+}
+.Btn {
+  background-color: transparent;
+  border: 1px solid $dark-gray;
+  color: $dark-gray;
+  display: inline-flex;
+  padding: $pad-mar-med;
 
-  &.Btn {
+  &:focus,
+  &:hover {
+    background-color: $dark-gray;
+    color: $white;
+    outline: none;
+  }
+
+  &--alt {
     background-color: transparent;
     border: 1px solid $dark-gray;
     color: $dark-gray;
-    padding: $pad-mar-med;
+
+    &.is-active,
+    &:active {
+      background-color: $dark-gray;
+      color: $white;
+    }
 
     &:focus,
     &:hover {
@@ -30,43 +87,68 @@ button {
       color: $white;
       outline: none;
     }
-
-    &--alt {
-      background-color: transparent;
-      border: 1px solid $dark-gray;
-      color: $dark-gray;
-
-      &.is-active,
-      &:active {
-        background-color: $dark-gray;
-        color: $white;
-      }
-
-      &:focus,
-      &:hover {
-        background-color: $dark-gray;
-        color: $white;
-        outline: none;
-      }
-    }
-
-    &--null { // no default styles
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      padding: 0;
-    }
-
-    &--full-width {
-      justify-content: center;
-      margin: 0 auto;
-      text-align: center;
-      width: 100%;
-    }
-
-    &--small {
-      font-size: $h5-font-size;
-      padding: $pad-mar-x-small $pad-mar-small;
-    }
   }
+
+  &--null { // no default styles
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  &--full-width {
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  &--small {
+    font-size: $h5-font-size;
+    padding: $pad-mar-x-small $pad-mar-small;
+  }
+  &--primary {
+    @extend .Btn;
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
+  // Success appears as green
+  &--success {
+    @extend .Btn;
+    @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+  }
+  // Info appears as blue-green
+  &--info {
+    @extend .Btn;
+    @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+  }
+  // Warning appears as orange
+  &--warning {
+    @extend .Btn;
+    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+  }
+  // Danger and error appear as red
+  &--danger {
+    @extend .Btn;
+    @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+  }
+}
+
+
+
+
+/* Button Sizes */
+
+.Btn--lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($pad-mar-large, $pad-mar-x-large, $large-font-size, $line-height-large, $btn-border-radius-large);
+}
+
+.Btn--md {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($pad-mar-small, $pad-mar-large, $large-font-size, $line-height-large, $btn-border-radius-large);
+}
+
+.Btn--sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($pad-mar-x-small, $pad-mar-small, $small-font-size, $line-height-small, $btn-border-radius-small);
 }

@@ -42,7 +42,7 @@ class NewUserForm extends React.Component {
             </a>
             <p className='LoginForm-description'>Enter an Ethereum Wallet Address to Continue:</p>
             <TextInput placeholder='ETH Address' id='withdrawAddress' name='withdrawAddress' label='Ethereum Address'
-              value={ formData['withdrawAddress'] ? formData['withdrawAddress'].value : '' } onChange={ props.updateForm } /> 
+              value={ formData['withdrawAddress'] ? formData['withdrawAddress'].value : '' } onChange={ props.updateForm } />
             <p className='LoginForm-description'>In order to complete your account, you must enter a locked Ethereum wallet address. This address will be used for withdraws from the engine and can only be changed by a submitted reques</p>
             <Button onClick={ props.submitForm } text='Complete Registration' className='Btn--alt LoginForm-submit-button u-justify-center' />
           </div>
