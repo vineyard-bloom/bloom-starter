@@ -38,7 +38,7 @@ aka functions to output css
   border-color: $border;
 
   &:focus,
-  &.focus {
+  &.is-focus {
     color: $color;
     background-color: darken($background, 10%);
         border-color: darken($border, 25%);
@@ -49,7 +49,7 @@ aka functions to output css
         border-color: darken($border, 12%);
   }
   &:active,
-  &.active,
+  &.is-active,
   .open > &.dropdown-toggle {
     color: $color;
     background-color: darken($background, 10%);
@@ -57,23 +57,23 @@ aka functions to output css
 
     &:hover,
     &:focus,
-    &.focus {
+    &.is-focus {
       color: $color;
       background-color: darken($background, 17%);
           border-color: darken($border, 25%);
     }
   }
   &:active,
-  &.active,
+  &.is-active,
   .open > &.dropdown-toggle {
     background-image: none;
   }
-  &.disabled,
+  &.is-disabled,
   &[disabled],
   fieldset[disabled] & {
     &:hover,
     &:focus,
-    &.focus {
+    &.is-focus {
       background-color: $background;
           border-color: $border;
     }
@@ -101,7 +101,7 @@ aka functions to output css
   hr {
     border-top-color: darken($border, 5%);
   }
-  .alert-link {
+  .Alert-link {
     color: darken($text-color, 10%);
   }
 }
