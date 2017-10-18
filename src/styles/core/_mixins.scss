@@ -87,6 +87,20 @@ aka functions to output css
   }
 }
 
+
+@mixin tab-focus() {
+  // WebKit-specific. Other browsers will keep their default outline style.
+  // (Initially tried to also force default via `outline: initial`,
+  // but that seems to erroneously remove the outline in Firefox altogether.)
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+          box-shadow: $shadow;
+}
+
 // Button sizes
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   padding: $padding-vertical $padding-horizontal;
@@ -106,4 +120,11 @@ aka functions to output css
   .Alert-link {
     color: darken($text-color, 10%);
   }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
 }
