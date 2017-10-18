@@ -1,6 +1,6 @@
 # Bloom Starter
 
-This is a starter kit for react/redux projects.
+This is a starter kit for React/Redux projects.
 
 ### Installation and Set Up
 1. Install dependencies with `yarn install`
@@ -11,8 +11,9 @@ This is a starter kit for react/redux projects.
     * [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
     * [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
+3. Copy over any configuration from config-sample into a new config.json file.
 
-3. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
+4. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
 
 ### Build
 1. `yarn build` to generate a production bundle.
