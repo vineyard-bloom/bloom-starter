@@ -71,6 +71,8 @@ aka functions to output css
   &.is-disabled,
   &[disabled],
   fieldset[disabled] & {
+    cursor: not-allowed;
+
     &:hover,
     &:focus,
     &.is-focus {
