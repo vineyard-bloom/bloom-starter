@@ -1,8 +1,7 @@
 import React from 'react';
-import SVGInline from "react-svg-inline";
+import SVGInline from 'react-svg-inline';
 
-import logoMark from 'images/inline-svgs/logo_mark.svg';
-import logoType from 'images/inline-svgs/logo_type.svg';
+import { logoMark, logoType } from 'icons';
 
 import 'styles/components/logo.scss';
 
@@ -10,7 +9,10 @@ const Logo = (props) => {
   return (
     <div className={ `Logo ${props.full ? 'Logo--full' : '' }` }>
       <SVGInline svg={ logoMark } />
-      { props.full ? <SVGInline svg={ logoType } className='Logo-text' /> : '' }
+      { props.full
+        ? <SVGInline svg={ logoType } className='Logo-text' title='Loading' description='This section is loading.' />
+        : ''
+      }
     </div>
   )
 }
