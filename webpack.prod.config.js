@@ -80,6 +80,7 @@ module.exports = {
       config:       path.resolve(__dirname, 'config'),
       containers:   path.resolve(__dirname, 'src/js/containers'),
       helpers:      path.resolve(__dirname, 'src/js/util/helpers'),
+      icons:        path.resolve(__dirname, 'src/js/icons'),
       images:       path.resolve(__dirname, 'src/images'),
       js:           path.resolve(__dirname, 'src/js'),
       language:     path.resolve(__dirname, 'config/en.json'),

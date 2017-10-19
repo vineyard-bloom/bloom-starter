@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Spinner from 'images/spinner.png';
+import { spinner } from 'icons';
 import 'styles/components/loading.scss';
 
 const Loading = (props) => {
   return (
-    <img src={ Spinner } alt='This section is loading.' className='Loading' />
+    <img src={ spinner } alt='This section is loading.' className='Loading' />
   )
 }
 

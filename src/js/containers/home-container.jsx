@@ -58,7 +58,7 @@ class HomeContainer extends React.Component {
           <Button id="test" onClick="" contents="Info" className="Btn--info"/>
           <Button id="test" onClick="" contents="Success" className="Btn--success"/>
           <Button id="test" onClick="" contents="Warning" className="Btn--warning"/>
-          <Button id="test" onClick="" contents="Danger" className="Btn--danger"/>
+          <Button id="test" onClick="" contents="Danger" loading className="Btn--danger"/>
 
           <Button id="test" onClick="" contents="Button Disabled" className="Btn--danger" disabled/>
         </div>
