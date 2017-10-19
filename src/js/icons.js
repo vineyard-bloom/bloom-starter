@@ -13,7 +13,7 @@ import logoMark from 'images/inline-svgs/logo_mark.svg'
 import logoType from 'images/inline-svgs/logo_type.svg'
 import spinner from 'images/spinner.png'
 
-export default {
+export {
   arrow,
   downCarrot,
   logoMark,
