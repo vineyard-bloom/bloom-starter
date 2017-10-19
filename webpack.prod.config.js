@@ -93,6 +93,7 @@ module.exports = {
       stubs:        path.resolve(__dirname, 'src/js/stubs'),
       styles:       path.resolve(__dirname, 'src/styles'),
       types:        path.resolve(__dirname, 'src/js/util/types'),
+      util:         path.resolve(__dirname, 'src/js/util'),
       validator:    path.resolve(__dirname, 'src/js/util/validator')
     },
     extensions: ['.jsx', '.js', '.html', '.scss']
