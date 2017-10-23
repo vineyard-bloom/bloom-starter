@@ -5,6 +5,7 @@ const initialState = {
       total: ''
     },
     id: '',
+    loaded: false,
     notifications: [],
     username: '',
     walletAddress: ''

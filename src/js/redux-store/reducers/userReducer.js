@@ -8,7 +8,7 @@ export default function userReducer(state = initialState.user, action) {
       return initialState.user;
 
     case actionTypes.LOGIN:
-      return { ...action.user }
+      return { ...action.user, loaded: true }
 
     case actionTypes.UPDATE_USER:
       newUser = action.userData;
