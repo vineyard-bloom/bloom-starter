@@ -11,6 +11,7 @@ const Table = (props) => {
         <th key={ `table-header-${i}` }>
           <a href='#' onClick={ () => props.changeActiveSort(h.sortValue) }>
             { header.title }
+            <span className='u-sr-only'>Click to sort by this column</span>
           </a>
         </th>
       )
