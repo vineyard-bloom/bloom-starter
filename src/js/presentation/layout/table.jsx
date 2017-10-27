@@ -64,7 +64,7 @@ const Table = (props) => {
         { cells }
       </tr>
     );
-  }) : [<tr><td colSpan={ headers.length }>No data to display</td></tr>];
+  }) : [<tr key='table-row-none'><td colSpan={ headers.length }>No data to display</td></tr>];
 
   return (
     <table className='Table'>
