@@ -32,7 +32,7 @@ const Table = (props) => {
     }
   }) : props.data || [];
 
-  let contentRows = sortedData.map((row, i) => {
+  let contentRows = sortedData.length ? sortedData.map((row, i) => {
     let cells = props.headers.map((h, indx) => {
       if (props.linkFields[h.sortValue]) {
         let url = props.linkFields[h.sortValue];
@@ -64,7 +64,7 @@ const Table = (props) => {
         { cells }
       </tr>
     );
-  });
+  }) : [<tr><td colSpan={ headers.length }>No data to display</td></tr>];
 
   return (
     <table className='Table'>
