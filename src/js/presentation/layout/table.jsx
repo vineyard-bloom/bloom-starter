@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BigNumber from 'bignumber.js'
 import { Link } from 'react-router';
 
 import 'styles/components/table';
 
 const Table = (props) => {
-  let headers = props.headers ? props.headers.map((header, i) => {
+  const headers = props.headers ? props.headers.map((header, i) => {
     return header.sortable
       ? (
-        <th key={ `table-header-${i}` }>
-          <a href='#' onClick={ () => props.changeActiveSort(h.sortValue) }>
+        <th key={ `table-header-${i}` } className={ props.activeSort === header.sortValue ? 'is-active' : '' }>
+          <a href='#' onClick={ (e) => { e.preventDefault(); props.changeActiveSort(header.sortValue) } }>
             { header.title }
             <span className='u-sr-only'>Click to sort by this column</span>
           </a>
@@ -22,40 +23,64 @@ const Table = (props) => {
       );
   }) : [];
 
-  let sortedData = props.data && props.activeSort ? props.data.sort((a,b) => {
-    if (a[props.activeSort] > b[props.activeSort]) {
+  const sortedData = props.data && props.activeSort ? props.data.sort((a,b) => {
+    let useBigNumber = false
+    let val1 = a[props.activeSort]
+    if (!(/\D+/).test(a[props.activeSort])) {
+      val1 = new BigNumber(a[props.activeSort])
+      useBigNumber = true
+    }
+    let val2 = b[props.activeSort]
+    if (!(/\D+/).test(b[props.activeSort])) {
+      val2 = new BigNumber(b[props.activeSort])
+      useBigNumber = true
+    }
+
+    if ((useBigNumber && val1.greaterThan(val2)) || (!useBigNumber && (val1 > val2))) {
       return 1;
-    } else if (a[props.activeSort] < b[props.activeSort]) {
+    } else if ((useBigNumber && val1.lessThan(val2)) || (!useBigNumber && (val1 < val2))) {
       return -1;
     } else {
       return 0;
     }
   }) : props.data || [];
 
-  let contentRows = sortedData.length ? sortedData.map((row, i) => {
+  const contentRows = sortedData.length ? sortedData.map((row, i) => {
     let cells = props.headers.map((h, indx) => {
-      if (props.linkFields[h.sortValue]) {
-        let url = props.linkFields[h.sortValue];
+      let key = h.dataValue || h.sortValue
+
+      if (props.linkFields[key]) {
+        let url = props.linkFields[key];
 
         if (url.indexOf(':') > -1) {
-          // should replace any '/:id' type params with the row's id (or whatever) field -- test me
-          let temp = url.split('/');
-          let replaceIndex = temp.indexOf(/\:\S+/);
-
-          temp[replaceIndex] = row[temp[replaceIndex].replace(':', '')];
-
-          url = temp.join('/')
+          const field = url.match(/:(\w+)/)[1]
+          url = url.replace(`:${field}`, row[field])
         }
 
-        return (
-          <td key={ `table-row-${i}-cell-${indx}` }>
+        const link = url.indexOf('http') > -1
+          ? (
+            <a href={ url } rel='noreferrer noopener' target='_blank'>
+              { row[key] }
+            </a>
+          ) : (
             <Link to={ props.linkFields[h.sort] }>
-              { row[h.sortValue] }
+              { row[key] }
             </Link>
+          )
+
+        return (
+          <td key={ `table-row-${i}-cell-${indx}` }
+            className={ props.activeSort === h.sortValue ? 'is-active' : '' }>
+            { link }
           </td>
         )
       } else {
-        return <td key={ `table-row-${i}-cell-${indx}` }>{ row[h.sortValue] }</td>
+        return (
+          <td key={ `table-row-${i}-cell-${indx}` }
+            className={ props.activeSort === h.sortValue ? 'is-active' : '' }>
+            { row[h.sortValue] }
+          </td>
+        )
       }
     });
 
@@ -64,14 +89,22 @@ const Table = (props) => {
         { cells }
       </tr>
     );
-  }) : [<tr key='table-row-none'><td colSpan={ headers.length }>No data to display</td></tr>];
+  }) : [
+    <tr key='table-row-none'>
+      <td colSpan={ headers.length } className='u-text-center'>
+        No data to display
+      </td>
+    </tr>
+  ];
 
   return (
     <table className='Table'>
-      <tbody>
+      <thead>
         <tr>
           { headers }
         </tr>
+      </thead>
+      <tbody>
         { contentRows }
       </tbody>
     </table>
@@ -89,10 +122,12 @@ Table.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         sortable: PropTypes.bool,
-        sortValue: PropTypes.string
+        sortValue: PropTypes.string,
+        dataValue: PropTypes.string /* useful if the presentation of the value != what you want to sort by */
       })
     ).isRequired,
   linkFields: PropTypes.object
 }
 
 export default Table;
+
