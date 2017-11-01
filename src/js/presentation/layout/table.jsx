@@ -50,7 +50,7 @@ const Table = (props) => {
       let key = h.dataValue || h.sortValue
 
       if (props.linkFields[key]) {
-        let url = props.linkFields[key];
+        let url = props.linkFields[h.sortValue];
 
         if (url.indexOf(':') > -1) {
           const field = url.match(/:(\w+)/)[1]
@@ -78,7 +78,7 @@ const Table = (props) => {
         return (
           <td key={ `table-row-${i}-cell-${indx}` }
             className={ props.activeSort === h.sortValue ? 'is-active' : '' }>
-            { row[h.sortValue] }
+            { row[key] }
           </td>
         )
       }
@@ -130,4 +130,3 @@ Table.propTypes = {
 }
 
 export default Table;
-
