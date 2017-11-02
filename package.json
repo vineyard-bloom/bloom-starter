@@ -9,7 +9,7 @@
     "build": "webpack --config=webpack.prod.config.js"
   },
   "author": "inkblotty",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.16.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
