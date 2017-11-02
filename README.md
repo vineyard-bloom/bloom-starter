@@ -122,7 +122,16 @@ You don't need to pass closeModal to the existing 'x' button.
 [Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
 
 ### Tables
-The only required prop is `headers`, an array of objects that look like: { title: string, sortable: boolean, sortValue: string }. This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function.
+The only required prop is `headers`, an array of objects that look like:
+```
+{
+  dataValue: string (optional),
+  title: string,
+  sortable: boolean,
+  sortValue: string
+}
+```
+This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function. `dataValue` is only used if you want to sort that row by one field, but present another, like if you wanted to sort by `'created'` key, but you wanted to display `'formattedDate'` key.
 
 Optional, but helpful props are:
 - `activeSort`:
