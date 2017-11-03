@@ -4,6 +4,7 @@ const path = require('path')
 const BUILD_DIR = path.join(__dirname, '/dist/')
 const APP_DIR = path.join(__dirname, '/src/')
 const autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
 
 module.exports = {
   entry: ['babel-polyfill', APP_DIR + 'index.js'],
@@ -77,6 +78,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new CopyWebpackPlugin([
       { from: 'public/index.html' }
     ]),
