@@ -142,6 +142,8 @@ Optional, but helpful props are:
   An array of objects representing your table data. Object keys should all match your headers' `sortValue`s.
 - `linkFields`:
   An object that turns data cells into links. The keys must match header `sortValue`s. For example:
+- `reverseSort`:
+  A boolean that toggles ascending/descending sort order.
 ```
 { 'id': '/product/:id', 'name': '/organization/:name' }
 ```

@@ -17,8 +17,14 @@ class Modal extends React.Component {
     modalTriggerId: PropTypes.string
   }
 
+  detectClickOff = (e) => {
+    if (e.target && (e.target.id === 'modal-wrapper')) {
+      this.props.closeModal()
+    }
+  }
+
   findLast = () => {
-    // find last anchor on modal and focus
+    // find last anchor on modal for shift-tab focus
     const contents = document.getElementById('modal-wrapper')
     if (contents) {
       let lastInput = contents.querySelectorAll('button, textarea, a, select, input, textarea')
@@ -77,8 +83,10 @@ class Modal extends React.Component {
       }, 200)
     } else if (!newProps.modalContents && this.props.modalContents) {
       // closing
-      let prevBtn = document.getElementById(this.props.modalTriggerId)
-      if (prevBtn) prevBtn.focus();
+      const prevBtn = document.getElementById(this.props.modalTriggerId)
+      if (!!prevBtn) {
+        prevBtn.focus()
+      }
     }
   };
 
@@ -86,11 +94,15 @@ class Modal extends React.Component {
     let { modalContents, ...props } = this.props;
 
     return (
-      <div className={ `Modal ${ modalContents ? 'is-active' : 'is-hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'>
-        <Transition in={!!modalContents} timeout={0}>
+      <div className={ `Modal ${ modalContents ? 'is-active' : 'is-hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'
+        onClick={ this.detectClickOff }>
+        <Transition in={ !!modalContents } timeout={ 0 }>
             {(status) => 
               <div className={ `Modal-content decend-${status}` }>
-                <button className='Btn--null Btn-close' id='modal-close-button' onClick={ () => props.closeModal() }>x</button>
+                <button className='Btn--null Btn-close' id='modal-close-button'
+                  onClick={ (e) => { e.preventDefault(); props.closeModal() } }>
+                  x
+                </button>
                 { modalContents }
               </div>
             }
