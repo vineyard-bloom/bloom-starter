@@ -27,12 +27,12 @@ const Table = ({ reverseSort, ...props }) => {
     let useBigNumber = false
     let val1 = a[props.activeSort]
     if (!(/\D+/).test(a[props.activeSort])) {
-      val1 = new BigNumber(a[props.activeSort])
+      val1 = new BigNumber(a[props.activeSort] || 0)
       useBigNumber = true
     }
     let val2 = b[props.activeSort]
     if (!(/\D+/).test(b[props.activeSort])) {
-      val2 = new BigNumber(b[props.activeSort])
+      val2 = new BigNumber(b[props.activeSort] || 0)
       useBigNumber = true
     }
 
