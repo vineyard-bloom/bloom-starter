@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 import 'styles/components/table';
 
-const Table = (props) => {
+const Table = ({ reverseSort, ...props }) => {
   const headers = props.headers ? props.headers.map((header, i) => {
     return header.sortable
       ? (
@@ -37,9 +37,9 @@ const Table = (props) => {
     }
 
     if ((useBigNumber && val1.greaterThan(val2)) || (!useBigNumber && (val1 > val2))) {
-      return 1;
+      return reverseSort ? 1 : -1;
     } else if ((useBigNumber && val1.lessThan(val2)) || (!useBigNumber && (val1 < val2))) {
-      return -1;
+      return reverseSort ? -1 : 1;
     } else {
       return 0;
     }
@@ -126,7 +126,9 @@ Table.propTypes = {
         dataValue: PropTypes.string /* useful if the presentation of the value != what you want to sort by */
       })
     ).isRequired,
-  linkFields: PropTypes.object
+  linkFields: PropTypes.object,
+  reverseSort: PropTypes.bool /* required if you want ascending/descending toggle behavior */
 }
 
 export default Table;
+
