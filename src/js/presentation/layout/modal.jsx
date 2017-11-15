@@ -64,7 +64,7 @@ class Modal extends React.Component {
 
   componentDidMount = () => {
     let closeBtn = document.getElementById('modal-close-button');
-    if (closeBtn) closeBtn.focus();
+    if (closeBtn && this.props.modalContents) closeBtn.focus();
 
     this.findLast()
   };
