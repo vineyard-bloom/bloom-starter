@@ -64,8 +64,7 @@ input[type='number'] {
   &--currency {
     & ~ .Input-after {
       color: $light-gray;
-      margin-top: 1.5em;
-      position: absolute;
+      margin-top: 40px;
     }
   }
 

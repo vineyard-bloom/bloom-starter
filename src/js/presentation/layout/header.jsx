@@ -19,7 +19,7 @@ const Header = (props) => {
           <Logo full={ true } />
         </Link>
         <div className='Header-top-row-right'>
-          <Button text='Open Example Modal' id='example-modal-opener' className='u-inline-block'
+          <Button contents='Open Example Modal' id='example-modal-opener' className='u-inline-block'
             onClick={ (e) => { props.openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener') } } />
         </div>
       </div>

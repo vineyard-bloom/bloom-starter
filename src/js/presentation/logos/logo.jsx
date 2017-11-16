@@ -5,8 +5,6 @@ import { logoMark, logoType } from 'icons';
 
 import 'styles/components/logo.scss';
 
-console.log(logoMark)
-
 const Logo = (props) => {
   return (
     <div className={ `Logo ${props.full ? 'Logo--full' : '' }` }>
