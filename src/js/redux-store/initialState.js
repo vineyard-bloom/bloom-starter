@@ -1,9 +1,5 @@
 const initialState = {
   user: {
-    account: {
-      status: '',
-      total: ''
-    },
     id: '',
     loaded: false,
     notifications: [],
