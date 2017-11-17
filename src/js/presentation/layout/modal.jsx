@@ -30,20 +30,34 @@ class Modal extends React.Component {
       let lastInput = contents.querySelectorAll('button, textarea, a, select, input, textarea')
       lastInput = lastInput[lastInput.length-1]
 
-      if (lastInput) {
+      if (!!lastInput) {
         this.setState({
           lastFocus: lastInput
+        })
+      } else {
+        this.setState({
+          lastFocus: document.getElementById('modal-close-button')
         })
       }
     }
   };
+
+  focusOnFirst = () => {
+    const modal = document.getElementById('modal-wrapper')
+    if (modal) {
+      let firstFocusable = [...modal.querySelectorAll('button, a, input, select, textarea')][0]
+      if (firstFocusable) {
+        firstFocusable.focus()
+      }
+    }
+  }
 
   keyDownHandler = (evt) => {
     const e = evt || window.event
     const keyCode = e.which || e.keyCode
     const closeBtn = document.getElementById('modal-close-button')
 
-    if (keyCode === 9 && e.shiftKey && (e.target.id === closeBtn.id)) { // shift tab pressed after last element
+    if (keyCode === 9 && e.shiftKey && (e.target.id === closeBtn.id)) { // shift tab pressed while on first element
       if (e.preventDefault) {
         e.preventDefault()
       } else {
@@ -70,6 +84,7 @@ class Modal extends React.Component {
   };
 
   componentWillReceiveProps = (newProps) => {
+    const previousLastFocus = document.getElementById(this.state.lastFocus.id)
     if (!this.props.modalContents && newProps.modalContents) {
       // opening
       setTimeout(() => {
@@ -77,10 +92,9 @@ class Modal extends React.Component {
         if (closeBtn) closeBtn.focus();
         this.findLast()
       }, 200);
-    } else if (newProps.modalContents) {
-      setTimeout(() => {
-        this.findLast()
-      }, 200)
+    } else if (newProps.modalContents && !previousLastFocus) {
+      this.findLast()
+      this.focusOnFirst()
     } else if (!newProps.modalContents && this.props.modalContents) {
       // closing
       const prevBtn = document.getElementById(this.props.modalTriggerId)
@@ -97,11 +111,11 @@ class Modal extends React.Component {
       <div className={ `Modal ${ modalContents ? 'is-active' : 'is-hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'
         onClick={ this.detectClickOff }>
         <Transition in={ !!modalContents } timeout={ 0 }>
-            {(status) => 
-              <div className={ `Modal-content decend-${status}` }>
+            {(status) =>
+              <div className={ `Modal-content descend-${status}` }>
                 <button className='Btn--null Btn-close' id='modal-close-button'
                   onClick={ (e) => { e.preventDefault(); props.closeModal() } }>
-                  x
+                  <SVGInline svg={ close } />
                 </button>
                 { modalContents }
               </div>
