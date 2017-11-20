@@ -115,6 +115,8 @@ or
 this.props.closeModal()
 ```
 
+** All focusable elements inside the modal MUST have ids. There are several diffing event handlers that trap tab focus for accessibility, and it uses ids of those elements **
+
 You cannot have more than one modal open at a time.
 
 You don't need to pass closeModal to the existing 'x' button.

@@ -6,6 +6,22 @@ import { closeModal } from 'redux-store/actions/modalActions';
 
 import 'styles/components/modal'
 
+
+const isInsideTheModal = (domElement) => {
+  let parent = domElement
+  while (parent && parent.tagName) {
+    if (parent.id === 'modal-wrapper') {
+      return true
+    } else if (parent.tagName === 'BODY'){
+      return false
+    } else {
+      parent = parent.parentNode
+    }
+  }
+}
+
+const allEnabledInputs = 'button:not([disabled]), textarea:not([disabled]), a:not([disabled]), select:not([disabled]), input:not([disabled])'
+
 class Modal extends React.Component {
   state = {
     lastFocus: null
@@ -27,8 +43,8 @@ class Modal extends React.Component {
     // find last anchor on modal for shift-tab focus
     const contents = document.getElementById('modal-wrapper')
     if (contents) {
-      let lastInput = contents.querySelectorAll('button, textarea, a, select, input, textarea')
-      lastInput = lastInput[lastInput.length-1]
+      const inputs = contents.querySelectorAll(allEnabledInputs)
+      let lastInput = inputs[inputs.length-1]
 
       if (!!lastInput) {
         this.setState({
@@ -45,7 +61,7 @@ class Modal extends React.Component {
   focusOnFirst = () => {
     const modal = document.getElementById('modal-wrapper')
     if (modal) {
-      let firstFocusable = [...modal.querySelectorAll('button, a, input, select, textarea')][0]
+      let firstFocusable = [...modal.querySelectorAll(allEnabledInputs)][0]
       if (firstFocusable) {
         firstFocusable.focus()
       }
@@ -76,6 +92,18 @@ class Modal extends React.Component {
     }
   };
 
+  onFocusOut = (e) => {
+    // keydown handler makes sure we don't leave the modal *most* of the time, but this will ensure it
+    if (!isInsideTheModal(e.relatedTarget)) {
+      let closeBtn = document.getElementById('modal-close-button');
+      if (closeBtn && this.props.modalContents) {
+        closeBtn.focus()
+      }
+
+      this.findLast();
+    }
+  }
+
   componentDidMount = () => {
     let closeBtn = document.getElementById('modal-close-button');
     if (closeBtn && this.props.modalContents) closeBtn.focus();
@@ -84,7 +112,9 @@ class Modal extends React.Component {
   };
 
   componentWillReceiveProps = (newProps) => {
-    const previousLastFocus = document.getElementById(this.state.lastFocus.id)
+    const previousLastFocus = this.state.lastFocus
+      ? document.getElementById(this.state.lastFocus.id)
+      : null
     if (!this.props.modalContents && newProps.modalContents) {
       // opening
       setTimeout(() => {
@@ -92,7 +122,7 @@ class Modal extends React.Component {
         if (closeBtn) closeBtn.focus();
         this.findLast()
       }, 200);
-    } else if (newProps.modalContents && !previousLastFocus) {
+    } else if (newProps.modalContents && (!previousLastFocus || !previousLastFocus.focus)) {
       this.findLast()
       this.focusOnFirst()
     } else if (!newProps.modalContents && this.props.modalContents) {
@@ -109,7 +139,7 @@ class Modal extends React.Component {
 
     return (
       <div className={ `Modal ${ modalContents ? 'is-active' : 'is-hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'
-        onClick={ this.detectClickOff }>
+        onClick={ this.detectClickOff } onBlur={ this.onFocusOut }>
         <Transition in={ !!modalContents } timeout={ 0 }>
             {(status) =>
               <div className={ `Modal-content descend-${status}` }>
