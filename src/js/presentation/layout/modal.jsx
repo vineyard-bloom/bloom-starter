@@ -73,6 +73,10 @@ class Modal extends React.Component {
     const keyCode = e.which || e.keyCode
     const closeBtn = document.getElementById('modal-close-button')
 
+    if (keyCode !== 27) {
+      this.findLast()
+    }
+
     if (keyCode === 9 && e.shiftKey && (e.target.id === closeBtn.id)) { // shift tab pressed while on first element
       if (e.preventDefault) {
         e.preventDefault()
