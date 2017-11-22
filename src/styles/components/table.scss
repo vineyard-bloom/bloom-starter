@@ -36,7 +36,7 @@ $table-border: 1px solid $med-gray;
 
     tr {
       &:nth-child(odd) {
-        background-color: lighten($light-blue, 35%);
+        background-color: lighten($blue, 45%);
       }
 
       td:last-of-type {
@@ -92,7 +92,7 @@ $table-border: 1px solid $med-gray;
     font-weight: 400; 
 
     &.is-active {
-      background-color: lighten($light-blue, 30%);
+      background-color: lighten($blue, 40%);
     }
   }
 
