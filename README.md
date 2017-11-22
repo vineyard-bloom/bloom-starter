@@ -148,6 +148,8 @@ Optional, but helpful props are:
 { 'id': '/product/:id', 'name': '/organization/:name' }
 ```
   would make any names and ids link to '/organization/<NAME>' and '/product/<ID>' respectively.
+- `paginationLimit`:
+  A number that limits how many rows are shown at once. Preserves sort order.
 - `reverseSort`:
   A boolean that toggles ascending/descending sort order.
 
