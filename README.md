@@ -153,6 +153,8 @@ Optional, but helpful props are:
 - `reverseSort`:
   A boolean that toggles ascending/descending sort order.
 
+** A note on Table css: By default, the table will flip the headers and data vertically with an x-axis scroll when viewed on mobile and smaller screens. **
+
 [Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
 
 ### Tooltips
