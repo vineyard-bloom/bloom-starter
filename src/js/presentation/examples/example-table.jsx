@@ -3,7 +3,8 @@ import Table from 'presentation/layout/table'
 
 import { humanFormatDate } from 'helpers'
 
-class ExampleTable extends React.Component {
+// I am an example table container, but all the other examples live in /presentation so I'm here too
+class ExampleTableContainer extends React.Component {
   state = {
     activeSort: 'name',
     reverseSort: false
@@ -62,11 +63,14 @@ class ExampleTable extends React.Component {
 
 
     return (
-      <Table headers={ headers } data={ exampleData } activeSort={ activeSort } reverseSort={ reverseSort }
-        changeActiveSort={ this.changeActiveSort }
-      />
+      <div>
+        <h2>Example Table</h2>
+        <Table headers={ headers } data={ exampleData } activeSort={ activeSort } reverseSort={ reverseSort }
+          changeActiveSort={ this.changeActiveSort }
+        />
+      </div>
     )
   }
 }
 
-export default ExampleTable
+export default ExampleTableContainer

@@ -37,7 +37,7 @@ class ExamplesContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-
+  return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
