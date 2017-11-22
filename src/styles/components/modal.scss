@@ -55,3 +55,26 @@ $modal-contents-width: 450px;
     z-index: $z-100;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .Modal {
+    padding-top: 40px;
+
+    &-content {
+      max-height: 90vh;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Modal {
+    &-content {
+      width: calc(#{$modal-contents-width} * .6);
+
+      .Btn-close {
+        margin-left: calc(-45px + #{$modal-contents-width} * .6);
+        top: inherit;
+      }
+    }
+  }
+}

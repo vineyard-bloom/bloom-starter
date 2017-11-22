@@ -143,12 +143,12 @@ class Modal extends React.Component {
 
     return (
       <div className={ `Modal ${ modalContents ? 'is-active' : 'is-hidden' }` } onKeyDown={ this.keyDownHandler } id='modal-wrapper'
-        onClick={ this.detectClickOff } onBlur={ this.onFocusOut }>
+        onClick={ this.detectClickOff } onBlur={ this.onFocusOut } tabIndex={ modalContents ? 0 : -1 }>
         <Transition in={ !!modalContents } timeout={ 0 }>
             {(status) =>
               <div className={ `Modal-content descend-${status}` }>
                 <button className='Btn--null Btn-close' id='modal-close-button'
-                  onClick={ (e) => { e.preventDefault(); props.closeModal() } }>
+                  onClick={ (e) => { e.preventDefault(); props.closeModal() } } tabIndex={ modalContents ? 0 : -1 }>
                   x
                 </button>
                 { modalContents }
