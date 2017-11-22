@@ -17,5 +17,6 @@ export {
   arrow,
   downCarrot,
   logoMark,
-  logoType
+  logoType,
+  spinner
 }

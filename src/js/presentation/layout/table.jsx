@@ -63,7 +63,7 @@ class Table extends React.Component {
       let cells = props.headers.map((h, indx) => {
         let key = h.dataValue || h.sortValue
 
-        if (props.linkFields[key]) {
+        if (props.linkFields && props.linkFields[key]) {
           let url = props.linkFields[h.sortValue];
 
           if (url.indexOf(':') > -1) {

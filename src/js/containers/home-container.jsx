@@ -8,9 +8,9 @@ import { convertWeiToEth } from 'helpers';
 import { getUser } from 'redux-store/actions/userActions';
 import { UserType } from 'types';
 
+import ExamplesContainer from 'containers/examples-container';
 import SideBar from 'presentation/navigation/side-bar';
 
-import { Button } from 'bloom-forms';
 import 'styles/components/home';
 
 class HomeContainer extends React.Component {
@@ -52,15 +52,7 @@ class HomeContainer extends React.Component {
         <div className='Home-content'>
           <h1>Main Content Here</h1>
           <p>Below is an overview of some basic elements used throughout the starterkit.</p>
-          <h2>Buttons</h2>
-          <p>Use any of the examples below to quickly create a styled button.</p>
-          <Button id="test" onClick="" contents="Default"/>
-          <Button id="test" onClick="" contents="Info" className="Btn--info"/>
-          <Button id="test" onClick="" contents="Success" className="Btn--success"/>
-          <Button id="test" onClick="" contents="Warning" className="Btn--warning"/>
-          <Button id="test" onClick="" contents="Danger" loading className="Btn--danger"/>
-
-          <Button id="test" onClick="" contents="Button Disabled" className="Btn--danger" disabled/>
+          <ExamplesContainer />
         </div>
       </div>
     );

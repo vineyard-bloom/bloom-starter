@@ -8,7 +8,7 @@ import HomeContainer from 'containers/home-container';
 import LoginFormContainer from 'containers/forms/login-form-container';
 import NewUserFormContainer from 'containers/forms/new-user-form-container';
 
-import ExampleAccordion from 'presentation/example-accordion'
+import ExampleAccordion from 'presentation/examples/example-accordion'
 
 import FourOhFour from 'pages/four-oh-four.jsx';
 

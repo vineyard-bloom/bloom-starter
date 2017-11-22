@@ -149,7 +149,7 @@ class Modal extends React.Component {
               <div className={ `Modal-content descend-${status}` }>
                 <button className='Btn--null Btn-close' id='modal-close-button'
                   onClick={ (e) => { e.preventDefault(); props.closeModal() } }>
-                  <SVGInline svg={ close } />
+                  x
                 </button>
                 { modalContents }
               </div>

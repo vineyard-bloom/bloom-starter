@@ -54,10 +54,6 @@ class SubHeader extends React.Component {
             <AccountDropdown />
           </AccountContainer>
         : '' }
-        <ul>
-          <Link to='/example'>Example Form</Link>
-          <Link to='/example/accordion'>Example Accordion</Link>
-        </ul>
       </div>
     )
   }
