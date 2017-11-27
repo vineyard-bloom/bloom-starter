@@ -12,6 +12,7 @@ const Alert = (props) => {
         {(status) =>
           <div className={ `Alert Alert--${ currentAlert ? currentAlert.style : '' } descend-${status}` }>
             <div className={ `Alert-icon icons-${ currentAlert ? currentAlert.style : '' }` } role='presentation'></div>
+            <div className='u-sr-only'>Alert message: </div>
             <div className='Alert-text' role='alert' aria-live='polite'>
               { currentAlert ? currentAlert.message : '' }
             </div>
