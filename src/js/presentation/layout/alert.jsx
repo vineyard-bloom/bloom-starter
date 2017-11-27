@@ -10,9 +10,11 @@ const Alert = (props) => {
     <div className={ `Alert-background ${ props.hidden ? 'is-hidden' : '' }` }>
       <Transition in={!!currentAlert} timeout={0}>
         {(status) =>
-          <div className={ `Alert Alert--${ currentAlert ? currentAlert.style : '' } decend-${status}` }>
-            <div className={ `Alert-icon icons-${ currentAlert ? currentAlert.style : '' }` }></div>
-            <div className='Alert-text'>{ currentAlert ? currentAlert.message : '' }</div>
+          <div className={ `Alert Alert--${ currentAlert ? currentAlert.style : '' } descend-${status}` }>
+            <div className={ `Alert-icon icons-${ currentAlert ? currentAlert.style : '' }` } role='presentation'></div>
+            <div className='Alert-text' role='alert' aria-live='polite'>
+              { currentAlert ? currentAlert.message : '' }
+            </div>
           </div>
         }
       </Transition>
