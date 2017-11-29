@@ -124,34 +124,47 @@ You don't need to pass closeModal to the existing 'x' button.
 [Back to Contents](https://github.com/vineyard-bloom/bloom-starter#contents)
 
 ### Tables
-The only required prop is `headers`, an array of objects that look like:
-```
-{
-  dataValue: string (optional),
-  title: string,
-  sortable: boolean,
-  sortValue: string
-}
-```
-This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function. `dataValue` is only used if you want to sort that row by one field, but present another, like if you wanted to sort by `'created'` key, but you wanted to display `'formattedDate'` key.
+Required Props:
+- `headers`:
+   an array of objects that look like:
+  ```
+  {
+    displayValue: string (optional),
+    title: string,
+    sortable: boolean,
+    sortValue: string
+  }
+  ```
+  This populates your header row and allows for sorting of the table based on that row. `sortValue` is passed into the `changeActiveSort` function. `displayValue` is only used if you want to sort that row by one field, but present another, like if you wanted to sort by `'created'` key, but you wanted to display `'formattedDate'` key.
+- `query`:
+  an object that initializes pagination, sorting, and sets up whether to use client or server-side querying. It looks like:
+  ```
+  {
+    useServer: boolean,
+    pagination: {
+      limit: number,
+      offset: number
+    },
+    sort: {
+      activeField: string, (must match one of your header's `sortValue`s)
+      reverse: boolean (for ascending/descending sort of the same field)
+    }
+  }
+  ```
+
+`<Table />` supports both server-side and client-side querying for sorting, filtering, and pagination. To use server-side querying, make sure your `query.useServer` is set to `true` and you pass in `requestData` (see optional below) as a prop.
 
 Optional, but helpful props are:
-- `activeSort`:
-  A string that matches one of the `headers`' `sortValue` prop. `<Table/>` automatically sorts your data by that value.
-- `changeActiveSort`:
-  A function that takes one of the `headers`' `sortValue` strings as input and changes the `activeSort` passed in from the parent container.
 - `data`:
-  An array of objects representing your table data. Object keys should all match your headers' `sortValue`s.
+  An array of objects representing your table data. Object keys should all match your headers' `sortValue`s. (Why is this optional? Because sometimes there is no data to show.)
 - `linkFields`:
   An object that turns data cells into links. The keys must match header `sortValue`s. For example:
 ```
 { 'id': '/product/:id', 'name': '/organization/:name' }
 ```
   would make any names and ids link to '/organization/<NAME>' and '/product/<ID>' respectively.
-- `paginationLimit`:
-  A number that limits how many rows are shown at once. Preserves sort order.
-- `reverseSort`:
-  A boolean that toggles ascending/descending sort order.
+- `requestData`:
+  A function needed to trigger server-side querying. It will receive a an object like your `query` prop. 
 
 ** A note on Table css: By default, the table will flip the headers and data vertically with an x-axis scroll when viewed on mobile and smaller screens. **
 

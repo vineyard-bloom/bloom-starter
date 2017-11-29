@@ -4,6 +4,10 @@ BASE
 - tag element styles; overrides
 */
 
+*:focus {
+  outline: auto 5px $focus-color;
+}
+
 a {
   text-decoration: none;
 }
