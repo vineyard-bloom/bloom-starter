@@ -20,7 +20,8 @@ class Tooltip extends React.Component {
     header: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element
-    ])
+    ]),
+    id: PropTypes.string.isRequired
   }
 
   toggleOpen = (e) => {
@@ -32,13 +33,18 @@ class Tooltip extends React.Component {
   };
 
   render() {
+    const { contents, direction, header, id } = this.props
     return (
-      <div className='Tooltip'>
-        <button className='Tooltip-icon' onClick={ this.toggleOpen }></button>
+      <div className='Tooltip' role='tooltip' aria-live='polite'>
+        <button className='Tooltip-icon' onClick={ this.toggleOpen }
+          aria-controls={ `tooltip-${ id }-content` }>
+          <span className='u-sr-only'>Open this tooltip for more information</span>
+        </button>
         { this.state.open &&
-          <div className={ `Tooltip-contents Tooltip-contents--${this.props.direction}` }>
-            <h6>{ this.props.header }</h6>
-            <div className='Tooltip-contents-text'>{ this.props.contents }</div>
+          <div className={ `Tooltip-contents Tooltip-contents--${direction}` }
+            id={ `tooltip-${ id }-content` }>
+            <h6>{ header }</h6>
+            <div className='Tooltip-contents-text'>{ contents }</div>
           </div>
         }
       </div>
