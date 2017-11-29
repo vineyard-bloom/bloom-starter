@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import BigNumber from 'bignumber.js';
 
-import { convertWeiToEth } from 'helpers';
+import { getUser } from 'redux-store/actions/userActions'
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { closeModal, openModal } from 'redux-store/actions/modalActions';
 
@@ -17,10 +17,12 @@ import Modal from 'presentation/layout/modal';
 // App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked
 class AppContainer extends React.Component {
   static propTypes = {
-    alerts: PropTypes.arrayOf(PropTypes.shape({
-      message: PropTypes.string.isRequired,
-      style: PropTypes.string
-    })),
+    alerts: PropTypes.arrayOf(
+      PropTypes.shape({
+        message: PropTypes.string.isRequired,
+        style: PropTypes.string
+      })
+    ),
     expireAlert: PropTypes.func,
     history: PropTypes.object,
     location: PropTypes.object
@@ -44,6 +46,7 @@ class AppContainer extends React.Component {
     // init countdowns, event listeners
     // talk to WebService to get any important info
     // etc
+    this.props.getUser()
     this.timeoutAlerts(this.props.alerts);
   };
 
@@ -66,15 +69,10 @@ class AppContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addAlert: (message, style) => {
-      return dispatch(addAlert(message, style))
-    },
-    closeModal: () => {
-      return dispatch(closeModal());
-    },
-    expireAlert: () => {
-      return dispatch(expireAlert());
-    },
+    addAlert: (message, style) => dispatch(addAlert(message, style)),
+    closeModal: () => dispatch(closeModal()),
+    expireAlert: () => dispatch(expireAlert()),
+    getUser: () => dispatch(getUser()),
     openModal: (e, modalContents, triggerId) => {
       return dispatch(openModal(e, modalContents, triggerId));
     }
