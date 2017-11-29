@@ -7,6 +7,7 @@ import BigNumber from 'bignumber.js';
 import { getUser } from 'redux-store/actions/userActions'
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { closeModal, openModal } from 'redux-store/actions/modalActions';
+import { freezePage, setWindowSize } from 'redux-store/actions/presentationActions'
 
 import Alert from 'presentation/layout/alert';
 import Header from 'presentation/layout/header';
@@ -28,6 +29,18 @@ class AppContainer extends React.Component {
     location: PropTypes.object
   };
 
+  recursiveWindowSize = () => {
+    const height = window.innerHeight
+    const width = window.innerWidth
+    if (this.props.presentation.width != width || (this.props.presentation.height != height)) {
+      this.props.setWindowSize(height, width)
+    }
+
+    setTimeout(() => {
+      this.recursiveWindowSize()
+    }, 1000)
+  }
+
   timeoutAlerts = (alerts) => {
     if (alerts[0]) {
       setTimeout(() => {
@@ -48,13 +61,14 @@ class AppContainer extends React.Component {
     // etc
     this.props.getUser()
     this.timeoutAlerts(this.props.alerts);
+    this.recursiveWindowSize()
   };
 
   render() {
-    const { addAlert, alerts, closeModal, modal, openModal, user } = this.props
+    const { addAlert, alerts, closeModal, freezePage, modal, openModal, user } = this.props
 
     return (
-      <div className={ `App-container ${modal && modal.modalContents ? 'u-prevent-scroll' : ''}` }>
+      <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` }>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainSwitch />
         <Footer />
@@ -72,10 +86,12 @@ const mapDispatchToProps = (dispatch) => {
     addAlert: (message, style) => dispatch(addAlert(message, style)),
     closeModal: () => dispatch(closeModal()),
     expireAlert: () => dispatch(expireAlert()),
+    freezePage: (isFrozen) => dispatch(freezePage(isFrozen)),
     getUser: () => dispatch(getUser()),
     openModal: (e, modalContents, triggerId) => {
       return dispatch(openModal(e, modalContents, triggerId));
-    }
+    },
+    setWindowSize: (height, width) => dispatch(setWindowSize(height, width))
   }
 }
 
@@ -83,6 +99,7 @@ const mapStateToProps = (state) => {
   return {
     alerts: state.alerts,
     modal: state.modal,
+    presentation: state.presentation,
     user: state.user
   }
 }

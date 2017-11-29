@@ -1,29 +1,19 @@
+const autoprefixer = require('autoprefixer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
-const BUILD_DIR = path.join(__dirname, '/dist/')
-const APP_DIR = path.join(__dirname, '/src/')
-const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
 
-module.exports = {
+const APP_DIR = path.join(__dirname, '/src/')
+const BUILD_DIR = path.join(__dirname, '/dist/')
+const config = require(path.join(__dirname, '/config/config.json'))
+
+const baseConfig = {
   entry: ['babel-polyfill', APP_DIR + 'index.js'],
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR,
     publicPath: '/'
-  },
-
-  devtool: 'eval-source-map',
-
-  devServer: {
-    publicPath: '/',
-    contentBase: './public',
-    port: 8080,
-    host: '0.0.0.0',
-    open: false,
-    historyApiFallback: true,
-    disableHostCheck: true
   },
 
   module: {
@@ -44,7 +34,9 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        include: [path.join(__dirname, 'src/images/inline-svgs')],
+        include: [
+          path.join(__dirname, 'src/images/inline-svgs')
+        ],
         loader: 'raw-loader'
       },
       {
@@ -80,7 +72,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('dev')
+        NODE_ENV: JSON.stringify(config.app.environment)
       }
     }),
     new CopyWebpackPlugin([
@@ -90,7 +82,7 @@ module.exports = {
   ],
 
   resolve: {
-    alias: {  // aliases allow you to import with cleaner paths like '/images/spinner.png' versus '../../images/spinner.png'
+    alias: {
       config:       path.resolve(__dirname, 'config'),
       containers:   path.resolve(__dirname, 'src/js/containers'),
       helpers:      path.resolve(__dirname, 'src/js/util/helpers'),
@@ -110,6 +102,27 @@ module.exports = {
       util:         path.resolve(__dirname, 'src/js/util'),
       validator:    path.resolve(__dirname, 'src/js/util/validator')
     },
-    extensions: ['.js', '.jsx', '.scss', '.html']
+    extensions: ['.jsx', '.js', '.html', '.scss']
   }
 }
+
+if (config.app && config.app.environment && (config.app.environment === 'development')) {
+  baseConfig.devtool = 'eval-source-map'
+  baseConfig.devServer = {
+    publicPath: '/',
+    contentBase: './public',
+    port: 8080,
+    host: '0.0.0.0',
+    open: false,
+    historyApiFallback: true,
+    disableHostCheck: true
+  }
+} else if (config.app && config.app.environment && (config.app.environment === 'production')) {
+  baseConfig.plugins = baseConfig.plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({ minimize: true })
+  ])
+} else {
+  console.log('%s\n\nNo Config Environment Set. Please edit config.json and restart.\n\n', 'color: red')
+}
+
+module.exports = baseConfig

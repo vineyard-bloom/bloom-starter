@@ -6,8 +6,9 @@ import modalReducer from './reducers/modalReducer';
 import userReducer from './reducers/userReducer';
 
 export default combineReducers({
-    alerts:       alertsReducer,
-    forms:        formReducer,
-    modal:        modalReducer,
-    user:         userReducer
+    alerts:         alertsReducer,
+    forms:          formReducer,
+    modal:          modalReducer,
+    presentation:   presentationReducer,
+    user:           userReducer
 });
