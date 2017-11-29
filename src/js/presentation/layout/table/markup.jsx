@@ -80,7 +80,7 @@ const Table = (props) => {
                 { row[key] }
               </a>
             ) : (
-              <Link to={ props.linkFields[h.sort] }>
+              <Link to={ linkFields[h.sort] }>
                 { row[key] }
               </Link>
             )
@@ -123,8 +123,8 @@ const Table = (props) => {
     ];
 
   const pages = []
-  for (var i=1; i <= Math.ceil(totalDataLength / pagination.limit); i++) {
-    pages.push(i)
+  for (var i=0; i < Math.ceil(totalDataLength / pagination.limit); i++) {
+    pages.push(i+1)
   }
   const paginationRow = pagination && (pagination.limit < totalDataLength)
     ? renderPagination(totalDataLength, pagination, pages)
