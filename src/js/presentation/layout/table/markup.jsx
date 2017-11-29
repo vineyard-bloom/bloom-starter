@@ -66,7 +66,7 @@ const Table = (props) => {
       let cells = headers.map((h, indx) => {
         let key = h.displayValue || h.sortValue
 
-        if (linkFields[key]) {
+        if (linkFields && linkFields[key]) {
           let url = linkFields[h.sortValue];
 
           if (url.indexOf(':') > -1) {

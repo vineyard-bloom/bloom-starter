@@ -5,22 +5,8 @@ import { humanFormatDate } from 'helpers'
 
 // I am an example table container, but all the other examples live in /presentation so I'm here too
 class ExampleTableContainer extends React.Component {
-  state = {
-    activeSort: 'name',
-    reverseSort: false
-  }
-
-  changeActiveSort = (sortValue) => {
-    this.setState({
-      activeSort: sortValue,
-      reverseSort: this.state.activeSort === sortValue
-        ? (this.state.reverseSort ? false : true)
-        : false // first click defaults to false
-    })
-  }
 
   render() {
-    const { activeSort, reverseSort } = this.state
     const headers = [
       {
         title: 'Name',
@@ -36,7 +22,7 @@ class ExampleTableContainer extends React.Component {
         title: 'Joined',
         sortable: true,
         sortValue: 'created',
-        dataValue: 'formattedJoined'
+        displayValue: 'formattedJoined'
       }
     ]
 
@@ -61,13 +47,18 @@ class ExampleTableContainer extends React.Component {
       }
     ]
 
+    const query = {
+      useServer: false,
+      pagination: {},
+      sort: {
+        activeField: 'name'
+      }
+    }
 
     return (
       <div>
         <h2>Example Table</h2>
-        <Table headers={ headers } data={ exampleData } activeSort={ activeSort } reverseSort={ reverseSort }
-          changeActiveSort={ this.changeActiveSort }
-        />
+        <Table headers={ headers } data={ exampleData } query={ query } />
       </div>
     )
   }
