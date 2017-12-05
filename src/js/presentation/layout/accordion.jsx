@@ -52,9 +52,9 @@ class Accordion extends React.Component {
             {(status) =>
               <div aria-hidden={ !isOpen } aria-expanded={ isOpen } aria-labelledby={ `${sectionId}-trigger-button` }
                 className={ `Accordion-section-contents ${ isOpen ? 'is-open' : '' } fold-${status}` }>
-                { section.child
+                { section.contents
                   ? (
-                    React.cloneElement(section.child, {
+                    React.cloneElement(section.contents, {
                       triggerSection: this.triggerSection
                     })
                   ) : ''
