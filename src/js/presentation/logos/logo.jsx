@@ -8,9 +8,9 @@ import 'styles/components/logo.scss';
 const Logo = (props) => {
   return (
     <div className={ `Logo ${props.full ? 'Logo--full' : '' }` }>
-      <SVGInline svg={ logoMark } description='Insert logo description.' title='Insert logo title.' />
+      <SVGInline svg={ logoMark } title='Insert logo title.' />
       { props.full
-        ? <SVGInline svg={ logoType } className='Logo-text' description='Insert logo description.' title='Insert logo title.' />
+        ? <SVGInline svg={ logoType } className='Logo-text' title='Insert logo title.' />
         : ''
       }
     </div>
