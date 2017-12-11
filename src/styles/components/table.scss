@@ -53,8 +53,14 @@ $table-border: 1px solid $med-gray;
     padding-bottom: 10px;
 
     &.is-active {
-      border-bottom: 4px solid $blue;
+      border-bottom: 4px solid $gray-blue;
       padding-bottom: 6px;
+
+      &.is-reverse {
+        a::after {
+          transform: rotate(180deg);
+        }
+      }
     }
 
     &:last-of-type {
