@@ -81,7 +81,7 @@ Accordion.propTypes = {
   defaultOpenSection: PropTypes.number,
   sections: PropTypes.arrayOf(
     PropTypes.shape({
-      child: PropTypes.element.isRequired,
+      contents: PropTypes.element.isRequired,
       header: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.element

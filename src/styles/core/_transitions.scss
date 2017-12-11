@@ -32,18 +32,20 @@ TRANSITIONS
   overflow: hidden;
 }
 
-.decend-entering {
-  margin-top: 30px !important;
-}
+.descend {
+  &-entering {
+    margin-top: 30px !important;
+  }
 
-.decend-entered {
-  margin-top: 0 !important;
-}
+  &-entered {
+    margin-top: 0 !important;
+  }
 
-.decend-exiting {
-  margin-top: -10px !important;
-}
+  &-exiting {
+    margin-top: -10px !important;
+  }
 
-.decend-exited {
-  margin-top: -30px !important;
+  &-exited {
+    margin-top: -30px !important;
+  }
 }
