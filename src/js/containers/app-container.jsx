@@ -65,7 +65,7 @@ class AppContainer extends React.Component {
   };
 
   render() {
-    const { addAlert, alerts, closeModal, freezePage, modal, openModal, user } = this.props
+    const { addAlert, alerts, closeModal, freezePage, modal, openModal, presentation, user } = this.props
 
     return (
       <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` }>
