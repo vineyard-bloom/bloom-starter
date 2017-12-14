@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-
 import { SelectInput } from 'bloom-forms'
+
+import Loading from 'presentation/layout/loading'
 
 import 'styles/components/table';
 
@@ -13,7 +14,7 @@ const Table = (props) => {
     const { activeField } = sort
 
     return headers.map((header, i) => {
-      const classes = `${ activeField === header.sortValue
+      const classes = `${ header.className || '' } ${ activeField === header.sortValue
         ? ( sort.reverse ? 'is-active is-reverse' : 'is-active' )
         : ''
       }`
@@ -27,7 +28,7 @@ const Table = (props) => {
           </th>
         )
         : (
-          <th key={ `table-header-${i}` }>
+          <th key={ `table-header-${i}` } className={ classes }>
             { header.title }
           </th>
         );
@@ -109,7 +110,7 @@ const Table = (props) => {
     })
   }
 
-  const { data, pagination, triggertriggerPaginate, sortByThisHeader, totalDataLength } = props
+  const { data, loading, pagination, triggertriggerPaginate, sortByThisHeader, totalDataLength } = props
 
   const headers = props.headers ? renderHeaders(props.headers, sortByThisHeader) : [];
   const contentRows = data.length
@@ -131,7 +132,7 @@ const Table = (props) => {
     : null
 
   return (
-    <div>
+    <div className={ props.className || '' }>
       <table className='Table'>
         <thead>
           <tr>
@@ -139,7 +140,10 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          { contentRows }
+          { loading
+            ? <tr key='table-row-loading'><td colSpan={ headers.length } className='u-text-center'><Loading /></td></tr>
+            : contentRows
+          }
         </tbody>
       </table>
       { paginationRow }
@@ -148,16 +152,22 @@ const Table = (props) => {
 }
 
 Table.propTypes = {
+  className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object), /* object keys should all match header sortValues */
   headers: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
+        className: PropTypes.string,
+        title: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.element
+          ]).isRequired,
         sortable: PropTypes.bool,
         sortValue: PropTypes.string,
         displayValue: PropTypes.string /* useful if the presentation of the value != what you want to sort by */
       })
     ).isRequired,
   linkFields: PropTypes.object, /* example: { 'id': '/product/:id', 'name': '/organization/:name' } */
+  loading: PropTypes.bool,
   pagination: PropTypes.shape({
     limit: PropTypes.number,
     offset: PropTypes.number

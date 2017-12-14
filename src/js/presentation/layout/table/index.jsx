@@ -20,15 +20,21 @@ class TableDataHandler extends React.Component {
   };
 
   static propTypes = {
+    className: PropTypes.string,
     data: PropTypes.arrayOf(PropTypes.object), /* object keys should all match header sortValues */
     headers: PropTypes.arrayOf(
         PropTypes.shape({
-          title: PropTypes.string.isRequired,
+          className: PropTypes.string,
+          title: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.element
+          ]).isRequired,
           sortable: PropTypes.bool,
           sortValue: PropTypes.string,
           displayValue: PropTypes.string /* useful if the presentation of the value != what you want to sort by */
         })
       ).isRequired,
+    loading: PropTypes.bool,
     linkFields: PropTypes.object,
     query: PropTypes.shape({ /* Query is for server-side pagination, sorting, filtering, but *also* any initializing of client-side pagination, sorting, etc. */
       useServer: PropTypes.bool,
@@ -44,6 +50,10 @@ class TableDataHandler extends React.Component {
     }).isRequired,
     requestData: PropTypes.func
   };
+
+  static defaultProps = {
+    data: []
+  }
 
   sortData = (data, querySort=null) => {
     // only used for client side sorting
@@ -76,12 +86,39 @@ class TableDataHandler extends React.Component {
 
   componentWillReceiveProps = (newProps) => {
     const { data, query, ...props } = this.props
-    const paginationChanged = query && newProps.query && newProps.query.pagination && ((newProps.query.pagination.limit != query.pagination.limit) || (newProps.query.pagination.offset != query.pagination.offset))
-    const sortChanged = query && newProps.query && newProps.query.sort && ((newProps.query.sort.activeField != query.sort.activeField) || (newProps.query.sort.reverse != query.sort.reverse))
+    const paginationChanged = query && newProps.query && newProps.query.pagination && (
+      (newProps.query.pagination.limit != query.pagination.limit)
+      || (newProps.query.pagination.offset != query.pagination.offset)
+    )
+    const sortChanged = query && newProps.query && newProps.query.sort && (
+      (newProps.query.sort.activeField != query.sort.activeField)
+      || (newProps.query.sort.reverse != query.sort.reverse)
+    )
+    const filtersChanged = query && newProps.query && newProps.query.activeFilters
+      && (
+        (
+          newProps.query.activeFilters.map(obj => obj.key).sort().toString() !=
+          query.activeFilters.map(obj => obj.key).sort().toString()
+        ) || (
+          newProps.query.activeFilters.map(obj => obj.value).sort().toString() !=
+          query.activeFilters.map(obj => obj.value).sort().toString()
+        )
+      )
 
-    if (query && query.useServer && ( paginationChanged || sortChanged )) {
+    if (query && query.useServer && ( paginationChanged || sortChanged || filtersChanged )) {
         // the server side data has been queried
+        this.setState({
+          activeData: newProps.data,
+          activeFilters: newProps.query.activeFilters,
+          sort: newProps.query.sort,
+          pagination: newProps.query.pagination
+        })
+    }
 
+    if (newProps.data) {
+      this.setState({
+        activeData: newProps.data
+      })
     }
   }
 
@@ -122,6 +159,10 @@ class TableDataHandler extends React.Component {
       this.triggerPaginate = serverSideMethods(this).triggerPaginate
       this.sortByThisHeader = serverSideMethods(this).sortByThisHeader
 
+      this.setState({
+        activeData: data || []
+      })
+
       // we're using the server. make sure we have requestData
       if (!props.requestData) {
         console.log('%c\n\nYou must pass in a `requestData` function to <Table/> if your sorting, filtering, etc. are executed via server.\n\n',
@@ -140,11 +181,13 @@ class TableDataHandler extends React.Component {
 
     return (
       <TableMarkup triggerPaginate={ this.triggerPaginate } sortByThisHeader={ this.sortByThisHeader }
-        { ...markupProps } { ...queryData } data={ this.state.activeData } totalDataLength={ data.length }
+        { ...markupProps } { ...queryData } data={ activeData } totalDataLength={ data.length }
       />
     )
   }
 }
+
+TableDataHandler.displayName = 'TableDataHandler'
 
 function clientSideMethods(self) {
   return {
@@ -214,7 +257,8 @@ function serverSideMethods(self) {
         ...query,
         sort: {
           ...query.sort,
-          activeField: header.sortValue
+          activeField: header.sortValue,
+          reverse: (query.sort.activeField === header.sortValue) && !query.sort.reverse
         },
         pagination: { /* when changing the sort, we want to go back to the first page */
           ...query.pagination,
