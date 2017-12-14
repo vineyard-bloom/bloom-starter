@@ -163,6 +163,8 @@ Optional, but helpful props are:
 { 'id': '/product/:id', 'name': '/organization/:name' }
 ```
   would make any names and ids link to '/organization/<NAME>' and '/product/<ID>' respectively.
+- `loading`:
+  A boolean that shows a spinner while data is loading.
 - `requestData`:
   A function needed to trigger server-side querying. It will receive a an object like your `query` prop. 
 
