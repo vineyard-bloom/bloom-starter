@@ -20,7 +20,7 @@ const LoginForm = (props) => {
         value={ formData['twoFactorSecret'] ? formData['twoFactorSecret'].value : '' } onChange={ props.updateForm }
         validateAs='not-empty' error={ formData.twoFactorSecret && formData.twoFactorSecret.error ? formData.twoFactorSecret.error : '' }
       />
-      <Button onClick={ props.submitForm } text='Log in' className='Btn--alt AuthForm-submit-button u-justify-center' />
+      <Button onClick={ props.submitForm } contents='Log in' className='Btn--alt AuthForm-submit-button u-justify-center' />
       <Link to='/new' className='AuthForm-no-account'>I don't have an account</Link>
     </form>
   )

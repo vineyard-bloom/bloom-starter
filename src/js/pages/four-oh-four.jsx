@@ -8,7 +8,7 @@ const FourOhFour = () => {
       <h1>404</h1>
       <h3>Looks like you took a wrong turn</h3>
       <Link to='/'>
-        <Button contents='Take me to the homepage' className='btn-alt' />
+        <Button contents='Take me to the homepage' className='Btn--alt' />
       </Link>
      </div>
   );
