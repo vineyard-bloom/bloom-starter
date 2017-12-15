@@ -8,10 +8,10 @@ MODAL
 $modal-contents-width: 450px;
 
 .Modal {
-  @include transition(.3s ease, .3s ease opacity .1s, 0s ease height .3s, .1s ease top, .1s ease background-color .1s);
+  @include transition(.3s ease, .3s ease opacity .1s, 0s ease min-height .3s, .1s ease top, .1s ease background-color .1s);
   background-color: rgba(0,0,0,0.5);
   bottom: 0;
-  height: 100vh;
+  min-height: 100vh;
   left: 0;
   padding-top: 80px;
   position: fixed;
