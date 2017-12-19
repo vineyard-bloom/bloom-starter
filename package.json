@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "dev": "rm -r dist/*.js && webpack && webpack-dev-server --hot --inline",
-    "build": "webpack"
+    "build": "rm -r dist/*.js && webpack"
   },
   "author": "inkblotty",
   "license": "MIT",
