@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "dev": "webpack && webpack-dev-server --hot --inline",
-    "build": "webpack"
+    "dev": "rm -r dist/*.js && webpack && webpack-dev-server --hot --inline",
+    "build": "rm -r dist/*.js && webpack"
   },
   "author": "inkblotty",
   "license": "MIT",

@@ -9,9 +9,12 @@ const BUILD_DIR = path.join(__dirname, '/dist/')
 const config = require(path.join(__dirname, '/config/config.json'))
 
 const baseConfig = {
-  entry: ['babel-polyfill', APP_DIR + 'index.js'],
+  entry: {
+    bundle: ['babel-polyfill', APP_DIR + 'index.js']
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name]-[hash].js',
+    chunkFilename: '[name]-[chunkhash].js',
     path: BUILD_DIR,
     publicPath: '/'
   },
@@ -75,6 +78,11 @@ const baseConfig = {
         NODE_ENV: JSON.stringify(config.app.environment)
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: ({ resource }) => /node_modules/.test(resource),
+    }),
+    new webpack.optimize.CommonsChunkPlugin('manifest'),
     new CopyWebpackPlugin([
       { from: 'public/index.html' }
     ]),
