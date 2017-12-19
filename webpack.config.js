@@ -1,5 +1,6 @@
 const autoprefixer = require('autoprefixer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
@@ -126,9 +127,29 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
     disableHostCheck: true
   }
 } else if (config.app && config.app.environment && (config.app.environment === 'production')) {
-  baseConfig.plugins = baseConfig.plugins.concat([
-    new webpack.optimize.UglifyJsPlugin({ minimize: true })
-  ])
+  baseConfig.plugins = [
+    new HtmlWebpackExternalsPlugin({
+        externals: [
+          {
+            module: 'react',
+            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js',
+            global: 'React'
+          },
+          {
+            module: 'react-dom',
+            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js',
+            global: 'ReactDOM'
+          },
+          {
+            module: 'moment',
+            entry: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js',
+            global: 'moment'
+          }
+        ]
+      })
+    ].concat(baseConfig.plugins).concat([
+      new webpack.optimize.UglifyJsPlugin({ minimize: true })
+    ])
 } else {
   console.log('%s\n\nNo Config Environment Set. Please edit config.json and restart.\n\n', 'color: red')
 }
