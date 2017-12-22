@@ -1,0 +1,18 @@
+/*
+LOADING SCREEN
+*/
+
+@import '../core/variables';
+
+.LoadingScreen {
+  align-items: center;
+  display: flex;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+  justify-content: center;
+  width: 100%;
+
+  .Loading {
+    height: 50px;
+    width: 50px;
+  }
+}

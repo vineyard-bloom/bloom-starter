@@ -15,17 +15,11 @@ import 'styles/components/home';
 
 class HomeContainer extends React.Component {
   static propTypes = {
-    history: PropTypes.object,
     getUser: PropTypes.func,
     user: PropTypes.shape(UserType)
   };
 
   componentWillReceiveProps = (newProps) => {
-    if (!newProps.user.id && this.props.user.id) {
-      // logged out
-      this.props.history.push('/login');
-    }
-
     if (newProps.getUser && !this.props.getUser) {
       try {
         newProps.getUser()
@@ -72,4 +66,4 @@ const mapStateToProps = (state) => {
     }
   };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)

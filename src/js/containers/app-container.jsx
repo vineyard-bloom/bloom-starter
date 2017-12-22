@@ -12,7 +12,7 @@ import { freezePage, setWindowSize } from 'redux-store/actions/presentationActio
 import Alert from 'presentation/layout/alert';
 import Header from 'presentation/layout/header';
 import Footer from 'presentation/layout/footer';
-import MainSwitch from 'containers/main-switch';
+import MainRouter from 'routes';
 import Modal from 'presentation/layout/modal';
 
 // App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked
@@ -70,7 +70,7 @@ class AppContainer extends React.Component {
     return (
       <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` }>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
-        <MainSwitch />
+        <MainRouter />
         <Footer />
         <Alert currentAlert={ alerts[0] } hidden={ !alerts[0] } />
         <Modal modalContents={ modal && modal.modalContents } modalTriggerId={ modal && modal.modalTriggerId }

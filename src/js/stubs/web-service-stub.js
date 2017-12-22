@@ -14,7 +14,9 @@ export class WebServiceStub {
 
   getUser = async () => {
     const user = loggedIn ? AuthenticatedUser : {};
-    return Promise.resolve({ data: user });
+    return new Promise((resolve) => {
+      setTimeout(() => { return resolve({ data: user }) }, 200000)
+    })
   };
 
   fetchTwoFactorSecret = async () => {

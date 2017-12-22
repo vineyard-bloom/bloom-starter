@@ -104,6 +104,7 @@ const baseConfig = {
       presentation: path.resolve(__dirname, 'src/js/presentation'),
       'redux-store':path.resolve(__dirname, 'src/js/redux-store'),
       requests:     path.resolve(__dirname, 'src/js/util/requests'),
+      routes:       path.resolve(__dirname, 'src/js/routes'),
       services:     path.resolve(__dirname, 'src/js/services'),
       stubs:        path.resolve(__dirname, 'src/js/stubs'),
       styles:       path.resolve(__dirname, 'src/styles'),
@@ -126,6 +127,19 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
     historyApiFallback: true,
     disableHostCheck: true
   }
+  baseConfig.plugins = [
+    new HtmlWebpackExternalsPlugin({
+        externals: [
+          {
+            module: 'butter',
+            entry: 'https://cdnjs.buttercms.com/buttercms-1.1.0.min.js',
+            global: 'Butter'
+          }
+        ]
+      })
+    ].concat(baseConfig.plugins).concat([
+      new webpack.optimize.UglifyJsPlugin({ minimize: true })
+    ])
 } else if (config.app && config.app.environment && (config.app.environment === 'production')) {
   baseConfig.plugins = [
     new HtmlWebpackExternalsPlugin({
@@ -144,6 +158,11 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
             module: 'moment',
             entry: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js',
             global: 'moment'
+          },
+          {
+            module: 'butter',
+            entry: 'https://cdnjs.buttercms.com/buttercms-1.1.0.min.js',
+            global: 'Butter'
           }
         ]
       })
