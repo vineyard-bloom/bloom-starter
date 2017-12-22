@@ -8,6 +8,7 @@ import { openModal } from 'redux-store/actions/modalActions'
 
 import ExampleButtons from 'presentation/examples/example-buttons'
 import ExampleTable from 'presentation/examples/example-table'
+import Tooltip from 'presentation/layout/tooltip'
 
 class ExamplesContainer extends React.Component {
 
@@ -20,6 +21,10 @@ class ExamplesContainer extends React.Component {
         <Button contents='Open Example Modal' id='example-modal-opener'
             onClick={ (e) => { openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener') } } />
         <Button contents='Open Example Alert' onClick={ e => { e.preventDefault(); addAlert('boop', 'success') } } />
+        <div>
+          Example Tooltip
+          <Tooltip id='example-tooltip' contents='I am so exampley' />
+        </div>
         <h2>Large Components</h2>
         <ul>
           <li>
