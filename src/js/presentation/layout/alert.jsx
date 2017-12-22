@@ -7,7 +7,8 @@ import 'styles/components/alerts.scss';
 const Alert = (props) => {
   const { currentAlert } = props;
   return (
-    <div className={ `Alert-background ${ props.hidden ? 'is-hidden' : '' }` }>
+    <div aria-hidden={ currentAlert && !!currentAlert.message }
+      className={ `Alert-background ${ props.hidden ? 'is-hidden' : '' }` }>
       <Transition in={!!currentAlert} timeout={0}>
         {(status) =>
           <div className={ `Alert Alert--${ currentAlert ? currentAlert.style : '' } descend-${status}` }>

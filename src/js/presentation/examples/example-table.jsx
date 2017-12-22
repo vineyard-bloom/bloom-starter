@@ -57,7 +57,7 @@ class ExampleTableContainer extends React.Component {
 
     return (
       <div>
-        <h2>Example Table</h2>
+        <h3>Example Table</h3>
         <Table headers={ headers } data={ exampleData } query={ query } />
       </div>
     )

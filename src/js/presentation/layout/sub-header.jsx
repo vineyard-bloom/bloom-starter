@@ -43,12 +43,14 @@ class SubHeader extends React.Component {
 
     return (
       <div className={ `SubHeader ${ this.props.location.pathname.indexOf('dashboard') > -1 ? 'u-no-margin' : '' }` }>
-        <div className='SubHeader-user'>
-          { user.username || 'username' }
-          <a href='#' onClick={ this.toggleDropdown }>
-            <SVGInline svg={ downCarrot } />
-          </a>
-        </div>
+        { user && user.username &&
+          <div className='SubHeader-user'>
+            { user.username }
+            <a href='#' onClick={ this.toggleDropdown }>
+              <SVGInline svg={ downCarrot } />
+            </a>
+          </div>
+        }
         { this.state.showDropdown ?
           <AccountContainer>
             <AccountDropdown />

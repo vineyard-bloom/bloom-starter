@@ -6,7 +6,7 @@ import Loading from 'presentation/layout/loading'
 const ExampleButtons = (props) => {
   return (
     <div>
-      <h2>Buttons</h2>
+      <h3>Buttons</h3>
       <p>Use any of the examples below to quickly create a styled button.</p>
       <Button id='test-1' onClick={ '' } contents='Default' />
       <Button id='test-2' onClick={ '' } contents='Info' className='Btn--info' />

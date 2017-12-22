@@ -14,11 +14,11 @@ import FourOhFour from 'pages/four-oh-four.jsx';
 const AuthenticatedRoutes = ({ user }) => (
   <Switch>
     <Route exact path='/' component={ LandingContainer } />
+    <Route exact path='/example' component={ ExampleFormContainer } />
+    <Route path='/example/accordion' component={ ExampleAccordion } />
     <Route path='/home' component={ HomeContainer } />
     <Route path='/login' render={() => <Redirect to='/' />} />
     <Route path='/new' render={() => <Redirect to='/' />} />
-    <Route exact path='/example' component={ ExampleFormContainer } />
-    <Route path='/example/accordion' component={ ExampleAccordion } />
     <Route path='*' component={ FourOhFour } />
   </Switch>
 )

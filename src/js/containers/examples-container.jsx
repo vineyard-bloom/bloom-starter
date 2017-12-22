@@ -17,7 +17,7 @@ class ExamplesContainer extends React.Component {
 
     return (
       <div>
-        <h2>Triggerable Elements</h2>
+        <h3>Triggerable Elements</h3>
         <Button contents='Open Example Modal' id='example-modal-opener'
             onClick={ (e) => { openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener') } } />
         <Button contents='Open Example Alert' onClick={ e => { e.preventDefault(); addAlert('boop', 'success') } } />
@@ -25,7 +25,8 @@ class ExamplesContainer extends React.Component {
           Example Tooltip
           <Tooltip id='example-tooltip' contents='I am so exampley' />
         </div>
-        <h2>Large Components</h2>
+        <br />
+        <h3>Large Components</h3>
         <ul>
           <li>
             <Link to='/example'>Example Form</Link>
@@ -34,7 +35,9 @@ class ExamplesContainer extends React.Component {
             <Link to='/example/accordion'>Example Accordion</Link>
           </li>
         </ul>
+        <br />
         <ExampleButtons />
+        <br />
         <ExampleTable />
       </div>
     )
