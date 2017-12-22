@@ -44,7 +44,7 @@ class HomeContainer extends React.Component {
       <div className='Home'>
         <SideBar user={ this.props.user } />
         <div className='Home-content'>
-          <h1>Main Content Here</h1>
+          <h2>Main Content Here</h2>
           <p>Below is an overview of some basic elements used throughout the starterkit.</p>
           <ExamplesContainer />
         </div>

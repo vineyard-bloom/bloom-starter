@@ -69,6 +69,7 @@ class AppContainer extends React.Component {
 
     return (
       <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` }>
+        <h1 className='u-sr-only'>Bloom Starter Kit</h1>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainRouter />
         <Footer />
