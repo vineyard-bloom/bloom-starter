@@ -39,7 +39,7 @@ const ExampleForm = (props) => {
         validateAs='must-equal-bloop' onBlur={ props.checkField }
         error={ formData.onlyBloop && formData.onlyBloop.error ? formData.onlyBloop.error : '' }
       />
-      <Checkbox label='Checkbox' checked={ formData.checkbox && formData.checkbox.value || '' }
+      <Checkbox label='Checkbox' checked={ formData.checkbox && formData.checkbox.value || false }
         id='checkbox' name='checkbox' onChange={ props.updateForm } showLabel
       />
       <RadioGroup options={ radioOptions } onChange={ props.updateForm } name='radio'
@@ -51,6 +51,7 @@ const ExampleForm = (props) => {
       <CurrencyInput label='Currency Input' showLabel isRequired
         coinIcon={ <img src='http://www.freeiconspng.com/uploads/bitcoin-coin-currency-digital-currency-digital-walet-money-icon-30.png' /> }
         onChange={ props.updateForm } id='currency' name='currency' currency='BTC'
+        maximumValue={ 2000000000 }
         value={ formData.currency && formData.currency.value ? formData.currency.value : '0' }
       />
       <div style={{ zIndex: 5 }}> {/* notice the z-indices to help make sure select inputs overlap properly */}
