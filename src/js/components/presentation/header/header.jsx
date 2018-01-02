@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { Button } from 'bloom-forms';
 
 import Logo from 'presentation/logos/logo';
-import SubHeader from 'presentation/layout/sub-header';
+import SubHeader from './sub-header';
 
 import 'styles/components/header.scss';
 

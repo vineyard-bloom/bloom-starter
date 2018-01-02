@@ -10,5 +10,8 @@
   },
   "butter": {
     "key": ""
+  },
+  "devServer": {
+    "port": 8080
   }
 }

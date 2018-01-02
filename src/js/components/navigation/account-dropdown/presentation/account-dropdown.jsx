@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DropdownButton from 'presentation/navigation/dropdown-button';
+import DropdownButton from './dropdown-button';
 
 const AccountDropdown = (props) => {
   return (

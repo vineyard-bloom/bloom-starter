@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SideBarNav from 'presentation/navigation/side-bar-nav';
+import SideBarNav from './side-bar-nav';
 
 const SideBar = (props) => {
   return (

@@ -6,7 +6,7 @@ import { Form } from 'bloom-forms';
 import { addAlert } from 'redux-store/actions/alertActions'
 import { createUser } from 'redux-store/actions/userActions'
 
-import ExampleForm from 'presentation/forms/example-form';
+import ExampleForm from './presentation/example-form';
 
 class ExampleFormContainer extends React.Component {
 

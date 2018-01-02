@@ -5,7 +5,7 @@ import { Form } from 'bloom-forms';
 
 import { addAlert } from 'redux-store/actions/alertActions'
 import { login } from 'redux-store/actions/userActions';
-import LoginForm from 'presentation/forms/login-form';
+import LoginForm from './presentation/login-form';
 
 class LoginFormContainer extends React.Component {
 

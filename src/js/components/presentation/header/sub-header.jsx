@@ -7,8 +7,7 @@ import { Button } from 'bloom-forms';
 
 import { openModal } from 'redux-store/actions/modalActions';
 
-import AccountContainer from 'containers/account-container';
-import AccountDropdown from 'presentation/navigation/account-dropdown';
+import AccountDropdown from 'components/navigation/account-dropdown';
 
 import downCarrot from 'images/inline-svgs/down_carrot.svg';
 
@@ -39,7 +38,6 @@ class SubHeader extends React.Component {
 
   render() {
     let { user } = this.props;
-    // <img src={ user.avatar } alt={ `${user.username}'s avatar` } />
 
     return (
       <div className={ `SubHeader ${ this.props.location.pathname.indexOf('dashboard') > -1 ? 'u-no-margin' : '' }` }>
@@ -52,9 +50,7 @@ class SubHeader extends React.Component {
           </div>
         }
         { this.state.showDropdown ?
-          <AccountContainer>
-            <AccountDropdown />
-          </AccountContainer>
+          <AccountDropdown />
         : '' }
       </div>
     )

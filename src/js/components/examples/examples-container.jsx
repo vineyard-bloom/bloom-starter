@@ -6,8 +6,8 @@ import { Button } from 'bloom-forms'
 import { addAlert } from 'redux-store/actions/alertActions'
 import { openModal } from 'redux-store/actions/modalActions'
 
-import ExampleButtons from 'presentation/examples/example-buttons'
-import ExampleTable from 'presentation/examples/example-table'
+import ExampleButtons from 'components/examples/presentation/example-buttons'
+import ExampleTable from 'components/examples/presentation/example-table'
 import Tooltip from 'presentation/layout/tooltip'
 
 class ExamplesContainer extends React.Component {

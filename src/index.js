@@ -9,7 +9,7 @@ import { WebServiceStub } from 'stubs/web-service-stub';
 import { WebService } from 'services/web-service';
 
 import store from 'redux-store/store';
-import AppContainer from 'containers/app-container.jsx';
+import AppContainer from 'components/app';
 import 'styles/main.scss';
 
 window.WebService = config.app.useWebServiceStub ? new WebServiceStub() : new WebService()

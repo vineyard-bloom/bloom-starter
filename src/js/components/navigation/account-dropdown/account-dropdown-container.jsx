@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { logout, updateUser } from 'redux-store/actions/userActions';
+import AccountDropdown from './presentation/account-dropdown';
 
-// wrapper for account-related methods -- example wrapper. similar to what Connect creates.
-class AccountContainer extends React.Component {
+class AccountDropdownContainer extends React.Component {
   static propTypes = {
     logout: PropTypes.func,
   };
@@ -21,18 +21,7 @@ class AccountContainer extends React.Component {
   };
 
   render() {
-    let children = Array.isArray(this.props.children) ? this.props.children : [this.props.children];
-    let accountChildren = React.Children.map(children, (child, indx) => {
-        return React.cloneElement(child, {
-          logout: this.logout
-        });
-      });
-
-    let end = accountChildren.length > 1 ?
-      <div>{ accountChildren }</div>
-      : accountChildren[0];
-
-    return end;
+    return <AccountDropdown logout={ this.logout } />
   }
 }
 
@@ -45,4 +34,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AccountContainer);
+export default connect(null, mapDispatchToProps)(AccountDropdownContainer);

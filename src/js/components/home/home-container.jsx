@@ -8,8 +8,8 @@ import { convertWeiToEth } from 'helpers';
 import { getUser } from 'redux-store/actions/userActions';
 import { UserType } from 'types';
 
-import ExamplesContainer from 'containers/examples-container';
-import SideBar from 'presentation/navigation/side-bar';
+import ExamplesContainer from 'components/examples';
+import SideBar from 'components/navigation/side-bar';
 
 import 'styles/components/home';
 

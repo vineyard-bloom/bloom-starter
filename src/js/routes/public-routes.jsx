@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import LandingContainer from 'containers/landing-container';
-import LoginFormContainer from 'containers/forms/login-form-container';
-import NewUserFormContainer from 'containers/forms/new-user-form-container';
+import LandingContainer from 'components/landing';
+import LoginFormContainer from 'components/forms/login-form';
+import NewUserFormContainer from 'components/forms/new-user-form';
 
 import FourOhFour from 'pages/four-oh-four.jsx';
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import config from 'config/config.json'
 
-import Landing from 'presentation/landing'
+import Landing from './presentation/landing'
 
 class LandingContainer extends React.Component {
   state = {

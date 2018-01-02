@@ -9,11 +9,11 @@ import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
 import { closeModal, openModal } from 'redux-store/actions/modalActions';
 import { freezePage, setWindowSize } from 'redux-store/actions/presentationActions'
 
-import Alert from 'presentation/layout/alert';
-import Header from 'presentation/layout/header';
-import Footer from 'presentation/layout/footer';
+import Alert from 'layout/alert';
+import Header from 'presentation/header';
+import Footer from 'layout/footer';
 import MainRouter from 'routes';
-import Modal from 'presentation/layout/modal';
+import Modal from 'layout/modal';
 
 // App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked
 class AppContainer extends React.Component {
@@ -69,7 +69,7 @@ class AppContainer extends React.Component {
 
     return (
       <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` }>
-        <h1 className='u-sr-only'>Bloom Starter Kit</h1>
+        <h1 className='u-sr-only'>Bloom Starter</h1>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainRouter />
         <Footer />
