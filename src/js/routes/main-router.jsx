@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 
 import AuthenticatedRoutes from './authenticated-routes'
 import PublicRoutes from './public-routes'
-import LandingContainer from 'containers/landing-container'
-import LoadingScreen from 'presentation/layout/loading-screen'
+import LandingContainer from 'components/landing'
+import LoadingScreen from 'layout/loading-screen'
 
-const MainSwitch = ({ user, ...props }) => {
+const MainRouter = ({ user, ...props }) => {
   if (user && !user.loaded) {
     return (
       <main>
@@ -22,8 +22,8 @@ const MainSwitch = ({ user, ...props }) => {
     return (
       <main>
         { user && user.loaded && user.id
-          ? <AuthenticatedRoutes />
-          : <PublicRoutes />
+          ? <AuthenticatedRoutes user={ user } />
+          : <PublicRoutes user={ user } />
         }
       </main>
     )
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(MainSwitch));
+export default withRouter(connect(mapStateToProps)(MainRouter));

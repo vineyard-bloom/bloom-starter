@@ -93,15 +93,16 @@ const baseConfig = {
   resolve: {
     alias: {
       config:       path.resolve(__dirname, 'config'),
-      containers:   path.resolve(__dirname, 'src/js/containers'),
+      components:   path.resolve(__dirname, 'src/js/components'),
       helpers:      path.resolve(__dirname, 'src/js/util/helpers'),
       icons:        path.resolve(__dirname, 'src/js/icons'),
       images:       path.resolve(__dirname, 'src/images'),
       js:           path.resolve(__dirname, 'src/js'),
       language:     path.resolve(__dirname, 'config/en.json'),
+      layout:       path.resolve(__dirname, 'src/js/components/presentation/layout'),
       lib:          path.resolve(__dirname, 'lib'),
       pages:        path.resolve(__dirname, 'src/js/pages'),
-      presentation: path.resolve(__dirname, 'src/js/presentation'),
+      presentation: path.resolve(__dirname, 'src/js/components/presentation'),
       'redux-store':path.resolve(__dirname, 'src/js/redux-store'),
       requests:     path.resolve(__dirname, 'src/js/util/requests'),
       routes:       path.resolve(__dirname, 'src/js/routes'),

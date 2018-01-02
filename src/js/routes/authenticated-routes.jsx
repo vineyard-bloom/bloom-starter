@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import ExampleFormContainer from 'containers/forms/example-form-container';
-import HomeContainer from 'containers/home-container';
-import LandingContainer from 'containers/landing-container'
+import ExampleFormContainer from 'components/forms/example-form';
+import HomeContainer from 'components/home';
+import LandingContainer from 'components/landing'
 
-import ExampleAccordion from 'presentation/examples/example-accordion'
+import ExampleAccordion from 'components/examples/presentation/example-accordion'
 
 import FourOhFour from 'pages/four-oh-four.jsx';
 
