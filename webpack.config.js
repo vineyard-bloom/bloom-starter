@@ -122,7 +122,7 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
   baseConfig.devServer = {
     publicPath: '/',
     contentBase: './public',
-    port: 8080,
+    port: config.devServer.port || 8080,
     host: '0.0.0.0',
     open: false,
     historyApiFallback: true,
