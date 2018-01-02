@@ -1,14 +1,10 @@
 import React from 'react';
 import SVGInline from "react-svg-inline";
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
-import { Button } from 'bloom-forms';
-
-import { openModal } from 'redux-store/actions/modalActions';
 
 import AccountDropdown from 'components/navigation/account-dropdown';
 
+import { openModal } from 'redux-store/actions/modalActions';
 import downCarrot from 'images/inline-svgs/down_carrot.svg';
 
 import 'styles/components/subheader.scss';
