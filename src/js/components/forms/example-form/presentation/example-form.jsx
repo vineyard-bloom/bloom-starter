@@ -61,10 +61,10 @@ const ExampleForm = (props) => {
         />
       </div>
       <div style={{ zIndex: 4 }}>
-        <SelectInput options={ selectOptions } name='select' formId='example-form' typeAhead={ false }
-          value={ formData.select && formData.select.value ? formData.select.value : '' }
+        <SelectInput options={ selectOptions } name='select2' formId='example-form' typeAhead={ false }
+          value={ formData.select2 && formData.select2.value ? formData.select2.value : '' }
           onChange={ props.manualFieldUpdate } showLabel label='Select Input -- No TypeAhead'
-          error={ formData.select && formData.select.error ? formData.select.error : '' }
+          error={ formData.select2 && formData.select2.error ? formData.select2.error : '' }
         />
       </div>
       <div style={{ zIndex: 3 }}>
