@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Checkbox, CurrencyInput, DateInput, Dropzone, FileInput, RadioGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
+import { Button, Checkbox, CurrencyInput, DateInput, Dropzone, FileInput,
+  RadioGroup, RadioButtonGroup, SelectInput, TextInput, ToggleSwitch } from 'bloom-forms';
 
 const ExampleForm = (props) => {
   // I am a reference form
@@ -11,6 +12,11 @@ const ExampleForm = (props) => {
     { label: 'Radio 1', id: 'radio-1' },
     { label: 'Radio 2', id: 'radio-2' },
     { label: 'Radio 3', id: 'radio-3' }
+  ]
+  const radioOptions2 = [
+    { label: 'RadioButton 1', id: 'radio-button-1' },
+    { label: 'RadioButton 2', id: 'radio-button-2' },
+    { label: 'RadioButton 3', id: 'radio-button-3' }
   ]
   const selectOptions = [
     { label: 'Muffins', value: 'muffins' },
@@ -44,6 +50,9 @@ const ExampleForm = (props) => {
       />
       <RadioGroup options={ radioOptions } onChange={ props.updateForm } name='radio'
         value={ formData.radio ? formData.radio.value : '' }
+      />
+      <RadioButtonGroup options={ radioOptions2 } onChange={ props.updateForm } name='radio2'
+        value={ formData.radio2 ? formData.radio2.value : '' }
       />
       <DateInput id='date' name='date' label='Date Input' showLabel
         value={ formData.date ? formData.date.value : '' } onChange={ props.updateForm }

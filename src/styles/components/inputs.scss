@@ -81,3 +81,17 @@ input[type='number'] {
   &--file {
   }
 }
+
+.RadioButton {
+  background-color: $blue;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken($blue, 5%);
+  }
+
+  &.is-checked {
+    background-color: $green;
+  }
+}
