@@ -20,13 +20,8 @@
     height: 100%;
   }
 
-  &.is-open {
-    svg {
-      transform: rotate(180deg);
-    }
-  }
-
   &-user {
+    color: $black;
     display: inline-block;
   }
 
@@ -34,6 +29,12 @@
     @include transition(.3s ease);
     margin-left: $pad-mar-small;
     width: 1em;
+  }
+
+  &.is-open {
+    svg {
+      transform: rotate(180deg);
+    }
   }
 
   &--mobile {
