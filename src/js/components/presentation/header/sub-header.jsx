@@ -45,7 +45,7 @@ class SubHeader extends React.Component {
     const { showDropdown, showMobileMenu } = this.state
 
     return (
-      <div style={{ alignItems: 'center', display: 'flex', height: '100%' }}>
+      <div className='SubHeader-wrapper'>
         <div className={ `SubHeader ${ showDropdown ? 'is-open' : '' }` }>
           { user && user.username &&
             <a href='#' onClick={ this.toggleDropdown } className='SubHeader-user'>
