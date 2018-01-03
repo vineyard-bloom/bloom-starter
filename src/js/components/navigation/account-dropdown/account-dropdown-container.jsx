@@ -21,7 +21,7 @@ class AccountDropdownContainer extends React.Component {
   };
 
   render() {
-    return <AccountDropdown logout={ this.logout } />
+    return <AccountDropdown logout={ this.logout } { ...this.props } />
   }
 }
 

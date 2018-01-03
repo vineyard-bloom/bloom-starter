@@ -2,10 +2,48 @@
   SUBHEADER
 */
 
+@import '../core/mixins';
 @import '../core/variables';
 
 .SubHeader {
+  align-items: center;
+  background-color: $light-blue;
+  display: none;
+  height: 100%;
+  justify-content: flex-end;
+  min-width: 200px;
+  padding-right: $pad-mar-med;
+
+  &.is-open {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-user {
+    display: inline-block;
+  }
+
   svg {
-     width: 1em;
+    @include transition(.3s ease);
+    margin-left: $pad-mar-small;
+    width: 1em;
+  }
+
+  &--mobile {
+    display: inline-block;
+    padding-right: $pad-mar-med;
+    position: relative;
+    z-index: $z-20;
+  }
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+  .SubHeader {
+    display: inline-flex;
+
+    &--mobile {
+      display: none;
+    }
   }
 }

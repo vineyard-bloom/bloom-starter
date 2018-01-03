@@ -4,12 +4,13 @@
 @import '../core/_mixins';
 
 .Header {
+  align-items: center;
   background-color: $light-blue;
-  padding: $pad-mar-med;
-
-  &-top-row {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
+  box-sizing: border-box;
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  padding: 0 0 0 $pad-mar-med;
+  position: relative;
+  z-index: $z-20;
 }
