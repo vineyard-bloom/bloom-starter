@@ -147,12 +147,12 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
         externals: [
           {
             module: 'react',
-            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js',
+            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js',
             global: 'React'
           },
           {
             module: 'react-dom',
-            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js',
+            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/cjs/react-dom.production.min.js',
             global: 'ReactDOM'
           },
           {

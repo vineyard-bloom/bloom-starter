@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
 
@@ -17,11 +17,11 @@ window.WebService = config.app.useWebServiceStub ? new WebServiceStub() : new We
 class AppRoot extends React.Component {
   render() {
     return (
-      <BrowserRouter history={ createBrowserHistory() }>
+      <Router history={ createBrowserHistory() }>
         <Provider store={ store }>
           <AppContainer />
         </Provider>
-      </BrowserRouter>
+      </Router>
     )
   };
 }
