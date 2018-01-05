@@ -21,7 +21,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bignumber.js": "^5.0.0",
-    "bloom-forms": "0.2.93",
+    "bloom-forms": "0.2.97",
     "botp": "^2.3.2",
     "clipboard": "^1.7.1",
     "copy-webpack-plugin": "^4.0.1",
