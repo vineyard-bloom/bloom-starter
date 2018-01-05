@@ -7,14 +7,14 @@ import 'styles/components/alerts.scss';
 const Alert = (props) => {
   const { currentAlert } = props;
   return (
-    <div aria-hidden={ currentAlert && !!currentAlert.message }
-      className={ `Alert-background ${ props.hidden ? 'is-hidden' : '' }` }>
+    <div tabIndex={ -1 } aria-atomic aria-relevant='additions removals'
+      className={ `Alert-background ${ props.hidden ? 'is-hidden' : '' }` } role='alert' aria-live='assertive'>
       <Transition in={!!currentAlert} timeout={0}>
         {(status) =>
           <div className={ `Alert Alert--${ currentAlert ? currentAlert.style : '' } descend-${status}` }>
             <div className={ `Alert-icon icons-${ currentAlert ? currentAlert.style : '' }` } role='presentation'></div>
             <div className='u-sr-only'>Alert message: </div>
-            <div className='Alert-text' role='alert' aria-live='polite'>
+            <div className='Alert-text'>
               { currentAlert ? currentAlert.message : '' }
             </div>
           </div>
