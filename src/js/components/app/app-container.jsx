@@ -68,7 +68,8 @@ class AppContainer extends React.Component {
     const { addAlert, alerts, closeModal, freezePage, modal, openModal, presentation, user } = this.props
 
     return (
-      <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` }>
+      <div className={ `App-container ${(modal && modal.modalContents) || presentation.freezePage ? 'u-prevent-scroll' : ''}` } aria-live='polite'>
+        <a href='#main-content' className='u-sr-only'>Skip To Main Content</a>
         <h1 className='u-sr-only'>Bloom Starter</h1>
         <Header openModal={ openModal } user={ user } addAlert={ addAlert } />
         <MainRouter />

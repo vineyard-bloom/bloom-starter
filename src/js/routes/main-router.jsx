@@ -11,7 +11,7 @@ import LoadingScreen from 'layout/loading-screen'
 const MainRouter = ({ user, ...props }) => {
   if (user && !user.loaded) {
     return (
-      <main>
+      <main id='main-content'>
         <Switch>
           <Route exact path='/' component={ LandingContainer } />
           <Route path='*' component={ LoadingScreen } />
@@ -20,7 +20,7 @@ const MainRouter = ({ user, ...props }) => {
     )
   } else {
     return (
-      <main>
+      <main id='main-content'>
         { user && user.loaded && user.id
           ? <AuthenticatedRoutes user={ user } />
           : <PublicRoutes user={ user } />
