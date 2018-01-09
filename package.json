@@ -13,7 +13,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.1.2",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -21,7 +21,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bignumber.js": "^5.0.0",
-    "bloom-forms": "0.2.97",
+    "bloom-forms": "0.3.0",
     "botp": "^2.3.2",
     "clipboard": "^1.7.1",
     "copy-webpack-plugin": "^4.0.1",
@@ -56,6 +56,6 @@
   },
   "devDependencies": {},
   "optionalDependencies": {
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.10.1"
   }
 }
