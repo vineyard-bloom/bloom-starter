@@ -30,7 +30,7 @@ const ExampleForm = (props) => {
   }
 
   return (
-    <form id='example-form' className='Form AuthForm'>
+    <form id='example-form' className='Form AuthForm' noValidate>
       <h3 className='AuthForm-header'>Example Form</h3>
       <TextInput id='textinput' name='textinput' label='Text Input' showLabel
         value={ formData.textinput ? formData.textinput.value : '' } onChange={ props.updateForm }

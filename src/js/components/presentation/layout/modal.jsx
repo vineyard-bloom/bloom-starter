@@ -148,7 +148,7 @@ class Modal extends React.Component {
         <Transition in={ !!modalContents } timeout={ 0 }>
             {(status) =>
               <div className={ `Modal-content descend-${status}` } aria-hidden={ !modalContents }>
-                <button className='Btn--null Btn-close' id='modal-close-button' aria-label='close this modal'
+                <button className='Btn--null Btn--close' id='modal-close-button' aria-label='close this modal'
                   onClick={ (e) => { e.preventDefault(); props.closeModal() } } tabIndex={ modalContents ? 0 : -1 }>
                   x
                 </button>

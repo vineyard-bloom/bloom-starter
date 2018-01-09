@@ -40,7 +40,7 @@ $modal-contents-width: 450px;
     overflow: hidden;
     width: $modal-contents-width;
 
-    .Btn-close {
+    .Btn--close {
       margin-left: calc(-40px + #{$modal-contents-width});
       margin-top: 2px;
       padding: $pad-mar-small;
