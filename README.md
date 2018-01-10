@@ -11,7 +11,7 @@ This is a starter kit for React/Redux projects.
     * [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
     * [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
-3. Copy over any configuration from config-sample into a new config.json file.
+3. Copy over any configuration from config-sample into a new config.json file. If you're not running a server on localhost:3000, make sure you point it to the correct api url. Or, if you're not running an api at all, set `useWebServiceStub` to `true`.
 
 4. Boot up the server in the root directory with `yarn dev`. By default, it's served on port 8080.
 
