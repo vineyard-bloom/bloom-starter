@@ -31,3 +31,17 @@ export async function put (endpoint, data = {}) {
   data['version'] = data['version'] || config.api.version
   return request('put', endpoint, data)
 }
+
+export async function requestMultipart(endpoint, data = new FormData(), method='post') {
+  if (!data.get('version')) {
+    data.append('version', config.api.version)
+  }
+
+  return axios({
+    headers: { 'Content-Type': 'multipart/form-data; boundary=------' },
+    withCredentials: true,
+    method: method,
+    url: `${config.api.url}${endpoint}`,
+    data: data
+  })
+}
