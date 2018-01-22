@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "rm -r -f dist/*.js && webpack && webpack-dev-server --hot --inline",
     "build": "rm -r -f dist/*.js && webpack",
-    "prettier": "prettier --config ./.prettierrc --write './src/**/*.{js,jsx,scss}'",
+    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './src/**/*.{js,jsx,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {

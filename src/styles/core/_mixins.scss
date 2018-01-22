@@ -7,6 +7,7 @@ aka functions to output css
 /* helper function for linear-gradient mixin */
 @function is-direction($value) {
   $is-keyword: index(
+
     (
       to top,
       to top right,
