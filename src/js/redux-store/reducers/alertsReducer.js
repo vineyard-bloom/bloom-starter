@@ -11,9 +11,13 @@ export default function alertsReducer(state = initialState.alerts, action) {
       return newAlerts.length ? newAlerts.slice(1) : [];
 
     case actionTypes.HARD_DELETE_ALERT:
-      let messageIndex = newAlerts.map((alert) => alert.message).indexOf(action.message);
+      let messageIndex = newAlerts
+        .map(alert => alert.message)
+        .indexOf(action.message);
       return messageIndex
-        ? newAlerts.slice(0,messageIndex).concat((newAlerts.slice(messageIndex+1)))
+        ? newAlerts
+            .slice(0, messageIndex)
+            .concat(newAlerts.slice(messageIndex + 1))
         : newAlerts;
 
     default:

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Landing = ({ content, ...props }) => {
-  return (
-    <div className='Landing'>
-      Marketing page
-    </div>
-  )
-}
+  return <div className="Landing">Marketing page</div>;
+};
 
-export default Landing
+export default Landing;

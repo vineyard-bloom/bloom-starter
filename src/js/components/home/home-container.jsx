@@ -19,12 +19,12 @@ class HomeContainer extends React.Component {
     user: PropTypes.shape(UserType)
   };
 
-  componentWillReceiveProps = (newProps) => {
+  componentWillReceiveProps = newProps => {
     if (newProps.getUser && !this.props.getUser) {
       try {
-        newProps.getUser()
-      } catch(err) {
-        console.log('get user error: ', err)
+        newProps.getUser();
+      } catch (err) {
+        console.log('get user error: ', err);
       }
     }
   };
@@ -32,20 +32,23 @@ class HomeContainer extends React.Component {
   componentDidMount = () => {
     if (this.props.getUser) {
       try {
-        this.props.getUser()
-      } catch(err) {
-        console.log('get user error: ', err)
+        this.props.getUser();
+      } catch (err) {
+        console.log('get user error: ', err);
       }
     }
   };
 
   render() {
     return (
-      <div className='Home'>
-        <SideBar user={ this.props.user } />
-        <div className='Home-content'>
+      <div className="Home">
+        <SideBar user={this.props.user} />
+        <div className="Home-content">
           <h2>Main Content Here</h2>
-          <p>Below is an overview of some basic elements used throughout the starterkit.</p>
+          <p>
+            Below is an overview of some basic elements used throughout the
+            starterkit.
+          </p>
           <ExamplesContainer />
         </div>
       </div>
@@ -53,17 +56,16 @@ class HomeContainer extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      getUser: () =>
-        dispatch(getUser())
-    }
+const mapDispatchToProps = dispatch => {
+  return {
+    getUser: () => dispatch(getUser())
   };
+};
 
-const mapStateToProps = (state) => {
-    return {
-      user: state.user
-    }
+const mapStateToProps = state => {
+  return {
+    user: state.user
   };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

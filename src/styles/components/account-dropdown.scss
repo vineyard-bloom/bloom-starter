@@ -6,7 +6,7 @@ ACCOUNT DROPDOWN
 @import '../core/variables';
 
 .AccountDropdown {
-  @include transition(.3s ease top, 0s ease z-index .3s);
+  @include transition(0.3s ease top, 0s ease z-index 0.3s);
   background-color: $white;
   box-shadow: $box-shadow;
   display: inline-block;
@@ -32,7 +32,7 @@ ACCOUNT DROPDOWN
   }
 
   &.is-hidden {
-    @include transition(.3s ease top, 0s ease z-index 0s);
+    @include transition(0.3s ease top, 0s ease z-index 0s);
     top: -$header-height;
     z-index: -1;
   }

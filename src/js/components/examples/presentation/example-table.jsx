@@ -1,11 +1,10 @@
-import React from 'react'
-import Table from 'presentation/layout/table'
+import React from 'react';
+import Table from 'presentation/layout/table';
 
-import { humanFormatDate } from 'helpers'
+import { humanFormatDate } from 'helpers';
 
 // I am an example table container, but all the other examples live in /presentation so I'm here too
 class ExampleTableContainer extends React.Component {
-
   render() {
     const headers = [
       {
@@ -24,7 +23,7 @@ class ExampleTableContainer extends React.Component {
         sortValue: 'created',
         displayValue: 'formattedJoined'
       }
-    ]
+    ];
 
     const exampleData = [
       {
@@ -45,7 +44,7 @@ class ExampleTableContainer extends React.Component {
         created: '2017-11-22T18:16:22.933Z',
         formattedJoined: humanFormatDate('2017-11-22T18:16:22.933Z')
       }
-    ]
+    ];
 
     const query = {
       useServer: false,
@@ -53,15 +52,15 @@ class ExampleTableContainer extends React.Component {
       sort: {
         activeField: 'name'
       }
-    }
+    };
 
     return (
       <div>
         <h3>Example Table</h3>
-        <Table headers={ headers } data={ exampleData } query={ query } />
+        <Table headers={headers} data={exampleData} query={query} />
       </div>
-    )
+    );
   }
 }
 
-export default ExampleTableContainer
+export default ExampleTableContainer;
