@@ -9,7 +9,6 @@ export default function presentationReducer(
   switch (action.type) {
     case actionTypes.FREEZE_UNFREEZE:
       return { ...newState, freezeContent: action.isFrozen };
-      break;
 
     case actionTypes.SET_WINDOW_SIZE:
       return { ...newState, width: action.width, height: action.height };

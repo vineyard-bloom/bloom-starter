@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 
-import { closeModal } from 'redux-store/actions/modalActions';
-
 import 'styles/components/modal';
 
 const isInsideTheModal = domElement => {
@@ -46,7 +44,7 @@ class Modal extends React.Component {
       const inputs = contents.querySelectorAll(allEnabledInputs);
       let lastInput = inputs[inputs.length - 1];
 
-      if (!!lastInput) {
+      if (lastInput) {
         this.setState({
           lastFocus: lastInput
         });
@@ -142,7 +140,7 @@ class Modal extends React.Component {
     } else if (!newProps.modalContents && this.props.modalContents) {
       // closing
       const prevBtn = document.getElementById(this.props.modalTriggerId);
-      if (!!prevBtn) {
+      if (prevBtn) {
         prevBtn.focus();
       }
     }
@@ -155,12 +153,12 @@ class Modal extends React.Component {
       <div
         className={`Modal ${modalContents ? 'is-active' : 'is-hidden'}`}
         onKeyDown={this.keyDownHandler}
-        id="modal-wrapper"
+        id='modal-wrapper'
         onClick={this.detectClickOff}
         onBlur={this.onFocusOut}
         tabIndex={modalContents ? 0 : -1}
-        aria-live="polite"
-        role="dialog"
+        aria-live='polite'
+        role='dialog'
         aria-hidden={!modalContents}
       >
         <Transition in={!!modalContents} timeout={0}>
@@ -170,9 +168,9 @@ class Modal extends React.Component {
               aria-hidden={!modalContents}
             >
               <button
-                className="Btn--null Btn--close"
-                id="modal-close-button"
-                aria-label="close this modal"
+                className='Btn--null Btn--close'
+                id='modal-close-button'
+                aria-label='close this modal'
                 onClick={e => {
                   e.preventDefault();
                   props.closeModal();

@@ -21,9 +21,9 @@ const Table = props => {
       }`;
       return header.sortable ? (
         <th key={`table-header-${i}`} className={classes}>
-          <a href="#" onClick={e => sortByThisHeader(e, header)}>
+          <a href='#' onClick={e => sortByThisHeader(e, header)}>
             {header.title}
-            <span className="u-sr-only">Click to sort by this column</span>
+            <span className='u-sr-only'>Click to sort by this column</span>
           </a>
         </th>
       ) : (
@@ -49,9 +49,9 @@ const Table = props => {
     };
 
     return (
-      <div className="Table-pagination">
+      <div className='Table-pagination'>
         <a
-          href="#"
+          href='#'
           onClick={goBack}
           className={`Table-pagination-prevNextButton ${
             pagination.offset === 0 ? 'is-disabled' : ''
@@ -60,17 +60,17 @@ const Table = props => {
           {'\u003c\u00a0'}Back
         </a>
         <SelectInput
-          name="go-to-page"
+          name='go-to-page'
           onChange={(formId, name, val) => {
             triggerPaginate(val - 1);
           }}
           value={currentPageNumber ? currentPageNumber + 1 : 1}
-          label="Go to Page:"
+          label='Go to Page:'
           options={pages}
           typeAhead={false}
         />
         <a
-          href="#"
+          href='#'
           onClick={goNext}
           className={`Table-pagination-prevNextButton ${
             currentPageNumber + 1 === pages.length ? 'is-disabled' : ''
@@ -100,7 +100,7 @@ const Table = props => {
 
           const link =
             url.indexOf('http') > -1 ? (
-              <a href={url} rel="noreferrer noopener" target="_blank">
+              <a href={url} rel='noreferrer noopener' target='_blank'>
                 {row[key]}
               </a>
             ) : (
@@ -135,7 +135,6 @@ const Table = props => {
     data,
     loading,
     pagination,
-    triggertriggerPaginate,
     sortByThisHeader,
     totalDataLength
   } = props;
@@ -146,8 +145,8 @@ const Table = props => {
   const contentRows = data.length
     ? renderRows(data)
     : [
-        <tr key="table-row-none">
-          <td colSpan={headers.length} className="u-text-center">
+        <tr key='table-row-none'>
+          <td colSpan={headers.length} className='u-text-center'>
             No data to display
           </td>
         </tr>
@@ -164,14 +163,14 @@ const Table = props => {
 
   return (
     <div className={props.className || ''}>
-      <table className="Table">
+      <table className='Table'>
         <thead>
           <tr>{headers}</tr>
         </thead>
         <tbody>
           {loading ? (
-            <tr key="table-row-loading">
-              <td colSpan={headers.length} className="u-text-center">
+            <tr key='table-row-loading'>
+              <td colSpan={headers.length} className='u-text-center'>
                 <Loading />
               </td>
             </tr>

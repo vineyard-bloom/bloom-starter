@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "rm -r -f dist/*.js && webpack && webpack-dev-server --hot --inline",
     "build": "rm -r -f dist/*.js && webpack",
+    "lint": "./node_modules/.bin/eslint --fix ./src/**/*.{js,jsx}",
     "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './src/**/*.{js,jsx,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn prettier"
+      "pre-commit": "yarn prettier && yarn lint"
     }
   },
   "author": "inkblotty",
@@ -29,10 +30,13 @@
     "bignumber.js": "^5.0.0",
     "bloom-forms": "0.3.0",
     "botp": "^2.3.2",
+    "buttercms": "^1.1.0",
     "clipboard": "^1.7.1",
     "copy-webpack-plugin": "^4.0.1",
     "crypto-js": "^3.1.9-1",
     "css-loader": "^0.28.8",
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.5.1",
     "file-loader": "^1.1.6",
     "history": "^4.6.1",
     "html-loader": "^0.5.4",

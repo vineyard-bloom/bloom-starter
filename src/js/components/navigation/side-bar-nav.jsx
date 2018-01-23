@@ -18,7 +18,7 @@ const SideBarNav = props => {
     );
   });
 
-  return <ul className="Sidebar-nav-container">{navs}</ul>;
+  return <ul className='Sidebar-nav-container'>{navs}</ul>;
 };
 
 export default withRouter(SideBarNav);

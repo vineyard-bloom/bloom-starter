@@ -94,7 +94,7 @@ class TableDataHandler extends React.Component {
   };
 
   componentWillReceiveProps = newProps => {
-    const { data, query, ...props } = this.props;
+    const { data, query } = this.props;
     const paginationChanged =
       query &&
       newProps.query &&
@@ -197,6 +197,7 @@ class TableDataHandler extends React.Component {
       });
 
       // we're using the server. make sure we have requestData
+      /* eslint-disable- no-console */
       if (!props.requestData) {
         console.log(
           '%c\n\nYou must pass in a `requestData` function to <Table/> if your sorting, filtering, etc. are executed via server.\n\n',

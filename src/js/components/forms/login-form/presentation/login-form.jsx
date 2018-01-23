@@ -10,16 +10,16 @@ const LoginForm = props => {
   };
 
   return (
-    <form id="login-form" className="Form AuthForm">
-      <h3 className="AuthForm-header">Log In</h3>
+    <form id='login-form' className='Form AuthForm'>
+      <h3 className='AuthForm-header'>Log In</h3>
       <TextInput
-        placeholder="Enter Username (required)"
-        id="username"
-        name="username"
-        label="Username"
+        placeholder='Enter Username (required)'
+        id='username'
+        name='username'
+        label='Username'
         value={formData.username ? formData.username.value : ''}
         onChange={props.updateForm}
-        validateAs="not-empty"
+        validateAs='not-empty'
         error={
           formData.username && formData.username.error
             ? formData.username.error
@@ -27,14 +27,14 @@ const LoginForm = props => {
         }
       />
       <TextInput
-        placeholder="Enter Password (required)"
-        id="password"
-        name="password"
-        label="Password"
+        placeholder='Enter Password (required)'
+        id='password'
+        name='password'
+        label='Password'
         value={formData.password ? formData.password.value : ''}
         onChange={props.updateForm}
         isPassword
-        validateAs="not-empty"
+        validateAs='not-empty'
         error={
           formData.password && formData.password.error
             ? formData.password.error
@@ -42,15 +42,15 @@ const LoginForm = props => {
         }
       />
       <TextInput
-        placeholder="Enter 2FA Pin Code (required)"
-        id="twoFactorSecret"
-        name="twoFactorSecret"
-        label="Two Factor Pin Code"
+        placeholder='Enter 2FA Pin Code (required)'
+        id='twoFactorSecret'
+        name='twoFactorSecret'
+        label='Two Factor Pin Code'
         value={
           formData['twoFactorSecret'] ? formData['twoFactorSecret'].value : ''
         }
         onChange={props.updateForm}
-        validateAs="not-empty"
+        validateAs='not-empty'
         error={
           formData.twoFactorSecret && formData.twoFactorSecret.error
             ? formData.twoFactorSecret.error
@@ -59,10 +59,10 @@ const LoginForm = props => {
       />
       <Button
         onClick={props.submitForm}
-        contents="Log in"
-        className="Btn--alt AuthForm-submit-button u-justify-center"
+        contents='Log in'
+        className='Btn--alt AuthForm-submit-button u-justify-center'
       />
-      <Link to="/new" className="AuthForm-no-account">
+      <Link to='/new' className='AuthForm-no-account'>
         I don't have an account
       </Link>
     </form>

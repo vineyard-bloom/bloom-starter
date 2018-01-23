@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import BigNumber from 'bignumber.js';
+// import BigNumber from 'bignumber.js';
 
 import { getUser } from 'redux-store/actions/userActions';
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
@@ -75,7 +75,6 @@ class AppContainer extends React.Component {
       addAlert,
       alerts,
       closeModal,
-      freezePage,
       modal,
       openModal,
       presentation,
@@ -89,10 +88,10 @@ class AppContainer extends React.Component {
             ? 'u-prevent-scroll'
             : ''
         }`}
-        aria-live="polite"
+        aria-live='polite'
       >
-        <h1 className="u-sr-only">Bloom Starter</h1>
-        <a href="#main-content" className="u-sr-only">
+        <h1 className='u-sr-only'>Bloom Starter</h1>
+        <a href='#main-content' className='u-sr-only'>
           Skip To Main Content
         </a>
         <Header openModal={openModal} user={user} addAlert={addAlert} />

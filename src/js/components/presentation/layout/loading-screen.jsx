@@ -5,7 +5,7 @@ import 'styles/components/loading-screen';
 
 // for full pages pending load
 const LoadingScreen = () => (
-  <div className="LoadingScreen">
+  <div className='LoadingScreen'>
     <Loading />
   </div>
 );

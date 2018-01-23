@@ -10,10 +10,10 @@ const Alert = props => {
     <div
       tabIndex={-1}
       aria-atomic
-      aria-relevant="additions removals"
+      aria-relevant='additions removals'
       className={`Alert-background ${props.hidden ? 'is-hidden' : ''}`}
-      role="alert"
-      aria-live="assertive"
+      role='alert'
+      aria-live='assertive'
     >
       <Transition in={!!currentAlert} timeout={0}>
         {status => (
@@ -26,10 +26,10 @@ const Alert = props => {
               className={`Alert-icon icons-${
                 currentAlert ? currentAlert.style : ''
               }`}
-              role="presentation"
+              role='presentation'
             />
-            <div className="u-sr-only">Alert message: </div>
-            <div className="Alert-text">
+            <div className='u-sr-only'>Alert message: </div>
+            <div className='Alert-text'>
               {currentAlert ? currentAlert.message : ''}
             </div>
           </div>

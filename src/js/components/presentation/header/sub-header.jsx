@@ -5,7 +5,6 @@ import { withRouter } from 'react-router';
 import AccountDropdownContainer from 'components/navigation/account-dropdown';
 import HamburgerButton from 'layout/hamburger-button';
 
-import { openModal } from 'redux-store/actions/modalActions';
 import downCarrot from 'images/inline-svgs/down_carrot.svg';
 
 import 'styles/components/subheader.scss';
@@ -28,6 +27,9 @@ class SubHeader extends React.Component {
   };
 
   toggleMobileMenu = e => {
+    if (e) {
+      e.preventDefault();
+    }
     this.setState({
       showMobileMenu: !this.state.showMobileMenu
     });
@@ -46,14 +48,14 @@ class SubHeader extends React.Component {
     const { showDropdown, showMobileMenu } = this.state;
 
     return (
-      <div className="SubHeader-wrapper">
+      <div className='SubHeader-wrapper'>
         <div className={`SubHeader ${showDropdown ? 'is-open' : ''}`}>
           {user &&
             user.username && (
               <a
-                href="#"
+                href='#'
                 onClick={this.toggleDropdown}
-                className="SubHeader-user"
+                className='SubHeader-user'
               >
                 {user.username}
                 <SVGInline svg={downCarrot} />
@@ -64,9 +66,9 @@ class SubHeader extends React.Component {
             close={this.toggleDropdown}
           />
         </div>
-        <div className="SubHeader--mobile">
+        <div className='SubHeader--mobile'>
           <HamburgerButton
-            id="sub-header-hamburger"
+            id='sub-header-hamburger'
             isOpen={showMobileMenu}
             onClick={this.toggleMobileMenu}
           />

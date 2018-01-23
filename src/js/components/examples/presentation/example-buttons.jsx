@@ -3,56 +3,56 @@ import { Button } from 'bloom-forms';
 
 import Loading from 'presentation/layout/loading';
 
-const ExampleButtons = props => {
+const ExampleButtons = () => {
   return (
     <div>
       <h3>Buttons</h3>
       <p>Use any of the examples below to quickly create a styled button.</p>
-      <Button id="test-1" onClick={() => ''} contents="Default" />
+      <Button id='test-1' onClick={() => ''} contents='Default' />
       <Button
-        id="test-2"
+        id='test-2'
         onClick={() => ''}
-        contents="Info"
-        className="Btn--info"
+        contents='Info'
+        className='Btn--info'
       />
       <Button
-        id="test-3"
+        id='test-3'
         onClick={() => ''}
-        contents="Success"
-        className="Btn--success"
+        contents='Success'
+        className='Btn--success'
       />
       <Button
-        id="test-4"
+        id='test-4'
         onClick={() => ''}
-        contents="Warning"
-        className="Btn--warning"
+        contents='Warning'
+        className='Btn--warning'
       />
       <Button
-        id="test-5"
+        id='test-5'
         onClick={() => ''}
-        contents="Danger"
-        className="Btn--danger"
+        contents='Danger'
+        className='Btn--danger'
       />
       <Button
-        id="test-loading"
+        id='test-loading'
         onClick={() => ''}
-        contents="Loading"
+        contents='Loading'
         loading
-        className="Btn--info"
+        className='Btn--info'
       />
       <Button
-        id="test-loading-2"
+        id='test-loading-2'
         onClick={() => ''}
-        contents="Custom Loading"
+        contents='Custom Loading'
         loading
         loadingElement={<Loading />}
-        className="Btn--warning"
+        className='Btn--warning'
       />
       <Button
-        id="test-disabled"
+        id='test-disabled'
         onClick={() => ''}
-        contents="Button Disabled"
-        className="Btn--danger"
+        contents='Button Disabled'
+        className='Btn--danger'
         disabled
       />
     </div>

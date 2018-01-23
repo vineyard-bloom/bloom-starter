@@ -87,7 +87,7 @@ class Accordion extends React.Component {
 
     return (
       <div className={`Accordion ${className || ''}`}>
-        <ul className="Accordion-sections">{accordionSections}</ul>
+        <ul className='Accordion-sections'>{accordionSections}</ul>
       </div>
     );
   }

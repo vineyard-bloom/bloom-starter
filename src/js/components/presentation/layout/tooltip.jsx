@@ -21,7 +21,6 @@ class Tooltip extends React.Component {
   };
 
   closeIfOffTip = e => {
-    const { id } = this.props;
     if (!this.isInsideTheTooltip(e.target)) {
       this.setState({
         open: false
@@ -62,14 +61,14 @@ class Tooltip extends React.Component {
   render() {
     const { contents, direction, header, id } = this.props;
     return (
-      <div className="Tooltip" role="tooltip" aria-live="polite" id={id}>
+      <div className='Tooltip' role='tooltip' aria-live='polite' id={id}>
         <button
-          className="Tooltip-icon"
+          className='Tooltip-icon'
           onClick={this.toggleOpen}
           aria-controls={`tooltip-${id}-content`}
           id={`tooltip-${id}-button`}
         >
-          <span className="u-sr-only">
+          <span className='u-sr-only'>
             Open this tooltip for more information
           </span>
         </button>
@@ -79,7 +78,7 @@ class Tooltip extends React.Component {
             id={`tooltip-${id}-content`}
           >
             {header && <h6>{header}</h6>}
-            <div className="Tooltip-contents-text">{contents}</div>
+            <div className='Tooltip-contents-text'>{contents}</div>
           </div>
         )}
       </div>

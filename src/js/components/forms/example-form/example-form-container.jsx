@@ -9,14 +9,14 @@ import { createUser } from 'redux-store/actions/userActions';
 import ExampleForm from './presentation/example-form';
 
 class ExampleFormContainer extends React.Component {
-  rerouteAfterSubmit = (res, formData) => {
+  rerouteAfterSubmit = () => {
     this.props.history.push('/lending');
   };
 
   submitForm = async (formData, files, successCallback, failCallback) => {
     try {
       const res = await this.props.createUser(formData);
-      this.rerouteAfterSubmit();
+      this.rerouteAfterSubmit(res);
     } catch (err) {
       this.props.addAlert(err);
       failCallback(err);
@@ -50,7 +50,7 @@ class ExampleFormContainer extends React.Component {
 
     return (
       <Form
-        id="example-form"
+        id='example-form'
         fieldNames={fieldNames}
         submitForm={this.submitForm}
         validationHelp={validationHelp}

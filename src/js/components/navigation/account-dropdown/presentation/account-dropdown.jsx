@@ -13,11 +13,11 @@ const AccountDropdown = ({ close, show, ...props }) => {
 
   return (
     <Transition in={!!show} timeout={0}>
-      {status => (
+      {() => (
         <ul className={`AccountDropdown ${show ? '' : 'is-hidden'}`}>
           <DropdownButton
-            onClick={props.logout}
-            text="Log out"
+            onClick={logoutAndClose}
+            text='Log out'
             tabIndex={show ? 0 : -1}
           />
         </ul>

@@ -15,7 +15,7 @@ class LoginFormContainer extends React.Component {
   submitForm = async (formData, files, successCallback, failCallback) => {
     try {
       const res = await this.props.login(formData);
-      this.rerouteAfterSubmit();
+      this.rerouteAfterSubmit(res);
     } catch (err) {
       this.props.addAlert(err);
       failCallback(err);
@@ -27,7 +27,7 @@ class LoginFormContainer extends React.Component {
 
     return (
       <Form
-        id="login-form"
+        id='login-form'
         fieldNames={fieldNames}
         submitForm={this.submitForm}
       >

@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import BigNumber from 'bignumber.js';
 
-import { convertWeiToEth } from 'helpers';
 import { getUser } from 'redux-store/actions/userActions';
 import { UserType } from 'types';
 
@@ -19,31 +16,31 @@ class HomeContainer extends React.Component {
     user: PropTypes.shape(UserType)
   };
 
-  componentWillReceiveProps = newProps => {
+  componentWillReceiveProps = async newProps => {
     if (newProps.getUser && !this.props.getUser) {
       try {
-        newProps.getUser();
+        await newProps.getUser();
       } catch (err) {
-        console.log('get user error: ', err);
+        console.log('get user error: ', err); // eslint-disable-line no-console
       }
     }
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     if (this.props.getUser) {
       try {
-        this.props.getUser();
+        await this.props.getUser();
       } catch (err) {
-        console.log('get user error: ', err);
+        console.log('get user error: ', err); // eslint-disable-line no-console
       }
     }
   };
 
   render() {
     return (
-      <div className="Home">
+      <div className='Home'>
         <SideBar user={this.props.user} />
-        <div className="Home-content">
+        <div className='Home-content'>
           <h2>Main Content Here</h2>
           <p>
             Below is an overview of some basic elements used throughout the

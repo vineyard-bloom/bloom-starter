@@ -9,6 +9,7 @@ class LandingContainer extends React.Component {
   };
 
   initializeButter = () => {
+    /* eslint-disable- no-console */
     if (config.butter && config.butter.key) {
       this.butter = new Butter(config.butter.key);
     } else {
@@ -21,6 +22,7 @@ class LandingContainer extends React.Component {
   };
 
   getButterData = butter => {
+    /* eslint-disable- no-console */
     if (!butter) {
       console.log(
         '%c ButterCMS not properly initialized. Check landing-container.jsx',

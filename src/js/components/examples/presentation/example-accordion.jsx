@@ -3,7 +3,7 @@ import { SelectInput, TextInput } from 'bloom-forms';
 
 import Accordion from 'presentation/layout/accordion';
 
-const ExampleAccordion = props => {
+const ExampleAccordion = () => {
   // isValid can be a computed value that gives the header an is-valid class
   const selectOptions = [
     { label: 'Muffins', value: 'muffins' },
@@ -46,28 +46,28 @@ const ExampleAccordion = props => {
         <div>
           Section 3 contents
           <TextInput
-            id="textinput"
-            name="textinput"
-            label="Text Input"
+            id='textinput'
+            name='textinput'
+            label='Text Input'
             showLabel
             value={''}
             onChange={() => {
               return;
             }}
-            placeholder="Nonfunctional Text Input"
+            placeholder='Nonfunctional Text Input'
           />
           <SelectInput
             options={selectOptions}
-            name="select"
-            formId="example-form"
+            name='select'
+            formId='example-form'
             typeAhead={false}
-            value=""
+            value=''
             showLabel
-            label="Select Input -- No TypeAhead"
+            label='Select Input -- No TypeAhead'
             onChange={() => {
               return;
             }}
-            error={"Oh sad this isn't hooked up"}
+            error={'Oh sad this isn\'t hooked up'}
           />
         </div>
       ),

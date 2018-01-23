@@ -1,5 +1,5 @@
 import { get, post, put } from 'requests';
-import * as config from 'config/config.json';
+// import * as config from "config/config.json";
 
 export class WebService {
   checkEmailAvailability = async email => {
@@ -43,19 +43,7 @@ export class WebService {
     return post('/user/logout', {});
   };
 
-  register = async ({
-    username,
-    email,
-    password,
-    passwordConfirm,
-    ethPublicAddress,
-    twoFactorSecret
-  }) => {
-    const data = {
-      username: username,
-      password: password,
-      email: email
-    };
+  register = async ({ passwordConfirm, ...data }) => {
     return post('/user', data);
   };
 
