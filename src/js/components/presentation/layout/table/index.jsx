@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import TableMarkup from './markup';
 
+/* eslint-disable- no-console */
+
 // This is like a container, but it's still all internal presentation logic -- just too much going on for one component
 class TableDataHandler extends React.Component {
   state = {
@@ -94,7 +96,7 @@ class TableDataHandler extends React.Component {
   };
 
   componentWillReceiveProps = newProps => {
-    const { data, query } = this.props;
+    const { query } = this.props;
     const paginationChanged =
       query &&
       newProps.query &&
@@ -197,7 +199,6 @@ class TableDataHandler extends React.Component {
       });
 
       // we're using the server. make sure we have requestData
-      /* eslint-disable- no-console */
       if (!props.requestData) {
         console.log(
           '%c\n\nYou must pass in a `requestData` function to <Table/> if your sorting, filtering, etc. are executed via server.\n\n',

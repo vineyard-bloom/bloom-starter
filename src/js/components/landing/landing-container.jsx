@@ -3,13 +3,13 @@ import config from 'config/config.json';
 
 import Landing from './presentation/landing';
 
+/* eslint-disable- no-console */
 class LandingContainer extends React.Component {
   state = {
     content: {}
   };
 
   initializeButter = () => {
-    /* eslint-disable- no-console */
     if (config.butter && config.butter.key) {
       this.butter = new Butter(config.butter.key);
     } else {
@@ -22,7 +22,6 @@ class LandingContainer extends React.Component {
   };
 
   getButterData = butter => {
-    /* eslint-disable- no-console */
     if (!butter) {
       console.log(
         '%c ButterCMS not properly initialized. Check landing-container.jsx',
