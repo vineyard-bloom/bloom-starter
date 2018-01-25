@@ -6,13 +6,12 @@ ACCORDION
 @import '../core/mixins';
 
 .Accordion {
-
   &-section {
     border-bottom: 1px solid $light-gray;
     height: auto;
     min-height: 20px;
     overflow: hidden;
-    @include transition(.2s ease-in-out);
+    @include transition(0.2s ease-in-out);
 
     &:last-of-type {
       border-bottom: 0;

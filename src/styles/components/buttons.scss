@@ -2,39 +2,38 @@
 BUTTON COLORS
 =============
 */
-$btn-font-weight:                normal !default;
+$btn-font-weight: normal !default;
 
-$btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
-$btn-default-border:             #ccc !default;
+$btn-default-color: #333 !default;
+$btn-default-bg: #fff !default;
+$btn-default-border: #ccc !default;
 
-$btn-primary-color:              #fff !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-color: #fff !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: darken($btn-primary-bg, 5%) !default;
 
-$btn-success-color:              #fff !default;
-$btn-success-bg:                 $brand-success !default;
-$btn-success-border:             darken($btn-success-bg, 5%) !default;
+$btn-success-color: #fff !default;
+$btn-success-bg: $brand-success !default;
+$btn-success-border: darken($btn-success-bg, 5%) !default;
 
-$btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-color: #fff !default;
+$btn-info-bg: $brand-info !default;
+$btn-info-border: darken($btn-info-bg, 5%) !default;
 
-$btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+$btn-warning-color: #fff !default;
+$btn-warning-bg: $brand-warning !default;
+$btn-warning-border: darken($btn-warning-bg, 5%) !default;
 
-$btn-danger-color:               #fff !default;
-$btn-danger-bg:                  $brand-danger !default;
-$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+$btn-danger-color: #fff !default;
+$btn-danger-bg: $brand-danger !default;
+$btn-danger-border: darken($btn-danger-bg, 5%) !default;
 
-$btn-link-disabled-color:        $light-gray !default;
+$btn-link-disabled-color: $light-gray !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius-base:         $border-radius-base !default;
-$btn-border-radius-large:        $border-radius-large !default;
-$btn-border-radius-small:        $border-radius-small !default;
-
+$btn-border-radius-base: $border-radius-base !default;
+$btn-border-radius-large: $border-radius-large !default;
+$btn-border-radius-small: $border-radius-small !default;
 
 /*
 BUTTONS
@@ -50,7 +49,7 @@ button {
   font-size: $main-font-size;
   padding: $pad-mar-small $pad-mar-med;
   text-align: center;
-  @include transition(all .3s ease);
+  @include transition(all 0.3s ease);
 
   &:disabled {
     cursor: not-allowed;
@@ -84,7 +83,7 @@ button {
     outline: 0;
     background-image: none;
     background-color: $light-gray;
-    @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    @include box-shadow(inset 0 3px 5px rgba(0,0,0,0.125));
 
     &:focus,
     &.focus {
@@ -96,7 +95,7 @@ button {
   &[disabled],
   fieldset[disabled] & {
     cursor: $cursor-disabled;
-    @include opacity(.65);
+    @include opacity(0.65);
     @include box-shadow(none);
   }
 
@@ -119,7 +118,8 @@ button {
     }
   }
 
-  &--null { // no default styles
+  &--null {
+    // no default styles
     background-color: transparent;
     border: 0;
     box-shadow: none;
@@ -167,7 +167,6 @@ button {
     @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
   }
 }
-
 
 /* Button Sizes */
 

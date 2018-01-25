@@ -4,9 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test",
     "dev": "rm -r -f dist/*.js && webpack && webpack-dev-server --hot --inline",
-    "build": "rm -r -f dist/*.js && webpack"
+    "build": "rm -r -f dist/*.js && webpack",
+    "lint": "./node_modules/.bin/eslint --fix ./src/**/*.{js,jsx}",
+    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './src/**/*.{js,jsx,scss}'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier && yarn lint"
+    }
   },
   "author": "inkblotty",
   "license": "MIT",
@@ -23,15 +30,19 @@
     "bignumber.js": "^5.0.0",
     "bloom-forms": "0.3.0",
     "botp": "^2.3.2",
+    "buttercms": "^1.1.0",
     "clipboard": "^1.7.1",
     "copy-webpack-plugin": "^4.0.1",
     "crypto-js": "^3.1.9-1",
     "css-loader": "^0.28.8",
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.5.1",
     "file-loader": "^1.1.6",
     "history": "^4.6.1",
     "html-loader": "^0.5.4",
     "html-webpack-externals-plugin": "^3.6.0",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.15.0-rc.2",
     "moment": "^2.18.1",
     "node-sass": "^4.0.0",
     "postcss-loader": "^2.0.7",
@@ -54,7 +65,9 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "1.10.2"
+  },
   "optionalDependencies": {
     "webpack-dev-server": "^2.10.1"
   }

@@ -8,8 +8,8 @@ MODAL
 $modal-contents-width: 450px;
 
 .Modal {
-  @include transition(.3s ease, .3s ease opacity .1s, 0s ease max-height .3s, .1s ease top, .1s ease background-color .1s);
-  background-color: rgba(0,0,0,0.5);
+  @include transition(0.3s ease, 0.3s ease opacity 0.1s, 0s ease max-height 0.3s, 0.1s ease top, 0.1s ease background-color 0.1s);
+  background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   left: 0;
   max-height: 100vh;
@@ -21,7 +21,7 @@ $modal-contents-width: 450px;
   z-index: calc(#{$z-100} + #{$z-1});
 
   &.is-hidden {
-    @include transition(.2s ease, .3s ease-in-out top .2s);
+    @include transition(0.2s ease, 0.3s ease-in-out top 0.2s);
     background-color: transparent;
     padding: 0;
     top: -100vh;
@@ -32,7 +32,7 @@ $modal-contents-width: 450px;
   }
 
   &-content {
-    @include transition(.5s ease margin .1s, .5s ease opacity);
+    @include transition(0.5s ease margin 0.1s, 0.5s ease opacity);
     background-color: $white;
     margin: 0 auto;
     min-height: 400px;
@@ -69,10 +69,10 @@ $modal-contents-width: 450px;
 @media screen and (max-width: 550px) {
   .Modal {
     &-content {
-      width: calc(#{$modal-contents-width} * .6);
+      width: calc(#{$modal-contents-width} * 0.6);
 
       .Btn-close {
-        margin-left: calc(-45px + #{$modal-contents-width} * .6);
+        margin-left: calc(-45px + #{$modal-contents-width} * 0.6);
         top: inherit;
       }
     }

@@ -138,9 +138,7 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
           }
         ]
       })
-    ].concat(baseConfig.plugins).concat([
-      new webpack.optimize.UglifyJsPlugin({ minimize: true })
-    ])
+    ].concat(baseConfig.plugins)
 } else if (config.app && config.app.environment && (config.app.environment === 'production')) {
   baseConfig.plugins = [
     new HtmlWebpackExternalsPlugin({

@@ -6,8 +6,26 @@ aka functions to output css
 
 /* helper function for linear-gradient mixin */
 @function is-direction($value) {
-  $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
-  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  $is-keyword: index(
+
+    (
+      to top,
+      to top right,
+      to right top,
+      to right,
+      to bottom right,
+      to right bottom,
+      to bottom,
+      to bottom left,
+      to left bottom,
+      to left,
+      to left top,
+      to top left
+    ),
+    $value
+  );
+  $is-angle: type-of($value) == 'number' and
+    index('deg' 'grad' 'turn' 'rad', unit($value));
 
   @return $is-keyword or $is-angle;
 }
@@ -41,26 +59,26 @@ aka functions to output css
   &.is-focus {
     color: $color;
     background-color: darken($background, 10%);
-        border-color: darken($border, 25%);
+    border-color: darken($border, 25%);
   }
   &:hover {
     color: $color;
     background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    border-color: darken($border, 12%);
   }
   &:active,
   &.is-active,
   .open > &.dropdown-toggle {
     color: $color;
     background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    border-color: darken($border, 12%);
 
     &:hover,
     &:focus,
     &.is-focus {
       color: $color;
       background-color: darken($background, 17%);
-          border-color: darken($border, 25%);
+      border-color: darken($border, 25%);
     }
   }
   &:active,
@@ -77,7 +95,7 @@ aka functions to output css
     &:focus,
     &.is-focus {
       background-color: $background;
-          border-color: $border;
+      border-color: $border;
     }
   }
 
@@ -86,7 +104,6 @@ aka functions to output css
     background-color: $color;
   }
 }
-
 
 @mixin tab-focus() {
   // WebKit-specific. Other browsers will keep their default outline style.
@@ -98,7 +115,7 @@ aka functions to output css
 
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
-          box-shadow: $shadow;
+  box-shadow: $shadow;
 }
 
 // Button sizes

@@ -46,7 +46,7 @@ $table-border: 1px solid $med-gray;
   }
 
   th {
-    @include transition(.3s linear border-color);
+    @include transition(0.3s linear border-color);
     border-bottom: 0 solid transparent;
     color: $med-gray;
     font-weight: 600;
@@ -94,8 +94,8 @@ $table-border: 1px solid $med-gray;
   }
 
   td {
-    @include transition(0s ease border .3s);
-    font-weight: 400; 
+    @include transition(0s ease border 0.3s);
+    font-weight: 400;
 
     &.is-active {
       background-color: lighten($blue, 40%);

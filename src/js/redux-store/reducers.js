@@ -7,9 +7,9 @@ import presentationReducer from './reducers/presentationReducer';
 import userReducer from './reducers/userReducer';
 
 export default combineReducers({
-    alerts:         alertsReducer,
-    forms:          formReducer,
-    modal:          modalReducer,
-    presentation:   presentationReducer,
-    user:           userReducer
+  alerts: alertsReducer,
+  forms: formReducer,
+  modal: modalReducer,
+  presentation: presentationReducer,
+  user: userReducer
 });

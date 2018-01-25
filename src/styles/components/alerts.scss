@@ -7,29 +7,28 @@ ALERTS
 
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               15px !default;
-$alert-border-radius:         $border-radius-base !default;
-$alert-link-font-weight:      bold !default;
+$alert-padding: 15px !default;
+$alert-border-radius: $border-radius-base !default;
+$alert-link-font-weight: bold !default;
 
-$alert-success-bg:            $state-success-bg !default;
-$alert-success-text:          $state-success-text !default;
-$alert-success-border:        $state-success-border !default;
+$alert-success-bg: $state-success-bg !default;
+$alert-success-text: $state-success-text !default;
+$alert-success-border: $state-success-border !default;
 
-$alert-info-bg:               $state-info-bg !default;
-$alert-info-text:             $state-info-text !default;
-$alert-info-border:           $state-info-border !default;
+$alert-info-bg: $state-info-bg !default;
+$alert-info-text: $state-info-text !default;
+$alert-info-border: $state-info-border !default;
 
-$alert-warning-bg:            $state-warning-bg !default;
-$alert-warning-text:          $state-warning-text !default;
-$alert-warning-border:        $state-warning-border !default;
+$alert-warning-bg: $state-warning-bg !default;
+$alert-warning-text: $state-warning-text !default;
+$alert-warning-border: $state-warning-border !default;
 
-$alert-danger-bg:             $state-danger-bg !default;
-$alert-danger-text:           $state-danger-text !default;
-$alert-danger-border:         $state-danger-border !default;
-
+$alert-danger-bg: $state-danger-bg !default;
+$alert-danger-text: $state-danger-text !default;
+$alert-danger-border: $state-danger-border !default;
 
 .Alert {
-  @include transition(.4s ease margin .2s, .15s ease opacity .3s);
+  @include transition(0.4s ease margin 0.2s, 0.15s ease opacity 0.3s);
   align-items: center;
   background-color: $white;
   box-shadow: $box-shadow;
@@ -45,8 +44,8 @@ $alert-danger-border:         $state-danger-border !default;
   width: 300px;
 
   &-background {
-    @include transition(.1s ease .3s);
-    background-color: rgba(0,0,0,0.1);
+    @include transition(0.1s ease 0.3s);
+    background-color: rgba(0, 0, 0, 0.1);
     bottom: 0;
     left: 0;
     position: fixed;
@@ -60,7 +59,7 @@ $alert-danger-border:         $state-danger-border !default;
       top: -155px;
 
       .Alert {
-        @include transition(.4s ease margin .1s, .2s ease opacity .2s);
+        @include transition(0.4s ease margin 0.1s, 0.2s ease opacity 0.2s);
         opacity: 0;
       }
     }

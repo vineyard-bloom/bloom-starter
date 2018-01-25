@@ -1,12 +1,11 @@
 import actionTypes from './types';
 
-
 /* modal action creators */
 
 export function closeModal() {
   return {
     type: actionTypes.CLOSE_MODAL
-  }
+  };
 }
 
 export function openModal(e, modalContents, triggerId) {
@@ -15,5 +14,5 @@ export function openModal(e, modalContents, triggerId) {
     type: actionTypes.OPEN_MODAL,
     modalContents,
     modalTriggerId: triggerId
-  }
+  };
 }

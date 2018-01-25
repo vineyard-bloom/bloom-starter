@@ -5,28 +5,28 @@ TRANSITIONS
 */
 
 .fold-entering {
-  @include transition(.2s ease-in-out, .8s ease-in-out max-height 0s, .2s ease opacity .3s);
+  @include transition(0.2s ease-in-out, 0.8s ease-in-out max-height 0s, 0.2s ease opacity 0.3s);
   max-height: 10px !important;
-  opacity: .5;
+  opacity: 0.5;
   overflow: hidden;
 }
 
 .fold-entered {
-  @include transition(.2s ease-in-out, .8s ease-in-out max-height 0s, .2s ease opacity .3s);
+  @include transition(0.2s ease-in-out, 0.8s ease-in-out max-height 0s, 0.2s ease opacity 0.3s);
   max-height: 800px !important;
   opacity: 1;
   overflow: visible;
 }
 
 .fold-exiting {
-  @include transition(.2s ease-in-out, .8s ease-in-out max-height 0s);
+  @include transition(0.2s ease-in-out, 0.8s ease-in-out max-height 0s);
   max-height: 100px !important;
-  opacity: .5;
+  opacity: 0.5;
   overflow: hidden;
 }
 
 .fold-exited {
-  @include transition(.2s ease-in-out, .5s ease-in-out max-height 0s);
+  @include transition(0.2s ease-in-out, 0.5s ease-in-out max-height 0s);
   max-height: 1px !important;
   opacity: 0;
   overflow: hidden;

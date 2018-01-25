@@ -12,18 +12,20 @@ import store from 'redux-store/store';
 import AppContainer from 'components/app';
 import 'styles/main.scss';
 
-window.WebService = config.app.useWebServiceStub ? new WebServiceStub() : new WebService()
+window.WebService = config.app.useWebServiceStub
+  ? new WebServiceStub()
+  : new WebService();
 
 class AppRoot extends React.Component {
   render() {
     return (
-      <Router history={ createBrowserHistory() }>
-        <Provider store={ store }>
+      <Router history={createBrowserHistory()}>
+        <Provider store={store}>
           <AppContainer />
         </Provider>
       </Router>
-    )
-  };
+    );
+  }
 }
 
 var docRoot = document.getElementById('root');
