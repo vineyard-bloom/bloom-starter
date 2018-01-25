@@ -12,7 +12,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn prettier && yarn lint"
+      "pre-commit": "yarn prettier && yarn lint && git add ."
     }
   },
   "author": "inkblotty",
