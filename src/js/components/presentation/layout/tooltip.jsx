@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import 'styles/components/tooltip.scss';
+import 'styles/components/tooltip.scss'
 
 class Tooltip extends React.Component {
   state = {
@@ -24,42 +24,42 @@ class Tooltip extends React.Component {
     if (!this.isInsideTheTooltip(e.target)) {
       this.setState({
         open: false
-      });
+      })
     }
   };
 
   isInsideTheTooltip = domElement => {
-    let parent = domElement;
+    let parent = domElement
     while (parent && parent.tagName) {
       if (parent.id === this.props.id) {
-        return true;
+        return true
       } else if (parent.tagName === 'BODY') {
-        return false;
+        return false
       } else {
-        parent = parent.parentNode;
+        parent = parent.parentNode
       }
     }
   };
 
   toggleOpen = e => {
-    e.preventDefault();
+    e.preventDefault()
 
     this.setState({
       open: !this.state.open
-    });
+    })
   };
 
   componentWillUnmount = () => {
-    document.removeEventListener('click', this.closeIfOffTip);
+    document.removeEventListener('click', this.closeIfOffTip)
   };
 
   componentDidMount = () => {
     // make sure clicking anywhere outside the tooltip closes it
-    document.addEventListener('click', this.closeIfOffTip);
+    document.addEventListener('click', this.closeIfOffTip)
   };
 
   render() {
-    const { contents, direction, header, id } = this.props;
+    const { contents, direction, header, id } = this.props
     return (
       <div className='Tooltip' role='tooltip' aria-live='polite' id={id}>
         <button
@@ -82,8 +82,8 @@ class Tooltip extends React.Component {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default Tooltip;
+export default Tooltip

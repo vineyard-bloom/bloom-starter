@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, TextInput } from 'bloom-forms';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button, TextInput } from 'bloom-forms'
 
 const LoginForm = props => {
   let formData = props.formData || {
     username: null,
     password: null,
     twoFactorSecret: null
-  };
+  }
 
   return (
     <form id='login-form' className='Form AuthForm'>
@@ -66,7 +66,7 @@ const LoginForm = props => {
         I don't have an account
       </Link>
     </form>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

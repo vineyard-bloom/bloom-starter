@@ -1,25 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { Form } from 'bloom-forms';
+import React from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
+import { Form } from 'bloom-forms'
 
-import { addAlert } from 'redux-store/actions/alertActions';
-import { createUser } from 'redux-store/actions/userActions';
+import { addAlert } from 'redux-store/actions/alertActions'
+import { createUser } from 'redux-store/actions/userActions'
 
-import ExampleForm from './presentation/example-form';
+import ExampleForm from './presentation/example-form'
 
 class ExampleFormContainer extends React.Component {
   rerouteAfterSubmit = () => {
-    this.props.history.push('/lending');
+    this.props.history.push('/lending')
   };
 
   submitForm = async (formData, files, successCallback, failCallback) => {
     try {
-      const res = await this.props.createUser(formData);
-      this.rerouteAfterSubmit(res);
+      const res = await this.props.createUser(formData)
+      this.rerouteAfterSubmit(res)
     } catch (err) {
-      this.props.addAlert(err);
-      failCallback(err);
+      this.props.addAlert(err)
+      failCallback(err)
     }
   };
 
@@ -39,14 +39,14 @@ class ExampleFormContainer extends React.Component {
       'file-simple-2',
       'file-droppable',
       'onlyBloop'
-    ];
+    ]
 
     const validationHelp = {
       dictionary: {
         'must-equal-bloop': testData =>
           testData !== 'bloop' ? 'Sorry, this field has to be "bloop."' : null
       }
-    };
+    }
 
     return (
       <Form
@@ -57,7 +57,7 @@ class ExampleFormContainer extends React.Component {
       >
         <ExampleForm />
       </Form>
-    );
+    )
   }
 }
 
@@ -66,15 +66,15 @@ const mapDispatchToProps = dispatch => {
     addAlert: (message, style = 'warning') =>
       dispatch(addAlert(message, style)),
     createUser: userData => dispatch(createUser(userData))
-  };
-};
+  }
+}
 
 const mapStateToProps = state => {
   return {
     user: state.user || {}
-  };
-};
+  }
+}
 
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(ExampleFormContainer)
-);
+)

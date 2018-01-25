@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Button,
   Checkbox,
@@ -11,7 +11,7 @@ import {
   SelectInput,
   TextInput,
   ToggleSwitch
-} from 'bloom-forms';
+} from 'bloom-forms'
 
 const ExampleForm = props => {
   // I am a reference form
@@ -25,31 +25,31 @@ const ExampleForm = props => {
     'file-simple': null,
     'file-simple-2': null,
     'file-droppable': null
-  };
+  }
   const radioOptions = [
     { label: 'Radio 1', id: 'radio-1' },
     { label: 'Radio 2', id: 'radio-2' },
     { label: 'Radio 3', id: 'radio-3' }
-  ];
+  ]
   const radioOptions2 = [
     { label: 'RadioButton 1', id: 'radio-button-1' },
     { label: 'RadioButton 2', id: 'radio-button-2' },
     { label: 'RadioButton 3', id: 'radio-button-3' }
-  ];
+  ]
   const selectOptions = [
     { label: 'Muffins', value: 'muffins' },
     { label: 'Cookies', value: 'cookies' },
     { label: 'Cakes', value: 'birthday cakes' }
-  ];
+  ]
 
   const toggleClick = e => {
-    e.preventDefault();
+    e.preventDefault()
     props.manualFieldUpdate(
       props.formId,
       'toggle',
       formData && formData.toggle && !formData.toggle.value
-    );
-  };
+    )
+  }
 
   return (
     <form id='example-form' className='Form AuthForm' noValidate>
@@ -225,7 +225,7 @@ const ExampleForm = props => {
         className='Btn AuthForm-submit-button u-justify-center'
       />
     </form>
-  );
-};
+  )
+}
 
-export default ExampleForm;
+export default ExampleForm

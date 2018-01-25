@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Transition from 'react-transition-group/Transition';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Transition from 'react-transition-group/Transition'
 
-import 'styles/components/accordion';
+import 'styles/components/accordion'
 
 // I'm a hybrid because it makes sense
 class Accordion extends React.Component {
@@ -13,7 +13,7 @@ class Accordion extends React.Component {
   triggerSection = index => {
     this.setState({
       openSection: index === this.state.openSection ? null : index
-    });
+    })
   };
 
   componentWillReceiveProps = newProps => {
@@ -23,7 +23,7 @@ class Accordion extends React.Component {
     ) {
       this.setState({
         openSection: newProps.defaultOpenSection
-      });
+      })
     }
   };
 
@@ -31,18 +31,18 @@ class Accordion extends React.Component {
     if (this.props.defaultOpenSection) {
       this.setState({
         openSection: this.props.defaultOpenSection
-      });
+      })
     }
   }
 
   render() {
-    const { className, sections } = this.props;
-    const { openSection } = this.state;
+    const { className, sections } = this.props
+    const { openSection } = this.state
     const accordionSections = sections.map((section, i) => {
-      let isOpen = openSection === i;
+      let isOpen = openSection === i
       let sectionId = `Accordion-section-${section.header
         .toLowerCase()
-        .replace(/\s/g, '-')}`;
+        .replace(/\s/g, '-')}`
       return (
         <li
           className={`Accordion-section ${isOpen ? 'is-open' : ''}`}
@@ -57,8 +57,8 @@ class Accordion extends React.Component {
             aria-controls={sectionId}
             id={`${sectionId}-trigger-button`}
             onClick={e => {
-              e.preventDefault();
-              this.triggerSection(i);
+              e.preventDefault()
+              this.triggerSection(i)
             }}
           >
             {section.header}
@@ -82,14 +82,14 @@ class Accordion extends React.Component {
             )}
           </Transition>
         </li>
-      );
-    });
+      )
+    })
 
     return (
       <div className={`Accordion ${className || ''}`}>
         <ul className='Accordion-sections'>{accordionSections}</ul>
       </div>
-    );
+    )
   }
 }
 
@@ -104,6 +104,6 @@ Accordion.propTypes = {
       isValid: PropTypes.bool
     }).isRequired
   ).isRequired
-};
+}
 
-export default Accordion;
+export default Accordion

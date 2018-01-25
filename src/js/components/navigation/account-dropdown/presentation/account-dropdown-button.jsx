@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AccountDropdownButton = ({ key, url, tabIndex, ...props }) => {
   let end = url ? (
@@ -12,9 +12,9 @@ const AccountDropdownButton = ({ key, url, tabIndex, ...props }) => {
         {props.text}
       </li>
     </a>
-  );
+  )
 
-  return end;
-};
+  return end
+}
 
-export default AccountDropdownButton;
+export default AccountDropdownButton

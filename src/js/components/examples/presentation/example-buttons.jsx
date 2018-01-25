@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from 'bloom-forms';
+import React from 'react'
+import { Button } from 'bloom-forms'
 
-import Loading from 'presentation/layout/loading';
+import Loading from 'presentation/layout/loading'
 
 const ExampleButtons = () => {
   return (
@@ -56,7 +56,7 @@ const ExampleButtons = () => {
         disabled
       />
     </div>
-  );
-};
+  )
+}
 
-export default ExampleButtons;
+export default ExampleButtons

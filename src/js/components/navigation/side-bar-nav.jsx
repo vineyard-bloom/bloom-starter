@@ -1,6 +1,6 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const SideBarNav = props => {
   let navs = props.links.map((link, i) => {
@@ -15,10 +15,10 @@ const SideBarNav = props => {
           {link.text}
         </Link>
       </li>
-    );
-  });
+    )
+  })
 
-  return <ul className='Sidebar-nav-container'>{navs}</ul>;
-};
+  return <ul className='Sidebar-nav-container'>{navs}</ul>
+}
 
-export default withRouter(SideBarNav);
+export default withRouter(SideBarNav)

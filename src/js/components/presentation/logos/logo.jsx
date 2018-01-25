@@ -1,9 +1,9 @@
-import React from 'react';
-import SVGInline from 'react-svg-inline';
+import React from 'react'
+import SVGInline from 'react-svg-inline'
 
-import { logoMark, logoType } from 'icons';
+import { logoMark, logoType } from 'icons'
 
-import 'styles/components/logo.scss';
+import 'styles/components/logo.scss'
 
 const Logo = props => {
   return (
@@ -19,7 +19,7 @@ const Logo = props => {
         ''
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

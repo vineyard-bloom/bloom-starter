@@ -1,7 +1,7 @@
-import React from 'react';
-import { SelectInput, TextInput } from 'bloom-forms';
+import React from 'react'
+import { SelectInput, TextInput } from 'bloom-forms'
 
-import Accordion from 'presentation/layout/accordion';
+import Accordion from 'presentation/layout/accordion'
 
 const ExampleAccordion = () => {
   // isValid can be a computed value that gives the header an is-valid class
@@ -9,7 +9,7 @@ const ExampleAccordion = () => {
     { label: 'Muffins', value: 'muffins' },
     { label: 'Cookies', value: 'cookies' },
     { label: 'Cakes', value: 'birthday cakes' }
-  ];
+  ]
   const sections = [
     {
       header: 'Section 1',
@@ -52,7 +52,7 @@ const ExampleAccordion = () => {
             showLabel
             value={''}
             onChange={() => {
-              return;
+              return
             }}
             placeholder='Nonfunctional Text Input'
           />
@@ -65,7 +65,7 @@ const ExampleAccordion = () => {
             showLabel
             label='Select Input -- No TypeAhead'
             onChange={() => {
-              return;
+              return
             }}
             error={'Oh sad this isn\'t hooked up'}
           />
@@ -73,9 +73,9 @@ const ExampleAccordion = () => {
       ),
       isValid: true
     }
-  ];
+  ]
 
-  return <Accordion sections={sections} />;
-};
+  return <Accordion sections={sections} />
+}
 
-export default ExampleAccordion;
+export default ExampleAccordion

@@ -1,18 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Button } from 'bloom-forms';
+import React from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Button } from 'bloom-forms'
 
-import { addAlert } from 'redux-store/actions/alertActions';
-import { openModal } from 'redux-store/actions/modalActions';
+import { addAlert } from 'redux-store/actions/alertActions'
+import { openModal } from 'redux-store/actions/modalActions'
 
-import ExampleButtons from 'components/examples/presentation/example-buttons';
-import ExampleTable from 'components/examples/presentation/example-table';
-import Tooltip from 'presentation/layout/tooltip';
+import ExampleButtons from 'components/examples/presentation/example-buttons'
+import ExampleTable from 'components/examples/presentation/example-table'
+import Tooltip from 'presentation/layout/tooltip'
 
 class ExamplesContainer extends React.Component {
   render() {
-    const { addAlert, openModal } = this.props;
+    const { addAlert, openModal } = this.props
 
     return (
       <div>
@@ -21,14 +21,14 @@ class ExamplesContainer extends React.Component {
           contents='Open Example Modal'
           id='example-modal-opener'
           onClick={e => {
-            openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener');
+            openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener')
           }}
         />
         <Button
           contents='Open Example Alert'
           onClick={e => {
-            e.preventDefault();
-            addAlert('boop', 'success');
+            e.preventDefault()
+            addAlert('boop', 'success')
           }}
         />
         <div>
@@ -50,7 +50,7 @@ class ExamplesContainer extends React.Component {
         <br />
         <ExampleTable />
       </div>
-    );
+    )
   }
 }
 
@@ -60,7 +60,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(addAlert(message, style)),
     openModal: (e, modalContents, triggerId) =>
       dispatch(openModal(e, modalContents, triggerId))
-  };
-};
+  }
+}
 
-export default connect(null, mapDispatchToProps)(ExamplesContainer);
+export default connect(null, mapDispatchToProps)(ExamplesContainer)

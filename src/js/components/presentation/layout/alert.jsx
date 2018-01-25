@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Transition from 'react-transition-group/Transition';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Transition from 'react-transition-group/Transition'
 
-import 'styles/components/alerts.scss';
+import 'styles/components/alerts.scss'
 
 const Alert = props => {
-  const { currentAlert } = props;
+  const { currentAlert } = props
   return (
     <div
       tabIndex={-1}
@@ -36,8 +36,8 @@ const Alert = props => {
         )}
       </Transition>
     </div>
-  );
-};
+  )
+}
 
 Alert.propTypes = {
   currentAlert: PropTypes.shape({
@@ -45,6 +45,6 @@ Alert.propTypes = {
     style: PropTypes.string
   }),
   hidden: PropTypes.bool
-};
+}
 
-export default Alert;
+export default Alert

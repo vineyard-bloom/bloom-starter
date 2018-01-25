@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
-import Logo from 'presentation/logos/logo';
-import SubHeader from './sub-header';
+import Logo from 'presentation/logos/logo'
+import SubHeader from './sub-header'
 
-import 'styles/components/header.scss';
+import 'styles/components/header.scss'
 
 const Header = props => {
   return (
@@ -15,7 +15,7 @@ const Header = props => {
       </Link>
       <SubHeader openModal={props.openModal} user={props.user} />
     </header>
-  );
-};
+  )
+}
 
-export default withRouter(Header);
+export default withRouter(Header)

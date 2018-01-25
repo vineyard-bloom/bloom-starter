@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { Button, TextInput } from 'bloom-forms';
+import { Button, TextInput } from 'bloom-forms'
 
 class NewUserForm extends React.Component {
   state = {
@@ -8,29 +8,29 @@ class NewUserForm extends React.Component {
   };
 
   toggleStage = e => {
-    e.preventDefault();
+    e.preventDefault()
 
     this.setState({
       stage: this.state.stage ? 0 : 1
-    });
+    })
   };
 
   render() {
-    let props = this.props;
+    let props = this.props
     let formData = props.formData || {
       username: null,
       email: null,
       password: null,
       twoFactorSecret: null,
       withdrawAddress: null
-    };
+    }
     let allowContinue =
       formData.username &&
       formData.password &&
       formData.twoFactorSecret &&
       formData.username.value &&
       formData.password.value &&
-      formData.twoFactorSecret.value;
+      formData.twoFactorSecret.value
 
     return (
       <form className='Form AuthForm' id='new-user-form'>
@@ -114,8 +114,8 @@ class NewUserForm extends React.Component {
           </div>
         )}
       </form>
-    );
+    )
   }
 }
 
-export default NewUserForm;
+export default NewUserForm

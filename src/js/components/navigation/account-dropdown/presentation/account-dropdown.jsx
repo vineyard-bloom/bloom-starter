@@ -1,15 +1,15 @@
-import React from 'react';
-import Transition from 'react-transition-group/Transition';
+import React from 'react'
+import Transition from 'react-transition-group/Transition'
 
-import DropdownButton from './account-dropdown-button';
+import DropdownButton from './account-dropdown-button'
 
-import 'styles/components/account-dropdown';
+import 'styles/components/account-dropdown'
 
 const AccountDropdown = ({ close, show, ...props }) => {
   const logoutAndClose = e => {
-    props.logout(e);
-    close(e);
-  };
+    props.logout(e)
+    close(e)
+  }
 
   return (
     <Transition in={!!show} timeout={0}>
@@ -23,7 +23,7 @@ const AccountDropdown = ({ close, show, ...props }) => {
         </ul>
       )}
     </Transition>
-  );
-};
+  )
+}
 
-export default AccountDropdown;
+export default AccountDropdown

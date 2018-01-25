@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import { SelectInput } from 'bloom-forms';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router'
+import { SelectInput } from 'bloom-forms'
 
-import Loading from 'presentation/layout/loading';
+import Loading from 'presentation/layout/loading'
 
-import 'styles/components/table';
+import 'styles/components/table'
 
 // only markup to see here
 const Table = props => {
   const renderHeaders = (headers, sortByThisHeader) => {
-    const { sort } = props;
-    const { activeField } = sort;
+    const { sort } = props
+    const { activeField } = sort
 
     return headers.map((header, i) => {
       const classes = `${header.className || ''} ${
         activeField === header.sortValue
           ? sort.reverse ? 'is-active is-reverse' : 'is-active'
           : ''
-      }`;
+      }`
       return header.sortable ? (
         <th key={`table-header-${i}`} className={classes}>
           <a href='#' onClick={e => sortByThisHeader(e, header)}>
@@ -30,23 +30,23 @@ const Table = props => {
         <th key={`table-header-${i}`} className={classes}>
           {header.title}
         </th>
-      );
-    });
-  };
+      )
+    })
+  }
 
   const renderPagination = (contentLength, pagination, pages) => {
-    const { triggerPaginate } = props;
-    const currentPageNumber = pagination.offset / pagination.limit;
+    const { triggerPaginate } = props
+    const currentPageNumber = pagination.offset / pagination.limit
     const goNext = e => {
-      e.preventDefault();
+      e.preventDefault()
       triggerPaginate(
         currentPageNumber < pages.length ? currentPageNumber + 1 : pages.length
-      );
-    };
+      )
+    }
     const goBack = e => {
-      e.preventDefault();
-      triggerPaginate(currentPageNumber > 0 ? currentPageNumber - 1 : 0);
-    };
+      e.preventDefault()
+      triggerPaginate(currentPageNumber > 0 ? currentPageNumber - 1 : 0)
+    }
 
     return (
       <div className='Table-pagination'>
@@ -62,7 +62,7 @@ const Table = props => {
         <SelectInput
           name='go-to-page'
           onChange={(formId, name, val) => {
-            triggerPaginate(val - 1);
+            triggerPaginate(val - 1)
           }}
           value={currentPageNumber ? currentPageNumber + 1 : 1}
           label='Go to Page:'
@@ -79,23 +79,23 @@ const Table = props => {
           Next{'\u00a0\u003e'}
         </a>
       </div>
-    );
-  };
+    )
+  }
 
   const renderRows = data => {
-    const { headers, linkFields, sort } = props;
-    const { activeField } = sort;
+    const { headers, linkFields, sort } = props
+    const { activeField } = sort
 
     return data.map((row, i) => {
       let cells = headers.map((h, indx) => {
-        let key = h.displayValue || h.sortValue;
+        let key = h.displayValue || h.sortValue
 
         if (linkFields && linkFields[key]) {
-          let url = linkFields[h.sortValue];
+          let url = linkFields[h.sortValue]
 
           if (url.indexOf(':') > -1) {
-            const field = url.match(/:(\w+)/)[1];
-            url = url.replace(`:${field}`, row[field]);
+            const field = url.match(/:(\w+)/)[1]
+            url = url.replace(`:${field}`, row[field])
           }
 
           const link =
@@ -105,7 +105,7 @@ const Table = props => {
               </a>
             ) : (
               <Link to={linkFields[h.sort]}>{row[key]}</Link>
-            );
+            )
 
           return (
             <td
@@ -114,7 +114,7 @@ const Table = props => {
             >
               {link}
             </td>
-          );
+          )
         } else {
           return (
             <td
@@ -123,13 +123,13 @@ const Table = props => {
             >
               {row[key]}
             </td>
-          );
+          )
         }
-      });
+      })
 
-      return <tr key={`table-row-${i}`}>{cells}</tr>;
-    });
-  };
+      return <tr key={`table-row-${i}`}>{cells}</tr>
+    })
+  }
 
   const {
     data,
@@ -137,11 +137,11 @@ const Table = props => {
     pagination,
     sortByThisHeader,
     totalDataLength
-  } = props;
+  } = props
 
   const headers = props.headers
     ? renderHeaders(props.headers, sortByThisHeader)
-    : [];
+    : []
   const contentRows = data.length
     ? renderRows(data)
     : [
@@ -150,16 +150,16 @@ const Table = props => {
             No data to display
           </td>
         </tr>
-      ];
+      ]
 
-  const pages = [];
+  const pages = []
   for (var i = 0; i < Math.ceil(totalDataLength / pagination.limit); i++) {
-    pages.push(i + 1);
+    pages.push(i + 1)
   }
   const paginationRow =
     pagination && pagination.limit < totalDataLength
       ? renderPagination(totalDataLength, pagination, pages)
-      : null;
+      : null
 
   return (
     <div className={props.className || ''}>
@@ -181,8 +181,8 @@ const Table = props => {
       </table>
       {paginationRow}
     </div>
-  );
-};
+  )
+}
 
 Table.propTypes = {
   className: PropTypes.string,
@@ -214,6 +214,6 @@ Table.propTypes = {
   sortByThisHeader: PropTypes.func,
   totalDataLength: PropTypes.number,
   triggerPaginate: PropTypes.func
-};
+}
 
-export default Table;
+export default Table

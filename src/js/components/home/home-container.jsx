@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { getUser } from 'redux-store/actions/userActions';
-import { UserType } from 'types';
+import { getUser } from 'redux-store/actions/userActions'
+import { UserType } from 'types'
 
-import ExamplesContainer from 'components/examples';
-import SideBar from 'components/navigation/side-bar';
+import ExamplesContainer from 'components/examples'
+import SideBar from 'components/navigation/side-bar'
 
-import 'styles/components/home';
+import 'styles/components/home'
 
 class HomeContainer extends React.Component {
   static propTypes = {
@@ -19,9 +19,9 @@ class HomeContainer extends React.Component {
   componentWillReceiveProps = async newProps => {
     if (newProps.getUser && !this.props.getUser) {
       try {
-        await newProps.getUser();
+        await newProps.getUser()
       } catch (err) {
-        console.log('get user error: ', err); // eslint-disable-line no-console
+        console.log('get user error: ', err) // eslint-disable-line no-console
       }
     }
   };
@@ -29,9 +29,9 @@ class HomeContainer extends React.Component {
   componentDidMount = async () => {
     if (this.props.getUser) {
       try {
-        await this.props.getUser();
+        await this.props.getUser()
       } catch (err) {
-        console.log('get user error: ', err); // eslint-disable-line no-console
+        console.log('get user error: ', err) // eslint-disable-line no-console
       }
     }
   };
@@ -49,20 +49,20 @@ class HomeContainer extends React.Component {
           <ExamplesContainer />
         </div>
       </div>
-    );
+    )
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     getUser: () => dispatch(getUser())
-  };
-};
+  }
+}
 
 const mapStateToProps = state => {
   return {
     user: state.user
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)

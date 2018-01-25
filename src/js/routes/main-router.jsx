@@ -1,12 +1,12 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
 
-import AuthenticatedRoutes from './authenticated-routes';
-import PublicRoutes from './public-routes';
-import LandingContainer from 'components/landing';
-import LoadingScreen from 'layout/loading-screen';
+import AuthenticatedRoutes from './authenticated-routes'
+import PublicRoutes from './public-routes'
+import LandingContainer from 'components/landing'
+import LoadingScreen from 'layout/loading-screen'
 
 const MainRouter = ({ user }) => {
   if (user && !user.loaded) {
@@ -17,7 +17,7 @@ const MainRouter = ({ user }) => {
           <Route path='*' component={LoadingScreen} />
         </Switch>
       </main>
-    );
+    )
   } else {
     return (
       <main id='main-content'>
@@ -27,14 +27,14 @@ const MainRouter = ({ user }) => {
           <PublicRoutes user={user} />
         )}
       </main>
-    );
+    )
   }
-};
+}
 
 const mapStateToProps = state => {
   return {
     user: state.user || {}
-  };
-};
+  }
+}
 
-export default withRouter(connect(mapStateToProps)(MainRouter));
+export default withRouter(connect(mapStateToProps)(MainRouter))

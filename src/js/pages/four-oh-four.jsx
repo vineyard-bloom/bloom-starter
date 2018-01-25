@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'bloom-forms';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from 'bloom-forms'
 
 const FourOhFour = () => {
   return (
@@ -11,7 +11,7 @@ const FourOhFour = () => {
         <Button contents='Take me to the homepage' className='Btn--alt' />
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default FourOhFour;
+export default FourOhFour
