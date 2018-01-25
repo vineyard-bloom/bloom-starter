@@ -22,7 +22,8 @@
     "jsx-quotes": ["error", "prefer-single"],
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+    "react/react-in-jsx-scope": 2,
+    "semi": ["error", "never"]
   },
   "plugins": [
     "react"
