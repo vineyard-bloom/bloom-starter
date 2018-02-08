@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -r -f dist/*.js && webpack && webpack-dev-server --hot --inline",
-    "build": "rm -r -f dist/*.js && webpack",
-    "lint": "./node_modules/.bin/eslint --fix ./src/**/*.{js,jsx}",
+    "dev": "rm -rf dist/*.js && webpack && webpack-dev-server --hot --inline",
+    "build": "rm -rf dist/*.js && webpack",
+    "lint": "./node_modules/.bin/eslint --config ./.eslintrc --fix ./src/* --ext .js,.jsx",
     "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './src/**/*.{js,jsx,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn prettier && yarn lint && git add ."
+      "pre-commit": "npm run prettier && npm run lint && git add ."
     }
   },
   "author": "inkblotty",
@@ -28,7 +28,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bignumber.js": "^5.0.0",
-    "bloom-forms": "0.3.0",
+    "bloom-forms": "github:vineyard-bloom/bloom-forms#1.0.0-release",
     "botp": "^2.3.2",
     "buttercms": "^1.1.0",
     "clipboard": "^1.7.1",

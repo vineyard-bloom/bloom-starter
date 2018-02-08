@@ -51,6 +51,8 @@ const ExampleForm = props => {
     )
   }
 
+  // console.log(props)
+
   return (
     <form id='example-form' className='Form AuthForm' noValidate>
       <h3 className='AuthForm-header'>Example Form</h3>
@@ -64,6 +66,7 @@ const ExampleForm = props => {
         placeholder='Regular old Text Input'
       />
       <TextInput
+        error={formData.password ? formData.password.error : ''}
         id='password'
         name='password'
         label='Password'
@@ -89,6 +92,13 @@ const ExampleForm = props => {
             ? formData.onlyBloop.error
             : ''
         }
+      />
+      <Button
+        contents='Trigger Multiple check'
+        onClick={e => {
+          e.preventDefault()
+          props.checkMultipleFields('example-form', ['onlyBloop', 'password'])
+        }}
       />
       <Checkbox
         label='Checkbox'
