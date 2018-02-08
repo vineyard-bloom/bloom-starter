@@ -1,5 +1,5 @@
-import initialState from '../initialState';
-import actionTypes from '../actions/types';
+import initialState from '../initialState'
+import actionTypes from '../actions/types'
 
 export default function modalReducer(state = initialState.modal, action) {
   switch (action.type) {
@@ -8,12 +8,12 @@ export default function modalReducer(state = initialState.modal, action) {
         ...state,
         modalContents: action.modalContents,
         modalTriggerId: action.modalTriggerId
-      };
+      }
 
     case actionTypes.CLOSE_MODAL:
-      return { ...state, modalContents: null };
+      return { ...state, modalContents: null }
 
     default:
-      return state;
+      return state
   }
 }

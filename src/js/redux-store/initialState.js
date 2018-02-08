@@ -17,6 +17,6 @@ const initialState = {
     username: '',
     walletAddress: ''
   }
-};
+}
 
-export default initialState;
+export default initialState

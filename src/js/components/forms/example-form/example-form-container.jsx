@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { Form } from 'bloom-forms'
+import { Form, formActions } from 'bloom-forms'
 
 import { addAlert } from 'redux-store/actions/alertActions'
 import { createUser } from 'redux-store/actions/userActions'
@@ -55,7 +55,7 @@ class ExampleFormContainer extends React.Component {
         submitForm={this.submitForm}
         validationHelp={validationHelp}
       >
-        <ExampleForm />
+        <ExampleForm checkMultipleFields={this.props.checkMultipleFields} />
       </Form>
     )
   }
@@ -65,6 +65,8 @@ const mapDispatchToProps = dispatch => {
   return {
     addAlert: (message, style = 'warning') =>
       dispatch(addAlert(message, style)),
+    checkMultipleFields: (formId = 'example-form', fieldNames) =>
+      dispatch(formActions.checkMultipleFields(formId, fieldNames)),
     createUser: userData => dispatch(createUser(userData))
   }
 }
