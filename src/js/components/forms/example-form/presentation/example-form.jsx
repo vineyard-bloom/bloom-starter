@@ -51,8 +51,6 @@ const ExampleForm = props => {
     )
   }
 
-  // console.log(props)
-
   return (
     <form id='example-form' className='Form AuthForm' noValidate>
       <h3 className='AuthForm-header'>Example Form</h3>
