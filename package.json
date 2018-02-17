@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf dist/*.js && webpack && webpack-dev-server --hot --inline",
-    "build": "rm -rf dist/*.js && webpack",
+    "dev": "rm -rf dist/*.js && ./node_modules/.bin/webpack && ./node_modules/.bin/webpack-dev-server --hot --inline",
+    "build": "rm -rf dist/*.js && ./node_modules/.bin/webpack",
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc --fix ./src/* --ext .js,.jsx",
     "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './src/**/*.{js,jsx,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,7 +28,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bignumber.js": "^5.0.0",
-    "bloom-forms": "github:vineyard-bloom/bloom-forms#1.0.0-release",
+    "bloom-forms": "^1.0.5",
     "botp": "^2.3.2",
     "buttercms": "^1.1.0",
     "clipboard": "^1.7.1",
