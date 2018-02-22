@@ -7,7 +7,7 @@
     "dev": "rm -rf dist/*.js && ./node_modules/.bin/webpack && ./node_modules/.bin/webpack-dev-server --hot --inline",
     "build": "rm -rf dist/*.js && ./node_modules/.bin/webpack",
     "lint": "./node_modules/.bin/eslint --config ./.eslintrc --fix './src/**/*.js' './tests/**/*.js' --ext .js,.jsx --ignore-path ./.eslintignore",
-    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './!(node_modules)/**/*.{js,jsx,scss}'",
+    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc --write './!(node_modules|dist)/**/*.{js,jsx,scss}'",
     "test": "./node_modules/.bin/mocha tests/** --compilers js:babel-core/register tests/helpers/virtual-dom.js"
   },
   "husky": {
