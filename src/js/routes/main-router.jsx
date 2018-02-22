@@ -9,6 +9,9 @@ import LandingContainer from 'components/landing'
 import LoadingScreen from 'layout/loading-screen'
 
 const MainRouter = ({ user }) => {
+  const commonRoutes = [
+    <Route exact path='/' component={LandingContainer} key='route-landing-01' />
+  ]
   if (user && !user.loaded) {
     return (
       <main id='main-content'>
@@ -22,9 +25,9 @@ const MainRouter = ({ user }) => {
     return (
       <main id='main-content'>
         {user && user.loaded && user.id ? (
-          <AuthenticatedRoutes user={user} />
+          <AuthenticatedRoutes user={user} commonRoutes={commonRoutes} />
         ) : (
-          <PublicRoutes user={user} />
+          <PublicRoutes user={user} commonRoutes={commonRoutes} />
         )}
       </main>
     )

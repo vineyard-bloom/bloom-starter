@@ -55,30 +55,34 @@ aka functions to output css
   background-color: $background;
   border-color: $border;
 
+  .Button-contents .Loading {
+    height: 0.8em;
+  }
+
   &:focus,
   &.is-focus {
     color: $color;
     background-color: darken($background, 10%);
-    border-color: darken($border, 25%);
+    border: 1px solid darken($border, 25%);
   }
   &:hover {
     color: $color;
     background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
+    border: 1px solid darken($border, 12%);
   }
   &:active,
   &.is-active,
   .open > &.dropdown-toggle {
     color: $color;
     background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
+    border: 1px solid darken($border, 12%);
 
     &:hover,
     &:focus,
     &.is-focus {
       color: $color;
       background-color: darken($background, 17%);
-      border-color: darken($border, 25%);
+      border: 1px solid darken($border, 25%);
     }
   }
   &:active,
@@ -89,13 +93,14 @@ aka functions to output css
   &.is-disabled,
   &[disabled],
   fieldset[disabled] & {
+    border: 1px solid $border;
     cursor: not-allowed;
 
     &:hover,
     &:focus,
     &.is-focus {
       background-color: $background;
-      border-color: $border;
+      border: 1px solid $border;
     }
   }
 

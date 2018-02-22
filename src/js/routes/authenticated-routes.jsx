@@ -3,15 +3,14 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import ExampleFormContainer from 'components/forms/example-form'
 import HomeContainer from 'components/home'
-import LandingContainer from 'components/landing'
 
 import ExampleAccordion from 'components/examples/presentation/example-accordion'
 
 import FourOhFour from 'pages/four-oh-four.jsx'
 
-const AuthenticatedRoutes = () => (
+const AuthenticatedRoutes = ({ commonRoutes }) => (
   <Switch>
-    <Route exact path='/' component={LandingContainer} />
+    {commonRoutes}
     <Route exact path='/example' component={ExampleFormContainer} />
     <Route path='/example/accordion' component={ExampleAccordion} />
     <Route path='/home' component={HomeContainer} />
