@@ -5,7 +5,7 @@ import { applyMiddleware, createStore } from 'redux'
 import bloomApp from 'redux-store/reducers'
 
 const store =
-  config === 'development'
+  config.app.environment === 'development'
     ? createStore(
         bloomApp,
         window.__REDUX_DEVTOOLS_EXTENSION__ &&
