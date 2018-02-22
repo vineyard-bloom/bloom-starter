@@ -1,8 +1,8 @@
-import React from 'react';
-import BigNumber from 'bignumber.js';
-import PropTypes from 'prop-types';
+import React from 'react'
+import BigNumber from 'bignumber.js'
+import PropTypes from 'prop-types'
 
-import TableMarkup from './markup';
+import TableMarkup from './markup'
 
 /* eslint-disable- no-console */
 
@@ -62,53 +62,53 @@ class TableDataHandler extends React.Component {
 
   sortData = (data, querySort = null) => {
     // only used for client side sorting
-    const sort = querySort || this.state.sort;
-    const activeSort = sort.activeField;
-    const reverseSort = sort.reverse;
+    const sort = querySort || this.state.sort
+    const activeSort = sort.activeField
+    const reverseSort = sort.reverse
 
     return data.sort((a, b) => {
-      let useBigNumber = false;
-      let val1 = a[activeSort];
+      let useBigNumber = false
+      let val1 = a[activeSort]
       if (!/\D+/.test(a[activeSort])) {
-        val1 = new BigNumber(a[activeSort] || 0);
-        useBigNumber = true;
+        val1 = new BigNumber(a[activeSort] || 0)
+        useBigNumber = true
       }
-      let val2 = b[activeSort];
+      let val2 = b[activeSort]
       if (!/\D+/.test(b[activeSort])) {
-        val2 = new BigNumber(b[activeSort] || 0);
-        useBigNumber = true;
+        val2 = new BigNumber(b[activeSort] || 0)
+        useBigNumber = true
       }
 
       if (
         (useBigNumber && val1.greaterThan(val2)) ||
         (!useBigNumber && val1 > val2)
       ) {
-        return reverseSort ? 1 : -1;
+        return reverseSort ? 1 : -1
       } else if (
         (useBigNumber && val1.lessThan(val2)) ||
         (!useBigNumber && val1 < val2)
       ) {
-        return reverseSort ? -1 : 1;
+        return reverseSort ? -1 : 1
       } else {
-        return 0;
+        return 0
       }
-    });
+    })
   };
 
   componentWillReceiveProps = newProps => {
-    const { query } = this.props;
+    const { query } = this.props
     const paginationChanged =
       query &&
       newProps.query &&
       newProps.query.pagination &&
       (newProps.query.pagination.limit != query.pagination.limit ||
-        newProps.query.pagination.offset != query.pagination.offset);
+        newProps.query.pagination.offset != query.pagination.offset)
     const sortChanged =
       query &&
       newProps.query &&
       newProps.query.sort &&
       (newProps.query.sort.activeField != query.sort.activeField ||
-        newProps.query.sort.reverse != query.sort.reverse);
+        newProps.query.sort.reverse != query.sort.reverse)
     const filtersChanged =
       query &&
       newProps.query &&
@@ -128,7 +128,7 @@ class TableDataHandler extends React.Component {
           query.activeFilters
             .map(obj => obj.value)
             .sort()
-            .toString());
+            .toString())
 
     if (
       query &&
@@ -141,42 +141,42 @@ class TableDataHandler extends React.Component {
         activeFilters: newProps.query.activeFilters,
         sort: newProps.query.sort,
         pagination: newProps.query.pagination
-      });
+      })
     }
 
     if (newProps.data) {
       this.setState({
         activeData: newProps.data
-      });
+      })
     }
   };
 
   componentDidMount() {
-    const { data, query, ...props } = this.props;
+    const { data, query, ...props } = this.props
 
     // initialize our state with any pagination or sorting if we're using front end query functionality
     if (query && !query.useServer) {
-      this.triggerPaginate = clientSideMethods(this).triggerPaginate;
-      this.sortByThisHeader = clientSideMethods(this).sortByThisHeader;
+      this.triggerPaginate = clientSideMethods(this).triggerPaginate
+      this.sortByThisHeader = clientSideMethods(this).sortByThisHeader
 
-      let activeData = data;
+      let activeData = data
 
       if (data && data.length) {
         const offset =
           query.pagination && query.pagination.offset
             ? query.pagination.offset
-            : 0;
+            : 0
         const limit =
           query.pagination && query.pagination.limit
             ? query.pagination.limit
-            : null;
-        activeData = limit ? data.slice(offset, limit) : activeData;
+            : null
+        activeData = limit ? data.slice(offset, limit) : activeData
         if (query.sort && query.sort.activeField) {
-          activeData = this.sortData(activeData, query.sort);
+          activeData = this.sortData(activeData, query.sort)
         }
       }
 
-      const { useServer, ...queryProps } = query;
+      const { useServer, ...queryProps } = query
       this.setState({
         ...this.state,
         ...queryProps,
@@ -189,30 +189,30 @@ class TableDataHandler extends React.Component {
           ...queryProps.sort
         },
         activeData: activeData
-      });
+      })
     } else {
-      this.triggerPaginate = serverSideMethods(this).triggerPaginate;
-      this.sortByThisHeader = serverSideMethods(this).sortByThisHeader;
+      this.triggerPaginate = serverSideMethods(this).triggerPaginate
+      this.sortByThisHeader = serverSideMethods(this).sortByThisHeader
 
       this.setState({
         activeData: data || []
-      });
+      })
 
       // we're using the server. make sure we have requestData
       if (!props.requestData) {
         console.log(
           '%c\n\nYou must pass in a `requestData` function to <Table/> if your sorting, filtering, etc. are executed via server.\n\n',
           'color: red'
-        );
+        )
       }
     }
   }
 
   render() {
-    const { data, query, requestData, ...markupProps } = this.props;
-    const { activeData, ...markupQuery } = this.state;
+    const { data, query, requestData, ...markupProps } = this.props
+    const { activeData, ...markupQuery } = this.state
 
-    const queryData = query && query.useServer ? query : markupQuery;
+    const queryData = query && query.useServer ? query : markupQuery
 
     return (
       <TableMarkup
@@ -223,17 +223,17 @@ class TableDataHandler extends React.Component {
         data={activeData}
         totalDataLength={data.length}
       />
-    );
+    )
   }
 }
 
-TableDataHandler.displayName = 'TableDataHandler';
+TableDataHandler.displayName = 'TableDataHandler'
 
 function clientSideMethods(self) {
   return {
     sortByThisHeader: (e, header) => {
       if (e) {
-        e.preventDefault();
+        e.preventDefault()
       }
 
       const newSort = {
@@ -242,12 +242,12 @@ function clientSideMethods(self) {
           self.state.sort.activeField === header.sortValue
             ? !self.state.sort.reverse
             : false // first click defaults to false
-      };
+      }
       const newPagination = {
         ...self.state.pagination,
         offset: 0 // sorting should kick user back to first page
-      };
-      const newActiveData = self.sortData(self.props.data, newSort);
+      }
+      const newActiveData = self.sortData(self.props.data, newSort)
 
       self.setState({
         activeData: newPagination.limit
@@ -255,18 +255,18 @@ function clientSideMethods(self) {
           : newActiveData,
         pagination: newPagination,
         sort: newSort
-      });
+      })
     },
 
     triggerPaginate: pageNumber => {
-      const totalOffset = pageNumber * (self.state.pagination.limit || 0);
-      const existingSort = self.state.sort;
+      const totalOffset = pageNumber * (self.state.pagination.limit || 0)
+      const existingSort = self.state.sort
 
       const newActiveData = self.state.pagination.limit
         ? self
             .sortData(self.props.data, existingSort)
             .slice(totalOffset, self.state.pagination.limit + totalOffset)
-        : self.sortData(self.props.data, existingSort).slice(totalOffset);
+        : self.sortData(self.props.data, existingSort).slice(totalOffset)
 
       self.setState({
         activeData: newActiveData,
@@ -274,30 +274,30 @@ function clientSideMethods(self) {
           ...self.state.pagination,
           offset: totalOffset
         }
-      });
+      })
     }
-  };
+  }
 }
 
 function serverSideMethods(self) {
   return {
     triggerPaginate: pageNumber => {
-      const { query } = self.props;
-      const totalOffset = pageNumber * (query.pagination.limit || 0);
+      const { query } = self.props
+      const totalOffset = pageNumber * (query.pagination.limit || 0)
       self.props.requestData({
         ...query,
         pagination: {
           ...query.pagination,
           offset: totalOffset
         }
-      });
+      })
     },
 
     sortByThisHeader: (e, header) => {
       if (e) {
-        e.preventDefault();
+        e.preventDefault()
       }
-      const { query } = self.props;
+      const { query } = self.props
       self.props.requestData({
         ...query,
         sort: {
@@ -311,9 +311,9 @@ function serverSideMethods(self) {
           ...query.pagination,
           offset: 0
         }
-      });
+      })
     }
-  };
+  }
 }
 
-export default TableDataHandler;
+export default TableDataHandler
