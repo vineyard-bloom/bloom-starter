@@ -56,7 +56,15 @@ export class WebService {
     return post('/file/upload?version=1.0', files)
   };
 
-  validateTwoFactorToken = async token => {
-    return post('/2fa/validate', token)
+  validateTwoFactorToken = async (secret, token) => {
+    try {
+      const res = await post('/user/2fa', {
+        twoFactorSecret: secret,
+        twoFactorToken: token
+      })
+      return res ? true : false
+    } catch (err) {
+      return false
+    }
   };
 }

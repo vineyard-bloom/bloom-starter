@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { AuthenticatedUser } from './authenticated-user-stub'
 
-var loggedIn = true
+var loggedIn = false
 
 export class WebServiceStub {
   checkEmailAvailability = async email => {
@@ -68,7 +68,7 @@ export class WebServiceStub {
   };
 
   validateTwoFactorToken = async token => {
-    const ret = { message: 'Verification succeeded.' }
-    return Promise.resolve({ data: ret })
+    const ret = false
+    return Promise.resolve(ret)
   };
 }
