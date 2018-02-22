@@ -1,5 +1,6 @@
 import React from 'react'
 import QRCode from 'qrcode.react'
+import config from 'config/config.json'
 
 import { Button, TextInput } from 'bloom-forms'
 
@@ -26,7 +27,7 @@ class NewUserForm extends React.Component {
       withdrawAddress: null
     }
     //TODO BloomStarter to app name
-    let qrUrl = `otpauth://totp/BloomStarter:${
+    let qrUrl = `otpauth://totp/${config.app.name}:${
       formData.email ? formData.email.value : ''
     }?secret=${props.secret}`
     let allowContinue =
