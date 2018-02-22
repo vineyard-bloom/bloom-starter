@@ -1,4 +1,6 @@
 import React from 'react'
+import QRCode from 'qrcode.react'
+import config from 'config/config.json'
 
 import { Button, TextInput } from 'bloom-forms'
 
@@ -24,6 +26,10 @@ class NewUserForm extends React.Component {
       twoFactorSecret: null,
       withdrawAddress: null
     }
+    //TODO BloomStarter to app name
+    let qrUrl = `otpauth://totp/${config.app.name}:${
+      formData.email ? formData.email.value : ''
+    }?secret=${props.secret}`
     let allowContinue =
       formData.username &&
       formData.password &&
@@ -54,6 +60,16 @@ class NewUserForm extends React.Component {
               onChange={props.updateForm}
             />
             <TextInput
+              placeholder='Confirm Password (required)'
+              id='confirmPassword'
+              name='confirmPassword'
+              label='Confirm Password'
+              value={
+                formData.confirmPassword ? formData.confirmPassword.value : ''
+              }
+              onChange={props.updateForm}
+            />
+            <TextInput
               placeholder='Enter Email (required)'
               id='email'
               name='email'
@@ -62,17 +78,22 @@ class NewUserForm extends React.Component {
               onChange={props.updateForm}
               validateAs='email'
             />
+            <QRCode value={qrUrl} size={200} />
             <TextInput
-              placeholder='Enter 2FA Pin Code (required)'
-              id='twoFactorSecret'
-              name='twoFactorSecret'
-              label='Two Factor Pin Code'
+              showLabel
+              required
+              className='AuthForm-input'
+              placeholder='Please enter the 6-digit code here'
+              id='twoFactorToken'
+              name='twoFactorToken'
+              label='Authentication'
               value={
-                formData['twoFactorSecret']
-                  ? formData['twoFactorSecret'].value
-                  : ''
+                formData.twoFactorToken ? formData.twoFactorToken.value : ''
               }
               onChange={props.updateForm}
+              required={true}
+              validateAs='two-factor'
+              onBlur={props.checkField}
             />
             <Button
               onClick={this.toggleStage}

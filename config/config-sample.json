@@ -6,7 +6,8 @@
   "app": {
     "rootPath": "/",
     "useWebServiceStub": false,
-    "environment": "development"
+    "environment": "development",
+    "name": "Bloom Starter"
   },
   "butter": {
     "key": ""
