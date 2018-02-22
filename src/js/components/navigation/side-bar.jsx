@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import SideBarNav from './side-bar-nav'
+import SideBarNav from './side-bar-nav';
 
 const SideBar = props => {
   return (
@@ -13,7 +13,7 @@ const SideBar = props => {
         ]}
       />
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

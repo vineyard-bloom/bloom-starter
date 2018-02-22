@@ -1,19 +1,20 @@
+import produce from 'immer'
+
 import initialState from '../initialState'
 import actionTypes from '../actions/types'
 
-export default function presentationReducer(
-  state = initialState.presentation,
-  action
-) {
-  let newState = state
-  switch (action.type) {
-    case actionTypes.FREEZE_UNFREEZE:
-      return { ...newState, freezeContent: action.isFrozen }
+const presentationReducer = (state = initialState.presentation, action) =>
+  produce(state, draftPresentation => {
+    switch (action.type) {
+      case actionTypes.FREEZE_UNFREEZE:
+        draftPresentation.freezeContent = action.isFrozen
+        break
 
-    case actionTypes.SET_WINDOW_SIZE:
-      return { ...newState, width: action.width, height: action.height }
+      case actionTypes.SET_WINDOW_SIZE:
+        draftPresentation.width = action.width
+        draftPresentation.height = action.height
+        break
+    }
+  })
 
-    default:
-      return state
-  }
-}
+export default presentationReducer

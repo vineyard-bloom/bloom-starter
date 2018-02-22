@@ -1,19 +1,20 @@
+import produce from 'immer'
+
 import initialState from '../initialState'
 import actionTypes from '../actions/types'
 
-export default function modalReducer(state = initialState.modal, action) {
-  switch (action.type) {
-    case actionTypes.OPEN_MODAL:
-      return {
-        ...state,
-        modalContents: action.modalContents,
-        modalTriggerId: action.modalTriggerId
-      }
+const modalReducer = (state = initialState.modal, action) =>
+  produce(state, draftModal => {
+    switch (action.type) {
+      case actionTypes.OPEN_MODAL:
+        draftModal.modalContents = action.modalContents
+        draftModal.modalTriggerId = action.modalTriggerId
+        break
 
-    case actionTypes.CLOSE_MODAL:
-      return { ...state, modalContents: null }
+      case actionTypes.CLOSE_MODAL:
+        draftModal.modalContents = null
+        break
+    }
+  })
 
-    default:
-      return state
-  }
-}
+export default modalReducer
