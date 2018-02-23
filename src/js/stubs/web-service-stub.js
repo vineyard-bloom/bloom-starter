@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { AuthenticatedUser } from './authenticated-user-stub'
 
-var loggedIn = false
+var loggedIn = true
 
 export class WebServiceStub {
   checkEmailAvailability = async email => {
