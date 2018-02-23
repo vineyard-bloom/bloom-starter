@@ -8,14 +8,14 @@ ACCOUNT DROPDOWN
 .AccountDropdown {
   @include transition(0.3s ease top, 0s ease z-index 0.3s);
   background-color: $white;
-  box-shadow: $box-shadow;
+  box-shadow: $box-shadow-no-top;
   display: inline-block;
   position: absolute;
   right: 0;
   top: $header-height;
   z-index: $z-10;
 
-  a {
+  &-link {
     display: inline-block;
     color: $dark-gray;
     padding: $pad-mar-med 0 $pad-mar-med $pad-mar-large;

@@ -13,7 +13,7 @@ import {
 } from 'redux-store/actions/presentationActions'
 
 import Alert from 'layout/alert'
-import Header from 'presentation/header'
+import Header from 'components/navigation/header'
 import Footer from 'layout/footer'
 import MainRouter from 'routes'
 import Modal from 'layout/modal'

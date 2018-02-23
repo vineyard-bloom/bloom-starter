@@ -24,18 +24,6 @@ TOOLTIP
     width: 15px;
   }
 
-  &--error {
-    .Tooltip-contents {
-      color: $red;
-      margin: $pad-mar-small 0 0;
-    }
-
-    &--select {
-      left: -100%;
-      margin-top: 4em;
-    }
-  }
-
   &-contents {
     align-items: center;
     background-color: $white;
@@ -117,6 +105,20 @@ TOOLTIP
       background-color: $lighter-gray;
       font-size: $h4-font-size;
       padding: $pad-mar-small $pad-mar-med;
+    }
+  }
+}
+
+.ErrorTip {
+  &--error {
+    .ErrorTip-contents {
+      color: $red;
+      margin: $pad-mar-small 0 0;
+    }
+
+    &--select {
+      left: -100%;
+      margin-top: 4em;
     }
   }
 }
