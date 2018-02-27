@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import 'styles/components/tooltip.scss'
+import 'styles/components/errortip.scss'
 
 class Tooltip extends React.Component {
   state = {

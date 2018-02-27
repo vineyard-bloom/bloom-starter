@@ -1,0 +1,27 @@
+/*
+ErrorTip
+*/
+
+@import '~styles/core/variables';
+
+.ErrorTip {
+  .ErrorTip--contents {
+    @extend .Tooltip-contents;
+    @extend .Tooltip-contents--top;
+
+    color: $red;
+    margin: $pad-mar-small 0 0;
+    position: relative;
+    z-index: 1;
+
+    &-text {
+      font-size: $main-font-size;
+      padding: $pad-mar-med;
+    }
+  }
+
+  &--select {
+    position: absolute;
+    top: 100%;
+  }
+}
