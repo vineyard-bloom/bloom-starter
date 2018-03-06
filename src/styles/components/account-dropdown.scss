@@ -1,0 +1,39 @@
+/*
+ACCOUNT DROPDOWN
+*/
+
+@import '../core/mixins';
+@import '../core/variables';
+
+.AccountDropdown {
+  @include transition(0.3s ease top, 0s ease z-index 0.3s);
+  background-color: $white;
+  box-shadow: $box-shadow-no-top;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: $header-height;
+  z-index: $z-10;
+
+  &-link {
+    display: inline-block;
+    color: $dark-gray;
+    padding: $pad-mar-med 0 $pad-mar-med $pad-mar-large;
+    position: relative;
+    text-decoration: none;
+    width: 150px;
+    z-index: $z-10;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $lighter-gray;
+    }
+  }
+
+  &.is-hidden {
+    @include transition(0.3s ease top, 0s ease z-index 0s);
+    top: -$header-height;
+    z-index: -1;
+  }
+}

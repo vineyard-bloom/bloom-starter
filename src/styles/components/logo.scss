@@ -1,0 +1,26 @@
+/*
+LOGO
+*/
+
+@import '../core/_variables';
+
+.Logo {
+  align-items: center;
+  display: inline-flex;
+
+  svg {
+    fill: $white;
+    height: 30px;
+  }
+
+  &-text {
+    margin-left: $pad-mar-x-small;
+
+    svg {
+      height: 15px;
+    }
+  }
+
+  &--full {
+  }
+}

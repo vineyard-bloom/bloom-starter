@@ -1,0 +1,56 @@
+/*
+  SUBHEADER
+*/
+
+@import '../core/mixins';
+@import '../core/variables';
+
+.SubHeader {
+  align-items: center;
+  background-color: $light-blue;
+  display: none;
+  height: 100%;
+  justify-content: flex-end;
+  min-width: 200px;
+  padding-right: $pad-mar-med;
+
+  &-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+
+  &-user {
+    color: $black;
+    display: inline-block;
+  }
+
+  svg {
+    @include transition(0.3s ease);
+    margin-left: $pad-mar-small;
+    width: 1em;
+  }
+
+  &.is-open {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--mobile {
+    display: inline-block;
+    padding-right: $pad-mar-med;
+    position: relative;
+    z-index: $z-20;
+  }
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+  .SubHeader {
+    display: inline-flex;
+
+    &--mobile {
+      display: none;
+    }
+  }
+}

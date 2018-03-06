@@ -1,0 +1,16 @@
+/* header */
+
+@import '../core/_variables';
+@import '../core/_mixins';
+
+.Header {
+  align-items: center;
+  background-color: $light-blue;
+  box-sizing: border-box;
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  padding: 0 0 0 $pad-mar-med;
+  position: relative;
+  z-index: $z-20;
+}

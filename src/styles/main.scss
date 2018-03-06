@@ -1,0 +1,39 @@
+/* system-wide helpers */
+@import 'core/_variables';
+@import 'core/_mixins';
+@import 'core/_animations';
+@import 'core/_transitions';
+
+#root {
+  left: 0;
+  margin: 0;
+  top: 0;
+  width: 100%;
+}
+
+body {
+  color: $dark-gray;
+  font-family: $main-font;
+  margin: 0;
+}
+
+main {
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+
+.App-container {
+  display: grid;
+  grid-template: minmax($header-height, auto) 1fr 50px / 1fr;
+  height: minmax(100vh, 100%);
+}
+
+/* start actual styles */
+@import 'core/base';
+@import 'core/objects';
+@import 'core/utilities';
+@import 'components/forms';
+
+/* bloom overrides */
+@import 'bloom-overrides/errortip.scss';
+@import 'bloom-overrides/buttons';
+@import 'bloom-overrides/inputs';

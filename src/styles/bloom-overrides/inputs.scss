@@ -1,0 +1,97 @@
+/*
+INPUTS
+======
+- site-wide styles for inputs
+- customize the built-in styles with bloom-forms inputs
+*/
+
+$slider-height: 10px;
+
+@import '../core/_variables';
+@import '../core/_mixins';
+
+// hide number arrows
+input[type='number'] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.Input {
+  border-color: $med-gray;
+  border-radius: $border-radius;
+  font-family: $main-font;
+
+  // gray out input placeholders
+  &::-webkit-input-placeholder {
+    color: $med-gray;
+  }
+
+  &::-moz-placeholder {
+    color: $med-gray;
+  }
+
+  &:-ms-input-placeholder {
+    color: $med-gray;
+  }
+
+  &:-moz-placeholder {
+    color: $med-gray;
+  }
+
+  // wrapper label
+  &-label {
+    width: 100%;
+  }
+
+  // errored inputs
+  &--invalid {
+    box-shadow: 0 0 5px $red;
+  }
+
+  // checkbox styles
+  &--checkbox-placeholder {
+    margin-right: $pad-mar-x-small;
+
+    &.is-checked {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e9/Echo_curation_alt_check_mark.svg');
+    }
+  }
+
+  // currency styles
+  &--currency {
+    & ~ .Input-after {
+      color: $light-gray;
+      margin-top: 40px;
+    }
+  }
+
+  // input display hiding native input (used for file input and others)
+  &-placeholder {
+    border-color: $med-gray;
+    border-radius: $border-radius;
+    color: $dark-gray;
+    font-size: $main-font-size;
+    margin: $pad-mar-small 0;
+    width: 100%;
+  }
+
+  &--file {
+  }
+}
+
+.RadioButton {
+  background-color: $blue;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken($blue, 5%);
+  }
+
+  &.is-checked {
+    background-color: $green;
+  }
+}

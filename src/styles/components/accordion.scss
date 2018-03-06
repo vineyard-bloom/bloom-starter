@@ -1,0 +1,49 @@
+/*
+ACCORDION
+*/
+
+@import '../core/variables';
+@import '../core/mixins';
+
+.Accordion {
+  &-section {
+    border-bottom: 1px solid $light-gray;
+    height: auto;
+    min-height: 20px;
+    overflow: hidden;
+    @include transition(0.2s ease-in-out);
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+    &.is-open {
+      overflow: visible;
+    }
+
+    &-contents {
+      z-index: $z-1;
+    }
+
+    &-header {
+      background-color: $white;
+      border: 0;
+      color: $light-gray;
+      font-size: $h2-font-size;
+      text-align: left;
+      width: 100%;
+      z-index: $z-2;
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: transparent;
+        color: $light-gray;
+      }
+
+      &.is-open {
+        color: $dark-gray;
+      }
+    }
+  }
+}

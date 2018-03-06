@@ -1,0 +1,245 @@
+/*
+TABLES
+*/
+
+@import '../core/mixins';
+@import '../core/_variables';
+
+$table-border: 1px solid $med-gray;
+
+.Table {
+  border-bottom: $table-border;
+  border-radius: $border-radius;
+  border-left: $table-border;
+  border-right: $table-border;
+  border-spacing: 0;
+  margin: $pad-mar-med 0;
+  overflow: hidden;
+  max-width: 98vw;
+  width: 100%;
+
+  td,
+  th {
+    border-right: $table-border;
+    border-top: $table-border;
+    padding: $pad-mar-small;
+    text-align: left;
+  }
+
+  tbody {
+    max-height: 500px;
+    overflow-y: scroll;
+
+    td {
+      padding: $pad-mar-med $pad-mar-small;
+    }
+
+    tr {
+      &:nth-child(odd) {
+        background-color: lighten($blue, 45%);
+      }
+
+      td:last-of-type {
+        border-right: 0;
+      }
+    }
+  }
+
+  th {
+    @include transition(0.3s linear border-color);
+    border-bottom: 0 solid transparent;
+    color: $med-gray;
+    font-weight: 600;
+    padding-bottom: 10px;
+
+    &.is-active {
+      border-bottom: 4px solid $blue;
+      padding-bottom: 6px;
+
+      &.is-reverse {
+        a::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &:last-of-type {
+      border-right: 0;
+    }
+
+    a {
+      align-items: center;
+      display: flex;
+      color: $blue;
+      justify-content: space-between;
+
+      &:focus {
+        text-decoration: none;
+      }
+
+      &::after {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $blue;
+        content: '';
+        display: inline-block;
+        margin-left: 5px;
+        transition: 300ms ease;
+      }
+
+      &.is-active {
+        color: $blue;
+      }
+    }
+  }
+
+  td {
+    @include transition(0s ease border 0.3s);
+    font-weight: 400;
+
+    &.is-active {
+      background-color: lighten($blue, 40%);
+    }
+  }
+
+  &-pagination {
+    margin-top: -$pad-mar-x-small;
+    text-align: center;
+
+    &-prevNextButton {
+      color: $blue;
+
+      &.is-disabled {
+        color: $light-gray;
+        cursor: not-allowed;
+
+        &:active,
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .SelectInput {
+      justify-content: center;
+      width: 100px;
+
+      .Input-placeholder {
+        height: 2em;
+        margin: 0;
+        padding: $pad-mar-x-small $pad-mar-small;
+        width: 45px;
+      }
+
+      &-opts {
+        margin-top: 0;
+        max-height: 80px;
+        min-width: 30px;
+        width: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Table {
+    th {
+      max-width: 90px;
+
+      a {
+        max-width: 50px;
+      }
+    }
+
+    td {
+      a {
+        display: inline-block;
+        max-height: 100%;
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    tbody {
+      td {
+        padding: $pad-mar-small;
+        width: 100px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .Table {
+    border-bottom: 0;
+    display: flex;
+    width: 90vw;
+
+    thead {
+      display: inline-block;
+      position: relative;
+      width: 100px;
+
+      th,
+      tr {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      tr {
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        th:last-of-type {
+          border-right: $table-border;
+        }
+      }
+
+      a {
+        align-items: flex-start;
+        height: 100%;
+        max-width: 100%;
+
+        &::after {
+          margin-top: $pad-mar-x-small;
+        }
+      }
+    }
+
+    th,
+    td {
+      height: 50px;
+
+      &:last-of-type {
+        border-bottom: $table-border;
+      }
+    }
+
+    tbody {
+      display: inline-flex;
+      overflow-x: scroll;
+      position: relative;
+      width: calc(100% - 100px);
+
+      td {
+        display: block;
+      }
+
+      tr {
+        td:last-of-type {
+          border-right: $table-border;
+        }
+
+        &:last-of-type {
+          td {
+            border-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

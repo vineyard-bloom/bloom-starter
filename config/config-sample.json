@@ -1,0 +1,18 @@
+{
+  "api": {
+    "url": "http://localhost:3000/1.0",
+    "version": "1.0"
+  },
+  "app": {
+    "rootPath": "/",
+    "useWebServiceStub": false,
+    "environment": "development",
+    "name": "Bloom Starter"
+  },
+  "butter": {
+    "key": ""
+  },
+  "devServer": {
+    "port": 8080
+  }
+}

@@ -1,0 +1,16 @@
+/*
+HOME
+*/
+
+@import '../core/variables';
+
+.Home {
+  display: grid;
+  grid-template: 1fr / #{$sidebar-width} 1fr;
+  min-height: calc(100vh - #{$header-height});
+  width: 100vw;
+
+  &-content {
+    border-left: 1px solid $light-gray;
+  }
+}

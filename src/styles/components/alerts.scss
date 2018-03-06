@@ -1,0 +1,89 @@
+/*
+ALERTS
+*/
+
+@import '../core/_variables';
+@import '../core/_mixins';
+
+//## Define alert colors, border radius, and padding.
+
+$alert-padding: 15px !default;
+$alert-border-radius: $border-radius-base !default;
+$alert-link-font-weight: bold !default;
+
+$alert-success-bg: $state-success-bg !default;
+$alert-success-text: $state-success-text !default;
+$alert-success-border: $state-success-border !default;
+
+$alert-info-bg: $state-info-bg !default;
+$alert-info-text: $state-info-text !default;
+$alert-info-border: $state-info-border !default;
+
+$alert-warning-bg: $state-warning-bg !default;
+$alert-warning-text: $state-warning-text !default;
+$alert-warning-border: $state-warning-border !default;
+
+$alert-danger-bg: $state-danger-bg !default;
+$alert-danger-text: $state-danger-text !default;
+$alert-danger-border: $state-danger-border !default;
+
+.Alert {
+  @include transition(0.4s ease margin 0.2s, 0.15s ease opacity 0.3s);
+  align-items: center;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  border-radius: $alert-border-radius;
+  padding: $alert-padding;
+  border: 1px solid transparent;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  left: calc(50% - 150px);
+  position: relative;
+  top: 80px;
+  width: 300px;
+
+  &-background {
+    @include transition(0.1s ease 0.3s);
+    background-color: rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: $z-100;
+
+    &.is-hidden {
+      height: 1px;
+      top: -155px;
+
+      .Alert {
+        @include transition(0.4s ease margin 0.1s, 0.2s ease opacity 0.2s);
+        opacity: 0;
+      }
+    }
+  }
+
+  &-text {
+    text-align: center;
+    width: 100%;
+  }
+
+  &-icon {
+    display: block;
+    font-size: $giant-font-size;
+  }
+
+  &--success {
+    @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+  }
+
+  &--warning {
+    @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+  }
+
+  &--status {
+    @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+  }
+}

@@ -1,0 +1,79 @@
+/* 
+UTILITES
+========
+// overrides and one-to-two line styles
+- colors
+- typography
+- spacing
+*/
+
+@import './_variables';
+
+/*
+ACCESSIBILITY
+=============
+*/
+.u-sr-only {
+  height: 1px;
+  left: -999em;
+  outline: none !important;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
+.u-prevent-scroll {
+  height: minmax(100vh, auto);
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/*
+COLORS
+======
+*/
+
+/*
+TYPOGRAPHY
+==========
+*/
+.u-bold {
+  font-weight: 600;
+}
+
+/*
+ALIGNMENT AND SPACING
+=======
+*/
+.u-align-right {
+  text-align: right;
+}
+
+.u-inline-block {
+  display: inline-block;
+}
+
+.u-justify-center {
+  justify-content: center !important;
+}
+
+.u-no-margin {
+  margin: 0 !important;
+}
+
+.u-padding-large {
+  padding: $pad-mar-large !important;
+}
+
+.u-padding-med {
+  padding: $pad-mar-med !important;
+}
+
+.u-padding-small {
+  padding: $pad-mar-small !important;
+}
+
+.u-text-center {
+  text-align: center;
+}

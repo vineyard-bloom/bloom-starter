@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "globals": {
+    "WebService": true,
+    "Butter": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": ["off"],
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": true }],
+    "quotes": ["error", "single"],
+    "strict": [2, "never"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
+    "semi": ["error", "never"]
+  },
+  "plugins": [
+    "react"
+  ]
+}

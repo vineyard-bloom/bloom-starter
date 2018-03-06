@@ -1,0 +1,51 @@
+/* eslint-disable */
+/*
+TRANSITIONS
+- used with CSS transition group
+*/
+
+.fold-entering {
+  @include transition(0.2s ease-in-out, 0.8s ease-in-out max-height 0s, 0.2s ease opacity 0.3s);
+  max-height: 10px !important;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.fold-entered {
+  @include transition(0.2s ease-in-out, 0.8s ease-in-out max-height 0s, 0.2s ease opacity 0.3s);
+  max-height: 800px !important;
+  opacity: 1;
+  overflow: visible;
+}
+
+.fold-exiting {
+  @include transition(0.2s ease-in-out, 0.8s ease-in-out max-height 0s);
+  max-height: 100px !important;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.fold-exited {
+  @include transition(0.2s ease-in-out, 0.5s ease-in-out max-height 0s);
+  max-height: 1px !important;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.descend {
+  &-entering {
+    margin-top: 30px !important;
+  }
+
+  &-entered {
+    margin-top: 0 !important;
+  }
+
+  &-exiting {
+    margin-top: -10px !important;
+  }
+
+  &-exited {
+    margin-top: -30px !important;
+  }
+}

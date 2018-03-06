@@ -1,0 +1,80 @@
+/*
+MODAL
+*/
+
+@import '../core/_variables';
+@import '../core/mixins';
+
+$modal-contents-width: 450px;
+
+.Modal {
+  @include transition(0.3s ease, 0.3s ease opacity 0.1s, 0s ease max-height 0.3s, 0.1s ease top, 0.1s ease background-color 0.1s);
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  max-height: 100vh;
+  padding-top: 80px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: calc(#{$z-100} + #{$z-1});
+
+  &.is-hidden {
+    @include transition(0.2s ease, 0.3s ease-in-out top 0.2s);
+    background-color: transparent;
+    padding: 0;
+    top: -100vh;
+
+    .Modal-content {
+      opacity: 0;
+    }
+  }
+
+  &-content {
+    @include transition(0.5s ease margin 0.1s, 0.5s ease opacity);
+    background-color: $white;
+    margin: 0 auto;
+    min-height: 400px;
+    opacity: 1;
+    overflow: hidden;
+    width: $modal-contents-width;
+
+    .Btn--close {
+      margin-left: calc(-40px + #{$modal-contents-width});
+      margin-top: 2px;
+      padding: $pad-mar-small;
+      position: relative;
+      z-index: calc(#{$z-100} + 1);
+    }
+  }
+
+  &-form {
+    margin-top: -$pad-mar-x-large;
+    position: relative;
+    z-index: $z-100;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Modal {
+    padding-top: 40px;
+
+    &-content {
+      max-height: 90vh;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Modal {
+    &-content {
+      width: calc(#{$modal-contents-width} * 0.6);
+
+      .Btn-close {
+        margin-left: calc(-45px + #{$modal-contents-width} * 0.6);
+        top: inherit;
+      }
+    }
+  }
+}

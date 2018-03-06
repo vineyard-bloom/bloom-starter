@@ -1,0 +1,19 @@
+/*
+LOADING SCREEN
+*/
+
+@import '../core/variables';
+
+.LoadingScreen {
+  align-items: flex-start;
+  display: flex;
+  height: calc(100vh - #{$header-height});
+  justify-content: center;
+  width: 100%;
+
+  .Loading {
+    height: 50px;
+    margin: $pad-mar-xxx-large;
+    width: 50px;
+  }
+}
