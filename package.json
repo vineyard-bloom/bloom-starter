@@ -28,7 +28,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bignumber.js": "^5.0.0",
-    "bloom-forms": "^1.2.0",
+    "bloom-forms": "^1.2.1",
     "bloom-layout": "^1.0.0",
     "botp": "^2.3.2",
     "buttercms": "^1.1.0",
