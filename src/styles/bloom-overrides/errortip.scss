@@ -3,7 +3,7 @@ ErrorTip
 */
 
 @import '~styles/core/variables';
-@import '~styles/components/tooltip';
+@import './tooltip';
 
 .ErrorTip {
   .ErrorTip--contents {
