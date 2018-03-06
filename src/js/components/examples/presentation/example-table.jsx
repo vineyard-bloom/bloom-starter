@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from 'presentation/layout/table'
+import { Table } from 'bloom-layout'
 
 import { humanFormatDate } from 'helpers'
 

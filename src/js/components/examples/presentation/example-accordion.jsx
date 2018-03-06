@@ -1,7 +1,7 @@
 import React from 'react'
 import { SelectInput, TextInput } from 'bloom-forms'
 
-import Accordion from 'presentation/layout/accordion'
+import { Accordion } from 'bloom-layout'
 
 const ExampleAccordion = () => {
   // isValid can be a computed value that gives the header an is-valid class
