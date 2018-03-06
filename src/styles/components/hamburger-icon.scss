@@ -21,6 +21,7 @@ HAMBURGER ICON
   &:active,
   &:focus,
   &:hover {
+    background-color: transparent;
     box-shadow: 0 0 5px rgba($red, 0.6);
   }
 

@@ -31,7 +31,9 @@ main {
 @import 'core/base';
 @import 'core/objects';
 @import 'core/utilities';
-@import 'components/buttons';
 @import 'components/forms';
-@import 'components/inputs';
-@import 'components/tooltip'; // for error-tips showing up properly
+
+/* bloom overrides */
+@import 'bloom-overrides/errortip.scss';
+@import 'bloom-overrides/buttons';
+@import 'bloom-overrides/inputs';
