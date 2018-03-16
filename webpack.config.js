@@ -150,7 +150,7 @@ if (config.app && config.app.environment && (config.app.environment === 'develop
           },
           {
             module: 'react-dom',
-            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/cjs/react-dom.production.min.js',
+            entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js',
             global: 'ReactDOM'
           },
           {
