@@ -1,4 +1,4 @@
-import actionTypes from './types'
+import actionTypes from './types';
 
 /* alert action creators */
 
@@ -7,18 +7,18 @@ export function addAlert(message, style = 'success') {
     type: actionTypes.ADD_ALERT,
     message,
     style
-  }
+  };
 }
 
 export function expireAlert() {
   return {
     type: actionTypes.EXPIRE_ALERT
-  }
+  };
 }
 
 export function hardDeleteAlert(message) {
   return {
     type: actionTypes.HARD_DELETE_ALERT,
     message
-  }
+  };
 }

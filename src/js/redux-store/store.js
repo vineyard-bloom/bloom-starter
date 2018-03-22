@@ -1,8 +1,8 @@
-import config from 'config/config.json'
+import config from 'config/config.json';
 
-import thunkMiddleware from 'redux-thunk'
-import { applyMiddleware, createStore } from 'redux'
-import bloomApp from 'redux-store/reducers'
+import thunkMiddleware from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
+import bloomApp from 'redux-store/reducers';
 
 const store =
   config.app.environment === 'development'
@@ -12,6 +12,6 @@ const store =
           window.__REDUX_DEVTOOLS_EXTENSION__(),
         applyMiddleware(thunkMiddleware)
       )
-    : createStore(bloomApp, applyMiddleware(thunkMiddleware))
+    : createStore(bloomApp, applyMiddleware(thunkMiddleware));
 
-export default store
+export default store;

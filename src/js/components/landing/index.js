@@ -1,1 +1,1 @@
-export { default } from './landing-container'
+export { default } from './landing-container';

@@ -9,7 +9,8 @@
     "lint": "./node_modules/.bin/eslint './src/**/*.{js,jsx}' './tests/**/*.js' --config ./.eslintrc --fix --ext .js,.jsx --ignore-path ./.eslintignore",
     "prettier": "./node_modules/.bin/prettier --config .prettierrc --write './!(node_modules|dist)/**/*.{js,jsx,scss}'",
     "test": "./node_modules/.bin/mocha tests/** --compilers js:babel-core/register tests/helpers/virtual-dom.js",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "tester": "node ./scripts/cross-os-prettier.js"
   },
   "lint-staged": {
     "**/*.{js,jsx,scss}": [
