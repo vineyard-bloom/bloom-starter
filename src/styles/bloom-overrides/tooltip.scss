@@ -10,9 +10,8 @@ TOOLTIP
   z-index: $z-100;
 
   &-icon {
-    background-color: transparent;
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Question_Mark.svg');
-    background-position: -4px 0;
+    background-position: -4px -1px;
     background-repeat: no-repeat;
     background-size: 20px;
     border: 1px solid $black;
@@ -63,24 +62,6 @@ TOOLTIP
       padding: $pad-mar-small $pad-mar-med;
     }
 
-    &--right {
-      margin-left: 35px;
-
-      &::after {
-        border-left: 0;
-        border-right: 15px solid $white;
-        margin-left: -15px;
-        top: 3.1em;
-      }
-
-      &::before {
-        border-left: 0;
-        border-right: 17px solid $light-gray;
-        margin-left: -17px;
-        margin-top: 3em;
-      }
-    }
-
     &--top {
       &::after {
         border-bottom: 15px solid $white;
@@ -105,20 +86,6 @@ TOOLTIP
       background-color: $lighter-gray;
       font-size: $h4-font-size;
       padding: $pad-mar-small $pad-mar-med;
-    }
-  }
-}
-
-.ErrorTip {
-  &--error {
-    .ErrorTip-contents {
-      color: $red;
-      margin: $pad-mar-small 0 0;
-    }
-
-    &--select {
-      left: -100%;
-      margin-top: 4em;
     }
   }
 }

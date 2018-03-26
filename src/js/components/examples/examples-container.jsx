@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Button } from 'bloom-forms';
+import React from 'react'
+import { Button } from 'bloom-forms'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Tooltip } from 'bloom-layout'
 
 import { addAlert } from 'redux-store/actions/alertActions';
 import { openModal } from 'redux-store/actions/modalActions';
 
-import ExampleButtons from 'components/examples/presentation/example-buttons';
-import ExampleTable from 'components/examples/presentation/example-table';
-import Tooltip from 'presentation/layout/tooltip';
+import ExampleButtons from 'components/examples/presentation/example-buttons'
+import ExampleTable from 'components/examples/presentation/example-table'
 
 class ExamplesContainer extends React.Component {
   render() {
