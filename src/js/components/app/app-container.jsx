@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Alert, Modal } from 'bloom-layout'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Alert, Modal } from 'bloom-layout';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { getUser } from 'redux-store/actions/userActions';
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions';
@@ -12,9 +12,9 @@ import {
   setWindowSize
 } from 'redux-store/actions/presentationActions';
 
-import Header from 'components/navigation/header'
-import Footer from 'layout/footer'
-import MainRouter from 'routes'
+import Header from 'components/navigation/header';
+import Footer from 'layout/footer';
+import MainRouter from 'routes';
 
 // App Container is where any global countdowns, and the checks for user logins, etc are initialized and tracked
 class AppContainer extends React.Component {
