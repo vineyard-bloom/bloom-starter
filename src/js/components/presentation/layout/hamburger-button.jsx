@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import 'styles/components/hamburger-icon'
+import 'styles/components/hamburger-icon';
 
 const HamburgerButton = ({ id, isOpen, onClick }) => {
   return (
@@ -10,19 +10,19 @@ const HamburgerButton = ({ id, isOpen, onClick }) => {
       onClick={onClick}
       id={id}
     >
-      <span className='HamburgerIcon-bar' aria-hidden role='presentation' />
-      <span className='HamburgerIcon-bar' aria-hidden role='presentation' />
-      <span className='HamburgerIcon-bar' aria-hidden role='presentation' />
-      <span className='HamburgerIcon-bar' aria-hidden role='presentation' />
-      <div className='u-sr-only'>{isOpen ? 'Close' : 'Open'} mobile menu</div>
+      <span className="HamburgerIcon-bar" aria-hidden role="presentation" />
+      <span className="HamburgerIcon-bar" aria-hidden role="presentation" />
+      <span className="HamburgerIcon-bar" aria-hidden role="presentation" />
+      <span className="HamburgerIcon-bar" aria-hidden role="presentation" />
+      <div className="u-sr-only">{isOpen ? 'Close' : 'Open'} mobile menu</div>
     </button>
-  )
-}
+  );
+};
 
 HamburgerButton.propTypes = {
   id: PropTypes.string,
   isOpen: PropTypes.bool,
   onClick: PropTypes.func.isRequired
-}
+};
 
-export default HamburgerButton
+export default HamburgerButton;
