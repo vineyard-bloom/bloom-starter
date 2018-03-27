@@ -12,7 +12,7 @@ function myExecSync(cmd) {
     env: env
   });
 
-  console.log('\x1b[34m', output.toString('utf8'));
+  console.log('\x1b[37m', output.toString('utf8'));
 }
 
 if (process.platform === 'win32') {

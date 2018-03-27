@@ -1,4 +1,4 @@
-import produce from 'immer';
+import produce from 'immer'
 
 const initialState = {
   alerts: [],
@@ -19,6 +19,6 @@ const initialState = {
     username: '',
     walletAddress: ''
   })
-};
+}
 
-export default produce(initialState, () => {});
+export default produce(initialState, () => {})

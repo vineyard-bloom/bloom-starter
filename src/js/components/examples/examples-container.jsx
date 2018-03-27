@@ -1,48 +1,48 @@
-import React from 'react';
-import { Button } from 'bloom-forms';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Tooltip } from 'bloom-layout';
+import React from 'react'
+import { Button } from 'bloom-forms'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Tooltip } from 'bloom-layout'
 
-import { addAlert } from 'redux-store/actions/alertActions';
-import { openModal } from 'redux-store/actions/modalActions';
+import { addAlert } from 'redux-store/actions/alertActions'
+import { openModal } from 'redux-store/actions/modalActions'
 
-import ExampleButtons from 'components/examples/presentation/example-buttons';
-import ExampleTable from 'components/examples/presentation/example-table';
+import ExampleButtons from 'components/examples/presentation/example-buttons'
+import ExampleTable from 'components/examples/presentation/example-table'
 
 class ExamplesContainer extends React.Component {
   render() {
-    const { addAlert, openModal } = this.props;
+    const { addAlert, openModal } = this.props
 
     return (
       <div>
         <h3>Triggerable Elements</h3>
         <Button
-          contents="Open Example Modal"
-          id="example-modal-opener"
+          contents='Open Example Modal'
+          id='example-modal-opener'
           onClick={e => {
-            openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener');
+            openModal(e, <div>I'm a modal wee</div>, 'example-modal-opener')
           }}
         />
         <Button
-          contents="Open Example Alert"
+          contents='Open Example Alert'
           onClick={e => {
-            e.preventDefault();
-            addAlert('boop', 'success');
+            e.preventDefault()
+            addAlert('boop', 'success')
           }}
         />
         <div>
           Example Tooltip
-          <Tooltip id="example-tooltip" contents="I am so exampley" />
+          <Tooltip id='example-tooltip' contents='I am so exampley' />
         </div>
         <br />
         <h3>Large Components</h3>
         <ul>
           <li>
-            <Link to="/example">Example Form</Link>
+            <Link to='/example'>Example Form</Link>
           </li>
           <li>
-            <Link to="/example/accordion">Example Accordion</Link>
+            <Link to='/example/accordion'>Example Accordion</Link>
           </li>
         </ul>
         <br />
@@ -50,7 +50,7 @@ class ExamplesContainer extends React.Component {
         <br />
         <ExampleTable />
       </div>
-    );
+    )
   }
 }
 
@@ -60,7 +60,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(addAlert(message, style)),
     openModal: (e, modalContents, triggerId) =>
       dispatch(openModal(e, modalContents, triggerId))
-  };
-};
+  }
+}
 
-export default connect(null, mapDispatchToProps)(ExamplesContainer);
+export default connect(null, mapDispatchToProps)(ExamplesContainer)
