@@ -6,15 +6,17 @@
   "scripts": {
     "dev": "rm -rf dist/*.js && ./node_modules/.bin/webpack && ./node_modules/.bin/webpack-dev-server --hot --inline",
     "build": "rm -rf dist/*.js && ./node_modules/.bin/webpack",
-    "lint": "./node_modules/.bin/eslint --fix --ignore-path ./.eslintignore",
-    "prettify": "prettier --config .prettierrc --write",
+    "lint": "./node_modules/.bin/eslint './src/**/*.{js,jsx}' './tests/**/*.js' --config ./.eslintrc --fix --ext .js,.jsx --ignore-path ./.eslintignore",
+    "lint-staged": "./node_modules/.bin/eslint --fix --ignore-path ./.eslintignore",
+    "prettify": "node ./scripts/cross-os-prettier.js",
+    "prettify-staged": "prettier --config .prettierrc --write",
     "test": "./node_modules/.bin/mocha tests/** --compilers js:babel-core/register tests/helpers/virtual-dom.js",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "**/*.{js,jsx,scss}": [
-      "npm run prettify",
-      "npm run lint",
+      "npm run prettify-staged",
+      "npm run lint-staged",
       "git add"
     ]
   },
