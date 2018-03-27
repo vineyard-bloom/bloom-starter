@@ -13,7 +13,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,scss}": [
-      "prettier --config .prettierrc --write",
+      "npm run prettify",
       "npm run lint",
       "git add"
     ]
