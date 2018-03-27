@@ -12,6 +12,8 @@ import store from 'redux-store/store'
 import AppContainer from 'components/app'
 import 'styles/main.scss'
 
+// comment to trigger lint staged
+
 window.WebService = config.app.useWebServiceStub
   ? new WebServiceStub()
   : new WebService()
