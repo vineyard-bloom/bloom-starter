@@ -18,7 +18,7 @@ function myExecSync(cmd) {
 if (process.platform === 'win32') {
   console.log('\x1b[32m', 'running prettier on windows platform');
   return myExecSync(
-    "./node_modules/.bin/prettier --config '.prettierrc' --write **/*.{js,jsx,scss}"
+    "node_modules/.bin/prettier --config .prettierrc --write **/*.{js,jsx,scss}"
   );
 } else {
   console.log('\x1b[32m', 'running prettier on non-windows platform');
