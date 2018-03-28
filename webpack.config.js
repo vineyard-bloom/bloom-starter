@@ -1,13 +1,13 @@
-const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack');
+const autoprefixer = require('autoprefixer')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
 
-const APP_DIR = path.join(__dirname, '/src/');
-const BUILD_DIR = path.join(__dirname, '/dist/');
-const config = require(path.join(__dirname, '/config/config.json'));
+const APP_DIR = path.join(__dirname, '/src/')
+const BUILD_DIR = path.join(__dirname, '/dist/')
+const config = require(path.join(__dirname, '/config/config.json'))
 
 const baseConfig = {
   entry: {
@@ -42,7 +42,7 @@ const baseConfig = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /scripts/],
         query: {
           presets: ['react', 'env'],
           plugins: [
@@ -60,7 +60,7 @@ const baseConfig = {
             loader: 'postcss-loader',
             options: {
               plugins: function() {
-                return [autoprefixer];
+                return [autoprefixer]
               }
             }
           },
@@ -110,14 +110,14 @@ const baseConfig = {
     },
     extensions: ['.jsx', '.js', '.html', '.scss']
   }
-};
+}
 
 if (
   config.app &&
   config.app.environment &&
   config.app.environment === 'development'
 ) {
-  baseConfig.devtool = 'eval-source-map';
+  baseConfig.devtool = 'eval-source-map'
   baseConfig.devServer = {
     publicPath: '/',
     contentBase: './public',
@@ -126,7 +126,7 @@ if (
     open: false,
     historyApiFallback: true,
     disableHostCheck: true
-  };
+  }
   baseConfig.plugins = [
     new HtmlWebpackExternalsPlugin({
       externals: [
@@ -137,7 +137,7 @@ if (
         }
       ]
     })
-  ].concat(baseConfig.plugins);
+  ].concat(baseConfig.plugins)
 } else if (
   config.app &&
   config.app.environment &&
@@ -173,12 +173,12 @@ if (
     })
   ]
     .concat(baseConfig.plugins)
-    .concat([new webpack.optimize.UglifyJsPlugin({ minimize: true })]);
+    .concat([new webpack.optimize.UglifyJsPlugin({ minimize: true })])
 } else {
   console.log(
     '%s\n\nNo Config Environment Set. Please edit config.json and restart.\n\n',
     'color: red'
-  );
+  )
 }
 
-module.exports = baseConfig;
+module.exports = baseConfig
