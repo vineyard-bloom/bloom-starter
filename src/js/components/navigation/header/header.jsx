@@ -8,6 +8,8 @@ import { withContext } from 'components/app/app-context'
 
 import 'styles/components/header.scss'
 
+// this is how context would be wrapped in a stateless component
+
 const Header = props => {
   console.log(props.context)
   return (

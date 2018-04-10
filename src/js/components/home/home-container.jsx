@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { getUser } from 'redux-store/actions/userActions'
 import { UserType } from 'types'
 
+import { withContext } from 'components/app/app-context'
+
 import ExamplesContainer from 'components/examples'
 import SideBar from 'components/navigation/side-bar'
 
@@ -14,7 +16,7 @@ class HomeContainer extends React.Component {
   static propTypes = {
     getUser: PropTypes.func,
     user: PropTypes.shape(UserType)
-  };
+  }
 
   componentWillReceiveProps = async newProps => {
     if (newProps.getUser && !this.props.getUser) {
@@ -24,7 +26,7 @@ class HomeContainer extends React.Component {
         console.log('get user error: ', err) // eslint-disable-line no-console
       }
     }
-  };
+  }
 
   componentDidMount = async () => {
     if (this.props.getUser) {
@@ -34,7 +36,7 @@ class HomeContainer extends React.Component {
         console.log('get user error: ', err) // eslint-disable-line no-console
       }
     }
-  };
+  }
 
   render() {
     return (
@@ -65,4 +67,9 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+// example of how to connect a stateful component to context, with or without Redux
+
+export default props =>
+  withContext(props)(
+    connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+  )
