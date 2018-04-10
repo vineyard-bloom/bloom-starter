@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import { getUser } from 'redux-store/actions/userActions'
 import { UserType } from 'types'
 
-import { withContext } from 'components/app/app-context'
-
 import ExamplesContainer from 'components/examples'
 import SideBar from 'components/navigation/side-bar'
 
@@ -67,9 +65,4 @@ const mapStateToProps = state => {
   }
 }
 
-// example of how to connect a stateful component to context, with or without Redux
-
-export default props =>
-  withContext(props)(
-    connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
-  )
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)

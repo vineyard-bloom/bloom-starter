@@ -10,7 +10,7 @@ export const AppContext = React.createContext({
 })
 
 export function getCurrentContext() {
-  return AppContext._currentValue
+  return Object.freeze(AppContext._currentValue)
 }
 
 export function withContext(props) {

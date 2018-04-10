@@ -18,6 +18,7 @@ This is a starter kit for React/Redux projects.
 
 
 ## Contents
+- [Using React 16 Context](https://github.com/vineyard-bloom/bloom-starter/blob/master/docs/using-react-16-context.md)
 - [Layout Components](https://github.com/vineyard-bloom/bloom-starter#layout-components)
 - [Forms](https://github.com/vineyard-bloom/bloom-starter#forms)
 
