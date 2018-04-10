@@ -2,10 +2,12 @@ import actionTypes from './types'
 
 /* user action creators */
 
+import { getCurrentContext } from 'components/app/app-context'
+
 export function getUser() {
   return async dispatch => {
     try {
-      const res = await WebService.getUser()
+      const res = await getCurrentContext().WebService.getUser()
       dispatch(updateUser(res.data.id, res.data))
       return res
     } catch (err) {
@@ -17,7 +19,7 @@ export function getUser() {
 export function login(user) {
   return async dispatch => {
     try {
-      const res = await WebService.login(user)
+      const res = await getCurrentContext().WebService.login(user)
       dispatch({
         type: actionTypes.LOGIN,
         user: res.data
@@ -32,7 +34,7 @@ export function login(user) {
 export function logout() {
   return async dispatch => {
     try {
-      const res = await WebService.logout()
+      const res = await getCurrentContext().WebService.logout()
       dispatch({ type: actionTypes.CLEAR_USER })
       return res
     } catch (err) {
@@ -44,7 +46,7 @@ export function logout() {
 export function createUser(userData) {
   return async dispatch => {
     try {
-      const res = await WebService.register(userData)
+      const res = await getCurrentContext().WebService.register(userData)
       dispatch(login(res))
       return res
     } catch (err) {

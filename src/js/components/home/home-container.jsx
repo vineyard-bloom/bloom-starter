@@ -14,7 +14,7 @@ class HomeContainer extends React.Component {
   static propTypes = {
     getUser: PropTypes.func,
     user: PropTypes.shape(UserType)
-  };
+  }
 
   componentWillReceiveProps = async newProps => {
     if (newProps.getUser && !this.props.getUser) {
@@ -24,7 +24,7 @@ class HomeContainer extends React.Component {
         console.log('get user error: ', err) // eslint-disable-line no-console
       }
     }
-  };
+  }
 
   componentDidMount = async () => {
     if (this.props.getUser) {
@@ -34,7 +34,7 @@ class HomeContainer extends React.Component {
         console.log('get user error: ', err) // eslint-disable-line no-console
       }
     }
-  };
+  }
 
   render() {
     return (

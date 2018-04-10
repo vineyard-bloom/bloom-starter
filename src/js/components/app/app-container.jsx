@@ -4,6 +4,12 @@ import { Alert, Modal } from 'bloom-layout'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
+import config from 'config/config.json'
+import { WebServiceStub } from 'stubs/web-service-stub'
+import { WebService } from 'services/web-service'
+
+import { AppContext } from './app-context'
+
 import { getUser } from 'redux-store/actions/userActions'
 import { addAlert, expireAlert } from 'redux-store/actions/alertActions'
 import { closeModal, openModal } from 'redux-store/actions/modalActions'
@@ -28,7 +34,7 @@ class AppContainer extends React.Component {
     expireAlert: PropTypes.func,
     history: PropTypes.object,
     location: PropTypes.object
-  };
+  }
 
   recursiveWindowSize = () => {
     const height = window.innerHeight
@@ -43,7 +49,7 @@ class AppContainer extends React.Component {
     setTimeout(() => {
       this.recursiveWindowSize()
     }, 1000)
-  };
+  }
 
   timeoutAlerts = alerts => {
     if (alerts[0]) {
@@ -51,13 +57,13 @@ class AppContainer extends React.Component {
         this.props.expireAlert()
       }, 3000)
     }
-  };
+  }
 
   componentWillReceiveProps = newProps => {
     if (newProps.alerts[0]) {
       this.timeoutAlerts(newProps.alerts)
     }
-  };
+  }
 
   componentDidMount = () => {
     // init countdowns, event listeners
@@ -66,7 +72,7 @@ class AppContainer extends React.Component {
     this.props.getUser()
     this.timeoutAlerts(this.props.alerts)
     this.recursiveWindowSize()
-  };
+  }
 
   render() {
     const {
@@ -79,29 +85,35 @@ class AppContainer extends React.Component {
       user
     } = this.props
 
+    const AppWebService = config.app.useWebServiceStub
+      ? new WebServiceStub()
+      : new WebService()
+
     return (
-      <div
-        className={`App-container ${
-          (modal && modal.modalContents) || presentation.freezePage
-            ? 'u-prevent-scroll'
-            : ''
-        }`}
-        aria-live='polite'
-      >
-        <h1 className='u-sr-only'>Bloom Starter</h1>
-        <a href='#main-content' className='u-sr-only'>
-          Skip To Main Content
-        </a>
-        <Header openModal={openModal} user={user} addAlert={addAlert} />
-        <MainRouter />
-        <Footer />
-        <Alert currentAlert={alerts[0]} hidden={!alerts[0]} />
-        <Modal
-          modalContents={modal && modal.modalContents}
-          modalTriggerId={modal && modal.modalTriggerId}
-          closeModal={closeModal}
-        />
-      </div>
+      <AppContext.Provider value={{ WebService: AppWebService }}>
+        <div
+          className={`App-container ${
+            (modal && modal.modalContents) || presentation.freezePage
+              ? 'u-prevent-scroll'
+              : ''
+          }`}
+          aria-live='polite'
+        >
+          <h1 className='u-sr-only'>Bloom Starter</h1>
+          <a href='#main-content' className='u-sr-only'>
+            Skip To Main Content
+          </a>
+          <Header openModal={openModal} user={user} addAlert={addAlert} />
+          <MainRouter />
+          <Footer />
+          <Alert currentAlert={alerts[0]} hidden={!alerts[0]} />
+          <Modal
+            modalContents={modal && modal.modalContents}
+            modalTriggerId={modal && modal.modalTriggerId}
+            closeModal={closeModal}
+          />
+        </div>
+      </AppContext.Provider>
     )
   }
 }
