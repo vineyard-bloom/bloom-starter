@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { getUser } from 'redux-store/actions/userActions'
+import { getUser } from 'redux-store/actions/user-actions'
 import { UserType } from 'types'
 
 import ExamplesContainer from 'components/examples'

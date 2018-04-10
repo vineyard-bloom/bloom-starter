@@ -10,13 +10,13 @@ import { WebService } from 'services/web-service'
 
 import { AppContext } from './app-context'
 
-import { getUser } from 'redux-store/actions/userActions'
-import { addAlert, expireAlert } from 'redux-store/actions/alertActions'
-import { closeModal, openModal } from 'redux-store/actions/modalActions'
+import { getUser } from 'redux-store/actions/user-actions'
+import { addAlert, expireAlert } from 'redux-store/actions/alert-actions'
+import { closeModal, openModal } from 'redux-store/actions/modal-actions'
 import {
   freezePage,
   setWindowSize
-} from 'redux-store/actions/presentationActions'
+} from 'redux-store/actions/presentation-actions'
 
 import Header from 'components/navigation/header'
 import Footer from 'layout/footer'
@@ -62,6 +62,15 @@ class AppContainer extends React.Component {
   componentWillReceiveProps = newProps => {
     if (newProps.alerts[0]) {
       this.timeoutAlerts(newProps.alerts)
+    }
+
+    if (
+      newProps.user &&
+      !newProps.user.id &&
+      this.props.user &&
+      this.props.user.id
+    ) {
+      this.props.history.push('/login')
     }
   }
 

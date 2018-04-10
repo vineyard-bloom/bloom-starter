@@ -1,6 +1,6 @@
 import produce from 'immer'
 
-const initialState = {
+const initialStateConstructor = () => ({
   alerts: [],
   forms: Object.freeze({}),
   modal: Object.freeze({
@@ -19,6 +19,6 @@ const initialState = {
     username: '',
     walletAddress: ''
   })
-}
+})
 
-export default produce(initialState, () => {})
+export default produce(initialStateConstructor(), () => {})

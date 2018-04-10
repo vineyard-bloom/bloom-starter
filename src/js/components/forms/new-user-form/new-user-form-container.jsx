@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { Form } from 'bloom-forms'
 
-import { addAlert } from 'redux-store/actions/alertActions'
-import { createUser } from 'redux-store/actions/userActions'
+import { addAlert } from 'redux-store/actions/alert-actions'
+import { createUser } from 'redux-store/actions/user-actions'
 
 import NewUserForm from './presentation/new-user-form'
 
 class NewUserFormContainer extends React.Component {
   state = {
     secret: ''
-  };
+  }
 
   validationHelp = {
     errorLanguage: {
@@ -38,13 +38,13 @@ class NewUserFormContainer extends React.Component {
           : this.validationHelp.errorLanguage['two-factor-failed']
       }
     }
-  };
+  }
 
   rerouteAfterSubmit = res => {
     if (res.status === 200) {
       this.props.history.push('/')
     }
-  };
+  }
 
   checkTwoFactorToken = async (twoFactorSecret, twoFactorToken) => {
     try {
@@ -56,7 +56,7 @@ class NewUserFormContainer extends React.Component {
     } catch (err) {
       this.props.addAlert(err)
     }
-  };
+  }
 
   submitForm = async (formData, files, successCallback, failCallback) => {
     try {
@@ -66,7 +66,7 @@ class NewUserFormContainer extends React.Component {
       this.props.addAlert(err)
       failCallback(err)
     }
-  };
+  }
 
   grabTwoFactor = async () => {
     try {
@@ -77,7 +77,7 @@ class NewUserFormContainer extends React.Component {
     } catch (err) {
       console.log('error fetching 2fa: ', err)
     }
-  };
+  }
 
   componentDidMount() {
     this.grabTwoFactor()

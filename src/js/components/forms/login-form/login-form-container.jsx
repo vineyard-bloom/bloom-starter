@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { Form } from 'bloom-forms'
 
-import { addAlert } from 'redux-store/actions/alertActions'
-import { login } from 'redux-store/actions/userActions'
+import { addAlert } from 'redux-store/actions/alert-actions'
+import { login } from 'redux-store/actions/user-actions'
 import LoginForm from './presentation/login-form'
 
 class LoginFormContainer extends React.Component {
   rerouteAfterSubmit = () => {
     this.props.history.push('/')
-  };
+  }
 
   submitForm = async (formData, files, successCallback, failCallback) => {
     try {
@@ -20,7 +20,7 @@ class LoginFormContainer extends React.Component {
       this.props.addAlert(err)
       failCallback(err)
     }
-  };
+  }
 
   render() {
     const fieldNames = ['username', 'password', 'twoFactorSecret']
@@ -45,6 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(
-  connect(null, mapDispatchToProps)(LoginFormContainer)
-)
+export default withRouter(connect(null, mapDispatchToProps)(LoginFormContainer))
