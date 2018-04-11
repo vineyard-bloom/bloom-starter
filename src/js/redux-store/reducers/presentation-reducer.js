@@ -1,6 +1,6 @@
 import produce from 'immer'
 
-import initialState from '../initialState'
+import initialState from '../initial-state'
 import actionTypes from '../actions/types'
 
 const presentationReducer = (state = initialState.presentation, action) =>

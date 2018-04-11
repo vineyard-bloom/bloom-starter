@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Tooltip } from 'bloom-layout'
 
-import { addAlert } from 'redux-store/actions/alertActions'
-import { openModal } from 'redux-store/actions/modalActions'
+import { addAlert } from 'redux-store/actions/alert-actions'
+import { openModal } from 'redux-store/actions/modal-actions'
 
 import ExampleButtons from 'components/examples/presentation/example-buttons'
 import ExampleTable from 'components/examples/presentation/example-table'

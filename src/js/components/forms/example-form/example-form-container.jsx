@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { Form, formActions } from 'bloom-forms'
 
-import { addAlert } from 'redux-store/actions/alertActions'
-import { createUser } from 'redux-store/actions/userActions'
+import { addAlert } from 'redux-store/actions/alert-actions'
+import { createUser } from 'redux-store/actions/user-actions'
 
 import ExampleForm from './presentation/example-form'
 
 class ExampleFormContainer extends React.Component {
   rerouteAfterSubmit = () => {
     this.props.history.push('/lending')
-  };
+  }
 
   submitForm = async (formData, files, successCallback, failCallback) => {
     try {
@@ -21,7 +21,7 @@ class ExampleFormContainer extends React.Component {
       this.props.addAlert(err)
       failCallback(err)
     }
-  };
+  }
 
   render() {
     const fieldNames = [
