@@ -25,6 +25,7 @@ You'll need to know:
 ## Contents
 - [Examples](https://github.com/vineyard-bloom/bloom-starter#examples)
 - [State Management](https://github.com/vineyard-bloom/bloom-starter#state-management)
+- [External Calls](https://github.com/vineyard-bloom/bloom-starter#external-calls)
 - [Application Structure](https://github.com/vineyard-bloom/bloom-starter#structure)
 - [Styling](https://github.com/vineyard-bloom/bloom-starter#styling)
 - [Using React 16 Context](https://github.com/vineyard-bloom/bloom-starter/blob/master/docs/using-react-16-context.md)
