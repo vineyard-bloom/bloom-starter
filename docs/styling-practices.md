@@ -69,6 +69,10 @@ For comparison:
   ...
 }
 
+.ComponentName .ReusableChildComponent { // such as .Header .Dropdown, to add local styles the .Dropdown used everywhere
+  ...
+}
+
 .ComponentName-childComponent {
   ...
 }
@@ -89,6 +93,10 @@ vs
 // Sass with nested style
 .ComponentName {
   ...
+
+  .ReusableChildComponent {
+    ...
+  }
 
   &-childComponent {
     ...
