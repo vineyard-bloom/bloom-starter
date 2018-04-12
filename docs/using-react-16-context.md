@@ -25,7 +25,10 @@ There are two helper methods available to you to pass in the entire context obje
 
     export default props => withContext(props)(Component)
 ```
-    * This works with other wrappers, such as Redux's `connect()`. As an example:
+
+This works with other wrappers, such as Redux's `connect()`. As an example:
+
+
 ```
     export default props => withContext(props)(connect(mapStateToProps)(Component))
 ```

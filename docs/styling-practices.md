@@ -6,6 +6,7 @@ Sass is a pre-processor used to write more sane, maintainable styles. The main d
 If you've never used Sass, you can see the immediate benefits by fiddling with the `_variables.scss` file (especially colors and font-sizes) and watching the far-reaching effects on your application.
 
 [Sass Basics](https://sass-lang.com/guide)
+
 [Sass Mixins](https://scotch.io/tutorials/how-to-use-sass-mixins)
 
 ### SUIT
@@ -54,6 +55,7 @@ vs
 
 #### Further Reading:
 [SUIT Naming Conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
+
 [SUIT Design Principles](https://github.com/suitcss/suit/blob/master/doc/design-principles.md)
 
 ### CSS writing style

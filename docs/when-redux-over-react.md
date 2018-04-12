@@ -16,4 +16,5 @@ There are also times where it's simply easier to share state in Redux, such as t
 
 ### Futher Reading:
 [You Might not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) -- by Dan Abramov, the writer of Redux
+
 [React State vs Redux State](https://spin.atomicobject.com/2017/06/07/react-state-vs-redux-state/)
