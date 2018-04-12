@@ -51,7 +51,7 @@ App sections should be organized into folders. These folders should have an inde
 
 All external logic (API calls, Redux state reading/updating) should be written into `<COMPONENT>-container.jsx` files. These should have no native HTML5 / JSX markup (including `div`s) in them, ideally. These container files should render another file for markup, usually named `<COMPONENT>.jsx`.
 
-All markup should be written in `<COMPONENT>.jsx` files, which like in the presentation/ folder under `<COMPONENT>-container.jsx`, or in the reusable presentation/ folder.
+All markup should be written in `<COMPONENT>.jsx` files, which live in the presentation/ folder under `<COMPONENT>-container.jsx`, or in the reusable presentation/ folder.
 
 The app is currently organized like:
 ```
