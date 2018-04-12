@@ -46,6 +46,41 @@ Markup components are allowed to manage their own state if it's entirely present
 
 For more detail: [When to use Redux over React's built-in state management](https://github.com/vineyard-bloom/bloom-starter/blob/master/docs/when-redux-over-react.md)
 
+#### When to call Redux actions versus the API directly
+We use [redux-thunk](https://github.com/gaearon/redux-thunk) as a middleware for Redux, which allows us to call multiple actions inside each Redux action creator. This means that we can trigger WebService calls and then await their response before dispatching that response data to Redux's reducers.
+
+While this is very helpful for use cases such as login, logout, etc. that heavily interact with your Redux state, it's not necessary and actually discouraged to use Redux actions for *every* API call.
+
+You should call the API directly from your container components if the information you need will have no affect on your Redux state.
+
+### External Calls
+Generally, container components should call external APIs on `componentDidMount` or `componentWillReceiveProps` lifecycle methods. Sometimes, they should call them on button clicks (such as form submission).
+
+You should write a method on the component to do these calls, such as:
+```
+class BloopContainer extends Component {
+
+  ...
+
+  getBleeps = async () => {
+    try {
+      const res = await WebService.getBleeps()
+      this.setState({
+        bleeps: res.data
+      })
+    } catch(err) {
+      // trigger an error alert
+    }
+  }
+
+  componentDidMount() {
+    this.getBleeps
+  }
+
+  ...
+}
+```
+
 ### Structure
 App sections should be organized into folders. These folders should have an index.js file that *only* exports the default of that folder's container.
 
