@@ -22,6 +22,9 @@ You'll need to know:
 ### Build
 1. `npm run build` to generate a production bundle.
 
+### A note on React upgrades
+Our WebPack config replaces the local React lib with a cdn for production. If you've upgraded React, please ensure that the cdn matches your React version upgrade.
+
 ## Contents
 - [Examples](https://github.com/vineyard-bloom/bloom-starter#examples)
 - [State Management](https://github.com/vineyard-bloom/bloom-starter#state-management)

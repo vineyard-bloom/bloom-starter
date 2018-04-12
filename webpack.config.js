@@ -149,13 +149,13 @@ if (
         {
           module: 'react',
           entry:
-            'https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/react/16.3.0/umd/react.production.min.js',
           global: 'React'
         },
         {
           module: 'react-dom',
           entry:
-            'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.3.0/umd/react-dom.production.min.js',
           global: 'ReactDOM'
         },
         {
