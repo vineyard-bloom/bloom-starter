@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'bloom-forms'
+import { Button } from 'bloom-inputs'
 
 import Loading from 'presentation/layout/loading'
 

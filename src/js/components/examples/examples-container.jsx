@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'bloom-forms'
+import { Button } from 'bloom-inputs'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Tooltip } from 'bloom-layout'

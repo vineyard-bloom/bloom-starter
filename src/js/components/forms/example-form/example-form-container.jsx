@@ -1,24 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
 import { Form, formActions } from 'bloom-forms'
-
-import { addAlert } from 'redux-store/actions/alert-actions'
-import { createUser } from 'redux-store/actions/user-actions'
 
 import ExampleForm from './presentation/example-form'
 
 class ExampleFormContainer extends React.Component {
   rerouteAfterSubmit = () => {
-    this.props.history.push('/lending')
+    // this.props.history.push('/lending')
   }
 
   submitForm = async (formData, files, successCallback, failCallback) => {
+    console.log(formData)
     try {
-      const res = await this.props.createUser(formData)
-      this.rerouteAfterSubmit(res)
+      // const res = await callToWebService(formData)
+      // this.rerouteAfterSubmit(res)
+      successCallback()
     } catch (err) {
-      this.props.addAlert(err)
       failCallback(err)
     }
   }
@@ -38,7 +35,8 @@ class ExampleFormContainer extends React.Component {
       'file-simple',
       'file-simple-2',
       'file-droppable',
-      'onlyBloop'
+      'onlyBloop',
+      'textarea'
     ]
 
     const validationHelp = {
@@ -55,7 +53,10 @@ class ExampleFormContainer extends React.Component {
         submitForm={this.submitForm}
         validationHelp={validationHelp}
       >
-        <ExampleForm checkMultipleFields={this.props.checkMultipleFields} />
+        <ExampleForm
+          checkMultipleFields={this.props.checkMultipleFields}
+          checkForVisibleFields={this.props.checkForVisibleFields}
+        />
       </Form>
     )
   }
@@ -63,11 +64,10 @@ class ExampleFormContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addAlert: (message, style = 'warning') =>
-      dispatch(addAlert(message, style)),
     checkMultipleFields: (formId = 'example-form', fieldNames) =>
       dispatch(formActions.checkMultipleFields(formId, fieldNames)),
-    createUser: userData => dispatch(createUser(userData))
+    checkForVisibleFields: (formId = 'example-form', fieldNames) =>
+      dispatch(formActions.checkForVisibleFields(formId, fieldNames))
   }
 }
 
@@ -77,6 +77,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ExampleFormContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  ExampleFormContainer
 )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectInput, TextInput } from 'bloom-forms'
+import { SelectInput, TextInput } from 'bloom-inputs'
 
 import { Accordion } from 'bloom-layout'
 
