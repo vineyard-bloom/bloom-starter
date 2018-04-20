@@ -38,7 +38,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "bignumber.js": "^5.0.0",
-    "bloom-forms": "^1.4.0",
+    "bloom-forms": "^2.0.0",
+    "bloom-inputs": "^1.0.3",
     "bloom-layout": "^1.0.1",
     "botp": "^2.3.2",
     "buttercms": "^1.1.0",
@@ -46,8 +47,6 @@
     "copy-webpack-plugin": "^4.0.1",
     "crypto-js": "^3.1.9-1",
     "css-loader": "^0.28.8",
-    "eslint": "^4.16.0",
-    "eslint-plugin-react": "^7.5.1",
     "file-loader": "^1.1.6",
     "history": "^4.6.1",
     "html-loader": "^0.5.4",
@@ -77,6 +76,8 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.5.1",
     "husky": "^0.15.0-rc.2",
     "mocha": "^5.0.1",
     "prettier": "1.10.2",

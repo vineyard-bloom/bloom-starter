@@ -1,6 +1,6 @@
 import React from 'react'
+import { Button } from 'bloom-forms'
 import {
-  Button,
   Checkbox,
   CurrencyInput,
   DateInput,
@@ -9,9 +9,10 @@ import {
   RadioGroup,
   RadioButtonGroup,
   SelectInput,
+  TextArea,
   TextInput,
   ToggleSwitch
-} from 'bloom-forms'
+} from 'bloom-inputs'
 
 const ExampleForm = props => {
   // I am a reference form
@@ -24,7 +25,8 @@ const ExampleForm = props => {
     toggle: null,
     'file-simple': null,
     'file-simple-2': null,
-    'file-droppable': null
+    'file-droppable': null,
+    textarea: null
   }
   const radioOptions = [
     { label: 'Radio 1', id: 'radio-1' },
@@ -93,9 +95,18 @@ const ExampleForm = props => {
       />
       <Button
         contents='Trigger Multiple check'
+        id='multiple-check-button'
         onClick={e => {
           e.preventDefault()
           props.checkMultipleFields('example-form', ['onlyBloop', 'password'])
+        }}
+      />
+      <Button
+        contents='Trigger Visible check'
+        id='visible-check-button'
+        onClick={e => {
+          e.preventDefault()
+          props.checkForVisibleFields(props.formId)
         }}
       />
       <Checkbox
@@ -144,7 +155,6 @@ const ExampleForm = props => {
         }
       />
       <div style={{ zIndex: 5 }}>
-        {' '}
         {/* notice the z-indices to help make sure select inputs overlap properly */}
         <SelectInput
           options={selectOptions}
@@ -155,9 +165,12 @@ const ExampleForm = props => {
               ? formData.select.value
               : ''
           }
+          onBlur={props.checkField}
           onChange={props.manualFieldUpdate}
+          required
           showLabel
           label='Select Input'
+          validateAs='not-empty'
           error={
             formData.select && formData.select.error
               ? formData.select.error
@@ -209,6 +222,7 @@ const ExampleForm = props => {
           multiple={false}
         />
         <FileInput
+          clearable
           name='file-simple-2'
           label='Multi File Input'
           id='file-simple-2'
@@ -227,10 +241,18 @@ const ExampleForm = props => {
           (formData['file-droppable'] && formData['file-droppable'].value) || []
         }
       />
+      <TextArea
+        formData={formData || { message: 'why am i undefined?' }}
+        name='textarea'
+        label='Large Text Area'
+        onChange={props.updateForm}
+        showLabel
+      />
       <Button
-        onClick={props.submitForm}
-        contents='Submit Button'
         className='Btn AuthForm-submit-button u-justify-center'
+        contents='Submit Button'
+        id='example-form-submit-button'
+        onClick={props.submitForm}
       />
     </form>
   )

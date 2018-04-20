@@ -2,6 +2,8 @@
 
 This is a starter kit for React/Redux projects.
 
+It's recommended to delete your .git folder in your repo after cloning this repository to keep a clean history.
+
 You'll need to know:
 - [React](https://reactjs.org/docs/thinking-in-react.html) and React's [internal state management & lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 - [Redux](https://redux.js.org/)
