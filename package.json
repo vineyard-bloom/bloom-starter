@@ -14,7 +14,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.{js,jsx,scss}": [
+    "**/*.{js,jsx}": [
       "npm run prettify-staged",
       "npm run lint-staged",
       "git add"

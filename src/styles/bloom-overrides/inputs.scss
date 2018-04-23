@@ -82,6 +82,12 @@ input[type='number'] {
   }
 }
 
+.SelectInput {
+  .Input-placeholder {
+    height: 2.5em;
+  }
+}
+
 .RadioButton {
   background-color: $blue;
 
